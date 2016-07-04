@@ -1,0 +1,11 @@
+install:
+ - mvn clean
+script:
+ - mvn -B install
+
+language: java
+jdk:
+  - oraclejdk8
+cache:
+ directories:
+  - $HOME/.m2
