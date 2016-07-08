@@ -31,7 +31,7 @@
             <groupId>org.jboss.resteasy</groupId>
             <artifactId>async-http-servlet-3.0</artifactId>
             <version>${project.version}</version>
-        </dependency>
+        </dependency> 
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
@@ -47,24 +47,47 @@
                 </configuration>
             </plugin>
             <plugin>
-                <groupId>org.mortbay.jetty</groupId>
+                <groupId>org.eclipse.jetty</groupId>
                 <artifactId>jetty-maven-plugin</artifactId>
-                <version>8.1.4.v20120524</version>
+                <version>9.2.13.v20150730</version>
                 <configuration>
-
                     <webApp>
                         <contextPath>/</contextPath>
                     </webApp>
                     <scanIntervalSeconds>10</scanIntervalSeconds>
                     <stopKey>foo</stopKey>
                     <stopPort>9999</stopPort>
+                    <stopWait>10</stopWait>
+                    <systemProperties>
+                        <systemProperty>
+                            <name>log4j.configuration</name>
+                            <value>file:./target/test-classes/log4j.properties</value>
+                        </systemProperty>
+                    </systemProperties>
                 </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>log4j</groupId>
+                        <artifactId>log4j</artifactId>
+                        <version>1.2.16</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>org.slf4j</groupId>
+                        <artifactId>slf4j-api</artifactId>
+                        <version>1.6.1</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>org.slf4j</groupId>
+                        <artifactId>slf4j-log4j12</artifactId>
+                        <version>1.6.1</version>
+                    </dependency>
+                </dependencies>
                 <executions>
                     <execution>
                         <id>start-jetty</id>
                         <phase>pre-integration-test</phase>
                         <goals>
-                            <goal>run</goal>
+                            <goal>start</goal>
                         </goals>
                         <configuration>
                             <scanIntervalSeconds>0</scanIntervalSeconds>
@@ -84,7 +107,7 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <configuration>
-                    <skip>true</skip>
+                    <skip>true</skip>              
                 </configuration>
                 <executions>
                     <execution>
@@ -95,6 +118,7 @@
                         </goals>
                         <configuration>
                             <skip>false</skip>
+                           
                         </configuration>
                     </execution>
                 </executions>
