@@ -55,9 +55,9 @@
                 <configuration>
                     <!-- By default the artifactId is taken, override it with something simple -->
                     <contextPath>/</contextPath>
-                    <scanIntervalSeconds>2</scanIntervalSeconds>
                     <stopKey>foo</stopKey>
                     <stopPort>9999</stopPort>
+                    <stopWait>10</stopWait>
                     <httpConnector>
                         <port>9095</port>
                     </httpConnector>

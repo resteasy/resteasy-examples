@@ -44,23 +44,23 @@
                 </configuration>
             </plugin>
             <plugin>
-                <groupId>org.mortbay.jetty</groupId>
+                <groupId>org.eclipse.jetty</groupId>
                 <artifactId>jetty-maven-plugin</artifactId>
-                <version>8.1.4.v20120524</version>
+                <version>9.2.13.v20150730</version>
                 <configuration>
-                    <webApp>
-                        <contextPath>/</contextPath>
-                    </webApp>
-                    <scanIntervalSeconds>10</scanIntervalSeconds>
+                    <!-- By default the artifactId is taken, override it with something simple -->
+                    <contextPath>/</contextPath>
+                    <scanIntervalSeconds>2</scanIntervalSeconds>
                     <stopKey>foo</stopKey>
                     <stopPort>9999</stopPort>
+                    <stopWait>10</stopWait>
                 </configuration>
                 <executions>
                     <execution>
                         <id>start-jetty</id>
                         <phase>pre-integration-test</phase>
                         <goals>
-                            <goal>run</goal>
+                            <goal>start</goal>
                         </goals>
                         <configuration>
                             <scanIntervalSeconds>0</scanIntervalSeconds>
