@@ -103,20 +103,20 @@
                 </configuration>
             </plugin>
             <plugin>
-                <groupId>org.mortbay.jetty</groupId>
-                <artifactId>maven-jetty-plugin</artifactId>
-                <version>6.1.15</version>
+              <groupId>org.eclipse.jetty</groupId>
+                <artifactId>jetty-maven-plugin</artifactId>
                 <configuration>
                     <!-- By default the artifactId is taken, override it with something simple -->
-                    <contextPath>/examples-oauth-push-messaging-sso</contextPath>
+                    <webApp>
+                        <contextPath>/</contextPath>
+                    </webApp>
                     <scanIntervalSeconds>2</scanIntervalSeconds>
-                    <connectors>
-                        <connector
-                                implementation="org.mortbay.jetty.nio.SelectChannelConnector">
-                            <port>${webapp.port}</port>
-                            <maxIdleTime>60000</maxIdleTime>
-                        </connector>
-                    </connectors>
+                    <stopKey>foo</stopKey>
+                    <stopPort>9999</stopPort>
+                    <stopWait>10</stopWait>
+                    <httpConnector>
+                        <port>${webapp.port}</port>
+                    </httpConnector>
                     <systemProperties>
                         <systemProperty>
                             <name>log4j.configuration</name>
