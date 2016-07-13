@@ -11,7 +11,6 @@
     <groupId>org.jboss.resteasy.examples</groupId>
     <artifactId>examples-spring-hibernate-contacts-persistence</artifactId>
     <name>Example: Spring + Hibernate Contacts - Persistence</name>
-    <version>3.1.0-SNAPSHOT</version>
     <description/>
 
     <dependencies>
@@ -24,8 +23,6 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.7</version>
-            <scope>test</scope>
         </dependency>
         <!--
         <dependency>
