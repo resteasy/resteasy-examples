@@ -3,7 +3,11 @@
     <name>OReilly JAX-RS 2.0 Workbook Examples</name>
     <description/>
     <modelVersion>4.0.0</modelVersion>
-
+    <parent>
+        <groupId>org.jboss.resteasy</groupId>
+        <artifactId>resteasy-jaxrs-all</artifactId>
+        <version>3.1.0-SNAPSHOT</version>
+    </parent>
     <groupId>com.oreilly.rest.workbook</groupId>
     <artifactId>jaxrs-2.0-workbook-pom</artifactId>
     <version>1.0</version>
@@ -11,7 +15,6 @@
 
 
     <properties>
-        <version.org.jboss.spec.javax.ws.jboss-jaxrs-api_2.0_spec>1.0.0.Final</version.org.jboss.spec.javax.ws.jboss-jaxrs-api_2.0_spec>
     </properties>
 
     <!-- this distributionManagement is only here for RESTEasy automated testing of examples build.  You can remove if you are copying this
@@ -51,7 +54,6 @@ pom.xml as a template -->
         <dependency>
             <groupId>org.jboss.spec.javax.ws.rs</groupId>
             <artifactId>jboss-jaxrs-api_2.0_spec</artifactId>
-            <version>${version.org.jboss.spec.javax.ws.jboss-jaxrs-api_2.0_spec}</version>
         </dependency>
     </dependencies>
 

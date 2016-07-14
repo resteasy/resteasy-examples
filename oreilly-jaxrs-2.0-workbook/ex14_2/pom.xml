@@ -78,7 +78,7 @@
             <artifactId>hibernate-entitymanager</artifactId>
             <version>3.4.0.GA</version>
         </dependency>
-        <dependency>
+        <!--dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
             <version>1.5.8</version>
@@ -87,7 +87,7 @@
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-simple</artifactId>
             <version>1.5.8</version>
-        </dependency>
+        </dependency-->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-core</artifactId>
@@ -106,7 +106,6 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.1</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -133,7 +132,6 @@
             <plugin>
                 <groupId>org.eclipse.jetty</groupId>
                 <artifactId>jetty-maven-plugin</artifactId>
-                <version>9.0.6.v20130930</version>
                 <configuration>
                     <webApp>
                         <contextPath>/</contextPath>
@@ -148,7 +146,7 @@
                         <id>start-jetty</id>
                         <phase>pre-integration-test</phase>
                         <goals>
-                            <goal>run</goal>
+                            <goal>start</goal>
                         </goals>
                         <configuration>
                             <scanIntervalSeconds>0</scanIntervalSeconds>
@@ -182,14 +180,6 @@
                         </configuration>
                     </execution>
                 </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <source>1.6</source>
-                    <target>1.6</target>
-                </configuration>
             </plugin>
         </plugins>
     </build>
