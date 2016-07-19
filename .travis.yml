@@ -1,4 +1,15 @@
+addons:
+  apt:
+    packages:
+      - oracle-java8-installer
+before_install:
+    - wget https://github.com/resteasy/Resteasy/raw/master/travis-libs/jce_policy-8.zip
+    - "sudo unzip -j -o jce_policy-8.zip *.jar -d $JAVA_HOME/jre/lib/security"
 install:
+ - git clone https://github.com/resteasy/Resteasy.git
+ - cd Resteasy
+ - mvn clean install -DskipTests=true
+ - cd ..
  - mvn clean
 script:
  - mvn -B install
@@ -9,3 +20,5 @@ jdk:
 cache:
  directories:
   - $HOME/.m2
+
+
