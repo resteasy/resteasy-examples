@@ -1,19 +1,24 @@
 package org.jboss.resteasy.test.war;
 
-import net.oauth.OAuth;
-import net.oauth.OAuthAccessor;
-import net.oauth.OAuthConsumer;
-import net.oauth.OAuthMessage;
+import java.util.Collections;
+import java.util.Map;
+
+import javax.ws.rs.client.Client;
+import javax.ws.rs.client.ClientBuilder;
+import javax.ws.rs.client.Invocation;
+import javax.ws.rs.client.WebTarget;
+import javax.ws.rs.core.Response;
+
 import org.jboss.resteasy.auth.oauth.OAuthUtils;
-import org.jboss.resteasy.client.ClientRequest;
-import org.jboss.resteasy.client.ClientResponse;
 import org.jboss.resteasy.test.smoke.MyProvider;
 import org.jboss.resteasy.util.HttpResponseCodes;
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.util.Collections;
-import java.util.Map;
+import net.oauth.OAuth;
+import net.oauth.OAuthAccessor;
+import net.oauth.OAuthConsumer;
+import net.oauth.OAuthMessage;
 
 
 /**
@@ -30,38 +35,45 @@ public class OAuthTest
    @Test
    public void testRequestNoParams() throws Exception
    {
-      ClientRequest request = new ClientRequest(RequestURL);
-      ClientResponse<?> response = request.get();
+      Client client = ClientBuilder.newClient();
+      WebTarget target = client.target(RequestURL);
+      Invocation.Builder request = target.request();
+      Response response = request.get();
       Assert.assertEquals(HttpResponseCodes.SC_BAD_REQUEST, response.getStatus());
-      response.releaseConnection();
+      response.close();
    }
 
    @Test
    public void testRequestInvalidConsumerSecret() throws Exception
    {
-      ClientRequest request = new ClientRequest(getRequestURL(MyProvider.Consumer1Key, "foo"));
-      ClientResponse<?> response = request.get();
+      Client client = ClientBuilder.newClient();
+      WebTarget target = client.target(getRequestURL(MyProvider.Consumer1Key, "foo"));
+      Invocation.Builder request = target.request();
+      Response response = request.get();
       Assert.assertEquals(HttpResponseCodes.SC_UNAUTHORIZED, response.getStatus());
-      response.releaseConnection();
+      response.close();
    }
 
    @Test
    public void testRequestInvalidConsumerKey() throws Exception
    {
-      ClientRequest request = new ClientRequest(getRequestURL("bar", "foo"));
-      ClientResponse<?> response = request.get();
+      Client client = ClientBuilder.newClient();
+      WebTarget target = client.target(getRequestURL("bar", "foo"));
+      Invocation.Builder request = target.request();
+      Response response = request.get();
       Assert.assertEquals(HttpResponseCodes.SC_UNAUTHORIZED, response.getStatus());
-      response.releaseConnection();
+      response.close();
    }
 
    @Test
    public void testRequestAllParams() throws Exception
    {
-      ClientRequest request = new ClientRequest(getRequestURL(MyProvider.Consumer1Key, MyProvider.Consumer1Secret));
-      ClientResponse<String> response = request.get(String.class);
+      Client client = ClientBuilder.newClient();
+      WebTarget target = client.target(getRequestURL(MyProvider.Consumer1Key, MyProvider.Consumer1Secret));
+      Invocation.Builder request = target.request();
+      Response response = request.get();
       Assert.assertEquals(HttpResponseCodes.SC_OK, response.getStatus());
-      // check that we got all tokens
-      Map<String, String> tokens = getResponse(response.getEntity());
+      Map<String, String> tokens = getResponse(response.readEntity(String.class));
       Assert.assertEquals(tokens.size(), 3);
       Assert.assertTrue(tokens.containsKey(OAuth.OAUTH_TOKEN));
       Assert.assertTrue(tokens.get(OAuth.OAUTH_TOKEN).length() > 0);
@@ -79,20 +91,24 @@ public class OAuthTest
    @Test
    public void testAccessNoParams() throws Exception
    {
-      ClientRequest request = new ClientRequest(AccessURL);
-      ClientResponse<?> response = request.get();
+      Client client = ClientBuilder.newClient();
+      WebTarget target = client.target(AccessURL);
+      Invocation.Builder request = target.request();
+      Response response = request.get();
       Assert.assertEquals(HttpResponseCodes.SC_BAD_REQUEST, response.getStatus());
-      response.releaseConnection();
+      response.close();
    }
 
    @Test
    public void testAccessAllParams() throws Exception
    {
-      ClientRequest request = new ClientRequest(getAccessURL(MyProvider.Consumer1Key, MyProvider.Consumer1Secret, MyProvider.Consumer1Request1Key, MyProvider.Consumer1Request1Secret, MyProvider.Consumer1Request1Verifier));
-      ClientResponse<String> response = request.get(String.class);
+      Client client = ClientBuilder.newClient();
+      WebTarget target = client.target(getAccessURL(MyProvider.Consumer1Key, MyProvider.Consumer1Secret, MyProvider.Consumer1Request1Key, MyProvider.Consumer1Request1Secret, MyProvider.Consumer1Request1Verifier));
+      Invocation.Builder request = target.request();
+      Response response = request.get();
       Assert.assertEquals(HttpResponseCodes.SC_OK, response.getStatus());
       // check that we got all tokens
-      Map<String, String> tokens = getResponse(response.getEntity());
+      Map<String, String> tokens = getResponse(response.readEntity(String.class));
       Assert.assertEquals(tokens.size(), 2);
       Assert.assertTrue(tokens.containsKey(OAuth.OAUTH_TOKEN));
       Assert.assertTrue(tokens.get(OAuth.OAUTH_TOKEN).length() > 0);
@@ -103,18 +119,22 @@ public class OAuthTest
    @Test
    public void testAccessAllParamsAgain() throws Exception
    {
-      ClientRequest request = new ClientRequest(getAccessURL(MyProvider.Consumer1Key, MyProvider.Consumer1Secret, MyProvider.Consumer1Request1Key, MyProvider.Consumer1Request1Secret, MyProvider.Consumer1Request1Verifier));
-      ClientResponse<?> response = request.get();
+      Client client = ClientBuilder.newClient();
+      WebTarget target = client.target(getAccessURL(MyProvider.Consumer1Key, MyProvider.Consumer1Secret, MyProvider.Consumer1Request1Key, MyProvider.Consumer1Request1Secret, MyProvider.Consumer1Request1Verifier));
+      Invocation.Builder request = target.request();
+      Response response = request.get();
       Assert.assertEquals(HttpResponseCodes.SC_UNAUTHORIZED, response.getStatus());
-      response.releaseConnection();   }
+      response.close();   }
 
    @Test
    public void testAccessNonAuthorized() throws Exception
    {
-      ClientRequest request = new ClientRequest(getAccessURL(MyProvider.Consumer1Key, MyProvider.Consumer1Secret, MyProvider.Consumer1Request2Key, MyProvider.Consumer1Request2Secret, "foo"));
-      ClientResponse<?> response = request.get();
+      Client client = ClientBuilder.newClient();
+      WebTarget target = client.target(getAccessURL(MyProvider.Consumer1Key, MyProvider.Consumer1Secret, MyProvider.Consumer1Request2Key, MyProvider.Consumer1Request2Secret, "foo"));
+      Invocation.Builder request = target.request();
+      Response response = request.get();
       Assert.assertEquals(HttpResponseCodes.SC_UNAUTHORIZED, response.getStatus());
-      response.releaseConnection();
+      response.close();
    }
 
 	@Test
@@ -159,10 +179,12 @@ public class OAuthTest
    }
 
    private void testProtectedURL(String url, int expectedStatus) throws Exception{
-      ClientRequest request = new ClientRequest(getProtectedURL(url, MyProvider.Consumer1Key, MyProvider.Consumer1Secret, MyProvider.Consumer1Access1Key, MyProvider.Consumer1Access1Secret));
-      ClientResponse<?> response = request.get();
+      Client client = ClientBuilder.newClient();
+      WebTarget target = client.target(getProtectedURL(url, MyProvider.Consumer1Key, MyProvider.Consumer1Secret, MyProvider.Consumer1Access1Key, MyProvider.Consumer1Access1Secret));
+      Invocation.Builder request = target.request();
+      Response response = request.get();
       Assert.assertEquals(expectedStatus, response.getStatus());
-      response.releaseConnection();
+      response.close();
    }
 
    private String getRequestURL(String consumerKey, String consumerSecret) throws Exception {
