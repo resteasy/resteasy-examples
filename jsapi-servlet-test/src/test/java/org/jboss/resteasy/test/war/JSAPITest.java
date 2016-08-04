@@ -1,8 +1,12 @@
 package org.jboss.resteasy.test.war;
 
+import javax.ws.rs.client.Client;
+import javax.ws.rs.client.ClientBuilder;
+import javax.ws.rs.client.Invocation;
+import javax.ws.rs.client.WebTarget;
+
 import org.apache.commons.httpclient.HttpClient;
 import org.apache.commons.httpclient.methods.GetMethod;
-import org.jboss.resteasy.client.ClientRequest;
 import org.jboss.resteasy.util.HttpResponseCodes;
 import org.junit.Assert;
 import org.junit.Test;
@@ -43,18 +47,21 @@ public class JSAPITest
    @Test
    public void testJson() throws Exception
    {
-      ClientRequest request = new ClientRequest("http://localhost:9095/rest/mine/pairs");
+      Client client = ClientBuilder.newClient();
+      WebTarget target = client.target("http://localhost:9095/rest/mine/pairs");
+      Invocation.Builder request = target.request();
       request.accept("application/json");
-      String rtn = request.getTarget(String.class);
+      String rtn = request.get().readEntity(String.class);
 
       System.out.println("**************");
       System.out.println();
       System.out.println(rtn);
-      request.clear();
+      //request.clear();
 
-      request = new ClientRequest("http://localhost:9095/rest/mine/pairs");
+      target = client.target("http://localhost:9095/rest/mine/pairs");
+      request = target.request();
       request.accept("application/xml");
-      rtn = request.getTarget(String.class);
+      rtn = request.get().readEntity(String.class);
 
       System.out.println("******  XML  ********");
       System.out.println();
