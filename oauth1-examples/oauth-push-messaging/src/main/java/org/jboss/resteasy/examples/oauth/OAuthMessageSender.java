@@ -4,9 +4,8 @@ import net.oauth.OAuth;
 import net.oauth.OAuthAccessor;
 import net.oauth.OAuthConsumer;
 import net.oauth.OAuthMessage;
+
 import org.jboss.resteasy.auth.oauth.OAuthException;
-import org.jboss.resteasy.client.ClientRequest;
-import org.jboss.resteasy.client.ClientResponse;
 import org.jboss.resteasy.util.HttpResponseCodes;
 
 import java.sql.Connection;
@@ -17,6 +16,12 @@ import java.sql.Statement;
 import java.util.Collections;
 import java.util.Map;
 import java.util.Properties;
+
+import javax.ws.rs.client.ClientBuilder;
+import javax.ws.rs.client.Entity;
+import javax.ws.rs.client.WebTarget;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 
 public class OAuthMessageSender implements MessageSender {
 
@@ -43,12 +48,12 @@ public class OAuthMessageSender implements MessageSender {
     }
     
     public void sendMessage(String callbackURI, String messageSenderId, String message) {
-       ClientRequest request = null;
-       ClientResponse<?> response = null;
-       try {
-          request = new ClientRequest(getPushMessageURL(callbackURI, messageSenderId));
-          request.body("text/plain", message);
-          response = request.post();
+        Response response = null;
+        try {
+          WebTarget target = ClientBuilder.newClient().target(getPushMessageURL(callbackURI, messageSenderId));
+
+          Entity entity = Entity.entity(message, MediaType.TEXT_PLAIN_TYPE);
+          response = target.request().post(entity);
           if (HttpResponseCodes.SC_OK != response.getStatus()) {
              throw new RuntimeException("Message can not be delivered to subscribers");
           }
@@ -56,7 +61,7 @@ public class OAuthMessageSender implements MessageSender {
        {
           throw new RuntimeException("Message can not be delivered to subscribers");
        } finally {
-          response.releaseConnection();
+          response.close();
        }
     }
 

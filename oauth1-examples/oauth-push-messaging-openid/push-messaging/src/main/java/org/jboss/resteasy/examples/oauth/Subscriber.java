@@ -1,13 +1,20 @@
 package org.jboss.resteasy.examples.oauth;
 
 import net.oauth.OAuth;
-import org.jboss.resteasy.client.ClientRequest;
-import org.jboss.resteasy.client.ClientResponse;
+
 import org.jboss.resteasy.util.Base64;
 import org.jboss.resteasy.util.HttpResponseCodes;
 
 import java.util.Map;
 import java.util.Properties;
+
+import javax.ws.rs.client.ClientBuilder;
+import javax.ws.rs.client.Entity;
+import javax.ws.rs.client.Invocation;
+import javax.ws.rs.client.WebTarget;
+import javax.ws.rs.core.Form;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 
 
 public class Subscriber
@@ -78,15 +85,16 @@ public class Subscriber
    
    public String registerMessagingService(String consumerKey) throws Exception
    {
-      ClientRequest request = new ClientRequest(ConsumerRegistrationURL);
-      request.header("Authorization", "OpenId " + SubscriberOpenIdIdentifier);
-      request.formParameter(OAuth.OAUTH_CONSUMER_KEY, consumerKey);
-      ClientResponse<String> response = request.post(String.class);
+      WebTarget target = ClientBuilder.newClient().target(ConsumerRegistrationURL);
+      Invocation.Builder builder = target.request();
+      builder.header("Authorization", "OpenId " + SubscriberOpenIdIdentifier);
+      //request.formParameter(OAuth.OAUTH_CONSUMER_KEY, consumerKey);
+      Response response = builder.post(Entity.form(new Form(OAuth.OAUTH_CONSUMER_KEY, consumerKey)));
       if (HttpResponseCodes.SC_OK != response.getStatus()) {
          throw new RuntimeException("Registration failed");
       }
       // check that we got all tokens
-      Map<String, String> tokens = OAuth.newMap(OAuth.decodeForm(response.getEntity()));
+      Map<String, String> tokens = OAuth.newMap(OAuth.decodeForm(response.readEntity(String.class)));
       String secret = tokens.get("xoauth_consumer_secret");
       if (secret == null) {
          throw new RuntimeException("No secret available");
@@ -98,13 +106,14 @@ public class Subscriber
    
    public void registerMessagingServiceScopes(String consumerKey, String scope) throws Exception
    {
-      ClientRequest request = new ClientRequest(ConsumerScopesRegistrationURL);
-      request.header("Authorization", "OpenId " + SubscriberOpenIdIdentifier);
-      request.formParameter(OAuth.OAUTH_CONSUMER_KEY, consumerKey);
-      request.formParameter("xoauth_scope", scope);
-      request.formParameter("xoauth_permission", "sendMessages");
-      ClientResponse<?> response = request.post();
-      response.releaseConnection();
+      WebTarget target = ClientBuilder.newClient().target(ConsumerScopesRegistrationURL);
+      Invocation.Builder builder = target.request();
+      builder.header("Authorization", "OpenId " + SubscriberOpenIdIdentifier);
+      Form form = new Form(OAuth.OAUTH_CONSUMER_KEY, consumerKey);
+      form.param("xoauth_scope", scope);
+      form.param("xoauth_permission", "sendMessages");
+      Response response = builder.post(Entity.form(form));
+      response.close();
       if (HttpResponseCodes.SC_OK != response.getStatus()) {
          throw new RuntimeException("Scopes can not be registered");
       }
@@ -118,13 +127,14 @@ public class Subscriber
    public void registerMessagingServiceCallback(String consumerKey, String consumerSecret, String callback) 
        throws Exception
    {
-      ClientRequest request = new ClientRequest(MessagingServiceCallbackRegistrationURL);
-      request.header("Authorization", "OpenId " + SubscriberOpenIdIdentifier);
-      request.formParameter("consumer_id", consumerKey);
-      request.formParameter("consumer_secret", consumerSecret);
-      request.formParameter("callback_uri", callback);
-      ClientResponse<?> response = request.post();
-      response.releaseConnection();
+      WebTarget target = ClientBuilder.newClient().target(MessagingServiceCallbackRegistrationURL);
+      Invocation.Builder builder = target.request();
+      builder.header("Authorization", "OpenId " + SubscriberOpenIdIdentifier);
+      Form form = new Form("consumer_id", consumerKey);
+      form.param("consumer_secret", consumerSecret);
+      form.param("callback_uri", callback);
+      Response response = builder.post(Entity.form(form));
+      response.close();
       if (HttpResponseCodes.SC_OK != response.getStatus()) {
          throw new RuntimeException("Callback Registration failed");
       }
@@ -133,11 +143,11 @@ public class Subscriber
    public void produceMessages() 
       throws Exception
    {
-      ClientRequest request = new ClientRequest(MessagingServiceMessagesURL);
-      request.header("Authorization", "OpenId " + SubscriberOpenIdIdentifier);
-      request.body("text/plain", "Hello !");
-      ClientResponse<?> response = request.post();
-      response.releaseConnection();
+      WebTarget target = ClientBuilder.newClient().target(MessagingServiceMessagesURL);
+      Invocation.Builder builder = target.request();
+      builder.header("Authorization", "OpenId " + SubscriberOpenIdIdentifier);
+      Response response = builder.post(Entity.entity("Hello !", MediaType.TEXT_PLAIN_TYPE));
+      response.close();
       if (HttpResponseCodes.SC_OK != response.getStatus()) {
          throw new RuntimeException("Messages can not be sent");
       }
@@ -146,14 +156,15 @@ public class Subscriber
    public void getMessages() 
        throws Exception
    {
-      ClientRequest request = new ClientRequest(MessageReceiverGetURL);
-      request.header("Authorization", "OpenId " + SubscriberOpenIdIdentifier);
-      ClientResponse<String> response = request.post(String.class);
-      response.releaseConnection();
+      WebTarget target = ClientBuilder.newClient().target(MessageReceiverGetURL);
+      Invocation.Builder builder = target.request();
+      builder.header("Authorization", "OpenId " + SubscriberOpenIdIdentifier);
+      Response response = builder.post(null);
+      response.close();
       if (HttpResponseCodes.SC_OK != response.getStatus()) {
          throw new RuntimeException("Messages can not be received");
       }
-      String message = response.getEntity();
+      String message = response.readEntity(String.class);
       if (!"Hello !".equals(message))
       {
          throw new RuntimeException("Wrong Message");
@@ -164,12 +175,13 @@ public class Subscriber
    public void registerTrustedOpenIdRealms() 
        throws Exception
     {
-      ClientRequest request = new ClientRequest(OpenIdTrustedRealmsURL);
+      WebTarget target = ClientBuilder.newClient().target(OpenIdTrustedRealmsURL);
+      Invocation.Builder builder = target.request();
       String base64Credentials = new String(Base64.encodeBytes("admin:admin".getBytes()));
-      request.header("Authorization", "Basic " + base64Credentials);
-      request.formParameter("xopenid.realm", OpenIdTrustedRealm);
-      ClientResponse<?> response = request.post();
-      response.releaseConnection();
+      builder.header("Authorization", "Basic " + base64Credentials);
+      Form form = new Form("xopenid.realm", OpenIdTrustedRealm);
+      Response response = builder.post(Entity.form(form));
+      response.close();
       if (HttpResponseCodes.SC_OK != response.getStatus()) {
          throw new RuntimeException("OpenId realms can not be registered");
       }     

@@ -1,7 +1,5 @@
 package org.jboss.resteasy.examples.oauth;
 
-import org.jboss.resteasy.client.ClientRequest;
-import org.jboss.resteasy.client.ClientResponse;
 import org.openid4java.association.AssociationSessionType;
 import org.openid4java.consumer.ConsumerException;
 import org.openid4java.consumer.ConsumerManager;
@@ -22,6 +20,10 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletRequestWrapper;
 import javax.servlet.http.HttpServletResponse;
+import javax.ws.rs.client.ClientBuilder;
+import javax.ws.rs.client.WebTarget;
+import javax.ws.rs.core.Response;
+
 import java.io.IOException;
 import java.security.Principal;
 import java.util.HashMap;
@@ -113,12 +115,12 @@ public class OpenIdFilter extends OAuthPushMessagingFilter {
             authReq = manager.authenticate(discovered, returnToUrl);
             String destinationUrl = authReq.getDestinationUrl(true);
             
-            ClientRequest req = new ClientRequest(destinationUrl);
-            ClientResponse<String> resp = null;
+            WebTarget target = ClientBuilder.newClient().target(destinationUrl);
+            Response resp = null;
             ParameterList response = null;
             try {
-               resp = req.get(String.class);
-               String body = resp.getEntity();
+               resp = target.request().get();
+               String body = resp.readEntity(String.class);
                String[] paramValues = body.split("\n");
                Map<String, String> paramsMap = new HashMap<String, String>();
                for (String paramValue : paramValues) {
@@ -133,7 +135,7 @@ public class OpenIdFilter extends OAuthPushMessagingFilter {
                }
                response = new ParameterList(paramsMap);
             } finally {
-               resp.releaseConnection();
+               resp.close();
             }
 
             // verify the response; ConsumerManager needs to be the same

@@ -1,11 +1,6 @@
 package org.jboss.resteasy.examples.oauth;
 
-import org.jboss.resteasy.auth.oauth.OAuthConsumerRegistration;
-import org.jboss.resteasy.client.ClientRequest;
-import org.jboss.resteasy.client.ClientResponse;
-import org.jboss.resteasy.examples.oauth.provider.OAuthDBProvider;
-import org.jboss.resteasy.util.Base64;
-import org.jboss.resteasy.util.HttpResponseCodes;
+import java.util.Properties;
 
 import javax.annotation.security.RolesAllowed;
 import javax.ws.rs.Consumes;
@@ -13,11 +8,21 @@ import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.WebApplicationException;
+import javax.ws.rs.client.ClientBuilder;
+import javax.ws.rs.client.Entity;
+import javax.ws.rs.client.Invocation;
+import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.Context;
+import javax.ws.rs.core.Form;
+import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriBuilder;
 import javax.ws.rs.core.UriInfo;
-import java.util.Properties;
+
+import org.jboss.resteasy.auth.oauth.OAuthConsumerRegistration;
+import org.jboss.resteasy.examples.oauth.provider.OAuthDBProvider;
+import org.jboss.resteasy.util.Base64;
+import org.jboss.resteasy.util.HttpResponseCodes;
 
 
 
@@ -122,14 +127,15 @@ public class SubscriberReceiver
    
    public void registerMessagingServiceCallback(String consumerKey, String callback)
    {
-      ClientRequest request = new ClientRequest(MessagingServiceCallbackRegistrationURL);
+      WebTarget target = ClientBuilder.newClient().target(MessagingServiceCallbackRegistrationURL);
+      Invocation.Builder builder = target.request();
       String base64Credentials = new String(Base64.encodeBytes("admin:admin".getBytes()));
-      request.header("Authorization", "Basic " + base64Credentials);
-      request.formParameter("consumer_id", consumerKey);
-      request.formParameter("callback_uri", callback);
-      ClientResponse<?> response = null;
+      builder.header("Authorization", "Basic " + base64Credentials);
+      Form form = new Form("consumer_id", consumerKey);
+      form.param("callback_uri", callback);
+      Response response = null;
       try {
-         response = request.post();
+         response = builder.post(Entity.form(form));
          if (HttpResponseCodes.SC_OK != response.getStatus()) {
             throw new RuntimeException("Callback Registration failed");
          }
@@ -138,19 +144,19 @@ public class SubscriberReceiver
          throw new RuntimeException("Callback Registration failed");
       }
       finally {
-         response.releaseConnection();
+         response.close();
       }
    }
    
    public void produceMessages()
     {
-      ClientRequest request = new ClientRequest(MessagingServiceMessagesURL);
+      WebTarget target = ClientBuilder.newClient().target(MessagingServiceMessagesURL);
+      Invocation.Builder builder = target.request();
       String base64Credentials = new String(Base64.encodeBytes("admin:admin".getBytes()));
-      request.header("Authorization", "Basic " + base64Credentials);
-      request.body("text/plain", "Hello2 !");
-      ClientResponse<?> response = null;
+      builder.header("Authorization", "Basic " + base64Credentials);
+      Response response = null;
       try {
-         response = request.post();
+         response = builder.post(Entity.entity("Hello2 !", MediaType.TEXT_PLAIN_TYPE));
          if (HttpResponseCodes.SC_OK != response.getStatus()) {
             throw new RuntimeException("Messages can not be sent");
          }
@@ -159,7 +165,7 @@ public class SubscriberReceiver
          throw new RuntimeException("Messages can not be sent");
       }
       finally {
-         response.releaseConnection();
+         response.close();
       }
     }
 }

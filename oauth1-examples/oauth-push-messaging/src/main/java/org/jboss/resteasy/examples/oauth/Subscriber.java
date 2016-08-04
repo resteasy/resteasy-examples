@@ -1,13 +1,20 @@
 package org.jboss.resteasy.examples.oauth;
 
 import net.oauth.OAuth;
-import org.jboss.resteasy.client.ClientRequest;
-import org.jboss.resteasy.client.ClientResponse;
+
 import org.jboss.resteasy.util.Base64;
 import org.jboss.resteasy.util.HttpResponseCodes;
 
 import java.util.Map;
 import java.util.Properties;
+
+import javax.ws.rs.client.ClientBuilder;
+import javax.ws.rs.client.Entity;
+import javax.ws.rs.client.Invocation;
+import javax.ws.rs.client.WebTarget;
+import javax.ws.rs.core.Form;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 
 
 public class Subscriber
@@ -67,25 +74,27 @@ public class Subscriber
    
    public String registerMessagingService(String consumerKey) throws Exception
    {
-      ClientRequest request = new ClientRequest(ConsumerRegistrationURL);
+      WebTarget target = ClientBuilder.newClient().target(ConsumerRegistrationURL);
       String base64Credentials = new String(Base64.encodeBytes("admin:admin".getBytes()));
-      request.header("Authorization", "Basic " + base64Credentials);
-      request.formParameter(OAuth.OAUTH_CONSUMER_KEY, consumerKey);
-      ClientResponse<String> response = null;
+      Invocation.Builder builder = target.request();
+      builder.header("Authorization", "Basic " + base64Credentials);
+      
+      Entity<Form> formEntity = Entity.form(new Form(OAuth.OAUTH_CONSUMER_KEY, consumerKey));
+      Response response = null;
       try {
-         response = request.post(String.class);
+         response = builder.post(formEntity);
          if (HttpResponseCodes.SC_OK != response.getStatus()) {
             throw new RuntimeException("Registration failed");
          }
          // check that we got all tokens
-         Map<String, String> tokens = OAuth.newMap(OAuth.decodeForm(response.getEntity()));
+         Map<String, String> tokens = OAuth.newMap(OAuth.decodeForm(response.readEntity(String.class)));
          String secret = tokens.get("xoauth_consumer_secret");
          if (secret == null) {
              throw new RuntimeException("No secret available");
          }
          return secret;
       } finally {
-         response.releaseConnection();
+         response.close();
       }
    }
    
@@ -93,20 +102,21 @@ public class Subscriber
    
    public void registerMessagingServiceScopes(String consumerKey, String scope) throws Exception
    {
-      ClientRequest request = new ClientRequest(ConsumerScopesRegistrationURL);
+      WebTarget target = ClientBuilder.newClient().target(ConsumerScopesRegistrationURL);
       String base64Credentials = new String(Base64.encodeBytes("admin:admin".getBytes()));
-      request.header("Authorization", "Basic " + base64Credentials);
-      request.formParameter(OAuth.OAUTH_CONSUMER_KEY, consumerKey);
-      request.formParameter("xoauth_scope", scope);
-      request.formParameter("xoauth_permission", "sendMessages");
-      ClientResponse<?> response = null;
+      Invocation.Builder builder = target.request();
+      builder.header("Authorization", "Basic " + base64Credentials);
+      Form form = new Form(OAuth.OAUTH_CONSUMER_KEY, consumerKey);
+      form.param("xoauth_scope", scope);
+      form.param("xoauth_permission", "sendMessages");
+      Response response = null;
       try {
-         response = request.post();
+         response = builder.post(Entity.form(form));
          if (HttpResponseCodes.SC_OK != response.getStatus()) {
             throw new RuntimeException("Scopes can not be registered");
          }
       } finally {
-         response.releaseConnection();
+         response.close();
       }
    }
    
@@ -118,83 +128,86 @@ public class Subscriber
    public void registerMessagingServiceCallback(String consumerKey, String consumerSecret, String callback) 
        throws Exception
    {
-      ClientRequest request = new ClientRequest(MessagingServiceCallbackRegistrationURL);
+      WebTarget target = ClientBuilder.newClient().target(MessagingServiceCallbackRegistrationURL);
       String base64Credentials = new String(Base64.encodeBytes("admin:admin".getBytes()));
-      request.header("Authorization", "Basic " + base64Credentials);
-      request.formParameter("consumer_id", consumerKey);
-      request.formParameter("consumer_secret", consumerSecret);
-      request.formParameter("callback_uri", callback);
-      ClientResponse<?> response = null;
+      Invocation.Builder builder = target.request();
+      builder.header("Authorization", "Basic " + base64Credentials);
+      Form form = new Form("consumer_id", consumerKey);
+      form.param("consumer_secret", consumerSecret);
+      form.param("callback_uri", callback);
+      Response response = null;
       try {
-         response = request.post();
+         response = builder.post(Entity.form(form));
          if (HttpResponseCodes.SC_OK != response.getStatus()) {
             throw new RuntimeException("Callback Registration failed");
         }
       } finally {
-         response.releaseConnection();
+         response.close();
       }
    }
    
    public void produceMessages() 
       throws Exception
    {
-      ClientRequest request = new ClientRequest(MessagingServiceMessagesURL);
+      WebTarget target = ClientBuilder.newClient().target(MessagingServiceMessagesURL);
       String base64Credentials = new String(Base64.encodeBytes("admin:admin".getBytes()));
-      request.header("Authorization", "Basic " + base64Credentials);
-      request.body("text/plain", "Hello !");
-      ClientResponse<?> response = null;
+      Invocation.Builder builder = target.request();
+      builder.header("Authorization", "Basic " + base64Credentials);
+      Response response = null;
       try {
-         response = request.post();
+         response = builder.post(Entity.entity("Hello", MediaType.TEXT_PLAIN_TYPE));
          if (HttpResponseCodes.SC_OK != response.getStatus()) {
             throw new RuntimeException("Messages can not be sent");
          }
       } finally {
-         response.releaseConnection();
+         response.close();
       }
    }
    
    public void getMessages() 
        throws Exception
    {
-      ClientRequest request = new ClientRequest(MessageReceiverGetURL);
+      WebTarget target = ClientBuilder.newClient().target(MessageReceiverGetURL);
       String base64Credentials = new String(Base64.encodeBytes("admin:admin".getBytes()));
-      request.header("Authorization", "Basic " + base64Credentials);
-      ClientResponse<String> response = null;
+      Invocation.Builder builder = target.request();
+      builder.header("Authorization", "Basic " + base64Credentials);
+      Response response = null;
       try {
-         response = request.get(String.class);
+         response = builder.get();
          if (HttpResponseCodes.SC_OK != response.getStatus()) {
             throw new RuntimeException("Messages can not be received");
          }
-         String message = response.getEntity();
+         String message = response.readEntity(String.class);
          if (!"Hello !".equals(message))
          {
             throw new RuntimeException("Wrong Message");
          }
          System.out.println("Success : " + message);
       } finally {
-         response.releaseConnection();
+         response.close();
       }
    }
    
    public void getMessagesFromSubscriberReceiver() throws Exception
    {
-      ClientRequest request = new ClientRequest(MessageReceiverSubscriberGetURL);
+      WebTarget target = ClientBuilder.newClient().target(MessageReceiverSubscriberGetURL);
       String base64Credentials = new String(Base64.encodeBytes("admin:admin".getBytes()));
-      request.header("Authorization", "Basic " + base64Credentials);
-      ClientResponse<String> response = null;
+      Invocation.Builder builder = target.request();
+      builder.header("Authorization", "Basic " + base64Credentials);
+      Response response = null;
       try {
-         response = request.get(String.class);
+         response = builder.get();
          if (HttpResponseCodes.SC_OK != response.getStatus()) {
             throw new RuntimeException("Messages can not be received");
          }
-         String message = response.getEntity();
+         String message = response.readEntity(String.class);
          if (!"Hello2 !".equals(message))
          {
             throw new RuntimeException("Wrong Message");
          }
          System.out.println("Message from the subscriber-receiver : " + message);
       } finally {
-         response.releaseConnection();
+         response.close();
       }
     }
 }

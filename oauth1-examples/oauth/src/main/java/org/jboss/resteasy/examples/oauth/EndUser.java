@@ -1,18 +1,21 @@
 package org.jboss.resteasy.examples.oauth;
 
 import org.jboss.resteasy.auth.oauth.OAuthUtils;
-import org.jboss.resteasy.client.ClientRequest;
-import org.jboss.resteasy.client.ClientResponse;
 import org.jboss.resteasy.util.Base64;
 import org.jboss.resteasy.util.HttpResponseCodes;
 import org.xml.sax.InputSource;
 
-import javax.swing.*;
+import javax.swing.JOptionPane;
+import javax.ws.rs.client.ClientBuilder;
+import javax.ws.rs.client.Invocation;
+import javax.ws.rs.client.WebTarget;
+import javax.ws.rs.core.Response;
 import javax.xml.namespace.NamespaceContext;
 import javax.xml.xpath.XPath;
 import javax.xml.xpath.XPathConstants;
 import javax.xml.xpath.XPathExpressionException;
 import javax.xml.xpath.XPathFactory;
+
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.util.Collections;
@@ -62,13 +65,13 @@ public class EndUser
    
    private static void accessEndUserResource(String relativeURI) throws Exception
    {
-      ClientRequest request = new ClientRequest(EndUserResourceURL + relativeURI);
+      WebTarget target = ClientBuilder.newClient().target(EndUserResourceURL + relativeURI);
       String base64Credentials = new String(Base64.encodeBytes("admin:admin".getBytes()));
-      request.header("Authorization", "Basic " + base64Credentials);
-      ClientResponse<String> response = null;
+      target.request().header("Authorization", "Basic " + base64Credentials);
+      Response response = null;
       try
       {
-         response = request.get(String.class);
+         response = target.request().get();
          if ("/invisible".equals(relativeURI)) {
             if (response.getStatus() != 401) {
                throw new RuntimeException("End user can access the invisible resource");
@@ -83,7 +86,7 @@ public class EndUser
       }
       finally
       {
-         response.releaseConnection();
+         response.close();
       }
    }
    
@@ -97,19 +100,20 @@ public class EndUser
    public String requestServiceFromThirdPartyWebApp() throws Exception
    {
       String url = ConsumerWebAppURL + "?scope=" + OAuthUtils.encodeForOAuth(EndUserResourceURL);
-      ClientRequest request = new ClientRequest(url);
-      request.followRedirects(false);
-      ClientResponse<?> response = null;
+      WebTarget target = ClientBuilder.newClient().target(url);
+      Invocation.Builder builder = target.request();
+      //TODO:look at how can we support pre 2.0's request.followRedirects(false);
+      Response response = null;
       try
       {
-         response = request.get();
+         response = builder.get();
          if (302 != response.getStatus()) {
             // note that if the end user knows about the OAuth service's token authorization endpoint
             // then it can try to read the request token from the body and build the authorization URL
             // itself, in case the consumer has not provided the redirection URI
             throw new RuntimeException("Service request has failed - redirection is expected");
         }
-        String authorizationURI = response.getResponseHeaders().getFirst("Location");
+        String authorizationURI = response.getStringHeaders().getFirst("Location");
         if (authorizationURI == null) {
             throw new RuntimeException("Token authorization URI is missing");
         }
@@ -117,7 +121,7 @@ public class EndUser
       }
       finally
       {
-         response.releaseConnection();
+         response.close();
       }
    }
    
@@ -130,20 +134,21 @@ public class EndUser
     */
    public String authorizeConsumerRequestToken(String url) throws Exception
    {
-      ClientRequest request = new ClientRequest(url);
+      WebTarget target = ClientBuilder.newClient().target(url);
       // request that XML formatted authorization request is presented
-      request.header("Accept", "application/xml");
+      Invocation.Builder builder = target.request();
+      builder.header("Accept", "application/xml");
       String base64Credentials = new String(Base64.encodeBytes("admin:admin".getBytes()));
-      request.header("Authorization", "Basic " + base64Credentials);
-      ClientResponse<String> response = null;
+      builder.header("Authorization", "Basic " + base64Credentials);
+      Response response = null;
       try
       {
-         response = request.get(String.class);
+         response = builder.get();
          if (200 != response.getStatus()) {
             throw new RuntimeException("No authorization request data is available");
          }
          // at this stage we have an XML-formatted token authorization request
-         String body = response.getEntity();
+         String body = response.readEntity(String.class);
          String consumerId = evaluateBody(new ByteArrayInputStream(body.getBytes()),
                                           "/ns:tokenAuthorizationRequest/ns:consumerId/text()");
          String consumerName = evaluateBody(new ByteArrayInputStream(body.getBytes()),
@@ -172,7 +177,7 @@ public class EndUser
       }
       finally
       {
-         response.releaseConnection();
+         response.close();
       }
    }
    
@@ -191,36 +196,37 @@ public class EndUser
    
    public String confirmAuthorization(String url) throws Exception
    {
-      ClientRequest request = new ClientRequest(url);
+      WebTarget target = ClientBuilder.newClient().target(url);
       String base64Credentials = new String(Base64.encodeBytes("admin:admin".getBytes()));
-      request.header("Authorization", "Basic " + base64Credentials);
-      ClientResponse<?> response = null;
+      Invocation.Builder builder = target.request();
+      builder.header("Authorization", "Basic " + base64Credentials);
+      Response response = null;
       try {
-         response = request.post();
+         response = builder.post(null);
          if (302 != response.getStatus()) {
             throw new RuntimeException("Initiation failed");
          }
          // check that we got all tokens
-         String callbackURI = response.getResponseHeaders().getFirst("Location");
+         String callbackURI = response.getStringHeaders().getFirst("Location");
          if (callbackURI == null) {
              throw new RuntimeException("Callback failed");
          }
          return callbackURI;
       }
       finally {
-         response.releaseConnection();
+         response.close();
       }
    }
    
    public String setCallback(String url) throws Exception
    {
-      ClientRequest request = new ClientRequest(url);
-      ClientResponse<String> response = request.post(String.class);
+      WebTarget target = ClientBuilder.newClient().target(url);
+      Response response = target.request().post(null);
       if (200 != response.getStatus()) {
-         response.releaseConnection();
+         response.close();
          throw new RuntimeException("Service failed");
       }
-      return response.getEntity();
+      return response.readEntity(String.class);
    }
    
    private static class NamespaceContextImpl implements NamespaceContext {
