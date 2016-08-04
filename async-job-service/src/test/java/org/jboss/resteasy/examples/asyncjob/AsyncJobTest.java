@@ -1,10 +1,13 @@
 package org.jboss.resteasy.examples.asyncjob;
 
-import org.jboss.resteasy.client.ClientRequest;
-import org.jboss.resteasy.client.ClientResponse;
 import org.junit.Assert;
 import org.junit.Test;
 
+import javax.ws.rs.client.Client;
+import javax.ws.rs.client.ClientBuilder;
+import javax.ws.rs.client.Entity;
+import javax.ws.rs.client.Invocation;
+import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.HttpHeaders;
 import javax.ws.rs.core.Response;
 
@@ -18,36 +21,55 @@ public class AsyncJobTest
    @Test
    public void testOneway() throws Exception
    {
-      ClientRequest request = new ClientRequest("http://localhost:9095/resource?oneway=true");
-      request.body("text/plain", "content");
-      ClientResponse<String> response = request.put(String.class);
+	  Client client = ClientBuilder.newClient();
+	  WebTarget target = client.target("http://localhost:9095/resource?oneway=true");
+	  Invocation.Builder builder = target.request();
+	  Entity<String> entity = Entity.entity("content", "text/plain");
+	  Response response = builder.put(entity);
+	   
       Assert.assertEquals(202, response.getStatus());
-      response.releaseConnection();
+      
+      response.close();
       Thread.sleep(1500);
-      request = new ClientRequest("http://localhost:9095/resource");
-      response = request.get(String.class);
-      Assert.assertEquals(Integer.toString(1), response.getEntity());
+      
+      
+	  target = client.target("http://localhost:9095/resource");
+	  builder = target.request();   
+	  response = builder.get();
+      Assert.assertEquals(Integer.toString(1), response.readEntity(String.class));
    }
 
    @Test
    public void testAsynch() throws Exception
    {
-      ClientRequest request = new ClientRequest("http://localhost:9095/resource?asynch=true");
-      request.body("text/plain", "content");
-      ClientResponse<String> response = request.post(String.class);
+	   
+	  Client client = ClientBuilder.newClient();
+	  WebTarget target = client.target("http://localhost:9095/resource?asynch=true");
+	  Invocation.Builder builder = target.request();
+	  Entity<String> entity = Entity.entity("content", "text/plain");
+	  Response response = builder.post(entity);
+	  
+	   
       Assert.assertEquals(Response.Status.ACCEPTED.getStatusCode(), response.getStatus());
-      String jobUrl1 = response.getResponseHeaders().getFirst(HttpHeaders.LOCATION);
+     
+      String jobUrl1 = response.getStringHeaders().getFirst(HttpHeaders.LOCATION);
       System.out.println("jobUrl1: " + jobUrl1);
-      response.releaseConnection();
       
-      request = new ClientRequest(jobUrl1);
-      response = request.get(String.class);
+      response.close();
+      
+      target = client.target(jobUrl1);
+	  builder = target.request();
+	   
+	  response = builder.get(); 
       Assert.assertEquals(Response.Status.ACCEPTED.getStatusCode(), response.getStatus());
-      response.releaseConnection();
+      
+      response.close();
       
       Thread.sleep(1500);
-      response = request.get(String.class);
+     
+      response = builder.get(); 
       Assert.assertEquals(Response.Status.OK.getStatusCode(), response.getStatus());
-      Assert.assertEquals("content", response.getEntity());
+      
+      Assert.assertEquals("content", response.readEntity(String.class));
    }
 }
