@@ -34,7 +34,6 @@
         <module>guice-hello</module>
         <module>async-job-service</module>
         <module>resteasy-springMVC</module>
-        <module>oreilly-workbook</module>
         <module>oreilly-jaxrs-2.0-workbook</module>
         <module>oauth1-examples</module>
         <module>oauth2-as7-example</module>
@@ -46,7 +45,7 @@
         <module>jaxrs-2.0/server-async-http</module>
         <module>wadl-example</module>
         <module>spring-hibernate-contacts</module>
-        <!-- <module>jsapi-servlet-test</module> -->
+        <module>jsapi-servlet-test</module>
     </modules>
 
     
