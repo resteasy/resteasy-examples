@@ -113,12 +113,12 @@
             <plugin>
                 <groupId>tv.bodil</groupId>
                 <artifactId>maven-testlol-plugin</artifactId>
-                <version>1.2.2</version>
+                <version>1.4</version>
                 <dependencies>
                     <dependency>
                         <groupId>rhino</groupId>
                         <artifactId>js</artifactId>
-                        <version>1.7R3-SNAPSHOT</version>
+                        <version>1.7R2</version>
                     </dependency>
                 </dependencies>
                 <executions>
@@ -128,8 +128,8 @@
                             <goal>test</goal>
                         </goals>
                         <configuration>
-                            <basePath>src/test/html</basePath>
-                            <testSuite>src/test/js</testSuite>
+                            <basePath>src/test/js</basePath>
+                            <testSuite>src/test/js/test</testSuite>
                         </configuration>
                     </execution>
                 </executions>

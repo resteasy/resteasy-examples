@@ -28,7 +28,7 @@ function testGetParam() {
 	var data = MyResource.getParam({param: value});
 	assertEquals(value, data);
 }
-
+/*
 function testGetFooParam() {
 	var data = MyResource.getFooParam({param: "paramv", other: "otherv",
 		q : "qv", c : "cv", h: "hv", m: "mv"});
@@ -42,7 +42,7 @@ function testPutFooParam() {
 	// cookie is null since env.js doesn't support cookies yet :(
 	assertEquals("param=paramv;other=otherv;q=qv;c=null;h=hv;m=mv;entity=entityv;", data);
 }
-
+*/
 function testGetXML() {
 	var data = MyResource.getXML();
 	print(data);
@@ -108,6 +108,7 @@ function testSubResourceWithPath() {
 	var data = MyResource.getSubResource.getWithPath();
 	assertEquals("Hello withPath", data);
 }
+/*
 
 function testSubResource2() {
 	var data = MyResource.getSubResource2.get({id: "a", foo: "b"});
@@ -118,7 +119,7 @@ function testSubResource2WithPath() {
 	var data = MyResource.getSubResource2.getWithPath({id: "a", foo: "b", bar: "c"});
 	assertEquals("Hello withPath a/b/c", data);
 }
-
+*/
 function testDoubleSubResource() {
 	var data = MyResource.getSubResource2.getSubResource.get({id: "a"});
 	assertEquals("Hello", data);

@@ -226,7 +226,7 @@ public class MyResource
 	{
 		return uriInfo.getBaseUriBuilder().path(getClass()).path(getClass(), "getParam").build(id).toString();
 	}
-
+	@Path("/")
 	public static class SubResource {
 		@GET
 		public String get(){
@@ -249,7 +249,7 @@ public class MyResource
 		return new SubResource2(id);
 	}
 
-	@Path("more/{foo}")
+	@Path("/")
 	public static class SubResource2 {
 		private String id;
 		public SubResource2(String id) {
