@@ -11,10 +11,7 @@
     <packaging>war</packaging>
     <name>OAuth Servlet Test</name>
     <dependencies>
-        <dependency>
-            <groupId>org.jboss.resteasy</groupId>
-            <artifactId>resteasy-jaxrs</artifactId>
-        </dependency>
+        
         <dependency>
             <groupId>org.jboss.resteasy</groupId>
             <artifactId>resteasy-oauth</artifactId>
@@ -35,10 +32,7 @@
             <groupId>org.jboss.spec.javax.annotation</groupId>
             <artifactId>jboss-annotations-api_1.2_spec</artifactId>
         </dependency>
-	    <dependency>
-            <groupId>org.jboss.resteasy</groupId>
-            <artifactId>resteasy-client</artifactId>
-        </dependency>
+	    
     </dependencies>
     <build>
         <finalName>oauth-servlet-test</finalName>

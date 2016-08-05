@@ -28,6 +28,7 @@
         <dependency>
             <groupId>org.jboss.resteasy</groupId>
             <artifactId>resteasy-jaxrs</artifactId>
+            <version>${project.version}</version>
             <!-- filter out unwanted jars -->
             <exclusions>
                 <exclusion>

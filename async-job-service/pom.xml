@@ -24,17 +24,6 @@
         </repository>
     </repositories>
 
-    <dependencies>
-        <dependency>
-            <groupId>org.jboss.resteasy</groupId>
-            <artifactId>resteasy-jaxrs</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.jboss.resteasy</groupId>
-            <artifactId>resteasy-client</artifactId>
-        </dependency>
-    </dependencies>
-
     <!-- this distributionManagement is only here for RESTEasy automated testing of examples build.  You can remove if you are copying this
          pom.xml as a template -->
     <distributionManagement>
