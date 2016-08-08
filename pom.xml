@@ -12,7 +12,7 @@
     <groupId>org.jboss.resteasy</groupId>
     <artifactId>testable-examples-pom</artifactId>
     <packaging>pom</packaging>
-
+    <version>3.1.0-SNAPSHOT</version>
     <!-- this is only here for RESTEasy automated testing of examples build.  You can remove if you are copying this
          pom.xml as a template    -->
     <build>
@@ -26,6 +26,7 @@
             </plugin>
         </plugins>
     </build>
+
 
     <modules>
         <module>jaxrs2-async-pubsub-example</module>
@@ -46,4 +47,68 @@
         <module>spring-hibernate-contacts</module>
         <module>jsapi-servlet-test</module>
     </modules>
+
+    <dependencies>
+         <dependency>
+              <groupId>org.jboss.resteasy</groupId>
+              <artifactId>resteasy-jaxrs</artifactId>
+              <version>${project.version}</version>
+       	    </dependency>
+
+            <dependency>
+               <groupId>org.jboss.resteasy</groupId>
+               <artifactId>resteasy-client</artifactId>
+               <version>${project.version}</version>
+            </dependency>
+
+    </dependencies>
+
+    <dependencyManagement>
+	<dependencies>  
+
+	    <dependency>
+               <groupId>org.jboss.resteasy</groupId>
+               <artifactId>resteasy-jsapi</artifactId>
+               <version>${project.version}</version>
+            </dependency>
+
+	    <dependency>
+              <groupId>org.jboss.resteasy</groupId>
+              <artifactId>resteasy-jaxb-provider</artifactId>
+              <version>${project.version}</version>
+            </dependency>
+	    
+	    <dependency>
+               <groupId>commons-httpclient</groupId>
+               <artifactId>commons-httpclient</artifactId>
+               <version>3.1</version>
+            </dependency>
+
+	    <dependency>
+              <groupId>org.jboss.resteasy</groupId>
+              <artifactId>async-http-servlet-3.0</artifactId>
+              <version>${project.version}</version>
+            </dependency> 
+
+	    <dependency>
+               <groupId>org.jboss.resteasy</groupId>
+               <artifactId>resteasy-jackson2-provider</artifactId>
+               <version>${project.version}</version>
+            </dependency>
+
+	    <dependency>
+               <groupId>org.jboss.resteasy</groupId>
+               <artifactId>resteasy-oauth</artifactId>
+               <version>${project.version}</version>
+            </dependency>
+
+	    <dependency>
+            <groupId>hsqldb</groupId>
+            <artifactId>hsqldb</artifactId>
+            <version>1.8.0.7</version>
+        </dependency>
+
+        </dependencies>
+    </dependencyManagement>
+
 </project>
