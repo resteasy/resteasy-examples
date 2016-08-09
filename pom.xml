@@ -48,17 +48,20 @@
         <module>jsapi-servlet-test</module>
     </modules>
 
+    <properties>
+             <resteasy.jaxrs.version>3.1.0-SNAPSHOT</resteasy.jaxrs.version>
+    </properties>
     <dependencies>
          <dependency>
               <groupId>org.jboss.resteasy</groupId>
               <artifactId>resteasy-jaxrs</artifactId>
-              <version>${project.version}</version>
+              <version>${resteasy.jaxrs.version}</version>
        	    </dependency>
 
             <dependency>
                <groupId>org.jboss.resteasy</groupId>
                <artifactId>resteasy-client</artifactId>
-               <version>${project.version}</version>
+               <version>${resteasy.jaxrs.version}</version>
             </dependency>
 
     </dependencies>
@@ -69,13 +72,13 @@
 	    <dependency>
                <groupId>org.jboss.resteasy</groupId>
                <artifactId>resteasy-jsapi</artifactId>
-               <version>${project.version}</version>
+               <version>${resteasy.jaxrs.version}</version>
             </dependency>
 
 	    <dependency>
               <groupId>org.jboss.resteasy</groupId>
               <artifactId>resteasy-jaxb-provider</artifactId>
-              <version>${project.version}</version>
+              <version>${resteasy.jaxrs.version}</version>
             </dependency>
 	    
 	    <dependency>
@@ -87,19 +90,19 @@
 	    <dependency>
               <groupId>org.jboss.resteasy</groupId>
               <artifactId>async-http-servlet-3.0</artifactId>
-              <version>${project.version}</version>
+              <version>${resteasy.jaxrs.version}</version>
             </dependency> 
 
 	    <dependency>
                <groupId>org.jboss.resteasy</groupId>
                <artifactId>resteasy-jackson2-provider</artifactId>
-               <version>${project.version}</version>
+               <version>${resteasy.jaxrs.version}</version>
             </dependency>
 
 	    <dependency>
                <groupId>org.jboss.resteasy</groupId>
                <artifactId>resteasy-oauth</artifactId>
-               <version>${project.version}</version>
+               <version>${resteasy.jaxrs.version}</version>
             </dependency>
 
 	    <dependency>
