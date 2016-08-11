@@ -22,7 +22,6 @@
     </repositories>
     <dependencyManagement>
         <dependencies>
-   
             <dependency>
                 <groupId>commons-dbcp</groupId>
                 <artifactId>commons-dbcp</artifactId>
@@ -32,6 +31,12 @@
                <groupId>org.hibernate</groupId>
                <artifactId>hibernate-annotations</artifactId>
                <version>3.3.1.GA</version>
+               <exclusions>
+                  <exclusion>
+                     <groupId>javax.transaction</groupId>
+                      <artifactId>jta</artifactId>
+                   </exclusion>
+               </exclusions>
             </dependency>
 
 	    <dependency>
