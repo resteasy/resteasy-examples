@@ -1,9 +1,9 @@
 <project>
     <parent>
         <groupId>org.jboss.resteasy</groupId>
-        <artifactId>resteasy-jaxrs-all</artifactId>
-        <version>3.1.0-SNAPSHOT</version>
-	    <relativePath>../../pom.xml</relativePath>
+        <artifactId>testable-examples-pom</artifactId>
+        <version>3.1.0-SNAPSHOT</version>   
+	    <relativePath>../pom.xml</relativePath>
     </parent>
     <name>OAuth Examples</name>
     <description/>
@@ -12,7 +12,7 @@
     <groupId>org.jboss.resteasy</groupId>
     <artifactId>oauth-examples-pom</artifactId>
     <packaging>pom</packaging>
-
+    <version>3.1.0-SNAPSHOT</version>
     <build>
         <plugins>
             <plugin>
@@ -24,7 +24,39 @@
             </plugin>
         </plugins>
     </build>
-
+    
+    <dependencies>
+         <dependency>
+             <groupId>org.jboss.resteasy</groupId>
+             <artifactId>resteasy-oauth</artifactId>
+             <version>${project.version}</version>
+             <exclusions>
+                <exclusion>
+                   <groupId>commons-httpclient</groupId>
+                   <artifactId>commons-httpclient</artifactId>
+                </exclusion>
+                <exclusion>
+                   <groupId>javax.servlet</groupId>
+                   <artifactId>servlet-api</artifactId>
+                </exclusion>
+                <exclusion>
+                   <groupId>javax.xml.bind</groupId>
+                   <artifactId>jaxb-api</artifactId>
+                </exclusion>
+                <exclusion>
+                   <groupId>com.sun.xml.bind</groupId>
+                   <artifactId>jaxb-impl</artifactId>
+                </exclusion>
+             </exclusions>
+        </dependency>
+        <dependency>
+             <groupId>javax.servlet</groupId>
+              <artifactId>servlet-api</artifactId>
+              <version>2.5</version>
+              <scope>provided</scope>
+        </dependency>
+    </dependencies>
+  
     <modules>
         <module>oauth-provider</module>
         <module>oauth</module>
