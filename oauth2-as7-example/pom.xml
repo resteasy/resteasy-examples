@@ -2,9 +2,9 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <parent>
         <groupId>org.jboss.resteasy</groupId>
-        <artifactId>resteasy-jaxrs-all</artifactId>
-        <version>3.1.0-SNAPSHOT</version>
-        <relativePath>../../pom.xml</relativePath>
+    	<artifactId>testable-examples-pom</artifactId>
+	<version>3.1.0-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
     </parent>
     <name>Resteasy Skeleton Key Examples POM</name>
     <description/>
@@ -13,7 +13,7 @@
     <groupId>org.jboss.resteasy.example.oauth</groupId>
     <artifactId>examples</artifactId>
     <packaging>pom</packaging>
-
+    <version>3.1.0-SNAPSHOT</version>
     <build>
         <plugins>
             <plugin>
@@ -33,6 +33,40 @@
             </plugin>
         </plugins>
     </build>
+
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.resteasy</groupId>
+            <artifactId>resteasy-client</artifactId>
+            <version>${project.version}</version>
+            <scope>provided</scope>
+        </dependency>
+       
+    </dependencies>
+
+    <dependencyManagement>
+	<dependencies>
+	<dependency>
+            <groupId>org.jboss.spec.javax.servlet</groupId>
+            <artifactId>jboss-servlet-api_3.0_spec</artifactId>
+            <version>1.0.1.Final</version>
+            <scope>provided</scope>
+        </dependency>
+
+         <dependency>
+            <groupId>org.jboss.resteasy</groupId>
+            <artifactId>skeleton-key-core</artifactId>
+            <version>${project.version}</version>
+            <scope>provided</scope>
+        </dependency>
+	</dependencies>
+    </dependencyManagement>
+
     <modules>
         <module>wars/auth-server</module>
         <module>wars/database-service</module>

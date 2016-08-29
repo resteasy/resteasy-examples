@@ -4,13 +4,14 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>org.jboss.resteasy</groupId>
-        <artifactId>resteasy-jaxrs-all</artifactId>
+        <artifactId>testable-examples-pom</artifactId>
         <version>3.1.0-SNAPSHOT</version>
-        <relativePath>../../pom.xml</relativePath>
+        <relativePath>../pom.xml</relativePath>
     </parent>
     <groupId>org.jboss.resteasy.examples</groupId>
     <artifactId>examples-spring-hibernate-contacts</artifactId>
     <packaging>pom</packaging>
+    <version>3.1.0-SNAPSHOT</version>
     <name>Example: RestContact Maven Webapp</name>
     <url>http://maven.apache.org</url>
     <repositories>
@@ -22,63 +23,46 @@
     <dependencyManagement>
         <dependencies>
             <dependency>
-                <groupId>org.jboss.resteasy</groupId>
-                <artifactId>resteasy-bom</artifactId>
-                <version>3.1.0-SNAPSHOT</version>
-                <type>pom</type>
-                <scope>import</scope>
+                <groupId>commons-dbcp</groupId>
+                <artifactId>commons-dbcp</artifactId>
+                <version>1.2.1</version>
+            </dependency>
+	    <dependency>
+               <groupId>org.hibernate</groupId>
+               <artifactId>hibernate-annotations</artifactId>
+               <version>3.3.1.GA</version>
+               <exclusions>
+                  <exclusion>
+                     <groupId>javax.transaction</groupId>
+                      <artifactId>jta</artifactId>
+                   </exclusion>
+               </exclusions>
+            </dependency>
+
+	    <dependency>
+               <groupId>org.hibernate</groupId>
+               <artifactId>ejb3-persistence</artifactId>
+               <version>3.3.2.Beta1</version>
+            </dependency>
+            <dependency>
+               <groupId>org.springframework</groupId>
+               <artifactId>spring-core</artifactId>
+               <version>3.0.6.RELEASE</version>            
+            </dependency>
+
+        <!-- Test classes that integrates Junit 3.8 and 4 to Spring based applications -->
+            <dependency>
+               <groupId>org.springframework</groupId>
+               <artifactId>spring-test</artifactId>
+               <version>3.0.6.RELEASE</version>           
+            </dependency>
+            <dependency>
+               <groupId>org.springframework</groupId>
+               <artifactId>spring-orm</artifactId>
+               <version>3.0.6.RELEASE</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
-    <dependencies>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.jboss.resteasy</groupId>
-            <artifactId>resteasy-jaxrs</artifactId>
-            <!-- filter out unwanted jars -->
-            <exclusions>
-                <exclusion>
-                    <groupId>commons-httpclient</groupId>
-                    <artifactId>commons-httpclient</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>javax.servlet</groupId>
-                    <artifactId>servlet-api</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-        <dependency>
-            <groupId>org.jboss.resteasy</groupId>
-            <artifactId>resteasy-spring</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-core</artifactId>
-            <version>3.0.6.RELEASE</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-webmvc</artifactId>
-            <version>3.0.6.RELEASE</version>
-            <scope>provided</scope>
-        </dependency>
-        <!-- Test classes that integrates Junit 3.8 and 4 to Spring based applications -->
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-test</artifactId>
-            <version>3.0.6.RELEASE</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>javax.persistence</groupId>
-            <artifactId>persistence-api</artifactId>
-            <version>1.0.2</version>
-        </dependency>
-    </dependencies>
 
     <!-- this distributionManagement is only here for RESTEasy automated testing of examples build.  You can remove if you are copying this
          pom.xml as a template -->
