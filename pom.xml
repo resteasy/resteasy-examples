@@ -1,7 +1,7 @@
 <project>
     <parent>
         <groupId>org.jboss.resteasy</groupId>
-        <artifactId>resteasy-jaxrs-all</artifactId>
+        <artifactId>resteasy-dependencies</artifactId>
         <version>3.1.0-SNAPSHOT</version>
     </parent>
     <name>Resteasy Examples</name>
@@ -61,6 +61,10 @@
                <version>${project.version}</version>
             </dependency>
 
+            <dependency>
+               <groupId>junit</groupId>
+               <artifactId>junit</artifactId>
+            </dependency>
     </dependencies>
 
     <dependencyManagement>
@@ -83,12 +87,6 @@
                <artifactId>commons-httpclient</artifactId>
                <version>3.1</version>
             </dependency>
-
-	    <dependency>
-              <groupId>org.jboss.resteasy</groupId>
-              <artifactId>async-http-servlet-3.0</artifactId>
-              <version>${project.version}</version>
-            </dependency> 
 
 	    <dependency>
                <groupId>org.jboss.resteasy</groupId>
