@@ -1,7 +1,7 @@
 <project>
     <parent>
         <groupId>org.jboss.resteasy</groupId>
-        <artifactId>resteasy-jaxrs-all</artifactId>
+        <artifactId>resteasy-dependencies</artifactId>
         <version>3.1.0-SNAPSHOT</version>
     </parent>
     <name>Resteasy Examples</name>
@@ -16,6 +16,15 @@
     <!-- this is only here for RESTEasy automated testing of examples build.  You can remove if you are copying this
          pom.xml as a template    -->
     <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.eclipse.jetty</groupId>
+                    <artifactId>jetty-maven-plugin</artifactId>
+                    <version>${version.org.eclipse.jetty}</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -61,6 +70,10 @@
                <version>${project.version}</version>
             </dependency>
 
+            <dependency>
+               <groupId>junit</groupId>
+               <artifactId>junit</artifactId>
+            </dependency>
     </dependencies>
 
     <dependencyManagement>
@@ -83,12 +96,6 @@
                <artifactId>commons-httpclient</artifactId>
                <version>3.1</version>
             </dependency>
-
-	    <dependency>
-              <groupId>org.jboss.resteasy</groupId>
-              <artifactId>async-http-servlet-3.0</artifactId>
-              <version>${project.version}</version>
-            </dependency> 
 
 	    <dependency>
                <groupId>org.jboss.resteasy</groupId>

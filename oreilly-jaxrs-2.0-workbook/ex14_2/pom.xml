@@ -39,11 +39,6 @@
         </dependency>
         <dependency>
             <groupId>org.jboss.resteasy</groupId>
-            <artifactId>async-http-servlet-3.0</artifactId>
-            <version>3.1.0-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>org.jboss.resteasy</groupId>
             <artifactId>resteasy-servlet-initializer</artifactId>
             <version>3.1.0-SNAPSHOT</version>
         </dependency>
@@ -139,7 +134,7 @@
                     <scanIntervalSeconds>10</scanIntervalSeconds>
                     <stopKey>foo</stopKey>
                     <stopPort>9999</stopPort>
-                    <stopWait>1</stopWait>
+                    <stopWait>10</stopWait>
                 </configuration>
                 <executions>
                     <execution>
@@ -149,7 +144,7 @@
                             <goal>start</goal>
                         </goals>
                         <configuration>
-                            <scanIntervalSeconds>0</scanIntervalSeconds>
+                            <scanIntervalSeconds>10</scanIntervalSeconds>
                             <daemon>true</daemon>
                         </configuration>
                     </execution>
