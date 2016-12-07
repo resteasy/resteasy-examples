@@ -91,7 +91,7 @@
                             <goal>start</goal>
                         </goals>
                         <configuration>
-                            <scanIntervalSeconds>0</scanIntervalSeconds>
+                            <scanIntervalSeconds>10</scanIntervalSeconds>
                             <daemon>true</daemon>
                         </configuration>
                     </execution>
