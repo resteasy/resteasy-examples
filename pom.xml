@@ -2,7 +2,7 @@
     <parent>
         <groupId>org.jboss.resteasy</groupId>
         <artifactId>resteasy-dependencies</artifactId>
-        <version>3.1.1-SNAPSHOT</version>
+        <version>3.0.20.Final</version>
     </parent>
     <name>Resteasy Examples</name>
     <description/>
@@ -12,7 +12,7 @@
     <groupId>org.jboss.resteasy</groupId>
     <artifactId>testable-examples-pom</artifactId>
     <packaging>pom</packaging>
-    <version>3.1.1-SNAPSHOT</version>
+    <version>3.0.20.Final</version>
     <!-- this is only here for RESTEasy automated testing of examples build.  You can remove if you are copying this
          pom.xml as a template    -->
     <build>
