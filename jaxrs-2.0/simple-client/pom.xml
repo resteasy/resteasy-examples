@@ -4,7 +4,7 @@
     <parent>
         <groupId>org.jboss.resteasy</groupId>
     	<artifactId>testable-examples-pom</artifactId>
-	<version>3.0.20.Final</version>
+	<version>3.0.21.Final-SNAPSHOT</version>
         <relativePath>../../pom.xml</relativePath>	    
     </parent>
     <modelVersion>4.0.0</modelVersion>
