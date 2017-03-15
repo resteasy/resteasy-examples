@@ -55,6 +55,7 @@
         <module>wadl-example</module>
         <module>spring-hibernate-contacts</module>
         <module>jsapi-servlet-test</module>
+        <module>skeleton-key-idp-war</module>
     </modules>
 
     <dependencies>
