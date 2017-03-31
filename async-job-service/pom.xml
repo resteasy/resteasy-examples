@@ -6,12 +6,12 @@
     <parent>
         <groupId>org.jboss.resteasy</groupId>
     	<artifactId>testable-examples-pom</artifactId>
-	<version>3.0.22.Final</version>
+	<version>3.0.23.Final-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
     <groupId>org.jboss.resteasy.examples</groupId>
     <artifactId>examples-async-job-service</artifactId>
-    <version>3.0.22.Final</version>
+    <version>3.0.23.Final-SNAPSHOT</version>
     <packaging>war</packaging>
     <name>Example: Async Job Service</name>
     <description/>
