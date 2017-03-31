@@ -46,8 +46,13 @@ function testPutFooParam() {
 function testGetXML() {
 	var data = MyResource.getXML();
 	print(data);
-	assertTrue(data instanceof Document);
-	var root = data.documentElement;
+        if (data instanceof Document) {
+	  assertTrue(data instanceof Document);
+	  var root = data.documentElement;
+        } else {
+          var parser = new DOMParser()
+          var root = parser.parseFromString(data, "application/xml").childNodes[1];
+        }
 	assertEquals("test", root.nodeName);
 	assertEquals(1, root.childNodes.length);
 	assertEquals("var", root.childNodes[0].nodeName);
@@ -82,8 +87,13 @@ function testPutXML() {
 
 function testGetMultiRepresentationXML(){
 	var data = MyResource.getMultiRepresentation({$accepts: "application/xml"});
-	assertTrue(data instanceof Document);
-	var root = data.documentElement;
+        if (data instanceof Document) {
+	  assertTrue(data instanceof Document);
+	  var root = data.documentElement;
+        } else {
+          var parser = new DOMParser()
+          var root = parser.parseFromString(data, "application/xml").childNodes[1];
+        }
 	assertEquals(23, root.childNodes.length);
 }
 
