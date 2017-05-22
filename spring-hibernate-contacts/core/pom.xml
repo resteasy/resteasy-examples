@@ -6,7 +6,7 @@
     <parent>
         <groupId>org.jboss.resteasy.examples</groupId>
         <artifactId>examples-spring-hibernate-contacts</artifactId>
-        <version>3.0.23.Final</version>
+        <version>3.0.24.Final-SNAPSHOT</version>
     </parent> 
     <groupId>org.jboss.resteasy.examples</groupId>
     <artifactId>examples-spring-hibernate-contacts-core</artifactId>
