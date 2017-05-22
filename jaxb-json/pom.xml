@@ -6,7 +6,7 @@
     <parent>
         <groupId>org.jboss.resteasy</groupId>
     	<artifactId>testable-examples-pom</artifactId>
-	<version>3.0.23.Final-SNAPSHOT</version>
+	<version>3.0.23.Final</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
@@ -56,7 +56,7 @@
         <dependency>
             <groupId>org.jboss.resteasy</groupId>
             <artifactId>resteasy-jettison-provider</artifactId>
-            <version>3.0.23.Final-SNAPSHOT</version>
+            <version>3.0.23.Final</version>
             <exclusions>
                 <exclusion>
                     <groupId>javax.xml.bind</groupId>
