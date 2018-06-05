@@ -8,6 +8,7 @@ before_install:
 install:
  - git clone https://github.com/resteasy/Resteasy.git
  - cd Resteasy
+ - git checkout 3.6
  - mvn clean install -DskipTests=true
  - cd ..
  - mvn clean
