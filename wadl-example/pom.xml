@@ -6,7 +6,7 @@
     <parent>
        <groupId>org.jboss.resteasy</groupId>
     	<artifactId>testable-examples-pom</artifactId>
-	<version>3.1.4-SNAPSHOT</version>
+	<version>3.6.0-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
@@ -37,7 +37,7 @@
                 <groupId>org.eclipse.jetty</groupId>
                 <artifactId>jetty-maven-plugin</artifactId>
                 <configuration>
-                    <scanIntervalSeconds>5</scanIntervalSeconds>
+                    <scanIntervalSeconds>10</scanIntervalSeconds>
                     <stopKey>foo</stopKey>
                     <stopPort>9999</stopPort>
                     <stopWait>10</stopWait>

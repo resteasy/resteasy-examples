@@ -19,6 +19,7 @@ import javax.ws.rs.core.Response;
 import java.io.InputStream;
 import java.security.PrivateKey;
 import java.security.cert.X509Certificate;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @author <a href="mailto:bill@burkecentral.com">Bill Burke</a>
@@ -39,7 +40,7 @@ public class SMIMETest
 
       InputStream privatePem = Thread.currentThread().getContextClassLoader().getResourceAsStream("private.pem");
       privateKey = PemUtils.decodePrivateKey(privatePem);
-      client = new ResteasyClientBuilder().build();
+      client = new ResteasyClientBuilder().connectTimeout(120, TimeUnit.SECONDS).readTimeout(120, TimeUnit.SECONDS).build();
 
 
    }

@@ -4,7 +4,7 @@
     <parent>
         <groupId>org.jboss.resteasy</groupId>
     	<artifactId>testable-examples-pom</artifactId>
-	<version>3.1.4-SNAPSHOT</version>
+	<version>3.6.0-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
@@ -52,6 +52,7 @@
                     <stopKey>foo</stopKey>
                     <stopPort>9999</stopPort>
                     <stopWait>10</stopWait>
+                    <scanIntervalSeconds>100</scanIntervalSeconds>
                     <httpConnector>
                         <port>9095</port>
                     </httpConnector>
@@ -64,7 +65,7 @@
                             <goal>start</goal>
                         </goals>
                         <configuration>
-                            <scanIntervalSeconds>10</scanIntervalSeconds>
+                            <scanIntervalSeconds>0</scanIntervalSeconds>
                             <daemon>true</daemon>
                         </configuration>
                     </execution>

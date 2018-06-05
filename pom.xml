@@ -2,7 +2,7 @@
     <parent>
         <groupId>org.jboss.resteasy</groupId>
         <artifactId>resteasy-dependencies</artifactId>
-        <version>3.1.4-SNAPSHOT</version>
+        <version>3.6.0-SNAPSHOT</version>
     </parent>
     <name>Resteasy Examples</name>
     <description/>
@@ -12,7 +12,7 @@
     <groupId>org.jboss.resteasy</groupId>
     <artifactId>testable-examples-pom</artifactId>
     <packaging>pom</packaging>
-    <version>3.1.4-SNAPSHOT</version>
+    <version>3.6.0-SNAPSHOT</version>
     <!-- this is only here for RESTEasy automated testing of examples build.  You can remove if you are copying this
          pom.xml as a template    -->
     <build>
@@ -21,7 +21,7 @@
                 <plugin>
                     <groupId>org.eclipse.jetty</groupId>
                     <artifactId>jetty-maven-plugin</artifactId>
-                    <version>${version.org.eclipse.jetty}</version>
+                    <version>9.4.7.v20170914</version>
                 </plugin>
             </plugins>
         </pluginManagement>
