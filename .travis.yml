@@ -13,7 +13,7 @@ install:
  - cd ..
  - mvn clean
 script:
- - mvn -B install -Dorg.eclipse.jetty.annotations.maxWait=180
+ - travis_wait 30 mvn -B install -Dorg.eclipse.jetty.annotations.maxWait=180
 
 language: java
 jdk:
