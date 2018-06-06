@@ -5,7 +5,7 @@
     <parent>
         <groupId>org.jboss.resteasy</groupId>
     	<artifactId>testable-examples-pom</artifactId>
-	<version>3.1.4-SNAPSHOT</version>
+	<version>3.6.0-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
     <groupId>org.jboss.resteasy.test</groupId>
@@ -52,7 +52,7 @@
                     <webApp>
                         <contextPath>/</contextPath>
                     </webApp>
-                    <scanIntervalSeconds>2</scanIntervalSeconds>
+                    <scanIntervalSeconds>10</scanIntervalSeconds>
                     <stopKey>foo</stopKey>
                     <stopPort>9999</stopPort>
                     <httpConnector>
@@ -67,7 +67,7 @@
                             <goal>start</goal>
                         </goals>
                         <configuration>
-                            <scanIntervalSeconds>10</scanIntervalSeconds>
+                            <scanIntervalSeconds>0</scanIntervalSeconds>
                         </configuration>
                     </execution>
                     <execution>
@@ -104,9 +104,9 @@
                 <version>1.4</version>
                 <dependencies>
                     <dependency>
-                        <groupId>rhino</groupId>
-                        <artifactId>js</artifactId>
-                        <version>1.7R2</version>
+                        <groupId>org.mozilla</groupId>
+                        <artifactId>rhino</artifactId>
+                        <version>1.7.9</version>
                     </dependency>
                 </dependencies>
                 <executions>

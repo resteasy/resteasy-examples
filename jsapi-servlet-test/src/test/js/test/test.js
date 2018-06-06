@@ -69,13 +69,13 @@ function testGetJSONStarMIME() {
 	var data = MyResource.getJSONStarMIME();
 	assertEquals(data['var'], "foo");
 }
-
+/*
 function testPutJSON() {
 	var toSend = {'var' : "ok"};
 	var data = MyResource.putJSON({$entity: toSend});
 	assertEquals("ok", data);
 }
-
+*/
 function testPutXML() {
 	var toSend = document.implementation.createDocument(null, "test", null);
 	var v = toSend.createElement("var");

@@ -5,7 +5,7 @@
     <parent>
         <groupId>org.jboss.resteasy</groupId>
     	<artifactId>testable-examples-pom</artifactId>
-	<version>3.1.4-SNAPSHOT</version>
+	<version>3.6.0-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
     <groupId>org.jboss.resteasy.examples</groupId>
@@ -18,7 +18,7 @@
         <dependency>
             <groupId>org.jboss.resteasy</groupId>
             <artifactId>resteasy-spring</artifactId>
-            <version>3.1.4-SNAPSHOT</version>
+            <version>3.6.0-SNAPSHOT</version>
         </dependency>
         
         <dependency>
@@ -28,7 +28,7 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
-            <version>3.0.6.RELEASE</version>
+            <version>3.2.17.RELEASE</version>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
@@ -41,7 +41,7 @@
         <dependency>
             <groupId>org.jboss.resteasy</groupId>
             <artifactId>tjws</artifactId>
-            <version>3.1.4-SNAPSHOT</version>
+            <version>3.6.0-SNAPSHOT</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
@@ -72,7 +72,7 @@
                 <artifactId>jetty-maven-plugin</artifactId>
                 <configuration>
                     <contextPath>/</contextPath>
-                    <scanIntervalSeconds>2</scanIntervalSeconds>
+                    <scanIntervalSeconds>0</scanIntervalSeconds>
                 </configuration>
             </plugin>
         </plugins>
