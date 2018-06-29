@@ -6,7 +6,7 @@
     <parent>
         <groupId>org.jboss.resteasy</groupId>
         <artifactId>resteasy-dependencies</artifactId>
-        <version>3.6.0-SNAPSHOT</version>
+        <version>3.6.0.Final</version>
     </parent>
     <groupId>com.oreilly.rest.workbook</groupId>
     <artifactId>jaxrs-2.0-workbook-pom</artifactId>
@@ -62,7 +62,7 @@ pom.xml as a template -->
     <dependencies>
         <dependency>
             <groupId>org.jboss.spec.javax.ws.rs</groupId>
-            <artifactId>jboss-jaxrs-api_2.0_spec</artifactId>
+            <artifactId>jboss-jaxrs-api_2.1_spec</artifactId>
         </dependency>
     </dependencies>
 
