@@ -21,10 +21,6 @@
             <version>${project.version}</version>
             <scope>compile</scope>
         </dependency>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-        </dependency>
         <!--
         <dependency>
             <groupId>javax.transaction</groupId>

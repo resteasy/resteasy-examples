@@ -5,8 +5,8 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>org.jboss.resteasy</groupId>
-    	<artifactId>testable-examples-pom</artifactId>
-	<version>4.0.0.CR1</version>
+        <artifactId>testable-examples-pom</artifactId>
+        <version>4.0.0.CR1</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
     <groupId>org.jboss.resteasy.examples</groupId>
@@ -16,23 +16,20 @@
     <name>Example: Async Job Service</name>
     <description/>
 
-    <repositories>
-        <repository>
-            <id>jboss</id>
-            <name>jboss repo</name>
-            <url>http://repository.jboss.org/nexus/content/groups/public/</url>
-        </repository>
-    </repositories>
-
-    <!-- this distributionManagement is only here for RESTEasy automated testing of examples build.  You can remove if you are copying this
-         pom.xml as a template -->
-    <distributionManagement>
-        <repository>
-            <id>jboss-releases-repository</id>
-            <name>JBoss Releases Repository</name>
-            <url>https://repository.jboss.org/nexus/service/local/staging/deploy/maven2/</url>
-        </repository>
-    </distributionManagement>
+    <dependencies>
+        <dependency>
+            <groupId>org.glassfish.jersey.core</groupId>
+            <artifactId>jersey-client</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish.jersey.core</groupId>
+            <artifactId>jersey-common</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish.jersey.inject</groupId>
+            <artifactId>jersey-hk2</artifactId>
+        </dependency>
+    </dependencies>
 
     <build>
         <finalName>async-job</finalName>
