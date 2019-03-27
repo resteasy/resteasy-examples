@@ -3,9 +3,9 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <parent>
         <groupId>org.jboss.resteasy</groupId>
-    	<artifactId>testable-examples-pom</artifactId>
-	<version>4.0.0.CR1</version>
-        <relativePath>../../pom.xml</relativePath>    
+        <artifactId>testable-examples-pom</artifactId>
+        <version>4.0.0.CR1</version>
+        <relativePath>../../pom.xml</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.jboss.resteasy.test</groupId>
@@ -14,13 +14,6 @@
     <name>chat</name>
     <description/>
     <url>http://maven.apache.org</url>
-
-    <dependencies>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-        </dependency>
-    </dependencies>
 
     <build>
         <finalName>chat</finalName>

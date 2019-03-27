@@ -4,6 +4,7 @@ import junit.framework.Assert;
 import org.jboss.example.jaxrs2.async.Customer;
 import org.jboss.resteasy.client.jaxrs.ResteasyClient;
 import org.jboss.resteasy.client.jaxrs.ResteasyClientBuilder;
+import org.jboss.resteasy.client.jaxrs.internal.ResteasyClientBuilderImpl;
 import org.junit.Test;
 
 import javax.ws.rs.GET;
@@ -149,7 +150,7 @@ public class SimpleClientTest
    @Test
    public void testProxy() throws Exception
    {
-      ResteasyClient client = new ResteasyClientBuilder().build();
+      ResteasyClient client = new ResteasyClientBuilderImpl().build();
       // or you can do...
       // ResteasyClient client = (ResteasyClient)ClientBuilder.newClient();
       CustomerProxy proxy = client.target("http://localhost:9095").proxy(CustomerProxy.class);
