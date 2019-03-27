@@ -5,6 +5,7 @@ import org.jboss.resteasy.annotations.security.doseta.Verify;
 import org.jboss.resteasy.client.jaxrs.ResteasyClient;
 import org.jboss.resteasy.client.jaxrs.ResteasyClientBuilder;
 import org.jboss.resteasy.client.jaxrs.ResteasyWebTarget;
+import org.jboss.resteasy.client.jaxrs.internal.ResteasyClientBuilderImpl;
 import org.jboss.resteasy.security.doseta.DKIMSignature;
 import org.jboss.resteasy.security.doseta.DosetaKeyRepository;
 import org.jboss.resteasy.security.doseta.KeyRepository;
@@ -60,7 +61,7 @@ public class SigningTest
       repository.setKeyStorePassword("password");
       repository.setUseDns(false);
       repository.start();
-      client = new ResteasyClientBuilder().build();
+      client = new ResteasyClientBuilderImpl().build();
    }
 
    @AfterClass
