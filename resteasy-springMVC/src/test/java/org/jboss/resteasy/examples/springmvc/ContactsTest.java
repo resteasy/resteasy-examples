@@ -1,9 +1,8 @@
 package org.jboss.resteasy.examples.springmvc;
 
-import org.jboss.resteasy.client.ClientURI;
+import org.jboss.resteasy.annotations.ClientURI;
 import org.jboss.resteasy.client.jaxrs.ResteasyClient;
 import org.jboss.resteasy.client.jaxrs.ResteasyClientBuilder;
-import org.jboss.resteasy.springmvc.tjws.TJWSEmbeddedSpringMVCServer;
 import org.jboss.resteasy.util.HttpHeaderNames;
 import org.junit.AfterClass;
 import org.junit.Assert;
