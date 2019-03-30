@@ -2,30 +2,15 @@ package org.jboss.resteasy.tests.signature;
 
 import org.jboss.resteasy.annotations.security.doseta.Signed;
 import org.jboss.resteasy.annotations.security.doseta.Verify;
-import org.jboss.resteasy.client.jaxrs.ResteasyClient;
-import org.jboss.resteasy.client.jaxrs.ResteasyClientBuilder;
 import org.jboss.resteasy.client.jaxrs.ResteasyWebTarget;
-import org.jboss.resteasy.client.jaxrs.internal.ResteasyClientBuilderImpl;
-import org.jboss.resteasy.security.doseta.DKIMSignature;
-import org.jboss.resteasy.security.doseta.DosetaKeyRepository;
-import org.jboss.resteasy.security.doseta.KeyRepository;
-import org.jboss.resteasy.security.doseta.UnauthorizedSignatureException;
-import org.jboss.resteasy.security.doseta.Verification;
-import org.jboss.resteasy.security.doseta.Verifier;
+import org.jboss.resteasy.security.doseta.*;
 import org.junit.AfterClass;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import javax.ws.rs.Consumes;
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.ProcessingException;
-import javax.ws.rs.Produces;
-import javax.ws.rs.client.Entity;
-import javax.ws.rs.client.Invocation;
-import javax.ws.rs.client.WebTarget;
+import javax.ws.rs.*;
+import javax.ws.rs.client.*;
 import javax.ws.rs.core.Response;
 import java.security.KeyPair;
 
@@ -37,7 +22,7 @@ public class SigningTest
 {
    public static KeyPair keys;
    public static DosetaKeyRepository repository;
-   public static ResteasyClient client;
+   public static Client client;
 
    @Path("/signed")
    public static interface SigningProxy
@@ -61,7 +46,7 @@ public class SigningTest
       repository.setKeyStorePassword("password");
       repository.setUseDns(false);
       repository.start();
-      client = new ResteasyClientBuilderImpl().build();
+      client = ClientBuilder.newBuilder().build();
    }
 
    @AfterClass
@@ -196,9 +181,9 @@ public class SigningTest
    @Test
    public void testProxy() throws Exception
    {
-      ResteasyWebTarget target = client.target("http://localhost:9095");
+      WebTarget target = client.target("http://localhost:9095");
       target.property(KeyRepository.class.getName(), repository);
-      SigningProxy proxy = target.proxy(SigningProxy.class);
+      SigningProxy proxy = ((ResteasyWebTarget) target).proxy(SigningProxy.class);
       String output = proxy.hello();
       proxy.postSimple("hello world");
    }
