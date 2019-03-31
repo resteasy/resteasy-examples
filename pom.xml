@@ -1,24 +1,28 @@
 <project>
+
     <parent>
         <groupId>org.jboss.resteasy</groupId>
         <artifactId>resteasy-dependencies</artifactId>
+        <!--propertiy 'resteasy.version' not worked here: -->
         <version>4.0.0.CR1</version>
+        <!--^^^ modify it manually to keep sync with `resteasy.version` property -->
     </parent>
     <name>Resteasy Examples</name>
     <description/>
     <url>http://wiki.jboss.org/wiki/Wiki.jsp?page=RESTeasyJAXRS</url>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.jboss.resteasy</groupId>
-    <artifactId>testable-examples-pom</artifactId>
-    <packaging>pom</packaging>
-    <version>4.0.0.CR1</version>
-    <!-- this is only here for RESTEasy automated testing of examples build.  You can remove if you are copying this
-         pom.xml as a template    -->
-
     <properties>
         <resteasy.version>4.0.0.CR1</resteasy.version>
     </properties>
+
+    <groupId>org.jboss.resteasy</groupId>
+    <artifactId>testable-examples-pom</artifactId>
+    <packaging>pom</packaging>
+    <version>4.0.0.CR1-SNAPSHOT</version>
+    <!-- this is only here for RESTEasy automated testing of examples build.  You can remove if you are copying this
+         pom.xml as a template    -->
+
     <build>
         <pluginManagement>
             <plugins>

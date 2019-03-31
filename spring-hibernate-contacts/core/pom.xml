@@ -6,7 +6,7 @@
     <parent>
         <groupId>org.jboss.resteasy.examples</groupId>
         <artifactId>examples-spring-hibernate-contacts</artifactId>
-        <version>4.0.0.CR1</version>
+        <version>4.0.0.CR1-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent> 
     <groupId>org.jboss.resteasy.examples</groupId>
