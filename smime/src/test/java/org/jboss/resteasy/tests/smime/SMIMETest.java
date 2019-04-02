@@ -1,6 +1,5 @@
 package org.jboss.resteasy.tests.smime;
 
-import org.jboss.resteasy.client.jaxrs.ResteasyClient;
 import org.jboss.resteasy.client.jaxrs.ResteasyClientBuilder;
 import org.jboss.resteasy.security.PemUtils;
 import org.jboss.resteasy.security.smime.EnvelopedInput;
@@ -13,6 +12,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import javax.ws.rs.client.Client;
+import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.Response;
@@ -40,9 +40,7 @@ public class SMIMETest
 
       InputStream privatePem = Thread.currentThread().getContextClassLoader().getResourceAsStream("private.pem");
       privateKey = PemUtils.decodePrivateKey(privatePem);
-      client = new ResteasyClientBuilder().connectTimeout(120, TimeUnit.SECONDS).readTimeout(120, TimeUnit.SECONDS).build();
-
-
+      client = ((ResteasyClientBuilder)(ClientBuilder.newBuilder())).connectTimeout(120, TimeUnit.SECONDS).readTimeout(120, TimeUnit.SECONDS).build();
    }
 
    @AfterClass

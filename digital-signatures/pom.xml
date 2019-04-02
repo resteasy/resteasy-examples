@@ -2,8 +2,8 @@
     <parent>
         <groupId>org.jboss.resteasy</groupId>
         <artifactId>testable-examples-pom</artifactId>
-        <version>3.6.1.Final-SNAPSHOT</version>
-	    <relativePath>../pom.xml</relativePath>
+        <version>4.0.0.CR1-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
     </parent>
     <name>Resteasy Examples</name>
     <description/>
@@ -13,7 +13,19 @@
     <groupId>org.jboss.resteasy</groupId>
     <artifactId>signature-examples-pom</artifactId>
     <packaging>pom</packaging>
-    <version>3.6.1.Final-SNAPSHOT</version>
+    <version>4.0.0.CR1-SNAPSHOT</version>
+
+
+    <dependencies>
+        <dependency>
+            <groupId>org.jboss.resteasy</groupId>
+            <artifactId>resteasy-crypto</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>servlet-api</artifactId>
+        </dependency>
+    </dependencies>
     <!-- this is only here for RESTEasy automated testing of examples build.  You can remove if you are copying this
          pom.xml as a template    -->
     <build>
@@ -28,15 +40,6 @@
         </plugins>
     </build>
 
-    <dependencyManagement>
-	<dependencies>
-	 <dependency>
-            <groupId>org.jboss.resteasy</groupId>
-            <artifactId>resteasy-crypto</artifactId>
-            <version>${project.version}</version>
-         </dependency>
-        </dependencies>
-    </dependencyManagement>
 
     <modules>
         <module>no-dns</module>

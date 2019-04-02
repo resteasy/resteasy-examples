@@ -5,34 +5,27 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>org.jboss.resteasy</groupId>
-    	<artifactId>testable-examples-pom</artifactId>
-	<version>3.6.1.Final-SNAPSHOT</version>
+        <artifactId>testable-examples-pom</artifactId>
+        <version>4.0.0.CR1-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
     <groupId>org.jboss.resteasy.examples</groupId>
     <artifactId>examples-async-job-service</artifactId>
-    <version>3.6.1.Final-SNAPSHOT</version>
+    <version>4.0.0.CR1-SNAPSHOT</version>
     <packaging>war</packaging>
     <name>Example: Async Job Service</name>
     <description/>
 
-    <repositories>
-        <repository>
-            <id>jboss</id>
-            <name>jboss repo</name>
-            <url>http://repository.jboss.org/nexus/content/groups/public/</url>
-        </repository>
-    </repositories>
-
-    <!-- this distributionManagement is only here for RESTEasy automated testing of examples build.  You can remove if you are copying this
-         pom.xml as a template -->
-    <distributionManagement>
-        <repository>
-            <id>jboss-releases-repository</id>
-            <name>JBoss Releases Repository</name>
-            <url>https://repository.jboss.org/nexus/service/local/staging/deploy/maven2/</url>
-        </repository>
-    </distributionManagement>
+    <dependencies>
+        <dependency>
+            <groupId>org.jboss.resteasy</groupId>
+            <artifactId>resteasy-client</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>servlet-api</artifactId>
+        </dependency>
+    </dependencies>
 
     <build>
         <finalName>async-job</finalName>
