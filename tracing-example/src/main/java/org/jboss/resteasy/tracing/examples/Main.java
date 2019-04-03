@@ -7,6 +7,7 @@ public class Main {
 
 
         Demo.buildServer();
+        System.out.println("Server started.");
         Thread.currentThread().join(); // keep server running...
 
     }
