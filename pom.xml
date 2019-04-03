@@ -1,5 +1,4 @@
 <project>
-
     <parent>
         <groupId>org.jboss.resteasy</groupId>
         <artifactId>resteasy-dependencies</artifactId>
@@ -13,7 +12,15 @@
     <modelVersion>4.0.0</modelVersion>
 
     <properties>
+        <javax-json.version>1.1</javax-json.version>
+        <jackson-databind.version>2.9.4</jackson-databind.version>
+        <jboss-logging.version>3.3.2.Final</jboss-logging.version>
+        <junit.version>4.12</junit.version>
+        <logmanager.version>2.1.8.Final</logmanager.version>
+        <maven-compiler-plugin.version>3.8.0</maven-compiler-plugin.version>
         <resteasy.version>4.0.0.CR1</resteasy.version>
+        <resteasy-tracing-api.version>1.0.0.Beta4</resteasy-tracing-api.version>
+        <undertow.ver>1.4.18.Final</undertow.ver>
     </properties>
 
     <groupId>org.jboss.resteasy</groupId>
@@ -22,7 +29,6 @@
     <version>4.0.0.CR1-SNAPSHOT</version>
     <!-- this is only here for RESTEasy automated testing of examples build.  You can remove if you are copying this
          pom.xml as a template    -->
-
     <build>
         <pluginManagement>
             <plugins>
@@ -81,7 +87,6 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
-
     <dependencies>
         <dependency>
             <groupId>org.jboss.resteasy</groupId>
@@ -118,6 +123,7 @@
         <module>wadl-example</module>
         <module>spring-hibernate-contacts</module>
         <module>jsapi-servlet-test</module>
+        <module>tracing-example</module>
         <!--<module>skeleton-key-idp-war</module>-->
     </modules>
 </project>

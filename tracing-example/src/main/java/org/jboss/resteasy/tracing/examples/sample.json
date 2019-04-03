@@ -1,0 +1,196 @@
+{
+  "X-RESTEasy-Tracing-000": [
+    {
+      "duration": 0,
+      "event": "START",
+      "text": "baseUri=[http://localhost:8081/] requestUri=[http://localhost:8081/level] method=[GET] authScheme=[n/a] accept=n/a accept-encoding=n/a accept-charset=n/a accept-language=n/a content-type=n/a content-length=n/a ",
+      "timestamp": 185379082748341
+    },
+    {
+      "duration": 0,
+      "event": "START_HEADERS",
+      "text": "Other request headers: Connection=[close] Host=[localhost:8081] User-Agent=[Paw/3.1.7 (Macintosh; OS X/10.13.6) GCDHTTPRequest] X-RESTEasy-Tracing-Accept-Format=[JSON] ",
+      "timestamp": 185379083322945
+    },
+    {
+      "duration": 14941,
+      "event": "PRE_MATCH_SUMMARY",
+      "text": "PreMatchRequest summary: 0 filters",
+      "timestamp": 185379085281811
+    },
+    {
+      "duration": 21877,
+      "event": "REQUEST_FILTER",
+      "text": "Filter by [io.weli.tracing.HttpMethodOverride @23400a3a]",
+      "timestamp": 185379088805737
+    },
+    {
+      "duration": 31723,
+      "event": "REQUEST_FILTER",
+      "text": "Filter by [org.jboss.resteasy.core.AcceptHeaderByFileSuffixFilter @71213a78]",
+      "timestamp": 185379089256709
+    },
+    {
+      "duration": 937074,
+      "event": "REQUEST_FILTER_SUMMARY",
+      "text": "Request summary: 2 filters",
+      "timestamp": 185379089482043
+    },
+    {
+      "duration": 0,
+      "event": "MATCH_RUNTIME_RESOURCE",
+      "text": "Matched resource: template=[[org.jboss.resteasy.core.registry.ClassExpression @109e673f]] regexp=[\\Q\\E(.*)] matches=[[org.jboss.resteasy.core.registry.SegmentNode @33acbecc]] from=[]",
+      "timestamp": 185379090216759
+    },
+    {
+      "duration": 0,
+      "event": "MATCH_PATH_FIND",
+      "text": "Matching path [/level]",
+      "timestamp": 185379090574201
+    },
+    {
+      "duration": 0,
+      "event": "MATCH_PATH_SELECTED",
+      "text": "Pattern [\\Qlevel\\E] IS selected",
+      "timestamp": 185379092797077
+    },
+    {
+      "duration": 3210708,
+      "event": "MATCH_SUMMARY",
+      "text": "RequestMatching summary",
+      "timestamp": 185379093026621
+    },
+    {
+      "duration": 0,
+      "event": "MATCH_RESOURCE",
+      "text": "Resource instance: [org.jboss.resteasy.core.ResourceMethodInvoker @13463e86]",
+      "timestamp": 185379093196106
+    },
+    {
+      "duration": 0,
+      "event": "MATCH_RESOURCE_METHOD",
+      "text": "Matched method  : public java.lang.String io.weli.tracing.TracingConfigResource.level(org.jboss.resteasy.spi.ResteasyDeployment)",
+      "timestamp": 185379093388409
+    },
+    {
+      "duration": 354426,
+      "event": "REQUEST_FILTER",
+      "text": "Filter by [org.jboss.resteasy.plugins.providers.sse.SseEventSinkInterceptor @143e0d5f #2147483647]",
+      "timestamp": 185379095303835
+    },
+    {
+      "duration": 669612,
+      "event": "REQUEST_FILTER_SUMMARY",
+      "text": "Request summary: 1 filters",
+      "timestamp": 185379095595371
+    },
+    {
+      "duration": 7106521,
+      "event": "METHOD_INVOKE",
+      "text": "Resource [SINGLETON|class io.weli.tracing.TracingConfigResource|io.weli.tracing.TracingConfigResource@554e218] method=[public java.lang.String io.weli.tracing.TracingConfigResource.level(org.jboss.resteasy.spi.ResteasyDeployment)]",
+      "timestamp": 185379101192727
+    },
+    {
+      "duration": 0,
+      "event": "DISPATCH_RESPONSE",
+      "text": "Response: [org.jboss.resteasy.specimpl.BuiltResponse @6aa792cf <200/SUCCESSFUL|OK|java.lang.String @23a8a197>]",
+      "timestamp": 185379101572788
+    },
+    {
+      "duration": 11665,
+      "event": "RESPONSE_FILTER",
+      "text": "Filter by [org.jboss.resteasy.plugins.interceptors.MessageSanitizerContainerResponseFilter @6fb8071 #4000]",
+      "timestamp": 185379110013950
+    },
+    {
+      "duration": 0,
+      "event": "MBW_FIND",
+      "text": "Find MBW for type=[java.lang.String] genericType=[java.lang.String] mediaType=[[javax.ws.rs.core.MediaType @999f8e7]] annotations=[@javax.ws.rs.GET(), @javax.ws.rs.Path(value=\"/level\")]",
+      "timestamp": 185379113551701
+    },
+    {
+      "duration": 0,
+      "event": "MBW_SELECTED",
+      "text": "[org.jboss.resteasy.plugins.providers.StringTextStar @6c10bf81] IS writeable",
+      "timestamp": 185379113852402
+    },
+    {
+      "duration": 0,
+      "event": "MBW_SKIPPED",
+      "text": "[org.jboss.resteasy.plugins.providers.sse.SseEventOutputProvider @5820b355] is skipped",
+      "timestamp": 185379113958709
+    },
+    {
+      "duration": 0,
+      "event": "MBW_SKIPPED",
+      "text": "[org.jboss.resteasy.plugins.providers.FileProvider @7486c95f] is skipped",
+      "timestamp": 185379114075529
+    },
+    {
+      "duration": 0,
+      "event": "MBW_SKIPPED",
+      "text": "[org.jboss.resteasy.plugins.providers.ByteArrayProvider @32c9765c] is skipped",
+      "timestamp": 185379114316502
+    },
+    {
+      "duration": 0,
+      "event": "MBW_SKIPPED",
+      "text": "[org.jboss.resteasy.plugins.providers.StreamingOutputProvider @74d1fe22] is skipped",
+      "timestamp": 185379114447253
+    },
+    {
+      "duration": 0,
+      "event": "MBW_SKIPPED",
+      "text": "[org.jboss.resteasy.plugins.providers.ReaderProvider @29b641f6] is skipped",
+      "timestamp": 185379114596884
+    },
+    {
+      "duration": 0,
+      "event": "MBW_SKIPPED",
+      "text": "[org.jboss.resteasy.plugins.providers.DataSourceProvider @6bb8b9ae] is skipped",
+      "timestamp": 185379114711952
+    },
+    {
+      "duration": 0,
+      "event": "MBW_SKIPPED",
+      "text": "[org.jboss.resteasy.plugins.providers.FileRangeWriter @123a4913] is skipped",
+      "timestamp": 185379114887152
+    },
+    {
+      "duration": 0,
+      "event": "MBW_SKIPPED",
+      "text": "[org.jboss.resteasy.plugins.providers.InputStreamProvider @69618598] is skipped",
+      "timestamp": 185379115076686
+    },
+    {
+      "duration": 0,
+      "event": "MBW_WRITE_TO",
+      "text": "WriteTo by org.jboss.resteasy.plugins.providers.StringTextStar",
+      "timestamp": 185379115269789
+    },
+    {
+      "duration": 3817878,
+      "event": "WI_AFTER",
+      "text": "[org.jboss.resteasy.plugins.interceptors.GZIPEncodingInterceptor @29ca3d04 #4000] AFTER context.proceed()",
+      "timestamp": 185379116761398
+    },
+    {
+      "duration": 4644135,
+      "event": "WI_SUMMARY",
+      "text": "WriteTo summary: 1 interceptors",
+      "timestamp": 185379117025257
+    },
+    {
+      "duration": 7267249,
+      "event": "RESPONSE_FILTER_SUMMARY",
+      "text": "Response summary: 1 filters",
+      "timestamp": 185379117245569
+    },
+    {
+      "duration": 0,
+      "event": "FINISHED",
+      "text": "Response status: 200",
+      "timestamp": 185379117480842
+    }
+  ]
+}
