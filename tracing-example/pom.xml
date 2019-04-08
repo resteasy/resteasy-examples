@@ -51,17 +51,14 @@
         <dependency>
             <groupId>org.jboss.resteasy</groupId>
             <artifactId>resteasy-tracing-api</artifactId>
-            <version>${resteasy-tracing-api.version}</version>
         </dependency>
         <dependency>
             <groupId>io.undertow</groupId>
             <artifactId>undertow-servlet</artifactId>
-            <version>${undertow.ver}</version>
         </dependency>
         <dependency>
             <groupId>io.undertow</groupId>
             <artifactId>undertow-core</artifactId>
-            <version>${undertow.ver}</version>
         </dependency>
         <dependency>
             <groupId>org.jboss.resteasy</groupId>

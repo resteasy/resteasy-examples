@@ -19,8 +19,6 @@
         <logmanager.version>2.1.8.Final</logmanager.version>
         <maven-compiler-plugin.version>3.8.0</maven-compiler-plugin.version>
         <resteasy.version>4.0.0.CR1</resteasy.version>
-        <resteasy-tracing-api.version>1.0.0.Beta4</resteasy-tracing-api.version>
-        <undertow.ver>1.4.18.Final</undertow.ver>
     </properties>
 
     <groupId>org.jboss.resteasy</groupId>

@@ -39,9 +39,7 @@ public class BasicQueryTest {
         target = client.target("http://localhost:8081/logger");
         assertEquals(RESTEasyTracingLogger.class.getName(), target.request().get(String.class));
 
-        if (client != null) {
-            client.close();
-        }
+        client.close();
 
     }
 }
