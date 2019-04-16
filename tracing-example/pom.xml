@@ -31,12 +31,15 @@
             <!--<version>1.0</version>-->
         <!--</dependency>-->
 
+        <!--<dependency>-->
+            <!--<groupId>com.fasterxml.jackson.core</groupId>-->
+            <!--<artifactId>jackson-databind</artifactId>-->
+            <!--<version>${jackson-databind.version}</version>-->
+        <!--</dependency>-->
         <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-databind</artifactId>
-            <version>${jackson-databind.version}</version>
+            <groupId>org.jboss.resteasy</groupId>
+            <artifactId>resteasy-jackson2-provider</artifactId>
         </dependency>
-
         <dependency>
             <groupId>org.glassfish</groupId>
             <artifactId>javax.json</artifactId>
@@ -85,6 +88,7 @@
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
         </dependency>
+
     </dependencies>
 
     <build>
