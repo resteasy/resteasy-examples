@@ -67,26 +67,26 @@ pom.xml as a template -->
     </dependencies>
 
     <modules>
-        <module>ex03_1</module>
-        <module>ex04_1</module>
-        <module>ex04_2</module>
-        <module>ex04_3</module>
-        <module>ex05_1</module>
-        <module>ex05_2</module>
-        <module>ex06_1</module>
-        <module>ex06_2</module>
-        <module>ex07_1</module>
-        <module>ex09_1</module>
-        <module>ex09_2</module>
-        <module>ex10_1</module>
-        <module>ex10_2</module>
-        <module>ex11_1</module>
-        <module>ex12_1</module>
-        <module>ex12_2</module>
-        <module>ex13_1</module>
-        <!-- <module>ex14_1</module> -->
-        <module>ex14_2</module>
-        <module>ex15_1</module>
-        <module>ex15_2</module>
+        <!--<module>ex03_1</module>-->
+        <!--<module>ex04_1</module>-->
+        <!--<module>ex04_2</module>-->
+        <!--<module>ex04_3</module>-->
+        <!--<module>ex05_1</module>-->
+        <!--<module>ex05_2</module>-->
+        <!--<module>ex06_1</module>-->
+        <!--<module>ex06_2</module>-->
+        <!--<module>ex07_1</module>-->
+        <!--<module>ex09_1</module>-->
+        <!--<module>ex09_2</module>-->
+        <!--<module>ex10_1</module>-->
+        <!--<module>ex10_2</module>-->
+        <!--<module>ex11_1</module>-->
+        <!--<module>ex12_1</module>-->
+        <!--<module>ex12_2</module>-->
+        <!--<module>ex13_1</module>-->
+        <!--&lt;!&ndash; <module>ex14_1</module> &ndash;&gt;-->
+        <!--<module>ex14_2</module>-->
+        <!--<module>ex15_1</module>-->
+        <!--<module>ex15_2</module>-->
     </modules>
 </project>
