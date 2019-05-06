@@ -18,17 +18,17 @@
         <dependency>
             <groupId>org.jboss.resteasy</groupId>
             <artifactId>jose-jwt</artifactId>
-            <version>${resteasy.version}</version>
+            <version>${resteasy.dep.version}</version>
         </dependency>
         <dependency>
             <groupId>org.jboss.resteasy</groupId>
             <artifactId>skeleton-key-core</artifactId>
-            <version>${resteasy.version}</version>
+            <version>${resteasy.dep.version}</version>
         </dependency>
         <dependency>
             <groupId>org.jboss.resteasy</groupId>
             <artifactId>skeleton-key-idp</artifactId>
-            <version>${resteasy.version}</version>
+            <version>${resteasy.dep.version}</version>
         </dependency>
         <dependency>
             <groupId>org.jboss.resteasy</groupId>

@@ -2,7 +2,7 @@
     <parent>
         <groupId>org.jboss.resteasy</groupId>
         <artifactId>resteasy-dependencies</artifactId>
-        <!--propertiy 'resteasy.version' not worked here: -->
+        <!--property 'resteasy.version' not worked here: -->
         <version>4.0.0.CR1</version>
         <!--^^^ modify it manually to keep sync with `resteasy.version` property -->
     </parent>
@@ -18,7 +18,7 @@
         <junit.version>4.12</junit.version>
         <logmanager.version>2.1.8.Final</logmanager.version>
         <maven-compiler-plugin.version>3.8.0</maven-compiler-plugin.version>
-        <resteasy.version>4.0.0.CR1</resteasy.version>
+        <resteasy.dep.version>4.0.0.CR1</resteasy.dep.version>
     </properties>
 
     <groupId>org.jboss.resteasy</groupId>
@@ -59,7 +59,7 @@
             <dependency>
                 <groupId>org.jboss.resteasy</groupId>
                 <artifactId>resteasy-bom</artifactId>
-                <version>${resteasy.version}</version>
+                <version>${resteasy.dep.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -98,7 +98,7 @@
         <dependency>
             <groupId>org.jboss.resteasy</groupId>
             <artifactId>resteasy-core</artifactId>
-            <version>${resteasy.version}</version>
+            <version>${resteasy.dep.version}</version>
         </dependency>
         <dependency>
             <groupId>junit</groupId>

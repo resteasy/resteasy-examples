@@ -3,16 +3,18 @@
     <name>OReilly JAX-RS 2.0 Workbook Examples</name>
     <description/>
     <modelVersion>4.0.0</modelVersion>
+
     <parent>
         <groupId>org.jboss.resteasy</groupId>
-        <artifactId>resteasy-dependencies</artifactId>
+        <artifactId>testable-examples-pom</artifactId>
         <version>4.0.0.CR1-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
     </parent>
+
     <groupId>com.oreilly.rest.workbook</groupId>
     <artifactId>jaxrs-2.0-workbook-pom</artifactId>
     <version>1.0</version>
     <packaging>pom</packaging>
-
 
     <properties>
     </properties>

@@ -66,17 +66,17 @@
         <dependency>
             <groupId>org.jboss.resteasy</groupId>
             <artifactId>resteasy-undertow</artifactId>
-            <version>${resteasy.version}</version>
+            <version>${resteasy.dep.version}</version>
         </dependency>
         <dependency>
             <groupId>org.jboss.resteasy</groupId>
             <artifactId>resteasy-core</artifactId>
-            <version>${resteasy.version}</version>
+            <version>${resteasy.dep.version}</version>
         </dependency>
         <dependency>
             <groupId>org.jboss.resteasy</groupId>
             <artifactId>resteasy-core-spi</artifactId>
-            <version>${resteasy.version}</version>
+            <version>${resteasy.dep.version}</version>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
