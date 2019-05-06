@@ -1,6 +1,10 @@
 package com.restfully.shop.test;
 
+import com.restfully.shop.services.ShoppingApplication;
+import io.undertow.servlet.api.DeploymentInfo;
+import org.jboss.resteasy.core.ResteasyDeploymentImpl;
 import org.jboss.resteasy.plugins.server.undertow.UndertowJaxrsServer;
+import org.jboss.resteasy.spi.ResteasyDeployment;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Ignore;
@@ -23,12 +27,22 @@ public class CustomerResourceTest
 
    @Before
    public void before() {
+      server = new UndertowJaxrsServer().start();
 
+      ResteasyDeployment deployment = new ResteasyDeploymentImpl();
+      deployment.setApplicationClass(ShoppingApplication.class.getName());
+
+      DeploymentInfo di = server.undertowDeployment(deployment);
+      di.setClassLoader(CustomerResourceTest.class.getClassLoader());
+      di.setContextPath("");
+      di.setDeploymentName("Resteasy");
+
+      server.deploy(di);
    }
 
    @After
    public void after() {
-
+      server.stop();
    }
 
    @Test
@@ -49,7 +63,7 @@ public class CustomerResourceTest
                  + "<country>USA</country>"
                  + "</customer>";
 
-         Response response = client.target("http://localhost:8080/services/customers")
+         Response response = client.target("http://localhost:8081/customers")
                  .request().post(Entity.xml(xml));
          if (response.getStatus() != 201) throw new RuntimeException("Failed to create a new Customer.");
          String location = response.getLocation().toString();
