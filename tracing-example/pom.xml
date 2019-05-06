@@ -6,6 +6,8 @@
 
     <groupId>org.jboss.resteasy</groupId>
     <artifactId>tracing-example</artifactId>
+    <version>4.0.0.CR1-SNAPSHOT</version>
+
     <parent>
         <groupId>org.jboss.resteasy</groupId>
         <artifactId>testable-examples-pom</artifactId>
@@ -20,21 +22,21 @@
             <version>${jboss-logging.version}</version>
         </dependency>
         <!--<dependency>-->
-            <!--<groupId>javax.json.bind</groupId>-->
-            <!--<artifactId>javax.json.bind-api</artifactId>-->
-            <!--<version>1.0</version>-->
+        <!--<groupId>javax.json.bind</groupId>-->
+        <!--<artifactId>javax.json.bind-api</artifactId>-->
+        <!--<version>1.0</version>-->
         <!--</dependency>-->
 
         <!--<dependency>-->
-            <!--<groupId>org.eclipse</groupId>-->
-            <!--<artifactId>yasson</artifactId>-->
-            <!--<version>1.0</version>-->
+        <!--<groupId>org.eclipse</groupId>-->
+        <!--<artifactId>yasson</artifactId>-->
+        <!--<version>1.0</version>-->
         <!--</dependency>-->
 
         <!--<dependency>-->
-            <!--<groupId>com.fasterxml.jackson.core</groupId>-->
-            <!--<artifactId>jackson-databind</artifactId>-->
-            <!--<version>${jackson-databind.version}</version>-->
+        <!--<groupId>com.fasterxml.jackson.core</groupId>-->
+        <!--<artifactId>jackson-databind</artifactId>-->
+        <!--<version>${jackson-databind.version}</version>-->
         <!--</dependency>-->
         <dependency>
             <groupId>org.jboss.resteasy</groupId>

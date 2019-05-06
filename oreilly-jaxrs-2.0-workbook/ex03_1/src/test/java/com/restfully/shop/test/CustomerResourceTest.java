@@ -1,5 +1,9 @@
 package com.restfully.shop.test;
 
+import org.jboss.resteasy.plugins.server.undertow.UndertowJaxrsServer;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import javax.ws.rs.client.Client;
@@ -14,7 +18,21 @@ import javax.ws.rs.core.Response;
  */
 public class CustomerResourceTest
 {
+
+   UndertowJaxrsServer server = null;
+
+   @Before
+   public void before() {
+
+   }
+
+   @After
+   public void after() {
+
+   }
+
    @Test
+   @Ignore
    public void testCustomerResource() throws Exception
    {
       Client client = ClientBuilder.newClient();
@@ -33,7 +51,7 @@ public class CustomerResourceTest
 
          Response response = client.target("http://localhost:8080/services/customers")
                  .request().post(Entity.xml(xml));
-         if (response.getStatus() != 201) throw new RuntimeException("Failed to create");
+         if (response.getStatus() != 201) throw new RuntimeException("Failed to create a new Customer.");
          String location = response.getLocation().toString();
          System.out.println("Location: " + location);
          response.close();

@@ -15,7 +15,6 @@
     <packaging>pom</packaging>
     <version>4.0.0.CR1-SNAPSHOT</version>
 
-
     <dependencies>
         <dependency>
             <groupId>org.jboss.resteasy</groupId>
