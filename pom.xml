@@ -64,6 +64,21 @@
                 <scope>import</scope>
             </dependency>
             <dependency>
+                <groupId>org.jboss.resteasy</groupId>
+                <artifactId>resteasy-core</artifactId>
+                <version>${resteasy.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.jboss.resteasy</groupId>
+                <artifactId>resteasy-undertow</artifactId>
+                <version>${resteasy.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.jboss.resteasy</groupId>
+                <artifactId>resteasy-undertow-spring</artifactId>
+                <version>${resteasy.version}</version>
+            </dependency>
+            <dependency>
                 <groupId>commons-httpclient</groupId>
                 <artifactId>commons-httpclient</artifactId>
                 <version>3.1</version>
@@ -112,7 +127,7 @@
         <module>jaxb-json</module>
         <module>guice-hello</module>
         <module>async-job-service</module>
-        <!--<module>resteasy-springMVC</module>-->
+        <module>resteasy-springMVC</module>
         <!--<module>oreilly-jaxrs-2.0-workbook</module>-->
         <!--<module>oreilly-workbook</module>-->
         <!--<module>oauth1-examples</module>-->
