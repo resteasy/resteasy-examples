@@ -8,6 +8,7 @@ import org.jboss.resteasy.security.doseta.Verifier;
 import org.junit.AfterClass;
 import org.junit.Assert;
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 import se.unlogic.eagledns.EagleDNS;
 
@@ -84,6 +85,7 @@ public class SigningTest
       response.close();
    }
 
+   @Ignore
    @Test
    public void testPost() throws Exception
    {
