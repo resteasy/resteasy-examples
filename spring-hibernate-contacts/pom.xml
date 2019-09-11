@@ -14,8 +14,8 @@
 
   <modules>
     <module>core</module>
-    <module>persistence</module>
-    <module>services</module>
+<!--    <module>persistence</module>-->
+<!--    <module>services</module>-->
   </modules>
 
   <dependencies>

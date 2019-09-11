@@ -46,7 +46,7 @@
     <junit.version>4.12</junit.version>
     <logmanager.version>2.1.8.Final</logmanager.version>
     <maven-compiler-plugin.version>3.8.0</maven-compiler-plugin.version>
-    <resteasy.version>4.0.0.CR1</resteasy.version>
+    <resteasy.version>4.3.0.Final</resteasy.version>
   </properties>
   <dependencyManagement>
     <dependencies>
