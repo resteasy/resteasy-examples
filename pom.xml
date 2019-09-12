@@ -143,6 +143,16 @@
       <artifactId>junit</artifactId>
       <scope>test</scope>
     </dependency>
+    <dependency>
+      <groupId>org.eclipse.microprofile.config</groupId>
+      <artifactId>microprofile-config-api</artifactId>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>io.smallrye</groupId>
+      <artifactId>smallrye-config</artifactId>
+      <scope>runtime</scope>
+    </dependency>
   </dependencies>
   <!-- this is only here for RESTEasy automated testing of examples build.  You can remove if you are copying this
          pom.xml as a template    -->
