@@ -5,7 +5,7 @@
     <groupId>org.jboss.resteasy</groupId>
     <artifactId>resteasy-dependencies</artifactId>
     <!--propertiy 'resteasy.version' not worked here: -->
-    <version>4.0.0.CR1</version>
+    <version>4.3.0.Final</version>
     <!--^^^ modify it manually to keep sync with `resteasy.version` property -->
   </parent>
 

@@ -6,15 +6,21 @@
     <parent>
         <groupId>org.jboss.resteasy</groupId>
         <artifactId>resteasy-dependencies</artifactId>
-        <version>4.0.0.CR1-SNAPSHOT</version>
+        <version>4.3.0.Final</version>
     </parent>
     <groupId>com.oreilly.rest.workbook</groupId>
     <artifactId>jaxrs-2.0-workbook-pom</artifactId>
     <version>1.0</version>
     <packaging>pom</packaging>
 
-
     <properties>
+<!--        <javax-json.version>1.1</javax-json.version>-->
+<!--        <jackson-databind.version>2.9.4</jackson-databind.version>-->
+<!--        <jboss-logging.version>3.3.2.Final</jboss-logging.version>-->
+<!--        <junit.version>4.12</junit.version>-->
+<!--        <logmanager.version>2.1.8.Final</logmanager.version>-->
+<!--        <maven-compiler-plugin.version>3.8.0</maven-compiler-plugin.version>-->
+        <resteasy.version>4.3.0.Final</resteasy.version>
     </properties>
 
     <!-- this distributionManagement is only here for RESTEasy automated testing of examples build.  You can remove if you are copying this
