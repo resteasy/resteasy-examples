@@ -1,13 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
   <modelVersion>4.0.0</modelVersion>
-  <parent>
-    <groupId>org.jboss.resteasy</groupId>
-    <artifactId>resteasy-dependencies</artifactId>
-    <!--propertiy 'resteasy.version' not worked here: -->
-    <version>4.3.0.Final</version>
-    <!--^^^ modify it manually to keep sync with `resteasy.version` property -->
-  </parent>
 
   <groupId>org.jboss.resteasy</groupId>
   <artifactId>testable-examples-pom</artifactId>
@@ -21,24 +14,30 @@
     <module>jaxb-json</module>
     <module>guice-hello</module>
     <module>async-job-service</module>
-    <module>resteasy-springMVC</module>
+    <!--    todo: cleanup the dependency-->
+<!--    <module>resteasy-springMVC</module>-->
     <module>oreilly-jaxrs-2.0-workbook</module>
     <!--<module>oauth1-examples</module>-->
     <!--<module>oauth2-as7-example</module>-->
     <!--<module>oauth-servlet-test</module>-->
     <module>examples-jsapi</module>
     <module>smime</module>
-    <module>digital-signatures</module>
+    <!--    todo: cleanup the dependency-->
+<!--    <module>digital-signatures</module>-->
     <module>jaxrs-2.0/simple-client</module>
     <module>jaxrs-2.0/server-async-http</module>
     <module>wadl-example</module>
-    <module>spring-hibernate-contacts</module>
+<!--    todo: cleanup the dependency-->
+<!--    <module>spring-hibernate-contacts</module>-->
     <module>jsapi-servlet-test</module>
-    <module>tracing-example</module>
+    <!--    todo: cleanup the dependency-->
+<!--    <module>tracing-example</module>-->
     <!--<module>skeleton-key-idp-war</module>-->
   </modules>
 
   <properties>
+    <maven.compiler.source>8</maven.compiler.source>
+    <maven.compiler.target>8</maven.compiler.target>
     <javax-json.version>1.1</javax-json.version>
     <jackson-databind.version>2.9.4</jackson-databind.version>
     <jboss-logging.version>3.3.2.Final</jboss-logging.version>
@@ -46,6 +45,9 @@
     <logmanager.version>2.1.8.Final</logmanager.version>
     <maven-compiler-plugin.version>3.8.0</maven-compiler-plugin.version>
     <resteasy.version>4.3.0.Final</resteasy.version>
+    <maven-deploy-plugin.version>3.0.0-M1</maven-deploy-plugin.version>
+    <version.org.eclipse.jetty>9.4.17.v20190418</version.org.eclipse.jetty>
+
   </properties>
   <dependencyManagement>
     <dependencies>
@@ -126,6 +128,12 @@
         <artifactId>ejb3-persistence</artifactId>
         <version>3.3.2.Beta1</version>
       </dependency>
+      <dependency>
+        <groupId>junit</groupId>
+        <artifactId>junit</artifactId>
+        <scope>test</scope>
+        <version>${junit.version}</version>
+      </dependency>
     </dependencies>
   </dependencyManagement>
 
@@ -142,18 +150,6 @@
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
       <scope>test</scope>
-    </dependency>
-<!-- The reason to add microprofile-config:
-     https://docs.jboss.org/resteasy/docs/4.0.0.Final/userguide/html_single/index.html#d4e217-->
-    <dependency>
-      <groupId>org.eclipse.microprofile.config</groupId>
-      <artifactId>microprofile-config-api</artifactId>
-      <scope>compile</scope>
-    </dependency>
-    <dependency>
-      <groupId>io.smallrye</groupId>
-      <artifactId>smallrye-config</artifactId>
-      <scope>runtime</scope>
     </dependency>
   </dependencies>
   <!-- this is only here for RESTEasy automated testing of examples build.  You can remove if you are copying this
@@ -172,6 +168,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-deploy-plugin</artifactId>
+        <version>${maven-deploy-plugin.version}</version>
         <configuration>
           <skip>true</skip>
         </configuration>

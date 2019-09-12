@@ -18,6 +18,9 @@
         <resteasy.version>4.3.0.Final</resteasy.version>
         <version.org.eclipse.jetty>9.4.17.v20190418</version.org.eclipse.jetty>
         <junit.version>4.12</junit.version>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+
     </properties>
 
     <!-- this distributionManagement is only here for RESTEasy automated testing of examples build.  You can remove if you are copying this
