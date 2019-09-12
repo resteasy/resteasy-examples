@@ -143,6 +143,8 @@
       <artifactId>junit</artifactId>
       <scope>test</scope>
     </dependency>
+<!-- The reason to add microprofile-config:
+     https://docs.jboss.org/resteasy/docs/4.0.0.Final/userguide/html_single/index.html#d4e217-->
     <dependency>
       <groupId>org.eclipse.microprofile.config</groupId>
       <artifactId>microprofile-config-api</artifactId>
