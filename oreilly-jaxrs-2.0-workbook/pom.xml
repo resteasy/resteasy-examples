@@ -70,6 +70,19 @@ pom.xml as a template -->
             <groupId>org.jboss.spec.javax.ws.rs</groupId>
             <artifactId>jboss-jaxrs-api_2.1_spec</artifactId>
         </dependency>
+        <!-- The reason to add microprofile-config:
+     https://docs.jboss.org/resteasy/docs/4.0.0.Final/userguide/html_single/index.html#d4e217-->
+        <dependency>
+            <groupId>org.eclipse.microprofile.config</groupId>
+            <artifactId>microprofile-config-api</artifactId>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.smallrye</groupId>
+            <artifactId>smallrye-config</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+
     </dependencies>
 
     <modules>
