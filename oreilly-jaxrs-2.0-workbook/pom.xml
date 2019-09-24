@@ -23,6 +23,21 @@
                 <scope>test</scope>
                 <version>${junit.version}</version>
             </dependency>
+            <dependency>
+                <groupId>org.jboss.resteasy</groupId>
+                <artifactId>resteasy-core</artifactId>
+                <version>${resteasy.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.jboss.resteasy</groupId>
+                <artifactId>resteasy-client</artifactId>
+                <version>${resteasy.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.jboss.resteasy</groupId>
+                <artifactId>resteasy-servlet-initializer</artifactId>
+                <version>${resteasy.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -59,7 +74,7 @@
     <modules>
         <module>ex03_1</module>
         <module>ex04_1</module>
-        <!--        <module>ex04_2</module>-->
+        <module>ex04_2</module>
         <!--        <module>ex04_3</module>-->
         <!--        <module>ex05_1</module>-->
         <!--        <module>ex05_2</module>-->
