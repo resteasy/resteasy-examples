@@ -3,18 +3,24 @@
     <name>OReilly JAX-RS 2.0 Workbook Examples</name>
     <description/>
     <modelVersion>4.0.0</modelVersion>
-    <parent>
-        <groupId>org.jboss.resteasy</groupId>
-        <artifactId>resteasy-dependencies</artifactId>
-        <version>4.0.0.CR1-SNAPSHOT</version>
-    </parent>
     <groupId>com.oreilly.rest.workbook</groupId>
     <artifactId>jaxrs-2.0-workbook-pom</artifactId>
     <version>1.0</version>
     <packaging>pom</packaging>
 
-
     <properties>
+<!--        <javax-json.version>1.1</javax-json.version>-->
+<!--        <jackson-databind.version>2.9.4</jackson-databind.version>-->
+<!--        <jboss-logging.version>3.3.2.Final</jboss-logging.version>-->
+<!--        <junit.version>4.12</junit.version>-->
+<!--        <logmanager.version>2.1.8.Final</logmanager.version>-->
+<!--        <maven-compiler-plugin.version>3.8.0</maven-compiler-plugin.version>-->
+        <resteasy.version>4.3.0.Final</resteasy.version>
+        <version.org.eclipse.jetty>9.4.17.v20190418</version.org.eclipse.jetty>
+        <junit.version>4.12</junit.version>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+
     </properties>
 
     <!-- this distributionManagement is only here for RESTEasy automated testing of examples build.  You can remove if you are copying this
@@ -59,34 +65,35 @@ pom.xml as a template -->
         </plugins>
     </build>
 
-    <dependencies>
-        <dependency>
-            <groupId>org.jboss.spec.javax.ws.rs</groupId>
-            <artifactId>jboss-jaxrs-api_2.1_spec</artifactId>
-        </dependency>
-    </dependencies>
+<!--    <dependencies>-->
+<!--        <dependency>-->
+<!--            <groupId>org.jboss.spec.javax.ws.rs</groupId>-->
+<!--            <artifactId>jboss-jaxrs-api_2.1_spec</artifactId>-->
+<!--        </dependency>-->
+
+<!--    </dependencies>-->
 
     <modules>
         <module>ex03_1</module>
-        <module>ex04_1</module>
-        <module>ex04_2</module>
-        <module>ex04_3</module>
-        <module>ex05_1</module>
-        <module>ex05_2</module>
-        <module>ex06_1</module>
-        <module>ex06_2</module>
-        <module>ex07_1</module>
-        <module>ex09_1</module>
-        <module>ex09_2</module>
-        <module>ex10_1</module>
-        <module>ex10_2</module>
-        <module>ex11_1</module>
-        <module>ex12_1</module>
-        <module>ex12_2</module>
-        <module>ex13_1</module>
-        <!-- <module>ex14_1</module> -->
-        <module>ex14_2</module>
-        <module>ex15_1</module>
-        <module>ex15_2</module>
+<!--        <module>ex04_1</module>-->
+<!--        <module>ex04_2</module>-->
+<!--        <module>ex04_3</module>-->
+<!--        <module>ex05_1</module>-->
+<!--        <module>ex05_2</module>-->
+<!--        <module>ex06_1</module>-->
+<!--        <module>ex06_2</module>-->
+<!--        <module>ex07_1</module>-->
+<!--        <module>ex09_1</module>-->
+<!--        <module>ex09_2</module>-->
+<!--        <module>ex10_1</module>-->
+<!--        <module>ex10_2</module>-->
+<!--        <module>ex11_1</module>-->
+<!--        <module>ex12_1</module>-->
+<!--        <module>ex12_2</module>-->
+<!--        <module>ex13_1</module>-->
+<!--        &lt;!&ndash; <module>ex14_1</module> &ndash;&gt;-->
+<!--        <module>ex14_2</module>-->
+<!--        <module>ex15_1</module>-->
+<!--        <module>ex15_2</module>-->
     </modules>
 </project>
