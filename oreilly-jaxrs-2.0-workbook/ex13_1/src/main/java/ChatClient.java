@@ -25,7 +25,7 @@ public class ChatClient
       System.out.println();
       System.out.println();
 
-      final Client client = new ResteasyClientBuilder()
+      final Client client = ((ResteasyClientBuilder)ClientBuilder.newBuilder())
                           .connectionPoolSize(3)
                           .build();
       WebTarget target = client.target("http://localhost:8080/services/chat");
