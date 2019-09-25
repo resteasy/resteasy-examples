@@ -1,7 +1,5 @@
 package com.restfully.shop.features;
 
-import org.jboss.resteasy.util.Base64;
-
 import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.ext.WriterInterceptor;
 import javax.ws.rs.ext.WriterInterceptorContext;
@@ -11,6 +9,7 @@ import java.io.OutputStream;
 import java.security.DigestOutputStream;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.Base64;
 
 /**
  * @author <a href="mailto:bill@burkecentral.com">Bill Burke</a>
@@ -40,7 +39,7 @@ public class ContentMD5Writer implements WriterInterceptor
          context.proceed();
 
          byte[] hash = digest.digest();
-         String encodedHash = Base64.encodeBytes(hash);
+         String encodedHash = Base64.getEncoder().encodeToString(hash);
          context.getHeaders().putSingle("Content-MD5", encodedHash);
 
          byte[] content = buffer.toByteArray();
