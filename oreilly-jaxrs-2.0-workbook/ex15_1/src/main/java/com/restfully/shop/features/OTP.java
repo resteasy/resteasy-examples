@@ -1,10 +1,10 @@
 package com.restfully.shop.features;
 
-import org.jboss.resteasy.util.Base64;
 
 import java.nio.charset.Charset;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.Base64;
 
 /**
  * @author <a href="mailto:bill@burkecentral.com">Bill Burke</a>
@@ -26,6 +26,6 @@ public class OTP
          throw new IllegalArgumentException(e);
       }
       byte[] hash = digest.digest(concat.getBytes(Charset.forName("UTF-8")));
-      return Base64.encodeBytes(hash);
+      return Base64.getEncoder().encodeToString(hash);
    }
 }
