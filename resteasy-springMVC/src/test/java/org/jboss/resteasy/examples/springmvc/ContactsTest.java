@@ -1,5 +1,6 @@
 package org.jboss.resteasy.examples.springmvc;
 
+import io.undertow.servlet.api.DeploymentInfo;
 import org.jboss.resteasy.annotations.ClientURI;
 import org.jboss.resteasy.client.jaxrs.ResteasyWebTarget;
 import org.jboss.resteasy.plugins.server.undertow.spring.UndertowJaxrsSpringServer;
