@@ -90,9 +90,9 @@ public class ContactsTest {
                 + "/data"));
     }
 
-    @Ignore
     @Test
     public void readHTML() {
-        System.out.println(proxy.getString(ContactsResource.CONTACTS_URL));
+        System.out.println(proxy.getString(host + ContactsResource.CONTACTS_URL
+                + "/data"));
     }
 }
