@@ -53,7 +53,7 @@ public class ContactsTest {
         server = new UndertowJaxrsSpringServer();
         server.start();
 
-        DeploymentInfo deployment = server.undertowDeployment("classpath:springmvc-servlet.xml", null);
+        DeploymentInfo deployment = server.undertowDeployment("classpath:resteasy-spring-mvc-servlet.xml", null);
         deployment.setDeploymentName(ContactsTest.class.getName());
         deployment.setContextPath("/");
         deployment.setClassLoader(ContactsTest.class.getClassLoader());

@@ -22,17 +22,15 @@ import java.net.URISyntaxException;
 
 @Controller
 @Path(ContactsResource.CONTACTS_URL)
-public class ContactsResource
-{
-   public static final String CONTACTS_URL = "/contacts";
+public class ContactsResource {
+   public static final String CONTACTS_URL = "/rest/contacts";
    @Autowired
    ContactService service;
 
    @GET
    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
    @Path("data")
-   public Contacts getAll()
-   {
+   public Contacts getAll() {
       return service.getAll();
    }
 
@@ -41,8 +39,7 @@ public class ContactsResource
    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
    @Path("data")
    public Response saveContact(@Context UriInfo uri, Contact contact)
-         throws URISyntaxException
-   {
+           throws URISyntaxException {
       service.save(contact);
       URI newURI = UriBuilder.fromUri(uri.getPath()).path(contact.getLastName()).build();
       return Response.created(newURI).build();
@@ -51,8 +48,7 @@ public class ContactsResource
    @GET
    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
    @Path("data/{lastName}")
-   public Contact get(@PathParam("lastName") String lastName)
-   {
+   public Contact get(@PathParam("lastName") String lastName) {
       return service.getContact(lastName);
    }
 
@@ -61,16 +57,14 @@ public class ContactsResource
    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
    @Produces(MediaType.TEXT_HTML)
    public ModelAndView saveContactForm(@Form Contact contact)
-         throws URISyntaxException
-   {
+           throws URISyntaxException {
       service.save(contact);
       return viewAll();
    }
-   
+
    @GET
    @Produces(MediaType.TEXT_HTML)
-   public ModelAndView viewAll()
-   {
+   public ModelAndView viewAll() {
       // forward to the "contacts" view, with a request attribute named
       // "contacts" that has all of the existing contacts
       return new ModelAndView("contacts", "contacts", service.getAll());
