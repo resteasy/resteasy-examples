@@ -43,7 +43,7 @@
         <junit.version>4.12</junit.version>
         <logmanager.version>2.1.8.Final</logmanager.version>
         <maven-compiler-plugin.version>3.8.0</maven-compiler-plugin.version>
-        <resteasy.version>4.3.0.Final</resteasy.version>
+        <resteasy.version>4.4.1.Final</resteasy.version>
         <maven-deploy-plugin.version>3.0.0-M1</maven-deploy-plugin.version>
         <version.org.eclipse.jetty>9.4.17.v20190418</version.org.eclipse.jetty>
 
