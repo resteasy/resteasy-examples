@@ -21,8 +21,7 @@
         <!--<module>oauth-servlet-test</module>-->
         <module>examples-jsapi</module>
         <module>smime</module>
-        <!--    todo: cleanup the dependency-->
-        <!--    <module>digital-signatures</module>-->
+        <module>digital-signatures</module>
         <module>jaxrs-2.0/simple-client</module>
         <module>jaxrs-2.0/server-async-http</module>
         <module>wadl-example</module>
