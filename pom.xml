@@ -25,8 +25,7 @@
         <module>jaxrs-2.0/simple-client</module>
         <module>jaxrs-2.0/server-async-http</module>
         <module>wadl-example</module>
-        <!--    todo: cleanup the dependency-->
-        <!--    <module>spring-hibernate-contacts</module>-->
+        <module>spring-hibernate-contacts</module>
         <module>jsapi-servlet-test</module>
         <!--    todo: cleanup the dependency-->
         <!--    <module>tracing-example</module>-->
@@ -45,7 +44,14 @@
         <resteasy.version>4.4.1.Final</resteasy.version>
         <maven-deploy-plugin.version>3.0.0-M1</maven-deploy-plugin.version>
         <version.org.eclipse.jetty>9.4.17.v20190418</version.org.eclipse.jetty>
-
+        <spring.version>5.2.0.RELEASE</spring.version>
+        <xerces.version>2.12.0</xerces.version>
+        <hibernate.version>3.5.4-Final</hibernate.version>
+        <hibernate-core.version>5.4.9.Final</hibernate-core.version>
+        <hibernate-ejb3.version>3.3.2.Beta1</hibernate-ejb3.version>
+        <slf4j.version>1.7.29</slf4j.version>
+        <hibernate-entitymanager.version>5.4.9.Final</hibernate-entitymanager.version>
+        <persistence-api.version>1.0.2</persistence-api.version>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -114,17 +120,28 @@
             <dependency>
                 <groupId>org.hibernate</groupId>
                 <artifactId>hibernate</artifactId>
-                <version>3.2.6.ga</version>
+                <type>pom</type>
+                <version>${hibernate.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.hibernate</groupId>
-                <artifactId>hibernate-annotations</artifactId>
-                <version>3.3.1.GA</version>
+                <artifactId>hibernate-core</artifactId>
+                <version>${hibernate-core.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.hibernate</groupId>
                 <artifactId>ejb3-persistence</artifactId>
-                <version>3.3.2.Beta1</version>
+                <version>${hibernate-ejb3.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.hibernate</groupId>
+                <artifactId>hibernate-entitymanager</artifactId>
+                <version>${hibernate-entitymanager.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>javax.persistence</groupId>
+                <artifactId>persistence-api</artifactId>
+                <version>${persistence-api.version}</version>
             </dependency>
             <dependency>
                 <groupId>junit</groupId>
@@ -135,7 +152,34 @@
             <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-webmvc</artifactId>
-                <version>5.2.0.RELEASE</version>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-core</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-test</artifactId>
+                <scope>test</scope>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-orm</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>xerces</groupId>
+                <artifactId>xercesImpl</artifactId>
+                <version>${xerces.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-api -->
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+                <version>${slf4j.version}</version>
             </dependency>
             <dependency>
                 <groupId>io.undertow</groupId>

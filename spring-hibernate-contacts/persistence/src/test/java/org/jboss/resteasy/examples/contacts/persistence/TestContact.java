@@ -8,9 +8,9 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.test.annotation.Commit;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.test.context.transaction.TransactionConfiguration;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
@@ -27,7 +27,7 @@ import java.util.Collection;
 @ContextConfiguration(locations={"/test-config.xml"})
 // apply the transaction manager to the test class so every DAO methods are executed
 // within a transaction
-@TransactionConfiguration(transactionManager="transactionManager", defaultRollback=false)
+@Commit
 @Transactional
 public class TestContact {
 	private static final String CONTACT_PHONE = "16506193726";

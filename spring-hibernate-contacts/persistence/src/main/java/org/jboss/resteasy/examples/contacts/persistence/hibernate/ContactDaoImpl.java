@@ -3,7 +3,7 @@ package org.jboss.resteasy.examples.contacts.persistence.hibernate;
 import org.jboss.resteasy.examples.contacts.core.Contact;
 import org.jboss.resteasy.examples.contacts.core.ContactAttrs;
 import org.jboss.resteasy.examples.contacts.persistence.ContactDao;
-import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
+import org.springframework.orm.hibernate5.support.HibernateDaoSupport;
 import org.springframework.util.CollectionUtils;
 
 import java.util.Collection;
@@ -29,7 +29,7 @@ public class ContactDaoImpl extends HibernateDaoSupport implements ContactDao {
 	}
 
 	public Collection<Contact> findAllContacts() {
-		return getHibernateTemplate().find("from Contact c");
+		return (Collection<Contact>) getHibernateTemplate().find("from Contact c");
 		// return getHibernateTemplate().loadAll(Contact.class);
 	}
 
@@ -59,7 +59,7 @@ public class ContactDaoImpl extends HibernateDaoSupport implements ContactDao {
 	}
 
 	private Contact findSingle(String hql, String paramName, Object value) {
-		List<Contact> results = getHibernateTemplate().findByNamedParam(hql,
+		List<Contact> results = (List<Contact>) getHibernateTemplate().findByNamedParam(hql,
 				paramName, value);
 		return CollectionUtils.hasUniqueObject(results) ? results.get(0) : null;
 	}
