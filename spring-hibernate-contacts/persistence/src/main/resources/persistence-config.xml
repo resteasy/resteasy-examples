@@ -17,13 +17,15 @@ http://www.springframework.org/schema/tx http://www.springframework.org/schema/t
     </bean>
 
     <bean id="dataSource"
-          class="org.apache.commons.dbcp.BasicDataSource"
+          class="org.apache.commons.dbcp2.BasicDataSource"
           p:driverClassName="${contacts.db.driver}" p:url="${contacts.db.url}"
           p:username="${contacts.db.username}"
-          p:password="${contacts.db.password}"/>
+          p:password="${contacts.db.password}"
+          p:maxTotal="20"
+    />
 
     <bean id="sessionFactory"
-          class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean"
+          class="org.springframework.orm.hibernate5.LocalSessionFactoryBean"
           p:dataSource-ref="dataSource">
         <property name="hibernateProperties">
             <props>
@@ -35,7 +37,8 @@ http://www.springframework.org/schema/tx http://www.springframework.org/schema/t
                 <prop key="hibernate.dialect">
                     org.hibernate.dialect.HSQLDialect
                 </prop>
-                <prop key="hibernate.show_sql">false</prop>
+                <prop key="hibernate.show_sql">true</prop>
+                <prop key="hibernate.hbm2ddl.auto">create-drop</prop>
             </props>
         </property>
         <property name="annotatedClasses">
@@ -49,9 +52,9 @@ http://www.springframework.org/schema/tx http://www.springframework.org/schema/t
 
     <!-- Spring transaction management -->
     <bean id="transactionManager"
-          class="org.springframework.orm.hibernate3.HibernateTransactionManager"
+          class="org.springframework.orm.hibernate5.HibernateTransactionManager"
           p:sessionFactory-ref="sessionFactory"/>
 
-    <tx:annotation-driven transaction-manager="transactionManager"/>
+    <tx:annotation-driven/>
 
 </beans>

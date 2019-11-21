@@ -8,6 +8,4 @@
     <bean id="contactDao"
           class="org.jboss.resteasy.examples.contacts.persistence.hibernate.ContactDaoImpl"
           p:sessionFactory-ref="sessionFactory"/>
-
-
 </beans>

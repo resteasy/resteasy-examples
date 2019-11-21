@@ -19,7 +19,8 @@ public interface ContactDao
     public Contact findContactByPhone(String phone);
     public Contact findContactByAttribute(ContactAttrs attribute, Object value);
     public Collection<Contact> findAllContacts();
-    public void addUpdateContact(Contact contact);
+    public void addContact(Contact contact);
+    public void mergeContact(Contact contact);
     public void deleteContact(Contact contact);
 	public Collection<Contact> findContactsOfContact(long pid);
 }
