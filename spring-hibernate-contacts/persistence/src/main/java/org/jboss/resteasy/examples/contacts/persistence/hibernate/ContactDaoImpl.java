@@ -20,8 +20,12 @@ public class ContactDaoImpl extends HibernateDaoSupport implements ContactDao {
 		// TODO Auto-generated constructor stub
 	}
 
-	public void addUpdateContact(Contact contact) {
+	public void mergeContact(Contact contact) {
 		getHibernateTemplate().merge(contact);
+	}
+
+	public void addContact(Contact contact) {
+		getHibernateTemplate().persist(contact);
 	}
 
 	public void deleteContact(Contact contact) {
