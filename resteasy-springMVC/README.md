@@ -23,7 +23,6 @@ $ mvn jetty:run
 ```
 Open a browser at the following URL:
 
-List all available contacts:
+> http://localhost:8080/rest/contacts
 
-> http://localhost:8080/contacts
-
+This will give a web page to enter contacts.

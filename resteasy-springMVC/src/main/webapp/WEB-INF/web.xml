@@ -3,9 +3,14 @@
          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
     <display-name>resteasy-springMVC</display-name>
 
+    <context-param>
+        <param-name>foo</param-name>
+        <param-value>bar</param-value>
+    </context-param>
+
     <servlet>
         <servlet-name>resteasy-spring-mvc</servlet-name>
-        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <servlet-class>org.jboss.resteasy.springmvc.ResteasySpringDispatcherServlet</servlet-class>
         <init-param>
             <param-name>contextConfigLocation</param-name>
             <param-value>classpath:resteasy-spring-mvc-servlet.xml</param-value>
