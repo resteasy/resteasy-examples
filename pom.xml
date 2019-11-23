@@ -27,8 +27,7 @@
         <module>wadl-example</module>
         <module>spring-hibernate-contacts</module>
         <module>jsapi-servlet-test</module>
-        <!--    todo: cleanup the dependency-->
-        <!--    <module>tracing-example</module>-->
+        <module>tracing-example</module>
         <!--<module>skeleton-key-idp-war</module>-->
     </modules>
 
@@ -53,6 +52,7 @@
         <persistence-api.version>1.0.2</persistence-api.version>
         <hsqldb.version>2.5.0</hsqldb.version>
         <commons-dbcp2.version>2.7.0</commons-dbcp2.version>
+        <tracing-api.version>1.0.0.Beta4</tracing-api.version>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -186,6 +186,26 @@
                 <groupId>io.undertow</groupId>
                 <artifactId>undertow-core</artifactId>
                 <version>2.0.23.Final</version>
+            </dependency>
+            <dependency>
+                <groupId>org.jboss.resteasy</groupId>
+                <artifactId>resteasy-tracing-api</artifactId>
+                <version>${tracing-api.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.jboss.logging</groupId>
+                <artifactId>jboss-logging</artifactId>
+                <version>${jboss-logging.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.jboss.logmanager</groupId>
+                <artifactId>jboss-logmanager</artifactId>
+                <version>${logmanager.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.glassfish</groupId>
+                <artifactId>javax.json</artifactId>
+                <version>${javax-json.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
