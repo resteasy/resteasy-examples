@@ -1,11 +1,10 @@
 Spring and Resteasy
 ===================
-Example of using RestEasy with:
+Example of using RESTEasy with:
 - Spring
 - Jetty (embedded)
 
-
-The module shows an example show the usage of RESTEasy Spring-MVC integration.
+The module shows an example to use RESTEasy's basic Springframwork integration.
 
 Building the project:
 -------------------------
@@ -20,11 +19,6 @@ Running the project and manually testing it:
 ```bash
 $ mvn jetty:run
 ```
-Open a browser at the following URL:
-
-> http://localhost:8080/rest/contacts
-
-This will give a web page to enter contacts.
 
 Using the `curl` command to access this URL:
 
@@ -33,3 +27,12 @@ $ curl http://localhost:8080/rest/foo
 ```
 
 It will fetch the value of context parameter `foo` defined in `web.xml`. This shows the injection of `ServletContext` by `@Context` annotation.
+
+And using  the `curl` command to access another URL:
+
+```bash
+$ curl http://localhost:8080/rest/foo/hello
+```
+
+It will give the `Hello, world!` message provided by autowired bean `FooResource`.
+
