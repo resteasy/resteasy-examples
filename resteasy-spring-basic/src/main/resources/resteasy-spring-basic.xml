@@ -6,12 +6,9 @@
 
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-
-    <!--    <bean id="testResource" class="org.jboss.resteasy.examples.springmvc.FooResource"/>-->
     <context:component-scan base-package="org.jboss.resteasy.examples.springbasic">
         <context:include-filter type="annotation" expression="javax.ws.rs.Path"/>
     </context:component-scan>
     <context:annotation-config/>
-
 
 </beans>
