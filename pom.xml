@@ -14,7 +14,7 @@
         <module>jaxb-json</module>
         <module>guice-hello</module>
         <module>async-job-service</module>
-        <module>resteasy-springMVC</module>
+        <module>resteasy-spring-mvc</module>
         <module>resteasy-spring-basic</module>
         <module>oreilly-jaxrs-2.0-workbook</module>
         <!--<module>oauth1-examples</module>-->

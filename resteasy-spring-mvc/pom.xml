@@ -9,7 +9,7 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
     <groupId>org.jboss.resteasy.examples</groupId>
-    <artifactId>examples-resteasy-springMVC</artifactId>
+    <artifactId>examples-resteasy-spring-mvc</artifactId>
     <name>Spring MVC RestContact Maven Webapp</name>
     <packaging>war</packaging>
     <dependencies>
