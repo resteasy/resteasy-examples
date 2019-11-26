@@ -14,21 +14,37 @@
     </context-param>
 
     <listener>
-        <listener-class>org.jboss.resteasy.plugins.server.servlet.ResteasyBootstrap</listener-class>
-    </listener>
-
-    <listener>
         <listener-class>org.jboss.resteasy.plugins.spring.SpringContextLoaderListener</listener-class>
     </listener>
 
+    <!--    This must be present, or `SpringContextLoaderListener` will throw error: -->
+    <!--    java.lang.RuntimeException: RESTEASY013095: RESTeasy Deployment is null, do you have the ResteasyBootstrap listener configured?-->
+    <listener>
+        <listener-class>org.jboss.resteasy.plugins.server.servlet.ResteasyBootstrap</listener-class>
+    </listener>
+
     <servlet>
-        <servlet-name>Resteasy</servlet-name>
+        <servlet-name>resteasy-dispatcher</servlet-name>
         <servlet-class>org.jboss.resteasy.plugins.server.servlet.HttpServletDispatcher</servlet-class>
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>Resteasy</servlet-name>
+        <servlet-name>resteasy-dispatcher</servlet-name>
         <url-pattern>/rest/*</url-pattern>
     </servlet-mapping>
 
+    <!--    You can use `FilterDispatcher` instead of `HttpServletDispatcher`. -->
+    <!--    The advantage is that if a JAX-RS resource is not found under the URL requested, -->
+    <!--    RESTEasy will delegate back to the base servlet container to resolve URLs.-->
+    <!--    <filter>-->
+    <!--        <filter-name>resteasy-filter</filter-name>-->
+    <!--        <filter-class>-->
+    <!--            org.jboss.resteasy.plugins.server.servlet.FilterDispatcher-->
+    <!--        </filter-class>-->
+    <!--    </filter>-->
+
+    <!--    <filter-mapping>-->
+    <!--        <filter-name>resteasy-filter</filter-name>-->
+    <!--        <url-pattern>/rest/*</url-pattern>-->
+    <!--    </filter-mapping>-->
 </web-app>
