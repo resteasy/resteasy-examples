@@ -52,6 +52,6 @@
         </dependency>
     </dependencies>
     <build>
-        <finalName>resteasy-springMVC</finalName>
+        <finalName>resteasy-spring-mvc</finalName>
     </build>
 </project>
