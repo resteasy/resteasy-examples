@@ -16,6 +16,7 @@
         <module>async-job-service</module>
         <module>resteasy-spring-mvc</module>
         <module>resteasy-spring-basic</module>
+		<module>resteasy-spring-customized</module>
         <module>oreilly-jaxrs-2.0-workbook</module>
         <!--<module>oauth1-examples</module>-->
         <!--<module>oauth2-as7-example</module>-->
@@ -54,6 +55,8 @@
         <hsqldb.version>2.5.0</hsqldb.version>
         <commons-dbcp2.version>2.7.0</commons-dbcp2.version>
         <tracing-api.version>1.0.0.Beta4</tracing-api.version>
+        <javax.servlet-api.version>3.1.0</javax.servlet-api.version>
+        <servlet-api.version>2.5</servlet-api.version>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -92,12 +95,12 @@
             <dependency>
                 <groupId>javax.servlet</groupId>
                 <artifactId>servlet-api</artifactId>
-                <version>2.5</version>
+                <version>${servlet-api.version}</version>
             </dependency>
             <dependency>
                 <groupId>javax.servlet</groupId>
                 <artifactId>javax.servlet-api</artifactId>
-                <version>4.0.1</version>
+                <version>${javax.servlet-api.version}</version>
             </dependency>
             <dependency>
                 <groupId>xml-apis</groupId>
