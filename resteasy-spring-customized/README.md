@@ -1,5 +1,5 @@
-Spring and Resteasy
-===================
+# Spring and Resteasy Customized Example
+
 Example of using RESTEasy with:
 - Spring
 - Jetty (embedded)
