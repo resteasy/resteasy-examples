@@ -16,7 +16,7 @@
         <module>async-job-service</module>
         <module>resteasy-spring-mvc</module>
         <module>resteasy-spring-basic</module>
-		<module>resteasy-spring-customized</module>
+        <module>resteasy-spring-customized</module>
         <module>oreilly-jaxrs-2.0-workbook</module>
         <!--<module>oauth1-examples</module>-->
         <!--<module>oauth2-as7-example</module>-->
@@ -57,9 +57,28 @@
         <tracing-api.version>1.0.0.Beta4</tracing-api.version>
         <javax.servlet-api.version>3.1.0</javax.servlet-api.version>
         <servlet-api.version>2.5</servlet-api.version>
+        <resteasy.eagledns.ver>1.0.0.Beta4</resteasy.eagledns.ver>
+        <log4j.ver>1.2.17</log4j.ver>
     </properties>
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>log4j</groupId>
+                <artifactId>log4j</artifactId>
+                <version>${log4j.ver}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.jboss.resteasy</groupId>
+                <artifactId>resteasy-eagledns-fork</artifactId>
+                <version>${resteasy.eagledns.ver}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>log4j</groupId>
+                        <artifactId>log4j</artifactId>
+                    </exclusion>
+                </exclusions>
+                <scope>test</scope>
+            </dependency>
             <dependency>
                 <groupId>org.jboss.resteasy</groupId>
                 <artifactId>resteasy-bom</artifactId>
