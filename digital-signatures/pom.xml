@@ -4,13 +4,13 @@
     <parent>
         <groupId>org.jboss.resteasy</groupId>
         <artifactId>testable-examples-pom</artifactId>
-        <version>4.0.0.CR1</version>
+        <version>4.0.0.CR2-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
     <groupId>org.jboss.resteasy</groupId>
     <artifactId>signature-examples-pom</artifactId>
-    <version>4.0.0.CR1</version>
+    <version>4.0.0.CR2-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>Resteasy Examples</name>
     <description></description>
