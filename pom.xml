@@ -18,9 +18,6 @@
         <module>resteasy-spring-basic</module>
         <module>resteasy-spring-customized</module>
         <module>oreilly-jaxrs-2.0-workbook</module>
-        <!--<module>oauth1-examples</module>-->
-        <!--<module>oauth2-as7-example</module>-->
-        <!--<module>oauth-servlet-test</module>-->
         <module>examples-jsapi</module>
         <module>smime</module>
         <module>digital-signatures</module>
@@ -30,7 +27,6 @@
         <module>spring-hibernate-contacts</module>
         <module>jsapi-servlet-test</module>
         <module>tracing-example</module>
-        <!--<module>skeleton-key-idp-war</module>-->
     </modules>
 
     <properties>
