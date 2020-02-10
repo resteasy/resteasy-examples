@@ -34,7 +34,7 @@ public class ContactsResource {
       return service.getAll();
    }
 
-   @PUT
+   @POST
    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
    @Path("data")
    public Response saveContact(@Context UriInfo uri, Contact contact)

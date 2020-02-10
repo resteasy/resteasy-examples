@@ -56,9 +56,21 @@
         <servlet-api.version>2.5</servlet-api.version>
         <resteasy.eagledns.ver>1.0.0.Beta4</resteasy.eagledns.ver>
         <log4j.ver>1.2.17</log4j.ver>
+        <jsp-api.ver>2.3.3</jsp-api.ver>
+        <jstl.ver>1.2</jstl.ver>
     </properties>
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>javax.servlet.jsp</groupId>
+                <artifactId>javax.servlet.jsp-api</artifactId>
+                <version>${jsp-api.ver}</version>
+            </dependency>
+            <dependency>
+                <groupId>jstl</groupId>
+                <artifactId>jstl</artifactId>
+                <version>${jstl.ver}</version>
+            </dependency>
             <dependency>
                 <groupId>log4j</groupId>
                 <artifactId>log4j</artifactId>
