@@ -3,12 +3,13 @@ package org.jboss.resteasy.examples.springmvc;
 import io.undertow.servlet.api.DeploymentInfo;
 import org.jboss.resteasy.annotations.ClientURI;
 import org.jboss.resteasy.client.jaxrs.ResteasyWebTarget;
+import org.jboss.resteasy.examples.springundertow.Contact;
+import org.jboss.resteasy.examples.springundertow.ContactsResource;
 import org.jboss.resteasy.plugins.server.undertow.spring.UndertowJaxrsSpringServer;
 import org.jboss.resteasy.util.HttpHeaderNames;
 import org.junit.AfterClass;
 import org.junit.Assert;
 import org.junit.BeforeClass;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import javax.ws.rs.Consumes;

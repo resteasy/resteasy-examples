@@ -1,4 +1,4 @@
-package org.jboss.resteasy.examples.springmvc;
+package org.jboss.resteasy.examples.springundertow;
 
 import org.springframework.stereotype.Component;
 

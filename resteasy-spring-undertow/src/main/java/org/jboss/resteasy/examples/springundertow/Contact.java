@@ -1,4 +1,4 @@
-package org.jboss.resteasy.examples.springmvc;
+package org.jboss.resteasy.examples.springundertow;
 
 import javax.ws.rs.FormParam;
 import javax.xml.bind.annotation.XmlRootElement;

@@ -1,4 +1,4 @@
-package org.jboss.resteasy.examples.springmvc;
+package org.jboss.resteasy.examples.springundertow;
 
 import org.jboss.resteasy.annotations.Form;
 import org.springframework.beans.factory.annotation.Autowired;
