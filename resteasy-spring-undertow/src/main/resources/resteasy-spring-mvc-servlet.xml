@@ -8,12 +8,4 @@
     <context:component-scan base-package="org.jboss.resteasy.examples.springundertow"/>
     <context:annotation-config/>
     <import resource="classpath:springmvc-resteasy.xml"/>
-
-    <bean id="viewResolver"
-          class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
-        <property name="prefix" value="/WEB-INF/"/>
-        <property name="suffix" value=".jsp"/>
-    </bean>
-
 </beans>
