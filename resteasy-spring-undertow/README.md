@@ -1,26 +1,24 @@
-Spring and RESTEasy
-===================
+# Spring and RESTEasy Undertow Embedded Server
 
-Example of using RestEasy with:
+Example of using RESTEasy with:
 
 - Spring
-- Jetty (embedded)
+- Undertow
 
 The module shows an example show the usage of RESTEasy Spring-MVC integration.
 
-Building the project:
--------------------------
+## Building the project
 
 ```bash
 $ mvn clean install
 ```
 
-Running the project and manually testing it:
--------------------------
+## Running the project and manually testing it
 
 ```bash
-$ mvn jetty:run
+$ mvn exec:java -Dexec.mainClass="org.jboss.resteasy.examples.springundertow.Main"
 ```
+
 Open a browser at the following URL:
 
 > http://localhost:8080/rest/contacts

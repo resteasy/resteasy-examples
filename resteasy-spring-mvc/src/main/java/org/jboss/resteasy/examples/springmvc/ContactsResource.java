@@ -35,7 +35,6 @@ public class ContactsResource {
    }
 
    @PUT
-   @POST
    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
    @Path("data")
    public Response saveContact(@Context UriInfo uri, Contact contact)
@@ -53,7 +52,6 @@ public class ContactsResource {
    }
 
    @POST
-   @PUT
    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
    @Produces(MediaType.TEXT_HTML)
    public ModelAndView saveContactForm(@Form Contact contact)

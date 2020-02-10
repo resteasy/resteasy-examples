@@ -74,26 +74,34 @@ public class ContactsTest {
     }
 
     @Test
-    public void testData() {
-        Response response = proxy.createContact(new Contact("Solomon", "Duskis"));
-        Assert.assertEquals(response.getStatus(), 201);
-        String duskisUri = (String) response.getMetadata().getFirst(
-                HttpHeaderNames.LOCATION);
-        System.out.println(duskisUri);
-        Assert.assertTrue(duskisUri.endsWith(ContactsResource.CONTACTS_URL
-                + "/data/Duskis"));
-        response.close();
-        Assert
-                .assertEquals("Solomon", proxy.getContact(duskisUri).getFirstName());
-        response = proxy.createContact(new Contact("Bill", "Burkie"));
-        response.close();
-        System.out.println(proxy.getString(host + ContactsResource.CONTACTS_URL
-                + "/data"));
-    }
-
-    @Test
     public void readHTML() {
-        System.out.println(proxy.getString(host + ContactsResource.CONTACTS_URL
-                + "/data"));
+        {
+            // post data
+            Response response = proxy.createContact(new Contact("Solomon", "Duskis"));
+            Assert.assertEquals(response.getStatus(), 201);
+            String duskisUri = (String) response.getMetadata().getFirst(
+                    HttpHeaderNames.LOCATION);
+            System.out.println(duskisUri);
+            Assert.assertTrue(duskisUri.endsWith(ContactsResource.CONTACTS_URL
+                    + "/data/Duskis"));
+            response.close();
+            Assert
+                    .assertEquals("Solomon", proxy.getContact(duskisUri).getFirstName());
+            response = proxy.createContact(new Contact("Bill", "Burkie"));
+            response.close();
+            String result = proxy.getString(host + ContactsResource.CONTACTS_URL
+                    + "/data");
+            Assert.assertEquals(
+                    "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><contacts><contact><firstName>Solomon</firstName><lastName>Duskis</lastName></contact><contact><firstName>Bill</firstName><lastName>Burkie</lastName></contact></contacts>",
+                    result);
+        }
+
+        {
+            // read data
+            String result = proxy.getString(host + ContactsResource.CONTACTS_URL
+                    + "/data");
+            Assert.assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><contacts><contact><firstName>Solomon</firstName><lastName>Duskis</lastName></contact><contact><firstName>Bill</firstName><lastName>Burkie</lastName></contact></contacts>",
+                    result);
+        }
     }
 }

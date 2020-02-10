@@ -1,5 +1,4 @@
-Spring and RESTEasy
-===================
+# Spring MVC and RESTEasy Integration Example
 
 Example of using RestEasy with:
 
@@ -8,15 +7,13 @@ Example of using RestEasy with:
 
 The module shows an example show the usage of RESTEasy Spring-MVC integration.
 
-Building the project:
--------------------------
+## Building the project
 
 ```bash
 $ mvn clean install
 ```
 
-Running the project and manually testing it:
--------------------------
+## Running the project and manually testing it
 
 ```bash
 $ mvn jetty:run

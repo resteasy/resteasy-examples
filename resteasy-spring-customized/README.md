@@ -1,4 +1,4 @@
-# Spring and Resteasy Customized Example
+# Spring and RESTEasy Customized Example
 
 Example of using RESTEasy with:
 - Spring
@@ -6,15 +6,13 @@ Example of using RESTEasy with:
 
 The module shows an example to fully customize the Spring and RESTEasy loading process.
 
-Building the project:
--------------------------
+## Building the project
 
 ```bash
 $ mvn clean install
 ```
 
-Running the project and manually testing it:
--------------------------
+## Running the project and manually testing it
 
 ```bash
 $ mvn jetty:run
