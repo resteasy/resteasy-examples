@@ -1,9 +1,10 @@
-Spring and Resteasy
+Spring and RESTEasy
 ===================
+
 Example of using RestEasy with:
+
 - Spring
 - Jetty (embedded)
-
 
 The module shows an example show the usage of RESTEasy Spring-MVC integration.
 
