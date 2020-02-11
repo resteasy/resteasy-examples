@@ -22,7 +22,7 @@ $ mvn exec:java -Dexec.mainClass="org.jboss.resteasy.examples.springundertow.Mai
 Using the `curl` command to access this URL:
 
 ```bash
-$ curl http://localhost:8080/rest/foo
+$ curl http://localhost:8081/rest/foo
 ```
 
 It will return `Hello, world!` from server. And the message is produced by Spring bean `HelloWorldBean` injected into JAX-RS resource class `FooResource`.
