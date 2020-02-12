@@ -33,12 +33,12 @@
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
         <javax-json.version>1.1</javax-json.version>
-        <jackson-databind.version>2.9.4</jackson-databind.version>
+        <jackson-databind.ver>2.9.4</jackson-databind.ver>
         <jboss-logging.version>3.3.2.Final</jboss-logging.version>
         <junit.version>4.12</junit.version>
         <logmanager.version>2.1.8.Final</logmanager.version>
         <maven-compiler-plugin.version>3.8.0</maven-compiler-plugin.version>
-        <resteasy.version>4.4.2.Final</resteasy.version>
+        <resteasy.ver>4.4.2.Final</resteasy.ver>
         <maven-deploy-plugin.version>3.0.0-M1</maven-deploy-plugin.version>
         <version.org.eclipse.jetty>9.4.17.v20190418</version.org.eclipse.jetty>
         <spring.version>5.2.0.RELEASE</spring.version>
@@ -54,14 +54,27 @@
         <javax.servlet-api.version>3.1.0</javax.servlet-api.version>
         <servlet-api.version>2.5</servlet-api.version>
         <resteasy.eagledns.ver>1.0.0.Beta4</resteasy.eagledns.ver>
-        <log4j.ver>1.2.17</log4j.ver>
+        <jsp-api.ver>2.3.3</jsp-api.ver>
+        <jstl.ver>1.2</jstl.ver>
+        <commons-codec.ver>1.13</commons-codec.ver>
+        <enforcer.plugin.ver>3.0.0-M2</enforcer.plugin.ver>
+        <guava.ver>28.1-jre</guava.ver>
+        <jackson-core.ver>2.10.1</jackson-core.ver>
+        <jackson-annotations.ver>2.10.1</jackson-annotations.ver>
+        <jboss.servlet.api.ver>2.0.0.Final</jboss.servlet.api.ver>
+        <undertow-servlet.ver>2.0.23.Final</undertow-servlet.ver>
     </properties>
     <dependencyManagement>
         <dependencies>
             <dependency>
-                <groupId>log4j</groupId>
-                <artifactId>log4j</artifactId>
-                <version>${log4j.ver}</version>
+                <groupId>javax.servlet.jsp</groupId>
+                <artifactId>javax.servlet.jsp-api</artifactId>
+                <version>${jsp-api.ver}</version>
+            </dependency>
+            <dependency>
+                <groupId>jstl</groupId>
+                <artifactId>jstl</artifactId>
+                <version>${jstl.ver}</version>
             </dependency>
             <dependency>
                 <groupId>org.jboss.resteasy</groupId>
@@ -78,24 +91,112 @@
             <dependency>
                 <groupId>org.jboss.resteasy</groupId>
                 <artifactId>resteasy-bom</artifactId>
-                <version>${resteasy.version}</version>
+                <version>${resteasy.ver}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
             <dependency>
                 <groupId>org.jboss.resteasy</groupId>
                 <artifactId>resteasy-core</artifactId>
-                <version>${resteasy.version}</version>
+                <version>${resteasy.ver}</version>
             </dependency>
             <dependency>
                 <groupId>org.jboss.resteasy</groupId>
                 <artifactId>resteasy-undertow</artifactId>
-                <version>${resteasy.version}</version>
+                <version>${resteasy.ver}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.jboss.resteasy</groupId>
+                <artifactId>resteasy-client</artifactId>
+                <version>${resteasy.ver}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>commons-codec</groupId>
+                        <artifactId>commons-codec</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>org.jboss.resteasy</groupId>
+                <artifactId>resteasy-jackson2-provider</artifactId>
+                <version>${resteasy.ver}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>com.google.guava</groupId>
+                        <artifactId>guava</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>org.jboss.resteasy.examples</groupId>
+                <artifactId>examples-jaxb-json</artifactId>
+                <version>${resteasy.ver}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>com.fasterxml.jackson.core</groupId>
+                        <artifactId>jackson-databind</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>com.fasterxml.jackson.core</groupId>
+                        <artifactId>jackson-core</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>com.fasterxml.jackson.core</groupId>
+                        <artifactId>jackson-annotations</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>io.undertow</groupId>
+                <artifactId>undertow-servlet</artifactId>
+                <version>${undertow-servlet.ver}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.jboss.spec.javax.servlet</groupId>
+                        <artifactId>jboss-servlet-api_4.0_spec</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>org.jboss.resteasy</groupId>
+                <artifactId>resteasy-undertow</artifactId>
+                <version>${resteasy.ver}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.jboss.spec.javax.servlet</groupId>
+                        <artifactId>jboss-servlet-api_4.0_spec</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-core</artifactId>
+                <version>${jackson-core.ver}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-annotations</artifactId>
+                <version>${jackson-annotations.ver}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-databind</artifactId>
+                <version>${jackson-databind.ver}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.jboss.spec.javax.servlet</groupId>
+                <artifactId>jboss-servlet-api_4.0_spec</artifactId>
+                <version>${jboss.servlet.api.ver}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>${guava.ver}</version>
             </dependency>
             <dependency>
                 <groupId>org.jboss.resteasy</groupId>
                 <artifactId>resteasy-undertow-spring</artifactId>
-                <version>${resteasy.version}</version>
+                <version>${resteasy.ver}</version>
             </dependency>
             <dependency>
                 <groupId>commons-httpclient</groupId>
@@ -226,6 +327,11 @@
                 <artifactId>javax.json</artifactId>
                 <version>${javax-json.version}</version>
             </dependency>
+            <dependency>
+                <groupId>commons-codec</groupId>
+                <artifactId>commons-codec</artifactId>
+                <version>${commons-codec.ver}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -264,6 +370,54 @@
                 <configuration>
                     <skip>true</skip>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-enforcer-plugin</artifactId>
+                <version>${enforcer.plugin.ver}</version>
+                <executions>
+                    <execution>
+                        <id>ban-bad-dependencies</id>
+                        <goals>
+                            <goal>enforce</goal>
+                        </goals>
+                        <configuration>
+                            <rules>
+                                <bannedDependencies>
+                                    <searchTransitive>true</searchTransitive>
+                                    <excludes>
+                                        <exclude>log4j:log4j</exclude>
+                                    </excludes>
+                                </bannedDependencies>
+                            </rules>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>dep-convergence</id>
+                        <goals>
+                            <goal>enforce</goal>
+                        </goals>
+                        <configuration>
+                            <rules>
+                                <dependencyConvergence></dependencyConvergence>
+                            </rules>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>use-java-8-for-release</id>
+                        <phase>deploy</phase>
+                        <goals>
+                            <goal>enforce</goal>
+                        </goals>
+                        <configuration>
+                            <rules>
+                                <requireJavaVersion>
+                                    <version>[1.8,9)</version>
+                                </requireJavaVersion>
+                            </rules>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>

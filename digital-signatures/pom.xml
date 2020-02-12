@@ -19,5 +19,5 @@
         <module>no-dns</module>
         <module>use-dns</module>
     </modules>
-    <url>http://wiki.jboss.org/wiki/Wiki.jsp?page=RESTeasyJAXRS</url>
+    <url>https://resteasy.github.io/</url>
 </project>
