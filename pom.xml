@@ -20,7 +20,7 @@
         <module>oreilly-jaxrs-2.0-workbook</module>
         <module>examples-jsapi</module>
         <module>smime</module>
-<!--        <module>digital-signatures</module>-->
+        <module>digital-signatures</module>
         <module>jaxrs-2.0</module>
         <module>wadl-example</module>
         <module>spring-hibernate-contacts</module>
@@ -49,10 +49,9 @@
         <persistence-api.version>1.0.2</persistence-api.version>
         <hsqldb.version>2.5.0</hsqldb.version>
         <commons-dbcp2.version>2.7.0</commons-dbcp2.version>
-        <tracing-api.version>1.0.0.Beta4</tracing-api.version>
+        <resteasy-extension.ver>1.0.0.Final</resteasy-extension.ver>
         <javax.servlet-api.version>3.1.0</javax.servlet-api.version>
         <servlet-api.version>2.5</servlet-api.version>
-        <resteasy.eagledns.ver>1.0.0.Beta4</resteasy.eagledns.ver>
         <jsp-api.ver>2.3.3</jsp-api.ver>
         <jstl.ver>1.2</jstl.ver>
         <commons-codec.ver>1.13</commons-codec.ver>
@@ -84,14 +83,7 @@
             <dependency>
                 <groupId>org.jboss.resteasy</groupId>
                 <artifactId>resteasy-eagledns-fork</artifactId>
-                <version>${resteasy.eagledns.ver}</version>
-                <exclusions>
-                    <exclusion>
-                        <groupId>log4j</groupId>
-                        <artifactId>log4j</artifactId>
-                    </exclusion>
-                </exclusions>
-                <scope>test</scope>
+                <version>${resteasy-extension.ver}</version>
             </dependency>
             <dependency>
                 <groupId>org.jboss.resteasy</groupId>
@@ -300,7 +292,7 @@
             <dependency>
                 <groupId>org.jboss.resteasy</groupId>
                 <artifactId>resteasy-tracing-api</artifactId>
-                <version>${tracing-api.version}</version>
+                <version>${resteasy-extension.ver}</version>
             </dependency>
             <dependency>
                 <groupId>org.jboss.logging</groupId>
