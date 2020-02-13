@@ -1,20 +1,19 @@
-Spring and Resteasy
-===================
+# Basic Spring and RESTEasy Integration Demo 
+
 Example of using RESTEasy with:
+
 - Spring
 - Jetty (embedded)
 
-The module shows an example to use RESTEasy's basic Springframwork integration.
+The module shows an example to use RESTEasy's basic Spring Framework integration.
 
-Building the project:
--------------------------
+## Building the project
 
 ```bash
 $ mvn clean install
 ```
 
-Running the project and manually testing it:
--------------------------
+## Running the project and manually testing it
 
 ```bash
 $ mvn jetty:run
@@ -35,4 +34,3 @@ $ curl http://localhost:8080/rest/foo/hello
 ```
 
 It will give the `Hello, world!` message provided by autowired bean `FooResource`.
-
