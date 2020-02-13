@@ -41,30 +41,7 @@
           <stopKey>foo</stopKey>
           <stopPort>9999</stopPort>
           <stopWait>10</stopWait>
-          <systemProperties>
-            <systemProperty>
-              <name>log4j.configuration</name>
-              <value>file:./target/test-classes/log4j.properties</value>
-            </systemProperty>
-          </systemProperties>
         </configuration>
-        <dependencies>
-          <dependency>
-            <groupId>log4j</groupId>
-            <artifactId>log4j</artifactId>
-            <version>1.2.16</version>
-          </dependency>
-          <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
-            <version>1.6.1</version>
-          </dependency>
-          <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-log4j12</artifactId>
-            <version>1.6.1</version>
-          </dependency>
-        </dependencies>
         <executions>
           <execution>
             <id>start-jetty</id>
