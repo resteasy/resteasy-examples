@@ -23,12 +23,8 @@
       <artifactId>jackson-databind</artifactId>
     </dependency>
     <dependency>
-      <groupId>com.fasterxml.jackson.core</groupId>
-      <artifactId>jackson-core</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>com.fasterxml.jackson.core</groupId>
-      <artifactId>jackson-annotations</artifactId>
+      <groupId>commons-logging</groupId>
+      <artifactId>commons-logging</artifactId>
     </dependency>
     <dependency>
       <groupId>org.jboss.resteasy</groupId>

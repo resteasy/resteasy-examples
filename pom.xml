@@ -21,18 +21,18 @@
         <module>examples-jsapi</module>
         <module>smime</module>
 <!--        <module>digital-signatures</module>-->
-<!--        <module>jaxrs-2.0</module>-->
+        <module>jaxrs-2.0</module>
         <module>wadl-example</module>
         <module>spring-hibernate-contacts</module>
-<!--        <module>jsapi-servlet-test</module>-->
-<!--        <module>tracing-example</module>-->
+        <module>jsapi-servlet-test</module>
+        <module>tracing-example</module>
     </modules>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
         <javax-json.version>1.1</javax-json.version>
-        <jackson-databind.ver>2.9.4</jackson-databind.ver>
+        <jackson-databind.ver>2.10.2</jackson-databind.ver>
         <jboss-logging.version>3.3.2.Final</jboss-logging.version>
         <junit.version>4.12</junit.version>
         <logmanager.version>2.1.8.Final</logmanager.version>
