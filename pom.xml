@@ -20,13 +20,12 @@
         <module>oreilly-jaxrs-2.0-workbook</module>
         <module>examples-jsapi</module>
         <module>smime</module>
-        <module>digital-signatures</module>
-        <module>jaxrs-2.0/simple-client</module>
-        <module>jaxrs-2.0/server-async-http</module>
+<!--        <module>digital-signatures</module>-->
+<!--        <module>jaxrs-2.0</module>-->
         <module>wadl-example</module>
         <module>spring-hibernate-contacts</module>
-        <module>jsapi-servlet-test</module>
-        <module>tracing-example</module>
+<!--        <module>jsapi-servlet-test</module>-->
+<!--        <module>tracing-example</module>-->
     </modules>
 
     <properties>
@@ -63,9 +62,15 @@
         <jackson-annotations.ver>2.10.1</jackson-annotations.ver>
         <jboss.servlet.api.ver>2.0.0.Final</jboss.servlet.api.ver>
         <undertow-servlet.ver>2.0.23.Final</undertow-servlet.ver>
+        <commons-logging.ver>1.2</commons-logging.ver>
     </properties>
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>commons-logging</groupId>
+                <artifactId>commons-logging</artifactId>
+                <version>${commons-logging.ver}</version>
+            </dependency>
             <dependency>
                 <groupId>javax.servlet.jsp</groupId>
                 <artifactId>javax.servlet.jsp-api</artifactId>
@@ -114,6 +119,10 @@
                         <groupId>commons-codec</groupId>
                         <artifactId>commons-codec</artifactId>
                     </exclusion>
+                    <exclusion>
+                        <groupId>commons-logging</groupId>
+                        <artifactId>commons-logging</artifactId>
+                    </exclusion>
                 </exclusions>
             </dependency>
             <dependency>
@@ -127,25 +136,25 @@
                     </exclusion>
                 </exclusions>
             </dependency>
-            <dependency>
-                <groupId>org.jboss.resteasy.examples</groupId>
-                <artifactId>examples-jaxb-json</artifactId>
-                <version>${resteasy.ver}</version>
-                <exclusions>
-                    <exclusion>
-                        <groupId>com.fasterxml.jackson.core</groupId>
-                        <artifactId>jackson-databind</artifactId>
-                    </exclusion>
-                    <exclusion>
-                        <groupId>com.fasterxml.jackson.core</groupId>
-                        <artifactId>jackson-core</artifactId>
-                    </exclusion>
-                    <exclusion>
-                        <groupId>com.fasterxml.jackson.core</groupId>
-                        <artifactId>jackson-annotations</artifactId>
-                    </exclusion>
-                </exclusions>
-            </dependency>
+<!--            <dependency>-->
+<!--                <groupId>org.jboss.resteasy.examples</groupId>-->
+<!--                <artifactId>examples-jaxb-json</artifactId>-->
+<!--                <version>${resteasy.ver}</version>-->
+<!--                <exclusions>-->
+<!--                    <exclusion>-->
+<!--                        <groupId>com.fasterxml.jackson.core</groupId>-->
+<!--                        <artifactId>jackson-databind</artifactId>-->
+<!--                    </exclusion>-->
+<!--                    <exclusion>-->
+<!--                        <groupId>com.fasterxml.jackson.core</groupId>-->
+<!--                        <artifactId>jackson-core</artifactId>-->
+<!--                    </exclusion>-->
+<!--                    <exclusion>-->
+<!--                        <groupId>com.fasterxml.jackson.core</groupId>-->
+<!--                        <artifactId>jackson-annotations</artifactId>-->
+<!--                    </exclusion>-->
+<!--                </exclusions>-->
+<!--            </dependency>-->
             <dependency>
                 <groupId>io.undertow</groupId>
                 <artifactId>undertow-servlet</artifactId>
