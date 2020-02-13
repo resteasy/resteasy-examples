@@ -15,7 +15,7 @@
     <dependency>
       <groupId>org.jboss.resteasy</groupId>
       <artifactId>resteasy-wadl</artifactId>
-      <version>${resteasy.version}</version>
+      <version>${resteasy.ver}</version>
     </dependency>
     <dependency>
       <groupId>javax.servlet</groupId>
