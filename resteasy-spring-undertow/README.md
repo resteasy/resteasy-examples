@@ -1,4 +1,4 @@
-# Spring and RESTEasy Undertow Embedded Server
+# Demo Of Undertow Embedded Spring Container  
 
 Example of using RESTEasy with:
 
