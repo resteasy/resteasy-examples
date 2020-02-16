@@ -1,6 +1,5 @@
 package org.jboss.resteasy.examples.springbasic;
 
-import org.jboss.resteasy.examples.springrest.FooBean;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.servlet.ServletContext;
