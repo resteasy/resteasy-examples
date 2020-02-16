@@ -11,7 +11,7 @@ import javax.ws.rs.core.Context;
 public class FooResource {
 
    @Autowired
-   FooService fooService;
+   FooBean fooBean;
 
    @GET
    public String getFoo(@Context ServletContext context) {
@@ -21,6 +21,6 @@ public class FooResource {
    @GET
    @Path("/hello")
    public String hello() {
-      return fooService.hello();
+      return fooBean.hello();
    }
 }
