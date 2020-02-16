@@ -1,11 +1,6 @@
-# Basic Spring and RESTEasy Integration Demo 
+# RESTEasy support of Spring REST annotations 
 
-Example of using RESTEasy with:
-
-- Spring
-- Jetty (embedded)
-
-The module shows an example to use RESTEasy's basic Spring Framework integration.
+The module shows an example of using RESTEasy to support Spring REST annotations.
 
 ## Building the project
 
@@ -22,15 +17,20 @@ $ mvn jetty:run
 Using the `curl` command to access this URL:
 
 ```bash
-$ curl http://localhost:8080/rest/foo
+$ curl http://localhost:8080/spring
 ```
 
-It will fetch the value of context parameter `foo` defined in `web.xml`. This shows the injection of `ServletContext` by `@Context` annotation.
+It will return `Spring is coming!` from server side. And the resource class from server side is using Spring REST annotations:
 
-And using  the `curl` command to access another URL:
+```java
+@RestController
+@RequestMapping("/spring")
+public class SpringRestAnnotationResource {
 
-```bash
-$ curl http://localhost:8080/rest/foo/hello
+    @GetMapping("/")
+    public String get() {
+        return "Spring is coming!";
+    }
+}
 ```
 
-It will give the `Hello, world!` message provided by autowired bean `FooResource`.

@@ -13,22 +13,23 @@
     <name>Example of Processing Spring Web REST annotations in RESTEasy</name>
     <packaging>war</packaging>
     <dependencies>
+<!--        This dependency is needed by servlet 3.0 container-->
         <dependency>
             <groupId>org.jboss.resteasy</groupId>
-            <artifactId>resteasy-spring</artifactId>
+            <artifactId>resteasy-servlet-initializer</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.jboss.resteasy</groupId>
+            <artifactId>resteasy-core-spi</artifactId>
+        </dependency>
+<!--        This dependency supports Spring REST annotations-->
         <dependency>
             <groupId>org.jboss.resteasy</groupId>
             <artifactId>resteasy-spring-web</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
-            <artifactId>spring-webmvc</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>servlet-api</artifactId>
-            <scope>provided</scope>
+            <artifactId>spring-web</artifactId>
         </dependency>
     </dependencies>
     <build>

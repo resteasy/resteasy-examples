@@ -3,39 +3,10 @@
          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
     <display-name>resteasy-spring-rest</display-name>
 
-<!--    <context-param>-->
-<!--        <param-name>contextConfigLocation</param-name>-->
-<!--        <param-value>classpath:resteasy-spring-rest.xml</param-value>-->
-<!--    </context-param>-->
-
     <context-param>
         <param-name>resteasy.scanned.resource.classes.with.builder</param-name>
         <param-value>
-            org.jboss.resteasy.spi.metadata.SpringResourceBuilder:org.jboss.resteasy.examples.springrest.FooResource
+            org.jboss.resteasy.spi.metadata.SpringResourceBuilder:org.jboss.resteasy.examples.springrest.SpringRestAnnotationResource
         </param-value>
     </context-param>
-
-    <context-param>
-        <param-name>resteasy.built.response.processors</param-name>
-        <param-value>org.jboss.resteasy.spring.web.ResponseStatusBuiltResponseProcessor</param-value>
-    </context-param>
-
-<!--    <listener>-->
-<!--        <listener-class>org.jboss.resteasy.plugins.spring.SpringContextLoaderListener</listener-class>-->
-<!--    </listener>-->
-
-    <!--    You can use `FilterDispatcher` instead of `HttpServletDispatcher`. -->
-    <!--    The advantage is that if a JAX-RS resource is not found under the URL requested, -->
-    <!--    RESTEasy will delegate back to the base servlet container to resolve URLs.-->
-    <filter>
-        <filter-name>resteasy-filter</filter-name>
-        <filter-class>
-            org.jboss.resteasy.plugins.server.servlet.FilterDispatcher
-        </filter-class>
-    </filter>
-
-    <filter-mapping>
-        <filter-name>resteasy-filter</filter-name>
-        <url-pattern>/rest/*</url-pattern>
-    </filter-mapping>
 </web-app>
