@@ -1,0 +1,27 @@
+{
+  "resourcePackages": [
+    "cn.alchemystudio.swagger.jaxrs.rest"
+  ],
+  "ignoredRoutes": [
+    "/users"
+  ],
+  "prettyPrint": true,
+  "cacheTTL": 0,
+  "openAPI": {
+    "info": {
+      "version": 1.0,
+      "title": "sample jaxrs api",
+      "description": "jaxrs api docs",
+      "termsOfService": "https://blog.moicen.com",
+      "contact": {
+        "email": "i@moicen.com"
+      },
+      "license": {
+        "name": "Apache 2.0",
+        "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+      }
+    }
+  }
+}
+
+
