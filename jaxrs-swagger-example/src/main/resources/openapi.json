@@ -1,0 +1,25 @@
+{
+  "resourcePackages": [
+    "org.jboss.resteasy.example.swagger"
+  ],
+  "ignoredRoutes": [],
+  "prettyPrint": true,
+  "cacheTTL": 0,
+  "openAPI": {
+    "info": {
+      "version": 1.0,
+      "title": "Resteasy Swagger Example",
+      "description": "jaxrs api docs",
+      "termsOfService": "https://blog.moicen.com",
+      "contact": {
+        "email": "moicen1988@gmail.com"
+      },
+      "license": {
+        "name": "Apache 2.0",
+        "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+      }
+    }
+  }
+}
+
+
