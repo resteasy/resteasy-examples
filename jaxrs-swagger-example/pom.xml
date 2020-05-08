@@ -53,7 +53,7 @@
             <scope>runtime</scope>
         </dependency>
 
-        <!-- swagger 依赖 -->
+        <!-- swagger related dependencies -->
         <dependency>
             <groupId>io.swagger.core.v3</groupId>
             <artifactId>swagger-jaxrs2</artifactId>
