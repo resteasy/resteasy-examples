@@ -11,14 +11,13 @@
     <groupId>org.jboss.resteasy.examples</groupId>
     <artifactId>jaxrs-swagger-example</artifactId>
     <name>Example of Integrating Swagger With JaxRS</name>
-    <packaging>war</packaging>
+    <packaging>jar</packaging>
 
     <properties>
         <java.version>11</java.version>
         <jaxrs.version>2.1.1</jaxrs.version>
         <swagger.version>2.0.10</swagger.version>
         <springboot.version>2.2.1.RELEASE</springboot.version>
-        <resteasy.springboot.version>4.3.1.Final</resteasy.springboot.version>
     </properties>
 
     <dependencies>
@@ -38,6 +37,10 @@
                     <groupId>org.junit.vintage</groupId>
                     <artifactId>junit-vintage-engine</artifactId>
                 </exclusion>
+                <exclusion>
+                    <groupId>org.mockito</groupId>
+                    <artifactId>mockito-junit-jupiter</artifactId>
+                </exclusion>
             </exclusions>
         </dependency>
 
@@ -45,12 +48,6 @@
             <groupId>javax.ws.rs</groupId>
             <artifactId>javax.ws.rs-api</artifactId>
             <version>${jaxrs.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.jboss.resteasy</groupId>
-            <artifactId>resteasy-spring-boot-starter</artifactId>
-            <version>${resteasy.springboot.version}</version>
-            <scope>runtime</scope>
         </dependency>
 
         <!-- swagger related dependencies -->
