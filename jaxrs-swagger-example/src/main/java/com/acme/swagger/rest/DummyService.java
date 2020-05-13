@@ -1,6 +1,6 @@
-package org.jboss.resteasy.example.swagger.rest;
+package com.acme.swagger.rest;
 
-import org.jboss.resteasy.example.swagger.common.HttpWebResponse;
+import com.acme.swagger.common.HttpWebResponse;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import org.springframework.stereotype.Component;

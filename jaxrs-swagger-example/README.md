@@ -1,7 +1,6 @@
 # jaxrs-swagger-sample
 
-
-Sample project for integrate swagger with jaxrs
+Sample project for integrate swagger with jaxrs 
 
 To generate json file for openapi:
 
@@ -12,7 +11,57 @@ $ mvn compile
 The json file can be found in `target/swagger/jaxrs-api.json`, and it's content like: 
 
 ```json
-
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Resteasy Swagger Example",
+    "description": "jaxrs api docs",
+    "termsOfService": "https://example.com",
+    "contact": {
+      "email": "example@example.com"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    },
+    "version": "1.0"
+  },
+  "paths": {
+    "/dummy": {
+      "get": {
+        "tags": [
+          "dummy"
+        ],
+        "summary": "get dummy",
+        "description": "Get Dummy",
+        "operationId": "get",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "HttpWebResponse": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "result": {
+            "type": "object"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}
 ```
 
 With this `jaxrs-api.json` file we can start a web service, to be convenient, we can use the official docker image of swagger:

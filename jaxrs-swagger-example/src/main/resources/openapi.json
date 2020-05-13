@@ -1,6 +1,6 @@
 {
   "resourcePackages": [
-    "org.jboss.resteasy.example.swagger"
+    "com.acme.swagger.rest"
   ],
   "ignoredRoutes": [],
   "prettyPrint": true,
@@ -10,9 +10,9 @@
       "version": 1.0,
       "title": "Resteasy Swagger Example",
       "description": "jaxrs api docs",
-      "termsOfService": "https://blog.moicen.com",
+      "termsOfService": "https://example.com",
       "contact": {
-        "email": "moicen1988@gmail.com"
+        "email": "example@example.com"
       },
       "license": {
         "name": "Apache 2.0",

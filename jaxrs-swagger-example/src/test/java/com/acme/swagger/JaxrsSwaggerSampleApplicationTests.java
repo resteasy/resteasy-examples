@@ -1,7 +1,7 @@
-package org.jboss.resteasy.example.swagger;
+package com.acme.swagger;
 
-import org.jboss.resteasy.example.swagger.common.HttpWebResponse;
-import org.jboss.resteasy.example.swagger.rest.DummyService;
+import com.acme.swagger.common.HttpWebResponse;
+import com.acme.swagger.rest.DummyService;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 

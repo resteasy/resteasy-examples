@@ -1,4 +1,4 @@
-package org.jboss.resteasy.example.swagger;
+package com.acme.swagger;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -1,4 +1,4 @@
-package org.jboss.resteasy.example.swagger.common;
+package com.acme.swagger.common;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
