@@ -17,6 +17,7 @@
         <java.version>11</java.version>
         <jaxrs.version>2.1.1</jaxrs.version>
         <swagger.version>2.0.10</swagger.version>
+        <resteasy.version>4.4.2.Final</resteasy.version>
         <springboot.version>2.2.1.RELEASE</springboot.version>
     </properties>
 
@@ -25,6 +26,12 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
             <version>${springboot.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.jboss.resteasy</groupId>
+            <artifactId>resteasy-spring-web</artifactId>
+            <version>${resteasy.version}</version>
         </dependency>
 
         <dependency>

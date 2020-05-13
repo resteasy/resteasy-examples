@@ -64,7 +64,8 @@ The json file can be found in `target/swagger/jaxrs-api.json`, and it's content 
 }
 ```
 
-With this `jaxrs-api.json` file we can start a web service, to be convenient, we can use the official docker image of swagger:
+With this `jaxrs-api.json` file we can start a web service, to be convenient, we can use the official docker image of swagger.
+
 You may need to create a directory like `~/docker-share` and share it with docker first.
 
 ```shell script

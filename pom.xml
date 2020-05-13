@@ -107,11 +107,6 @@
             </dependency>
             <dependency>
                 <groupId>org.jboss.resteasy</groupId>
-                <artifactId>resteasy-spring-web</artifactId>
-                <version>${resteasy.ver}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.jboss.resteasy</groupId>
                 <artifactId>resteasy-spring-boot-starter</artifactId>
                 <version>${resteasy.ver}</version>
                 <scope>runtime</scope>
