@@ -10,7 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.jboss.resteasy.examples</groupId>
     <artifactId>jaxrs-swagger-example</artifactId>
-    <name>Example of Integrating Swagger With JaxRS</name>
+    <name>Sample Project For Swagger And JAX-RS Integration</name>
     <packaging>war</packaging>
 
     <properties>

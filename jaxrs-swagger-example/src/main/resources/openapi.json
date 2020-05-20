@@ -9,7 +9,7 @@
     "info": {
       "version": 1.0,
       "title": "RESTEasy Swagger Example",
-      "description": "JAX-RS api docs",
+      "description": "JAX-RS API docs",
       "termsOfService": "https://example.com",
       "contact": {
         "email": "example@example.com"

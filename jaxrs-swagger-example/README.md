@@ -1,62 +1,55 @@
-# jaxrs-swagger-sample
+# Sample Project For Swagger And JAX-RS Integration
+Here is the process to run the example.
 
-Sample project for integrate swagger with JAX-RS 
+The first step is to compile the project and generate the Swagger JSON file:
 
-To generate json file for openAPI:
-
-```shell script
+```bash
 $ mvn compile
 ```
 
-The json file can be found in `target/swagger/jaxrs-api.json`, and it's content like: 
+The above command will compile the project and generate the Swagger JSON file:
 
-```json
-{
-  "openapi": "3.0.1",
-  "info": {
-    "title": "RESTEasy Swagger Example",
-    "description": "JAX-RS api docs",
-    "termsOfService": "https://example.com",
-    "contact": {
-      "email": "example@example.com"
-    },
-    "license": {
-      "name": "Apache 2.0",
-      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
-    },
-    "version": "1.0"
-  },
-  "paths": {
-    "/dummy": {
-      "get": {
-        "tags": [
-          "dummy"
-        ],
-        "summary": "get dummy",
-        "description": "Get Dummy",
-        "operationId": "get",
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    }
-  }
-}
+```bash
+$ ls target/swagger
+jaxrs-api.json
 ```
 
-With this `jaxrs-api.json` file we can start a web service, to be convenient, we can use the official docker image of swagger.
+The next step is to run the Swagger UI server. The easiest way is to use the official Swagger UI docker container:
 
-You may need to create a directory like `~/docker-share` and share it with docker first.
+* [swagger-ui](https://hub.docker.com/r/swaggerapi/swagger-ui/)
 
-```shell script
-# get image
-$ docker pull swaggerapi/swagger-ui
-# copy api data to share with docker
-$ cp target/swagger/jaxrs-api.json ~/docker-share/swagger
-# start a container 
-$ docker run -itd -v ~/docker-share:/docker-share -e SWAGGER_JSON=/docker-share/swagger/jaxrs-api.json -p 8080:8080 swaggerapi/swagger-ui
+You need to install Docker in your machine, and then run the following command to fetch the image and start the container:
+
+```bash
+$ docker run -itd -v $(pwd)/target/swagger:/swagger -e SWAGGER_JSON=/swagger/jaxrs-api.json -p 8888:8080 swaggerapi/swagger-ui
 ```
-Open your browser and navigate to http://localhost:8080, you can read your api in swagger form now.
+
+After the container is started, the Swagger UI server can be accessed at port `8888`:
+
+```bash
+$ curl localhost:8888 | head
+
+<!-- HTML for static distribution bundle build -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Swagger UI</title>
+    <link rel="stylesheet" type="text/css" href="./swagger-ui.css" >
+    <link rel="icon" type="image/png" href="./favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="./favicon-16x16.png" sizes="16x16" />
+    <style>
+```
+
+The next step is to start the service Jetty server:
+
+```bash
+$ mvn jetty:run
+...
+[INFO] Started ServerConnector@46c44cce{HTTP/1.1,[http/1.1]}{0.0.0.0:8080}
+...
+[INFO] Started Jetty Server
+```
+
+So the Swagger UI service is run at port `8888`, and the JAX-RS service is run at port `8080`.
 
