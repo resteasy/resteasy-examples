@@ -1,4 +1,5 @@
 # Sample Project For Swagger And JAX-RS Integration
+
 Here is the process to run the example.
 
 The first step is to compile the project and generate the Swagger JSON file:
