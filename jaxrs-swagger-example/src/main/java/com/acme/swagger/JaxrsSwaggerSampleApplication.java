@@ -1,17 +1,28 @@
 package com.acme.swagger;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import com.acme.swagger.rest.DummyService;
 
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
+import java.util.HashSet;
+import java.util.Set;
 
-@SpringBootApplication
+
 @ApplicationPath("/rest/")
 public class JaxrsSwaggerSampleApplication extends Application {
 
-    public static void main(String[] args) {
-        SpringApplication.run(JaxrsSwaggerSampleApplication.class, args);
+    protected Set<Object> singletons = new HashSet<Object>();
+
+    public JaxrsSwaggerSampleApplication()
+    {
+        singletons.add(new DummyService());
+    }
+
+    @Override
+    public Set<Object> getSingletons()
+    {
+        return singletons;
     }
 
 }

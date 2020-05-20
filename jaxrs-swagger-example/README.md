@@ -2,7 +2,7 @@
 
 Sample project for integrate swagger with jaxrs 
 
-To generate json file for openapi:
+To generate json file for openAPI:
 
 ```shell script
 $ mvn compile
@@ -14,7 +14,7 @@ The json file can be found in `target/swagger/jaxrs-api.json`, and it's content 
 {
   "openapi": "3.0.1",
   "info": {
-    "title": "Resteasy Swagger Example",
+    "title": "RESTEasy Swagger Example",
     "description": "jaxrs api docs",
     "termsOfService": "https://example.com",
     "contact": {

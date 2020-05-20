@@ -3,14 +3,12 @@ package com.acme.swagger.rest;
 import com.acme.swagger.common.HttpWebResponse;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
-import org.springframework.stereotype.Component;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-@Component
 @Path("/dummy")
 @Produces(MediaType.APPLICATION_JSON)
 public class DummyService {

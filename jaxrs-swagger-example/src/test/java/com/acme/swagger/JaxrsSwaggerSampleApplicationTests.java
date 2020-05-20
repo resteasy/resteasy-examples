@@ -3,13 +3,11 @@ package com.acme.swagger;
 import com.acme.swagger.common.HttpWebResponse;
 import com.acme.swagger.rest.DummyService;
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-@SpringBootTest
 class JaxrsSwaggerSampleApplicationTests {
 
     @Test
