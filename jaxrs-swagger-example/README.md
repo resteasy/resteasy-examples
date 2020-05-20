@@ -42,24 +42,6 @@ The json file can be found in `target/swagger/jaxrs-api.json`, and it's content 
         }
       }
     }
-  },
-  "components": {
-    "schemas": {
-      "HttpWebResponse": {
-        "type": "object",
-        "properties": {
-          "success": {
-            "type": "boolean"
-          },
-          "result": {
-            "type": "object"
-          },
-          "message": {
-            "type": "string"
-          }
-        }
-      }
-    }
   }
 }
 ```

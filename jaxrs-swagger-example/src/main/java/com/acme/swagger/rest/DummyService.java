@@ -1,6 +1,5 @@
 package com.acme.swagger.rest;
 
-import com.acme.swagger.common.HttpWebResponse;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 
@@ -13,7 +12,6 @@ import javax.ws.rs.core.MediaType;
 @Produces(MediaType.APPLICATION_JSON)
 public class DummyService {
 
-
     @GET
     @Operation(
             summary = "get dummy",
@@ -21,8 +19,8 @@ public class DummyService {
             tags = {"dummy"}
     )
     @ApiResponse(responseCode = "200", description = "OK")
-    public HttpWebResponse get() {
-        return new HttpWebResponse<>(true, "dummy");
+    public String get() {
+        return "dummy";
     }
 }
 
