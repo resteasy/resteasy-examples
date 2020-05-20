@@ -8,8 +8,8 @@
   "openAPI": {
     "info": {
       "version": 1.0,
-      "title": "Resteasy Swagger Example",
-      "description": "jaxrs api docs",
+      "title": "RESTEasy Swagger Example",
+      "description": "JAX-RS api docs",
       "termsOfService": "https://example.com",
       "contact": {
         "email": "example@example.com"
