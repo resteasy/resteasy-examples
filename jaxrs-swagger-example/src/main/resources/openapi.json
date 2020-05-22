@@ -1,0 +1,25 @@
+{
+  "resourcePackages": [
+    "com.acme.swagger.rest"
+  ],
+  "ignoredRoutes": [],
+  "prettyPrint": true,
+  "cacheTTL": 0,
+  "openAPI": {
+    "info": {
+      "version": 1.0,
+      "title": "RESTEasy Swagger Example",
+      "description": "JAX-RS API docs",
+      "termsOfService": "https://example.com",
+      "contact": {
+        "email": "example@example.com"
+      },
+      "license": {
+        "name": "Apache 2.0",
+        "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+      }
+    }
+  }
+}
+
+
