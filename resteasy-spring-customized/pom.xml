@@ -12,6 +12,7 @@
     <artifactId>examples-resteasy-spring-customized</artifactId>
     <name>Spring RestContact Maven Webapp Customized</name>
     <packaging>war</packaging>
+
     <dependencies>
         <dependency>
             <groupId>org.jboss.resteasy</groupId>
@@ -24,6 +25,10 @@
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>javax.inject</groupId>
+            <artifactId>javax.inject</artifactId>
         </dependency>
     </dependencies>
     <build>

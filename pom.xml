@@ -61,7 +61,7 @@
         <maven.compiler.target>8</maven.compiler.target>
         <persistence-api.version>1.0.2</persistence-api.version>
         <resteasy-extension.ver>1.0.0.Final</resteasy-extension.ver>
-        <resteasy.ver>4.4.2.Final</resteasy.ver>
+        <resteasy.ver>4.5.5.Final</resteasy.ver>
         <servlet-api.version>2.5</servlet-api.version>
         <slf4j.version>1.7.29</slf4j.version>
         <spring.version>5.2.0.RELEASE</spring.version>
@@ -69,6 +69,7 @@
         <undertow-servlet.ver>2.0.23.Final</undertow-servlet.ver>
         <version.org.eclipse.jetty>9.4.17.v20190418</version.org.eclipse.jetty>
         <xerces.version>2.12.0</xerces.version>
+        <javax.inject.ver>1</javax.inject.ver>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -86,6 +87,11 @@
                 <groupId>jstl</groupId>
                 <artifactId>jstl</artifactId>
                 <version>${jstl.ver}</version>
+            </dependency>
+            <dependency>
+                <groupId>javax.inject</groupId>
+                <artifactId>javax.inject</artifactId>
+                <version>${javax.inject.ver}</version>
             </dependency>
             <dependency>
                 <groupId>org.jboss.resteasy</groupId>
