@@ -13,7 +13,7 @@
             <dependency>
                 <groupId>org.jboss.resteasy</groupId>
                 <artifactId>resteasy-bom</artifactId>
-                <version>${resteasy.version}</version>
+                <version>${resteasy.ver}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -26,23 +26,23 @@
             <dependency>
                 <groupId>org.jboss.resteasy</groupId>
                 <artifactId>resteasy-core</artifactId>
-                <version>${resteasy.version}</version>
+                <version>${resteasy.ver}</version>
             </dependency>
             <dependency>
                 <groupId>org.jboss.resteasy</groupId>
                 <artifactId>resteasy-client</artifactId>
-                <version>${resteasy.version}</version>
+                <version>${resteasy.ver}</version>
             </dependency>
             <dependency>
                 <groupId>org.jboss.resteasy</groupId>
                 <artifactId>resteasy-servlet-initializer</artifactId>
-                <version>${resteasy.version}</version>
+                <version>${resteasy.ver}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
 
     <properties>
-        <resteasy.version>4.4.2.Final</resteasy.version>
+        <resteasy.ver>4.4.2.Final</resteasy.ver>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
         <version.org.eclipse.jetty>9.4.17.v20190418</version.org.eclipse.jetty>

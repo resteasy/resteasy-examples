@@ -32,39 +32,43 @@
     </modules>
 
     <properties>
-        <maven.compiler.source>8</maven.compiler.source>
-        <maven.compiler.target>8</maven.compiler.target>
-        <javax-json.version>1.1</javax-json.version>
+        <commons-codec.ver>1.13</commons-codec.ver>
+        <commons-dbcp2.version>2.7.0</commons-dbcp2.version>
+        <commons-logging.ver>1.2</commons-logging.ver>
+        <enforcer.plugin.ver>3.0.0-M2</enforcer.plugin.ver>
+        <guava.ver>28.1-jre</guava.ver>
+        <hibernate-core.version>5.4.9.Final</hibernate-core.version>
+        <hibernate-entitymanager.version>5.4.9.Final</hibernate-entitymanager.version>
+        <hibernate.version>3.5.4-Final</hibernate.version>
+        <hsqldb.version>2.5.0</hsqldb.version>
+        <jackson-annotations.ver>2.10.1</jackson-annotations.ver>
+        <jackson-core.ver>2.10.1</jackson-core.ver>
         <jackson-databind.ver>2.10.2</jackson-databind.ver>
+        <java.version>11</java.version>
+        <javax-json.version>1.1</javax-json.version>
+        <javax.servlet-api.version>3.1.0</javax.servlet-api.version>
+        <jaxrs.version>2.1.1</jaxrs.version>
         <jboss-logging.version>3.3.2.Final</jboss-logging.version>
+        <jboss.servlet.api.ver>2.0.0.Final</jboss.servlet.api.ver>
+        <jsp-api.ver>2.3.3</jsp-api.ver>
+        <jstl.ver>1.2</jstl.ver>
+        <junit.jupiter.version>5.5.2</junit.jupiter.version>
         <junit.version>4.12</junit.version>
         <logmanager.version>2.1.8.Final</logmanager.version>
         <maven-compiler-plugin.version>3.8.0</maven-compiler-plugin.version>
-        <resteasy.ver>4.4.2.Final</resteasy.ver>
         <maven-deploy-plugin.version>3.0.0-M1</maven-deploy-plugin.version>
-        <version.org.eclipse.jetty>9.4.17.v20190418</version.org.eclipse.jetty>
-        <spring.version>5.2.0.RELEASE</spring.version>
-        <xerces.version>2.12.0</xerces.version>
-        <hibernate.version>3.5.4-Final</hibernate.version>
-        <hibernate-core.version>5.4.9.Final</hibernate-core.version>
-        <slf4j.version>1.7.29</slf4j.version>
-        <hibernate-entitymanager.version>5.4.9.Final</hibernate-entitymanager.version>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
         <persistence-api.version>1.0.2</persistence-api.version>
-        <hsqldb.version>2.5.0</hsqldb.version>
-        <commons-dbcp2.version>2.7.0</commons-dbcp2.version>
         <resteasy-extension.ver>1.0.0.Final</resteasy-extension.ver>
-        <javax.servlet-api.version>3.1.0</javax.servlet-api.version>
+        <resteasy.ver>4.4.2.Final</resteasy.ver>
         <servlet-api.version>2.5</servlet-api.version>
-        <jsp-api.ver>2.3.3</jsp-api.ver>
-        <jstl.ver>1.2</jstl.ver>
-        <commons-codec.ver>1.13</commons-codec.ver>
-        <enforcer.plugin.ver>3.0.0-M2</enforcer.plugin.ver>
-        <guava.ver>28.1-jre</guava.ver>
-        <jackson-core.ver>2.10.1</jackson-core.ver>
-        <jackson-annotations.ver>2.10.1</jackson-annotations.ver>
-        <jboss.servlet.api.ver>2.0.0.Final</jboss.servlet.api.ver>
+        <slf4j.version>1.7.29</slf4j.version>
+        <spring.version>5.2.0.RELEASE</spring.version>
+        <swagger.version>2.0.10</swagger.version>
         <undertow-servlet.ver>2.0.23.Final</undertow-servlet.ver>
-        <commons-logging.ver>1.2</commons-logging.ver>
+        <version.org.eclipse.jetty>9.4.17.v20190418</version.org.eclipse.jetty>
+        <xerces.version>2.12.0</xerces.version>
     </properties>
     <dependencyManagement>
         <dependencies>

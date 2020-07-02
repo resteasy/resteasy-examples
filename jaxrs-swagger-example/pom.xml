@@ -6,6 +6,7 @@
         <artifactId>testable-examples-pom</artifactId>
         <groupId>org.jboss.resteasy</groupId>
         <version>4.0.2.Final-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.jboss.resteasy.examples</groupId>
@@ -13,17 +14,7 @@
     <name>Sample Project For Swagger And JAX-RS Integration</name>
     <packaging>war</packaging>
 
-    <properties>
-        <java.version>11</java.version>
-        <jaxrs.version>2.1.1</jaxrs.version>
-        <swagger.version>2.0.10</swagger.version>
-        <resteasy.version>4.4.2.Final</resteasy.version>
-        <junit.jupiter.version>5.5.2</junit.jupiter.version>
-
-    </properties>
-
     <dependencies>
-
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-engine</artifactId>
