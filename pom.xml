@@ -29,6 +29,7 @@
         <module>jsapi-servlet-test</module>
         <module>tracing-example</module>
         <module>jaxrs-swagger-example</module>
+        <module>resteasy-wadl-wildfly</module>
     </modules>
 
     <properties>
