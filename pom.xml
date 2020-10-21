@@ -29,6 +29,7 @@
         <module>jsapi-servlet-test</module>
         <module>tracing-example</module>
         <module>jaxrs-swagger-example</module>
+        <module>bootable-jar</module>
     </modules>
 
     <properties>
@@ -70,6 +71,9 @@
         <version.org.eclipse.jetty>9.4.17.v20190418</version.org.eclipse.jetty>
         <xerces.version>2.12.0</xerces.version>
         <javax.inject.ver>1</javax.inject.ver>
+        <version.bootable.jar>2.0.0.Final</version.bootable.jar>
+        <version.wildfly>21.0.0.Final</version.wildfly>
+        <version.jakartaee>8.0.0</version.jakartaee>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -342,6 +346,11 @@
                 <artifactId>commons-codec</artifactId>
                 <version>${commons-codec.ver}</version>
             </dependency>
+            <dependency>
+                <groupId>jakarta.platform</groupId>
+                <artifactId>jakarta.jakartaee-api</artifactId>
+                <version>${version.jakartaee}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -369,6 +378,11 @@
                     <groupId>org.eclipse.jetty</groupId>
                     <artifactId>jetty-maven-plugin</artifactId>
                     <version>${version.org.eclipse.jetty}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.wildfly.plugins</groupId>
+                    <artifactId>wildfly-jar-maven-plugin</artifactId>
+                    <version>${version.bootable.jar}</version>
                 </plugin>
             </plugins>
         </pluginManagement>
