@@ -2,14 +2,13 @@
 
 ## USAGE
 
-To deploy this sample project into Wildfly, firstly you need to upgrade your Wildfly RESTEasy module to use the same 
-version with the RESTEasy version used in this example. To achieve the goal, please refer to this section of the RESTEasy
-document:
+To deploy this sample project into Wildfly, firstly you need to replace the embedded Wildfly RESTEasy module with the
+RESTEasy provided one. To do this, please refer to this section of the RESTEasy document:
 
 * [Upgrading RESTEasy within WildFly](https://docs.jboss.org/resteasy/docs/4.5.8.Final/userguide/html_single/index.html#upgrading-wildfly)
 
-After upgrading the Wildfly RESTEasy module to same version of the RESTEasy dependency of this project, the next step is
-to package this project with the following Maven command:
+It is recommended to use the same version of the RESTEasy dependency of this project. After replacing the RESTEasy
+module in Wildfly, the next step is to package this project with the following Maven command:
 
 ```bash
 $ mvn package
