@@ -43,9 +43,9 @@
         <hibernate-entitymanager.version>5.4.9.Final</hibernate-entitymanager.version>
         <hibernate.version>3.5.4-Final</hibernate.version>
         <hsqldb.version>2.5.0</hsqldb.version>
-        <jackson-annotations.ver>2.10.1</jackson-annotations.ver>
-        <jackson-core.ver>2.10.1</jackson-core.ver>
-        <jackson-databind.ver>2.10.2</jackson-databind.ver>
+        <jackson-annotations.ver>2.10.5</jackson-annotations.ver>
+        <jackson-core.ver>2.10.5</jackson-core.ver>
+        <jackson-databind.ver>2.10.5</jackson-databind.ver>
         <java.version>11</java.version>
         <javax-json.version>1.1</javax-json.version>
         <javax.servlet-api.version>3.1.0</javax.servlet-api.version>
