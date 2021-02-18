@@ -45,7 +45,7 @@
         <hsqldb.version>2.5.0</hsqldb.version>
         <jackson-annotations.ver>2.10.5</jackson-annotations.ver>
         <jackson-core.ver>2.10.5</jackson-core.ver>
-        <jackson-databind.ver>2.10.5</jackson-databind.ver>
+        <jackson-databind.ver>2.10.5.1</jackson-databind.ver>
         <java.version>11</java.version>
         <javax-json.version>1.1</javax-json.version>
         <javax.servlet-api.version>3.1.0</javax.servlet-api.version>
