@@ -38,7 +38,7 @@
         <commons-dbcp2.version>2.7.0</commons-dbcp2.version>
         <commons-logging.ver>1.2</commons-logging.ver>
         <enforcer.plugin.ver>3.0.0-M2</enforcer.plugin.ver>
-        <guava.ver>28.1-jre</guava.ver>
+        <guava.ver>29.0-jre</guava.ver>
         <hibernate-core.version>5.4.9.Final</hibernate-core.version>
         <hibernate-entitymanager.version>5.4.9.Final</hibernate-entitymanager.version>
         <hibernate.version>3.5.4-Final</hibernate.version>
