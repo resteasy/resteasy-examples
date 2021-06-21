@@ -1,3 +1,3 @@
 RESTEasy examples
 
-[![Build Status](https://travis-ci.org/resteasy/resteasy-examples.svg?branch=master)](https://travis-ci.org/resteasy/resteasy-examples)
+[![Github CI](https://github.com/resteasy/resteasy-examples/actions/workflows/maven.yml/badge.svg)](https://github.com/resteasy/resteasy-examples/actions)
