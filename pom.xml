@@ -14,7 +14,7 @@
         <module>jaxb-json</module>
         <module>async-job-service</module>
 <!--        <module>resteasy-spring-mvc</module>-->
-<!--        <module>resteasy-spring-basic</module>-->
+        <module>resteasy-spring-basic</module>
 <!--        <module>resteasy-spring-customized</module>-->
 <!--        <module>resteasy-spring-undertow</module>-->
 <!--        <module>resteasy-spring-rest</module>-->
@@ -63,7 +63,7 @@
         <persistence-api.version>1.0.2</persistence-api.version>
         <resteasy-extension.ver>1.0.0.Final</resteasy-extension.ver>
         <resteasy.ver>5.0.0.Beta1</resteasy.ver>
-        <resteasy.spring.ver>5.0.0.Beta1</resteasy.spring.ver>
+        <resteasy.spring.ver>2.0.0.Alpha1</resteasy.spring.ver>
         <servlet-api.version>2.5</servlet-api.version>
         <slf4j.version>1.7.29</slf4j.version>
         <spring.version>5.2.0.RELEASE</spring.version>
@@ -116,14 +116,14 @@
                 <version>${resteasy.ver}</version>
             </dependency>
             <dependency>
-                <groupId>org.jboss.resteasy</groupId>
-                <artifactId>resteasy-undertow</artifactId>
-                <version>${resteasy.ver}</version>
+                <groupId>org.jboss.resteasy.spring</groupId>
+                <artifactId>resteasy-spring</artifactId>
+                <version>${resteasy.spring.ver}</version>
             </dependency>
             <dependency>
-                <groupId>org.jboss.resteasy</groupId>
+                <groupId>org.jboss.resteasy.spring</groupId>
                 <artifactId>resteasy-spring-web</artifactId>
-                <version>${resteasy.ver}</version>
+                <version>${resteasy.spring.ver}</version>
             </dependency>
             <dependency>
                 <groupId>org.jboss.resteasy</groupId>
