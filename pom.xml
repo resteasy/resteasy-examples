@@ -12,14 +12,13 @@
     <modules>
         <module>jaxrs2-async-pubsub-example</module>
         <module>jaxb-json</module>
-        <module>guice-hello</module>
         <module>async-job-service</module>
-        <module>resteasy-spring-mvc</module>
-        <module>resteasy-spring-basic</module>
-        <module>resteasy-spring-customized</module>
-        <module>resteasy-spring-undertow</module>
-        <module>resteasy-spring-rest</module>
-        <module>oreilly-jaxrs-2.0-workbook</module>
+<!--        <module>resteasy-spring-mvc</module>-->
+<!--        <module>resteasy-spring-basic</module>-->
+<!--        <module>resteasy-spring-customized</module>-->
+<!--        <module>resteasy-spring-undertow</module>-->
+<!--        <module>resteasy-spring-rest</module>-->
+<!--        <module>oreilly-jaxrs-2.0-workbook</module>-->
         <module>examples-jsapi</module>
         <module>smime</module>
         <module>digital-signatures</module>
@@ -27,10 +26,10 @@
         <module>wadl-example</module>
         <module>spring-hibernate-contacts</module>
         <module>jsapi-servlet-test</module>
-        <module>tracing-example</module>
+<!--        <module>tracing-example</module>-->
         <module>jaxrs-swagger-example</module>
         <module>resteasy-wadl-wildfly</module>
-        <module>bootable-jar</module>
+<!--        <module>bootable-jar</module>-->
     </modules>
 
     <properties>
@@ -63,7 +62,8 @@
         <maven.compiler.target>8</maven.compiler.target>
         <persistence-api.version>1.0.2</persistence-api.version>
         <resteasy-extension.ver>1.0.0.Final</resteasy-extension.ver>
-        <resteasy.ver>4.6.0.Final</resteasy.ver>
+        <resteasy.ver>5.0.0.Beta1</resteasy.ver>
+        <resteasy.spring.ver>5.0.0.Beta1</resteasy.spring.ver>
         <servlet-api.version>2.5</servlet-api.version>
         <slf4j.version>1.7.29</slf4j.version>
         <spring.version>5.2.0.RELEASE</spring.version>
