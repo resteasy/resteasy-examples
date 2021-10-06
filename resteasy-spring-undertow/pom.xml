@@ -34,11 +34,11 @@
             <artifactId>undertow-core</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.jboss.resteasy.spring</groupId>
-            <artifactId>resteasy-undertow-spring</artifactId>
+            <groupId>org.jboss.resteasy</groupId>
+            <artifactId>resteasy-undertow</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.jboss.resteasy</groupId>
+            <groupId>org.jboss.resteasy.spring</groupId>
             <artifactId>resteasy-undertow-spring</artifactId>
         </dependency>
         <dependency>

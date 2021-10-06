@@ -168,9 +168,9 @@
                 </exclusions>
             </dependency>
             <dependency>
-                <groupId>org.jboss.resteasy.spring</groupId>
-                <artifactId>resteasy-undertow-spring</artifactId>
-                <version>${resteasy.spring.ver}</version>
+                <groupId>org.jboss.resteasy</groupId>
+                <artifactId>resteasy-undertow</artifactId>
+                <version>${resteasy.ver}</version>
                 <exclusions>
                     <exclusion>
                         <groupId>org.jboss.spec.javax.servlet</groupId>
@@ -204,9 +204,9 @@
                 <version>${guava.ver}</version>
             </dependency>
             <dependency>
-                <groupId>org.jboss.resteasy</groupId>
+                <groupId>org.jboss.resteasy.spring</groupId>
                 <artifactId>resteasy-undertow-spring</artifactId>
-                <version>${resteasy.ver}</version>
+                <version>${resteasy.spring.ver}</version>
             </dependency>
             <dependency>
                 <groupId>commons-httpclient</groupId>
