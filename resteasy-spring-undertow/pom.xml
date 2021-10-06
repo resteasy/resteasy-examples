@@ -14,7 +14,7 @@
     <packaging>jar</packaging>
     <dependencies>
         <dependency>
-            <groupId>org.jboss.resteasy</groupId>
+            <groupId>org.jboss.resteasy.spring</groupId>
             <artifactId>resteasy-spring</artifactId>
         </dependency>
         <dependency>
@@ -34,8 +34,8 @@
             <artifactId>undertow-core</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.jboss.resteasy</groupId>
-            <artifactId>resteasy-undertow</artifactId>
+            <groupId>org.jboss.resteasy.spring</groupId>
+            <artifactId>resteasy-undertow-spring</artifactId>
         </dependency>
         <dependency>
             <groupId>org.jboss.resteasy</groupId>

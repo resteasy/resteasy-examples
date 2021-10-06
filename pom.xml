@@ -15,8 +15,8 @@
         <module>async-job-service</module>
         <module>resteasy-spring-mvc</module>
         <module>resteasy-spring-basic</module>
-<!--        <module>resteasy-spring-customized</module>-->
-<!--        <module>resteasy-spring-undertow</module>-->
+        <module>resteasy-spring-customized</module>
+        <module>resteasy-spring-undertow</module>
 <!--        <module>resteasy-spring-rest</module>-->
 <!--        <module>oreilly-jaxrs-2.0-workbook</module>-->
         <module>examples-jsapi</module>
@@ -168,9 +168,9 @@
                 </exclusions>
             </dependency>
             <dependency>
-                <groupId>org.jboss.resteasy</groupId>
-                <artifactId>resteasy-undertow</artifactId>
-                <version>${resteasy.ver}</version>
+                <groupId>org.jboss.resteasy.spring</groupId>
+                <artifactId>resteasy-undertow-spring</artifactId>
+                <version>${resteasy.spring.ver}</version>
                 <exclusions>
                     <exclusion>
                         <groupId>org.jboss.spec.javax.servlet</groupId>
