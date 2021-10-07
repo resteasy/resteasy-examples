@@ -47,6 +47,7 @@
         <jackson-databind.ver>2.10.5.1</jackson-databind.ver>
         <java.version>11</java.version>
         <javax-json.version>1.1</javax-json.version>
+        <javax.inject.ver>1</javax.inject.ver>
         <javax.servlet-api.version>3.1.0</javax.servlet-api.version>
         <jaxrs.version>2.1.1</jaxrs.version>
         <jboss-logging.version>3.3.2.Final</jboss-logging.version>
@@ -62,19 +63,19 @@
         <maven.compiler.target>8</maven.compiler.target>
         <persistence-api.version>1.0.2</persistence-api.version>
         <resteasy-extension.ver>1.0.0.Final</resteasy-extension.ver>
-        <resteasy.ver>5.0.0.Beta1</resteasy.ver>
         <resteasy.spring.ver>2.0.0.Alpha1</resteasy.spring.ver>
+        <resteasy.ver>5.0.0.Beta1</resteasy.ver>
         <servlet-api.version>2.5</servlet-api.version>
         <slf4j.version>1.7.29</slf4j.version>
         <spring.version>5.2.0.RELEASE</spring.version>
         <swagger.version>2.0.10</swagger.version>
         <undertow-servlet.ver>2.0.23.Final</undertow-servlet.ver>
-        <version.org.eclipse.jetty>9.4.17.v20190418</version.org.eclipse.jetty>
-        <xerces.version>2.12.0</xerces.version>
-        <javax.inject.ver>1</javax.inject.ver>
+        <version.jboss-servlet-api>2.0.0.Final</version.jboss-servlet-api>
         <version.bootable.jar>2.0.0.Final</version.bootable.jar>
-        <version.wildfly>21.0.0.Final</version.wildfly>
         <version.jakartaee>8.0.0</version.jakartaee>
+        <version.org.eclipse.jetty>9.4.17.v20190418</version.org.eclipse.jetty>
+        <version.wildfly>21.0.0.Final</version.wildfly>
+        <xerces.version>2.12.0</xerces.version>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -222,6 +223,11 @@
                 <groupId>javax.servlet</groupId>
                 <artifactId>servlet-api</artifactId>
                 <version>${servlet-api.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.jboss.spec.javax.servlet</groupId>
+                <artifactId>jboss-servlet-api_4.0_spec</artifactId>
+                <version>${ver.jboss-servlet-api}</version>
             </dependency>
             <dependency>
                 <groupId>javax.servlet</groupId>
