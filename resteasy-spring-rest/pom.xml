@@ -24,7 +24,7 @@
         </dependency>
 <!--        This dependency supports Spring REST annotations-->
         <dependency>
-            <groupId>org.jboss.resteasy</groupId>
+            <groupId>org.jboss.resteasy.spring</groupId>
             <artifactId>resteasy-spring-web</artifactId>
         </dependency>
         <dependency>

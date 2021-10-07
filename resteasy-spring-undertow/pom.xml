@@ -14,7 +14,7 @@
     <packaging>jar</packaging>
     <dependencies>
         <dependency>
-            <groupId>org.jboss.resteasy</groupId>
+            <groupId>org.jboss.resteasy.spring</groupId>
             <artifactId>resteasy-spring</artifactId>
         </dependency>
         <dependency>
@@ -38,21 +38,16 @@
             <artifactId>resteasy-undertow</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.jboss.resteasy</groupId>
+            <groupId>org.jboss.resteasy.spring</groupId>
             <artifactId>resteasy-undertow-spring</artifactId>
         </dependency>
         <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>servlet-api</artifactId>
+            <groupId>org.jboss.spec.javax.servlet</groupId>
+            <artifactId>jboss-servlet-api_4.0_spec</artifactId>
         </dependency>
         <dependency>
             <groupId>jstl</groupId>
             <artifactId>jstl</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>javax.servlet.jsp</groupId>
-            <artifactId>javax.servlet.jsp-api</artifactId>
-            <scope>provided</scope>
         </dependency>
     </dependencies>
     <build>

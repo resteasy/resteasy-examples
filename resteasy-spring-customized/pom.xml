@@ -15,7 +15,7 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.jboss.resteasy</groupId>
+            <groupId>org.jboss.resteasy.spring</groupId>
             <artifactId>resteasy-spring</artifactId>
         </dependency>
         <dependency>
