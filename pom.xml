@@ -75,7 +75,9 @@
         <version.jakartaee>8.0.0</version.jakartaee>
         <version.org.eclipse.jetty>9.4.17.v20190418</version.org.eclipse.jetty>
         <version.wildfly>21.0.0.Final</version.wildfly>
+        <version.wildfly.plugin>2.1.0.Beta1</version.wildfly.plugin>
         <xerces.version>2.12.0</xerces.version>
+        <wildfly.version>25.0.0.Final</wildfly.version>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -391,6 +393,11 @@
                     <artifactId>wildfly-jar-maven-plugin</artifactId>
                     <version>${version.bootable.jar}</version>
                 </plugin>
+                <plugin>
+                    <groupId>org.wildfly.plugins</groupId>
+                    <artifactId>wildfly-maven-plugin</artifactId>
+                    <version>${version.wildfly.plugin}</version>
+                </plugin>
             </plugins>
         </pluginManagement>
         <plugins>
@@ -449,6 +456,10 @@
                         </configuration>
                     </execution>
                 </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.wildfly.plugins</groupId>
+                <artifactId>wildfly-maven-plugin</artifactId>
             </plugin>
         </plugins>
     </build>
