@@ -69,7 +69,7 @@
         <slf4j.version>1.7.29</slf4j.version>
         <spring.version>5.2.0.RELEASE</spring.version>
         <swagger.version>2.0.10</swagger.version>
-        <undertow-servlet.ver>2.0.23.Final</undertow-servlet.ver>
+        <version.undertow>2.1.6.Final</version.undertow>
         <version.jboss-servlet-api>2.0.0.Final</version.jboss-servlet-api>
         <version.bootable.jar>2.0.0.Final</version.bootable.jar>
         <version.jakartaee>8.0.0</version.jakartaee>
@@ -78,6 +78,7 @@
         <version.wildfly.plugin>2.1.0.Beta1</version.wildfly.plugin>
         <xerces.version>2.12.0</xerces.version>
         <wildfly.version>25.0.0.Final</wildfly.version>
+        <version.wildfly-common>1.5.2.Final</version.wildfly-common>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -162,7 +163,7 @@
             <dependency>
                 <groupId>io.undertow</groupId>
                 <artifactId>undertow-servlet</artifactId>
-                <version>${undertow-servlet.ver}</version>
+                <version>${version.undertow}</version>
                 <exclusions>
                     <exclusion>
                         <groupId>org.jboss.spec.javax.servlet</groupId>
@@ -323,12 +324,23 @@
             <dependency>
                 <groupId>io.undertow</groupId>
                 <artifactId>undertow-servlet</artifactId>
-                <version>2.0.23.Final</version>
+                <version>${version.undertow}</version>
             </dependency>
             <dependency>
                 <groupId>io.undertow</groupId>
                 <artifactId>undertow-core</artifactId>
-                <version>2.0.23.Final</version>
+                <version>${version.undertow}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.wildfly.common</groupId>
+                        <artifactId>wildfly-common</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>org.wildfly.common</groupId>
+                <artifactId>wildfly-common</artifactId>
+                <version>${version.wildfly-common}</version>
             </dependency>
             <dependency>
                 <groupId>org.jboss.resteasy</groupId>
