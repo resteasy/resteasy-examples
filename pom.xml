@@ -26,7 +26,7 @@
         <module>wadl-example</module>
         <module>spring-hibernate-contacts</module>
         <module>jsapi-servlet-test</module>
-<!--        <module>tracing-example</module>-->
+        <module>tracing-example</module>
         <module>jaxrs-swagger-example</module>
         <module>resteasy-wadl-wildfly</module>
 <!--        <module>bootable-jar</module>-->
