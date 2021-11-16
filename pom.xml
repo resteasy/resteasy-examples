@@ -29,7 +29,7 @@
         <module>tracing-example</module>
         <module>jaxrs-swagger-example</module>
         <module>resteasy-wadl-wildfly</module>
-<!--        <module>bootable-jar</module>-->
+        <module>bootable-jar</module>
     </modules>
 
     <properties>
@@ -69,15 +69,14 @@
         <slf4j.version>1.7.29</slf4j.version>
         <spring.version>5.2.0.RELEASE</spring.version>
         <swagger.version>2.0.10</swagger.version>
-        <version.bootable.jar>2.0.0.Final</version.bootable.jar>
+        <version.wildfly-jar-maven-plugin>6.1.0.Final</version.wildfly-jar-maven-plugin>
         <version.jakartaee>8.0.0</version.jakartaee>
         <version.jboss-servlet-api>2.0.0.Final</version.jboss-servlet-api>
         <version.org.eclipse.jetty>9.4.17.v20190418</version.org.eclipse.jetty>
         <version.undertow>2.1.6.Final</version.undertow>
         <version.wildfly-common>1.5.2.Final</version.wildfly-common>
-        <version.wildfly.plugin>2.1.0.Beta1</version.wildfly.plugin>
-        <version.wildfly>21.0.0.Final</version.wildfly>
-        <wildfly.version>25.0.0.Final</wildfly.version>
+        <version.wildfly-maven-plugin>2.1.0.Final</version.wildfly-maven-plugin>
+        <version.wildfly>25.0.0.Final</version.wildfly>
         <xerces.version>2.12.0</xerces.version>
     </properties>
     <dependencyManagement>
@@ -393,12 +392,12 @@
                 <plugin>
                     <groupId>org.wildfly.plugins</groupId>
                     <artifactId>wildfly-jar-maven-plugin</artifactId>
-                    <version>${version.bootable.jar}</version>
+                    <version>${version.wildfly-jar-maven-plugin}</version>
                 </plugin>
                 <plugin>
                     <groupId>org.wildfly.plugins</groupId>
                     <artifactId>wildfly-maven-plugin</artifactId>
-                    <version>${version.wildfly.plugin}</version>
+                    <version>${version.wildfly-maven-plugin}</version>
                 </plugin>
             </plugins>
         </pluginManagement>
