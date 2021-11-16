@@ -10,24 +10,23 @@
     </parent>
     <artifactId>products-runner</artifactId>
     <packaging>war</packaging>
-    <name>Resteasy Bootable JAR Example</name>
-    <description>Reste bootable jaxrs jar Example</description>
-     <dependencies>
-          <dependency>
-               <groupId>jakarta.platform</groupId>
-               <artifactId>jakarta.jakartaee-api</artifactId>
-               <scope>provided</scope>
-          </dependency>
-          <dependency>
-               <groupId>org.jboss.resteasy</groupId>
-               <artifactId>resteasy-client</artifactId>
-          </dependency>
-          <dependency>
-               <groupId>commons-logging</groupId>
-               <artifactId>commons-logging</artifactId>
-          </dependency>
-     </dependencies>
-
+    <name>RESTEasy Bootable JAR Example</name>
+    <description>RESTEasy Bootable JAR Example</description>
+    <dependencies>
+        <dependency>
+            <groupId>jakarta.platform</groupId>
+            <artifactId>jakarta.jakartaee-api</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.resteasy</groupId>
+            <artifactId>resteasy-client</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>commons-logging</groupId>
+            <artifactId>commons-logging</artifactId>
+        </dependency>
+    </dependencies>
     <build>
         <finalName>${project.artifactId}</finalName>
         <plugins>
@@ -35,7 +34,8 @@
                 <groupId>org.wildfly.plugins</groupId>
                 <artifactId>wildfly-jar-maven-plugin</artifactId>
                 <configuration>
-                    <feature-pack-location>wildfly@maven(org.jboss.universe:community-universe)#${version.wildfly}</feature-pack-location>
+                    <feature-pack-location>wildfly@maven(org.jboss.universe:community-universe)#${version.wildfly}
+                    </feature-pack-location>
                     <layers>
                         <layer>jaxrs</layer>
                         <layer>management</layer>
@@ -57,14 +57,18 @@
                 <artifactId>maven-war-plugin</artifactId>
                 <configuration>
                     <failOnMissingWebXml>false</failOnMissingWebXml>
-                    <packagingExcludes>WEB-INF/lib/*.jar</packagingExcludes>     
+                    <packagingExcludes>WEB-INF/lib/*.jar</packagingExcludes>
                 </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <configuration>
-                     <skip>true</skip>
+                    <skip>true</skip>
+                    <systemPropertyVariables>
+                        <user.language>tr</user.language>
+                        <user.region>TR</user.region>
+                    </systemPropertyVariables>
                 </configuration>
                 <executions>
                     <execution>
