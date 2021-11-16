@@ -17,7 +17,7 @@
         <module>resteasy-spring-basic</module>
         <module>resteasy-spring-customized</module>
         <module>resteasy-spring-undertow</module>
-<!--        <module>resteasy-spring-rest</module>-->
+        <module>resteasy-spring-rest</module>
 <!--        <module>oreilly-jaxrs-2.0-workbook</module>-->
         <module>examples-jsapi</module>
         <module>smime</module>
