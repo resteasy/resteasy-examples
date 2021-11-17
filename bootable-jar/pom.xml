@@ -14,17 +14,12 @@
     <description>RESTEasy Bootable JAR Example</description>
     <dependencies>
         <dependency>
-            <groupId>jakarta.platform</groupId>
-            <artifactId>jakarta.jakartaee-api</artifactId>
-            <scope>provided</scope>
+            <groupId>jakarta.ws.rs</groupId>
+            <artifactId>jakarta.ws.rs-api</artifactId>
         </dependency>
         <dependency>
             <groupId>org.jboss.resteasy</groupId>
             <artifactId>resteasy-client</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>commons-logging</groupId>
-            <artifactId>commons-logging</artifactId>
         </dependency>
     </dependencies>
     <build>
@@ -50,6 +45,20 @@
                             <goal>package</goal>
                         </goals>
                     </execution>
+                    <execution>
+                        <id>start-bootable-jar</id>
+                        <goals>
+                            <goal>start</goal>
+                        </goals>
+                        <phase>pre-integration-test</phase>
+                    </execution>
+                    <execution>
+                        <id>shutdown-bootable-jar</id>
+                        <goals>
+                            <goal>shutdown</goal>
+                        </goals>
+                        <phase>post-integration-test</phase>
+                    </execution>
                 </executions>
             </plugin>
             <plugin>
@@ -65,10 +74,6 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <configuration>
                     <skip>true</skip>
-                    <systemPropertyVariables>
-                        <user.language>tr</user.language>
-                        <user.region>TR</user.region>
-                    </systemPropertyVariables>
                 </configuration>
                 <executions>
                     <execution>
@@ -80,27 +85,6 @@
                         <configuration>
                             <skip>false</skip>
                         </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-
-            <plugin>
-                <groupId>org.wildfly.plugins</groupId>
-                <artifactId>wildfly-jar-maven-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>start-bootable-jar</id>
-                        <goals>
-                            <goal>start</goal>
-                        </goals>
-                        <phase>pre-integration-test</phase>
-                    </execution>
-                    <execution>
-                        <id>shutdown-bootable-jar</id>
-                        <goals>
-                            <goal>shutdown</goal>
-                        </goals>
-                        <phase>post-integration-test</phase>
                     </execution>
                 </executions>
             </plugin>

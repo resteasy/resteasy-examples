@@ -16,11 +16,6 @@
 
     <dependencies>
         <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
             <groupId>org.jboss.resteasy</groupId>
             <artifactId>resteasy-crypto</artifactId>
         </dependency>
@@ -28,10 +23,6 @@
             <groupId>org.jboss.resteasy</groupId>
             <artifactId>resteasy-eagledns-fork</artifactId>
             <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>commons-logging</groupId>
-            <artifactId>commons-logging</artifactId>
         </dependency>
     </dependencies>
 

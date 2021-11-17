@@ -8,12 +8,9 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <groupId>org.jboss.resteasy</groupId>
     <artifactId>signature-examples-pom</artifactId>
-    <version>5.0.0.Alpha2</version>
     <packaging>pom</packaging>
     <name>Resteasy Examples</name>
-    <description></description>
 
     <modules>
         <module>no-dns</module>

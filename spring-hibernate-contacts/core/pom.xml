@@ -7,20 +7,18 @@
     <version>5.0.0.Alpha2</version>
     <relativePath>../pom.xml</relativePath>
   </parent>
-  <groupId>org.jboss.resteasy.examples</groupId>
   <artifactId>examples-spring-hibernate-contacts-core</artifactId>
   <name>Example: Spring + Hibernate Contacts - Core</name>
 
   <dependencies>
     <dependency>
-      <groupId>org.hibernate</groupId>
-      <artifactId>hibernate</artifactId>
-      <type>pom</type>
+      <groupId>jakarta.persistence</groupId>
+      <artifactId>jakarta.persistence-api</artifactId>
       <scope>provided</scope>
     </dependency>
     <dependency>
-      <groupId>javax.persistence</groupId>
-      <artifactId>persistence-api</artifactId>
+      <groupId>jakarta.xml.bind</groupId>
+      <artifactId>jakarta.xml.bind-api</artifactId>
       <scope>provided</scope>
     </dependency>
   </dependencies>

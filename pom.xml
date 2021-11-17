@@ -6,8 +6,7 @@
     <artifactId>testable-examples-pom</artifactId>
     <version>5.0.0.Alpha2</version>
     <packaging>pom</packaging>
-    <name>Resteasy Examples</name>
-    <description></description>
+    <name>RESTEasy Examples</name>
 
     <modules>
         <module>jaxrs2-async-pubsub-example</module>
@@ -33,250 +32,116 @@
     </modules>
 
     <properties>
-        <commons-codec.ver>1.13</commons-codec.ver>
+        <!-- Dependency versions -->
         <commons-dbcp2.version>2.7.0</commons-dbcp2.version>
-        <commons-logging.ver>1.2</commons-logging.ver>
         <enforcer.plugin.ver>3.0.0-M2</enforcer.plugin.ver>
         <guava.ver>29.0-jre</guava.ver>
         <hibernate-core.version>5.4.9.Final</hibernate-core.version>
         <hibernate-entitymanager.version>5.4.9.Final</hibernate-entitymanager.version>
         <hibernate.version>3.5.4-Final</hibernate.version>
         <hsqldb.version>2.5.0</hsqldb.version>
-        <jackson-annotations.ver>2.10.5</jackson-annotations.ver>
-        <jackson-core.ver>2.10.5</jackson-core.ver>
-        <jackson-databind.ver>2.10.5.1</jackson-databind.ver>
-        <java.version>11</java.version>
-        <javax-json.version>1.1</javax-json.version>
-        <javax.inject.ver>1</javax.inject.ver>
-        <javax.servlet-api.version>3.1.0</javax.servlet-api.version>
-        <jaxrs.version>2.1.1</jaxrs.version>
-        <jboss-logging.version>3.3.2.Final</jboss-logging.version>
-        <jboss.servlet.api.ver>2.0.0.Final</jboss.servlet.api.ver>
-        <jsp-api.ver>2.3.3</jsp-api.ver>
-        <jstl.ver>1.2</jstl.ver>
         <junit.jupiter.version>5.5.2</junit.jupiter.version>
         <junit.version>4.13.1</junit.version>
-        <logmanager.version>2.1.8.Final</logmanager.version>
-        <maven-compiler-plugin.version>3.8.0</maven-compiler-plugin.version>
-        <maven-deploy-plugin.version>3.0.0-M1</maven-deploy-plugin.version>
-        <maven.compiler.source>8</maven.compiler.source>
-        <maven.compiler.target>8</maven.compiler.target>
-        <persistence-api.version>1.0.2</persistence-api.version>
-        <resteasy-extension.ver>1.0.0.Final</resteasy-extension.ver>
-        <resteasy.spring.ver>2.0.0.Alpha1</resteasy.spring.ver>
-        <resteasy.ver>5.0.0.Beta1</resteasy.ver>
-        <servlet-api.version>2.5</servlet-api.version>
-        <slf4j.version>1.7.29</slf4j.version>
+        <version.org.apache.httpcomponents.httpclient>4.5.13</version.org.apache.httpcomponents.httpclient>
+        <version.org.hibernate>5.6.0.Final</version.org.hibernate>
+        <version.org.hsqldb>2.5.0</version.org.hsqldb>
+        <version.org.jboss.logmanager>2.1.8.Final</version.org.jboss.logmanager>
+        <version.org.jboss.resteasy.extensions>1.0.0.Final</version.org.jboss.resteasy.extensions>
+        <version.org.jboss.resteasy.spring>2.0.0.Alpha1</version.org.jboss.resteasy.spring>
+        <version.org.jboss.resteasy>5.0.0.Final</version.org.jboss.resteasy>
         <spring.version>5.2.0.RELEASE</spring.version>
         <swagger.version>2.0.10</swagger.version>
-        <version.wildfly-jar-maven-plugin>6.1.0.Final</version.wildfly-jar-maven-plugin>
         <version.jakartaee>8.0.0</version.jakartaee>
-        <version.jboss-servlet-api>2.0.0.Final</version.jboss-servlet-api>
         <version.org.eclipse.jetty>9.4.17.v20190418</version.org.eclipse.jetty>
-        <version.undertow>2.1.6.Final</version.undertow>
-        <version.wildfly-common>1.5.2.Final</version.wildfly-common>
+        <version.wildfly>25.0.1.Final</version.wildfly>
+
+        <!-- Plugin Versions -->
+        <maven-compiler-plugin.version>3.8.0</maven-compiler-plugin.version>
+        <maven-deploy-plugin.version>3.0.0-M1</maven-deploy-plugin.version>
         <version.wildfly-maven-plugin>2.1.0.Final</version.wildfly-maven-plugin>
-        <version.wildfly>25.0.0.Final</version.wildfly>
-        <xerces.version>2.12.0</xerces.version>
+        <version.wildfly-jar-maven-plugin>6.1.0.Final</version.wildfly-jar-maven-plugin>
+
+        <!-- Compiler configuration -->
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+
     </properties>
     <dependencyManagement>
         <dependencies>
             <dependency>
-                <groupId>commons-logging</groupId>
-                <artifactId>commons-logging</artifactId>
-                <version>${commons-logging.ver}</version>
+                <groupId>jakarta.platform</groupId>
+                <artifactId>jakarta.jakartaee-bom</artifactId>
+                <version>${version.jakartaee}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!-- TODO (jrp) this can be removed with an upgrade to the jakartaee-bom -->
+            <dependency>
+                <groupId>jakarta.persistence</groupId>
+                <artifactId>jakarta.persistence-api</artifactId>
+                <version>2.2.3</version>
             </dependency>
             <dependency>
-                <groupId>javax.servlet.jsp</groupId>
-                <artifactId>javax.servlet.jsp-api</artifactId>
-                <version>${jsp-api.ver}</version>
+                <groupId>jakarta.xml.bind</groupId>
+                <artifactId>jakarta.xml.bind-api</artifactId>
+                <version>2.3.2</version>
             </dependency>
-            <dependency>
-                <groupId>jstl</groupId>
-                <artifactId>jstl</artifactId>
-                <version>${jstl.ver}</version>
-            </dependency>
-            <dependency>
-                <groupId>javax.inject</groupId>
-                <artifactId>javax.inject</artifactId>
-                <version>${javax.inject.ver}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.jboss.resteasy</groupId>
-                <artifactId>resteasy-eagledns-fork</artifactId>
-                <version>${resteasy-extension.ver}</version>
-            </dependency>
+            <!-- end remove -->
             <dependency>
                 <groupId>org.jboss.resteasy</groupId>
                 <artifactId>resteasy-bom</artifactId>
-                <version>${resteasy.ver}</version>
+                <version>${version.org.jboss.resteasy}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
             <dependency>
-                <groupId>org.jboss.resteasy</groupId>
-                <artifactId>resteasy-core</artifactId>
-                <version>${resteasy.ver}</version>
+                <groupId>org.jboss.resteasy.spring</groupId>
+                <artifactId>resteasy-spring-bom</artifactId>
+                <version>${version.org.jboss.resteasy.spring}</version>
+                <type>pom</type>
+                <scope>import</scope>
             </dependency>
+            <!-- TODO (jrp) these can be removed once the resteasy-spring-bom is upgraded -->
             <dependency>
                 <groupId>org.jboss.resteasy.spring</groupId>
                 <artifactId>resteasy-spring</artifactId>
-                <version>${resteasy.spring.ver}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.jboss.resteasy.spring</groupId>
-                <artifactId>resteasy-spring-web</artifactId>
-                <version>${resteasy.spring.ver}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.jboss.resteasy</groupId>
-                <artifactId>resteasy-servlet-initializer</artifactId>
-                <version>${resteasy.ver}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.jboss.resteasy</groupId>
-                <artifactId>resteasy-client</artifactId>
-                <version>${resteasy.ver}</version>
-                <exclusions>
-                    <exclusion>
-                        <groupId>commons-codec</groupId>
-                        <artifactId>commons-codec</artifactId>
-                    </exclusion>
-                    <exclusion>
-                        <groupId>commons-logging</groupId>
-                        <artifactId>commons-logging</artifactId>
-                    </exclusion>
-                </exclusions>
-            </dependency>
-            <dependency>
-                <groupId>org.jboss.resteasy</groupId>
-                <artifactId>resteasy-jackson2-provider</artifactId>
-                <version>${resteasy.ver}</version>
-                <exclusions>
-                    <exclusion>
-                        <groupId>com.google.guava</groupId>
-                        <artifactId>guava</artifactId>
-                    </exclusion>
-                </exclusions>
-            </dependency>
-            <dependency>
-                <groupId>io.undertow</groupId>
-                <artifactId>undertow-servlet</artifactId>
-                <version>${version.undertow}</version>
-                <exclusions>
-                    <exclusion>
-                        <groupId>org.jboss.spec.javax.servlet</groupId>
-                        <artifactId>jboss-servlet-api_4.0_spec</artifactId>
-                    </exclusion>
-                </exclusions>
-            </dependency>
-            <dependency>
-                <groupId>org.jboss.resteasy</groupId>
-                <artifactId>resteasy-undertow</artifactId>
-                <version>${resteasy.ver}</version>
-                <exclusions>
-                    <exclusion>
-                        <groupId>org.jboss.spec.javax.servlet</groupId>
-                        <artifactId>jboss-servlet-api_4.0_spec</artifactId>
-                    </exclusion>
-                </exclusions>
-            </dependency>
-            <dependency>
-                <groupId>com.fasterxml.jackson.core</groupId>
-                <artifactId>jackson-core</artifactId>
-                <version>${jackson-core.ver}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.fasterxml.jackson.core</groupId>
-                <artifactId>jackson-annotations</artifactId>
-                <version>${jackson-annotations.ver}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.fasterxml.jackson.core</groupId>
-                <artifactId>jackson-databind</artifactId>
-                <version>${jackson-databind.ver}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.jboss.spec.javax.servlet</groupId>
-                <artifactId>jboss-servlet-api_4.0_spec</artifactId>
-                <version>${jboss.servlet.api.ver}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.google.guava</groupId>
-                <artifactId>guava</artifactId>
-                <version>${guava.ver}</version>
+                <version>${version.org.jboss.resteasy.spring}</version>
             </dependency>
             <dependency>
                 <groupId>org.jboss.resteasy.spring</groupId>
                 <artifactId>resteasy-undertow-spring</artifactId>
-                <version>${resteasy.spring.ver}</version>
+                <version>${version.org.jboss.resteasy.spring}</version>
             </dependency>
             <dependency>
-                <groupId>commons-httpclient</groupId>
-                <artifactId>commons-httpclient</artifactId>
-                <version>3.1</version>
+                <groupId>org.jboss.resteasy.spring</groupId>
+                <artifactId>resteasy-spring-web</artifactId>
+                <version>${version.org.jboss.resteasy.spring}</version>
             </dependency>
-            <dependency>
-                <groupId>org.hsqldb</groupId>
-                <artifactId>hsqldb</artifactId>
-                <version>${hsqldb.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>javax.servlet</groupId>
-                <artifactId>servlet-api</artifactId>
-                <version>${servlet-api.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>javax.servlet</groupId>
-                <artifactId>javax.servlet-api</artifactId>
-                <version>${javax.servlet-api.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>xml-apis</groupId>
-                <artifactId>xml-apis</artifactId>
-                <version>1.4.01</version>
-            </dependency>
-            <dependency>
-                <groupId>javax.transaction</groupId>
-                <artifactId>jta</artifactId>
-                <version>1.1</version>
-            </dependency>
+            <!-- end remove -->
             <dependency>
                 <groupId>org.apache.commons</groupId>
                 <artifactId>commons-dbcp2</artifactId>
                 <version>${commons-dbcp2.version}</version>
             </dependency>
             <dependency>
-                <groupId>mysql</groupId>
-                <artifactId>mysql-connector-java</artifactId>
-                <version>8.0.16</version>
-            </dependency>
-            <dependency>
-                <groupId>org.hibernate</groupId>
-                <artifactId>hibernate</artifactId>
-                <type>pom</type>
-                <version>${hibernate.version}</version>
+                <groupId>org.apache.httpcomponents</groupId>
+                <artifactId>httpclient</artifactId>
+                <version>${version.org.apache.httpcomponents.httpclient}</version>
             </dependency>
             <dependency>
                 <groupId>org.hibernate</groupId>
                 <artifactId>hibernate-core</artifactId>
-                <version>${hibernate-core.version}</version>
+                <version>${version.org.hibernate}</version>
             </dependency>
             <dependency>
-                <groupId>org.hibernate</groupId>
-                <artifactId>hibernate-entitymanager</artifactId>
-                <version>${hibernate-entitymanager.version}</version>
+                <groupId>org.hsqldb</groupId>
+                <artifactId>hsqldb</artifactId>
+                <version>${version.org.hsqldb}</version>
             </dependency>
             <dependency>
-                <groupId>javax.persistence</groupId>
-                <artifactId>persistence-api</artifactId>
-                <version>${persistence-api.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>junit</groupId>
-                <artifactId>junit</artifactId>
-                <scope>test</scope>
-                <version>${junit.version}</version>
+                <groupId>org.jboss.resteasy</groupId>
+                <artifactId>resteasy-eagledns-fork</artifactId>
+                <version>${version.org.jboss.resteasy.extensions}</version>
             </dependency>
             <dependency>
                 <groupId>org.springframework</groupId>
@@ -305,73 +170,30 @@
                 <version>${spring.version}</version>
             </dependency>
             <dependency>
-                <groupId>xerces</groupId>
-                <artifactId>xercesImpl</artifactId>
-                <version>${xerces.version}</version>
-            </dependency>
-            <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-api -->
-            <dependency>
-                <groupId>org.slf4j</groupId>
-                <artifactId>slf4j-api</artifactId>
-                <version>${slf4j.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>io.undertow</groupId>
-                <artifactId>undertow-core</artifactId>
-                <version>${version.undertow}</version>
-                <exclusions>
-                    <exclusion>
-                        <groupId>org.wildfly.common</groupId>
-                        <artifactId>wildfly-common</artifactId>
-                    </exclusion>
-                </exclusions>
-            </dependency>
-            <dependency>
-                <groupId>org.wildfly.common</groupId>
-                <artifactId>wildfly-common</artifactId>
-                <version>${version.wildfly-common}</version>
-            </dependency>
-            <dependency>
                 <groupId>org.jboss.resteasy</groupId>
                 <artifactId>resteasy-tracing-api</artifactId>
-                <version>${resteasy-extension.ver}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.jboss.logging</groupId>
-                <artifactId>jboss-logging</artifactId>
-                <version>${jboss-logging.version}</version>
+                <version>${version.org.jboss.resteasy.extensions}</version>
             </dependency>
             <dependency>
                 <groupId>org.jboss.logmanager</groupId>
                 <artifactId>jboss-logmanager</artifactId>
-                <version>${logmanager.version}</version>
+                <version>${version.org.jboss.logmanager}</version>
             </dependency>
+
+            <!-- Test Dependencies -->
             <dependency>
-                <groupId>org.glassfish</groupId>
-                <artifactId>javax.json</artifactId>
-                <version>${javax-json.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>commons-codec</groupId>
-                <artifactId>commons-codec</artifactId>
-                <version>${commons-codec.ver}</version>
-            </dependency>
-            <dependency>
-                <groupId>jakarta.platform</groupId>
-                <artifactId>jakarta.jakartaee-api</artifactId>
-                <version>${version.jakartaee}</version>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>${junit.version}</version>
+                <scope>test</scope>
             </dependency>
         </dependencies>
     </dependencyManagement>
 
     <dependencies>
         <dependency>
-            <groupId>org.jboss.resteasy</groupId>
-            <artifactId>resteasy-core-spi</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.jboss.resteasy</groupId>
-            <artifactId>resteasy-core</artifactId>
+            <groupId>jakarta.ws.rs</groupId>
+            <artifactId>jakarta.ws.rs-api</artifactId>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
@@ -431,17 +253,17 @@
                             </rules>
                         </configuration>
                     </execution>
-                    <execution>
+                    <!-- <execution>
                         <id>dep-convergence</id>
                         <goals>
                             <goal>enforce</goal>
                         </goals>
                         <configuration>
                             <rules>
-                                <dependencyConvergence></dependencyConvergence>
+                                <dependencyConvergence/>
                             </rules>
                         </configuration>
-                    </execution>
+                    </execution> -->
                     <execution>
                         <id>use-java-8-for-release</id>
                         <phase>deploy</phase>

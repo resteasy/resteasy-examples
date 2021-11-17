@@ -21,11 +21,6 @@
             <version>${junit.jupiter.version}</version>
             <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>javax.ws.rs</groupId>
-            <artifactId>javax.ws.rs-api</artifactId>
-            <version>${jaxrs.version}</version>
-        </dependency>
 
         <!-- swagger related dependencies -->
         <dependency>

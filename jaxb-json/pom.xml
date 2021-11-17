@@ -12,9 +12,12 @@
   <artifactId>examples-jaxb-json</artifactId>
   <packaging>war</packaging>
   <name>Example: JAXB-JSON</name>
-  <description></description>
 
   <dependencies>
+    <dependency>
+      <groupId>jakarta.xml.bind</groupId>
+      <artifactId>jakarta.xml.bind-api</artifactId>
+    </dependency>
     <dependency>
       <groupId>org.jboss.resteasy</groupId>
       <artifactId>resteasy-jackson2-provider</artifactId>

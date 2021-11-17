@@ -8,8 +8,12 @@ import javax.ws.rs.client.Invocation;
 import javax.ws.rs.client.WebTarget;
 import javax.xml.parsers.DocumentBuilderFactory;
 
-import org.apache.commons.httpclient.HttpClient;
-import org.apache.commons.httpclient.methods.GetMethod;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.CloseableHttpResponse;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClientBuilder;
+import org.apache.http.util.EntityUtils;
 import org.jboss.resteasy.spi.HttpResponseCodes;
 import org.junit.Assert;
 import org.junit.Test;
@@ -28,13 +32,13 @@ public class JSAPITest
    @Test
    public void test() throws Exception
    {
-      HttpClient client = new HttpClient();
-      GetMethod method = new GetMethod(JSAPIURL);
-      int status = client.executeMethod(method);
-      Assert.assertEquals(HttpResponseCodes.SC_OK, status);
-      String response = method.getResponseBodyAsString();
-      Assert.assertTrue("javascript response is expected", response.contains("MyResource.getFoo"));
-      method.releaseConnection();
+      try (CloseableHttpClient client = HttpClientBuilder.create().build()) {
+         HttpGet method = new HttpGet(JSAPIURL);
+         CloseableHttpResponse response = client.execute(method);
+         Assert.assertEquals(HttpResponseCodes.SC_OK, response.getStatusLine().getStatusCode());
+         Assert.assertTrue("javascript response is expected", EntityUtils.toString(response.getEntity()).contains("MyResource.getFoo"));
+         method.releaseConnection();
+      }
    }
 
    @Test

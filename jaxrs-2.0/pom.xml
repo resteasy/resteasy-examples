@@ -8,7 +8,6 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <groupId>org.jboss.resteasy</groupId>
     <artifactId>jaxrs-2.0-pom</artifactId>
     <packaging>pom</packaging>
     <name>JAX-RS 2.0 Related Examples</name>

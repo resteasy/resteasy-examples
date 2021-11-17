@@ -12,21 +12,11 @@
     <artifactId>doseta-no-dns-example</artifactId>
     <packaging>war</packaging>
     <name>doseta-no-dns-example</name>
-    <description></description>
 
     <dependencies>
         <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
             <groupId>org.jboss.resteasy</groupId>
             <artifactId>resteasy-crypto</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>commons-logging</groupId>
-            <artifactId>commons-logging</artifactId>
         </dependency>
     </dependencies>
 
