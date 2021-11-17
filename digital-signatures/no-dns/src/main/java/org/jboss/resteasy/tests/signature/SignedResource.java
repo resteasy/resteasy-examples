@@ -4,7 +4,6 @@ import org.jboss.resteasy.annotations.security.doseta.After;
 import org.jboss.resteasy.annotations.security.doseta.Signed;
 import org.jboss.resteasy.annotations.security.doseta.Verify;
 import org.jboss.resteasy.security.doseta.DKIMSignature;
-import org.junit.Assert;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
@@ -71,8 +70,12 @@ public class SignedResource
    @Verify
    public void post(@HeaderParam(DKIMSignature.DKIM_SIGNATURE) DKIMSignature signature, String input)
    {
-      Assert.assertNotNull(signature);
-      Assert.assertEquals(input, "hello world");
+      if (signature == null) {
+         throw new RuntimeException("signature was null");
+      }
+      if (!"hello world".equals(input)) {
+         throw new RuntimeException("Expected \"hello world\" got \"" + input + "\"");
+      }
    }
 
    /**

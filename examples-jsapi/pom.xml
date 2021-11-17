@@ -8,12 +8,9 @@
     <relativePath>../pom.xml</relativePath>
   </parent>
 
-  <groupId>org.jboss.resteasy</groupId>
   <artifactId>examples-jsapi</artifactId>
-  <version>5.0.0.Alpha2</version>
   <packaging>war</packaging>
   <name>Example: JS-API</name>
-  <description></description>
 
   <dependencies>
     <dependency>
