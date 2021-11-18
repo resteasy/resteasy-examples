@@ -4,7 +4,7 @@
   <parent>
     <groupId>org.jboss.resteasy</groupId>
     <artifactId>resteasy-examples</artifactId>
-    <version>5.0.0.Alpha2</version>
+    <version>5.0.0.Beta1</version>
     <relativePath>../pom.xml</relativePath>
   </parent>
   <artifactId>async-pubsub-example</artifactId>
