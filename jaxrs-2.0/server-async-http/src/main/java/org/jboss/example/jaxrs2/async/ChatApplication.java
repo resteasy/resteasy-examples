@@ -1,7 +1,7 @@
 package org.jboss.example.jaxrs2.async;
 
-import javax.ws.rs.container.AsyncResponse;
-import javax.ws.rs.core.Application;
+import jakarta.ws.rs.container.AsyncResponse;
+import jakarta.ws.rs.core.Application;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;

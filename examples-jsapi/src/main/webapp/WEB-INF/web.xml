@@ -6,7 +6,7 @@
 	<display-name>Archetype Created Web Application</display-name>
 
 	<context-param>
-		<param-name>javax.ws.rs.core.Application</param-name>
+		<param-name>jakarta.ws.rs.core.Application</param-name>
 		<param-value>org.jboss.resteasy.examples.OrdersApplication</param-value>
 	</context-param>
 

@@ -33,6 +33,11 @@
             <groupId>org.jboss.resteasy.spring</groupId>
             <artifactId>resteasy-undertow-spring</artifactId>
         </dependency>
+        <dependency>
+            <groupId>jakarta.xml.bind</groupId>
+            <artifactId>jakarta.xml.bind-api</artifactId>
+            <!--                <version>2.3.2</version>-->
+        </dependency>
     </dependencies>
     <build>
         <finalName>resteasy-spring-mvc</finalName>

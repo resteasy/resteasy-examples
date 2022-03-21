@@ -1,7 +1,7 @@
 package org.jboss.resteasy.examples.springmvc;
 
-import javax.ws.rs.FormParam;
-import javax.xml.bind.annotation.XmlRootElement;
+import jakarta.ws.rs.FormParam;
+import jakarta.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
 public class Contact

@@ -2,9 +2,9 @@ package org.jboss.resteasy.examples.springcustom;
 
 import org.jboss.resteasy.plugins.spring.SpringBeanProcessorServletAware;
 
-import javax.inject.Inject;
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
+import jakarta.inject.Inject;
+import jakarta.ws.rs.GET;
+import jakarta.ws.rs.Path;
 
 
 @Path("/rest")

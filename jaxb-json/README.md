@@ -3,7 +3,7 @@ Jettison Example
 Example of using RestEasy with:
 - Using JSON with Resteasy
 - The JAXB/JSON Provider
-- Using javax.ws.rs.core.Application
+- Using jakarta.ws.rs.core.Application
 - Using the <context-param> resteasy.servlet.mapping.prefix
 - Jetty (embedded)
 

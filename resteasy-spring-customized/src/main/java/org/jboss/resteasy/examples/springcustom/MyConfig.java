@@ -6,7 +6,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.FilterType;
 
-import javax.ws.rs.Path;
+import jakarta.ws.rs.Path;
 
 @Configuration
 @ComponentScan(basePackages = "org.jboss.resteasy.examples.springcustom",

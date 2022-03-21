@@ -9,7 +9,7 @@ import java.util.Set;
 /**
  * @author <a href="mailto:l.weinan@gmail.com">Weinan Li</a>
  */
-public class TestApplication extends javax.ws.rs.core.Application {
+public class TestApplication extends jakarta.ws.rs.core.Application {
     HashSet<Object> singletons = new HashSet<Object>();
 
     public TestApplication() {

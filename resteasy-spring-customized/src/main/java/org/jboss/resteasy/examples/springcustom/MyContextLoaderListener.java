@@ -8,7 +8,7 @@ import org.springframework.web.context.ConfigurableWebApplicationContext;
 import org.springframework.web.context.ContextLoaderListener;
 import org.springframework.web.context.WebApplicationContext;
 
-import javax.servlet.ServletContext;
+import jakarta.servlet.ServletContext;
 
 public class MyContextLoaderListener extends ContextLoaderListener {
     public MyContextLoaderListener(WebApplicationContext context) {

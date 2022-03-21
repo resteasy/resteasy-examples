@@ -7,7 +7,7 @@
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <context:component-scan base-package="org.jboss.resteasy.examples.springbasic">
-        <context:include-filter type="annotation" expression="javax.ws.rs.Path"/>
+        <context:include-filter type="annotation" expression="jakarta.ws.rs.Path"/>
     </context:component-scan>
     <context:annotation-config/>
 

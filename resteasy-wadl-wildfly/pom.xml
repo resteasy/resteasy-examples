@@ -25,15 +25,15 @@
     </licenses>
 
     <properties>
-        <javax.servlet.ver>4.0.1</javax.servlet.ver>
+        <jakarta.servlet.ver>4.0.1</jakarta.servlet.ver>
         <jaxrs_api.ver>2.0.1.Final</jaxrs_api.ver>
     </properties>
 
     <dependencies>
         <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>javax.servlet-api</artifactId>
-            <version>${javax.servlet.ver}</version>
+            <groupId>jakarta.servlet</groupId>
+            <artifactId>jakarta.servlet-api</artifactId>
+            <version>${jakarta.servlet.ver}</version>
             <scope>provided</scope>
         </dependency>
         <dependency>

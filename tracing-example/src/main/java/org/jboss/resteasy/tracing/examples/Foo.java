@@ -1,6 +1,6 @@
 package org.jboss.resteasy.tracing.examples;
 
-import javax.ws.rs.GET;
+import jakarta.ws.rs.GET;
 
 public class Foo {
     @GET

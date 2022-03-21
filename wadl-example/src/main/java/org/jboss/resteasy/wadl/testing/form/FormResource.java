@@ -2,8 +2,8 @@ package org.jboss.resteasy.wadl.testing.form;
 
 import org.jboss.resteasy.annotations.Form;
 
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
+import jakarta.ws.rs.POST;
+import jakarta.ws.rs.Path;
 
 /**
  * @author <a href="mailto:l.weinan@gmail.com">Weinan Li</a>
