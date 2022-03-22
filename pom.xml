@@ -10,7 +10,7 @@
 
     <modules>
         <module>jaxrs2-async-pubsub-example</module>
-<!--        <module>jaxb-json</module>-->
+        <module>jaxb-json</module>
 <!--        <module>async-job-service</module>-->
         <module>resteasy-spring-mvc</module>
         <module>resteasy-spring-basic</module>

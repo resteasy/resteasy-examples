@@ -14,30 +14,28 @@ System Requirements:
 Building the project:
 ====================
 
+```bash
 mvn clean install
+```
 
 Running the project and manually testing it:
 -------------------------
 
+```bash
 mvn jetty:run
+```
 
-Open a browser at the following URL:
+The data is JAXB annotated classes marshalled to JSON. Use the following `curl` command to access the json data:
 
-HTML form that pulls JSON from a JAX-RS service.  The data is JAXB annotated classes marshalled to JSON
-using the Jettison mapped format:
+```bash
+$ curl http://localhost:9095/resteasy/library/books/mapped
+```
 
-http://localhost:9095/mapped.html
+The data is JAXB annotated classes marshalled to JSON using the Jettison Badger format:
 
-HTML form that pulls JSON from a JAX-RS service.  The data is JAXB annotated classes marshalled to JSON
-using the Jettison Badger format:
+```bash
+$ curl http://localhost:9095/resteasy/library/books/badger
+```
 
-http://localhost:9095/badger.html
 
-To view the Mapped JSON format:
-
-http://localhost:9095/resteasy/library/books/mapped.html
-
-To view the Badger JSON format:
-
-http://localhost:9095/resteasy/library/books/badger.html
 

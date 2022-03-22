@@ -3,7 +3,7 @@ import jakarta.ws.rs.Path;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Produces;
 @Path("/products")
-public class Jackson2Resource {
+public classJackson2Resource {
    @GET
    @Produces("application/json")
    public Jackson2Product[] getProducts() {
