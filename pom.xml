@@ -9,7 +9,7 @@
     <name>RESTEasy Examples</name>
 
     <modules>
-<!--        <module>jaxrs2-async-pubsub-example</module>-->
+        <module>jaxrs2-async-pubsub-example</module>
 <!--        <module>jaxb-json</module>-->
 <!--        <module>async-job-service</module>-->
         <module>resteasy-spring-mvc</module>

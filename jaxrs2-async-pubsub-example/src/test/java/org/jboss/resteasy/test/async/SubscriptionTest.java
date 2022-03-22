@@ -10,6 +10,7 @@ import jakarta.ws.rs.client.Entity;
 import jakarta.ws.rs.client.WebTarget;
 import jakarta.ws.rs.core.Form;
 import jakarta.ws.rs.core.Response;
+
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.Executor;
 import java.util.concurrent.ExecutorService;
@@ -22,83 +23,81 @@ import java.util.concurrent.atomic.AtomicReference;
  * @author <a href="mailto:bill@burkecentral.com">Bill Burke</a>
  * @version $Revision: 1 $
  */
-@Ignore
 public class SubscriptionTest {
 
-   @Test
-   public void testIt() throws Exception {
-      ExecutorService executor = Executors.newCachedThreadPool();
+    @Test
+    public void testIt() throws Exception {
+        ExecutorService executor = Executors.newCachedThreadPool();
 
-      final int INCREMENT = 10;
+        final int INCREMENT = 10;
 
-      for (int pass = 0; pass < 5; pass++) {
-         for (int i = 0; i < INCREMENT; i++) {
-            Runnable runnable = create(pass * INCREMENT + i);
-            executor.execute(runnable);
-         }
-         int iterations = 3;
-         int threads = INCREMENT + pass * INCREMENT;
-         execute(threads, iterations);
-         System.out.println();
-      }
-   }
-
-   private AtomicReference<CountDownLatch> countdown = new AtomicReference<CountDownLatch>();
-   private AtomicLong counter = new AtomicLong();
-
-
-   private Runnable create(int subid) {
-      Client client = ClientBuilder.newClient();
-      Response response = client.target("http://localhost:8080/subscribers")
-              .request()
-              .post(Entity.form(new Form().param("name", Integer.toString(subid))));
-      response.close();
-      if (response.getStatus() != 201) {
-         throw new RuntimeException("Failure: " + response.getStatus());
-      }
-      final WebTarget target = client.target("http://localhost:8080/subscribers/").path(Integer.toString(subid));
-      Runnable t = new Runnable() {
-         @Override
-         public void run() {
-            for (; ; ) {
-               try {
-
-                  target.request().get(String.class);
-                  counter.incrementAndGet();
-               } catch (Exception ex) {
-                  //ex.printStackTrace();
-               } finally {
-                  countdown.get().countDown();
-               }
+        for (int pass = 0; pass < 1; pass++) {
+            for (int i = 0; i < INCREMENT; i++) {
+                Runnable runnable = create(pass * INCREMENT + i);
+                executor.execute(runnable);
             }
-         }
-      };
-      return t;
+            int iterations = 3;
+            int threads = INCREMENT + pass * INCREMENT;
+            execute(threads, iterations);
+            System.out.println();
+        }
+    }
 
-   }
+    private AtomicReference<CountDownLatch> countdown = new AtomicReference<CountDownLatch>();
+    private AtomicLong counter = new AtomicLong();
 
-   private void execute(int NUM_THREADS, final int ITERATIONS) throws InterruptedException {
-      counter.set(0);
-      countdown.set(new CountDownLatch(NUM_THREADS * ITERATIONS));
-      long start = 0;
-      start = System.currentTimeMillis();
-      System.out.println("***** Threads: " + NUM_THREADS + " Iterations: " + ITERATIONS);
 
-      long start2 = System.currentTimeMillis();
+    private Runnable create(int subid) {
+        Client client = ClientBuilder.newClient();
+        Response response = client.target("http://localhost:8080/subscribers")
+                .request()
+                .post(Entity.form(new Form().param("name", Integer.toString(subid))));
+        response.close();
+        if (response.getStatus() != 201) {
+            throw new RuntimeException("Failure: " + response.getStatus());
+        }
+        final WebTarget target = client.target("http://localhost:8080/subscribers/").path(Integer.toString(subid));
+        Runnable t = new Runnable() {
+            @Override
+            public void run() {
+                for (; ; ) {
+                    try {
+                        target.request().get(String.class);
+                        counter.incrementAndGet();
+                    } catch (Exception ex) {
+                        //ex.printStackTrace();
+                    } finally {
+                        countdown.get().countDown();
+                    }
+                }
+            }
+        };
+        return t;
 
-      Client client = ClientBuilder.newClient();
-      try {
-         for (int i = 0; i < ITERATIONS; i++) {
-            Response response = client.target("http://localhost:8080/subscription").request().post(Entity.text(Integer.toString(i)));
-            Assert.assertEquals(204, response.getStatus());
-            response.close();
-         }
-         countdown.get().await();
-         System.out.println("--- total failures: " + (NUM_THREADS * ITERATIONS - counter.get()));
-         System.out.println("--- Post time took: " + (System.currentTimeMillis() - start2));
-      } finally {
-         client.close();
-      }
-   }
+    }
+
+    private void execute(int NUM_THREADS, final int ITERATIONS) throws InterruptedException {
+        counter.set(0);
+        countdown.set(new CountDownLatch(NUM_THREADS * ITERATIONS));
+        long start = 0;
+        start = System.currentTimeMillis();
+        System.out.println("***** Threads: " + NUM_THREADS + " Iterations: " + ITERATIONS);
+
+        long start2 = System.currentTimeMillis();
+
+        Client client = ClientBuilder.newClient();
+        try {
+            for (int i = 0; i < ITERATIONS; i++) {
+                Response response = client.target("http://localhost:8080/subscription").request().post(Entity.text(Integer.toString(i)));
+                Assert.assertEquals(204, response.getStatus());
+                response.close();
+            }
+            countdown.get().await();
+            System.out.println("--- total failures: " + (NUM_THREADS * ITERATIONS - counter.get()));
+            System.out.println("--- Post time took: " + (System.currentTimeMillis() - start2));
+        } finally {
+            client.close();
+        }
+    }
 }
 
