@@ -1,9 +1,9 @@
-import httplib, urlparse
+import http.client, urllib.parse
 import re
 from M2Crypto import BIO, Rand, SMIME, X509
 
 
-data = """Content-Type: application/xml
+data = b"""Content-Type: application/xml
 
 <customer name="bill"/>
 """
@@ -30,7 +30,7 @@ s.write(out, p7, buf)
 l = out.readline()
 l = out.readline()
 
-result = re.match('Content-Type: (.*)', l)
+result = re.match(b'Content-Type: (.*)', l)
 contentType = result.group(1)
 
 l = out.readline()
@@ -39,11 +39,11 @@ l = out.readline()
 o = out.read()
 
 # Finally send the message
-conn = httplib.HTTPConnection("localhost:9095")
+conn = http.client.HTTPConnection("localhost:9095")
 headers = {"Content-Type" : contentType}
 
 
 conn.request("POST", "/smime/signed", o, headers)
 res = conn.getresponse()
-print res.status, res.reason
+print((res.status, res.reason))
 

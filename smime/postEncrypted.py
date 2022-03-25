@@ -1,9 +1,9 @@
-import httplib, urlparse
+import http.client, urllib.parse
 from M2Crypto import BIO, Rand, SMIME, X509
 
 # Make a MemoryBuffer of the message.
 buf = BIO.MemoryBuffer(
-"""Content-Type: application/xml
+b"""Content-Type: application/xml
 
 <customer name="bill"/>
 """)
@@ -50,7 +50,7 @@ o = out.read()
 #o = o.strip()
 
 # Finally send the message
-conn = httplib.HTTPConnection("localhost:9095")
+conn = http.client.HTTPConnection("localhost:9095")
 headers = {"Content-Disposition" : "attachment; filename=\"smime.p7m\"",
            "Content-Type" : "application/pkcs7-mime; smime-type=enveloped-data; name=\"smime.p7m\"",
            "Content-Transfer-Encoding" :"base64"}
@@ -58,5 +58,5 @@ headers = {"Content-Disposition" : "attachment; filename=\"smime.p7m\"",
 
 conn.request("POST", "/smime/encrypted", o, headers)
 res = conn.getresponse()
-print res.status, res.reason
+print((res.status, res.reason))
 
