@@ -22,7 +22,7 @@
         <module>smime</module>
 <!--        <module>digital-signatures</module>-->
 <!--        <module>jaxrs-2.0</module>-->
-<!--        <module>wadl-example</module>-->
+        <module>wadl-example</module>
 <!--        <module>spring-hibernate-contacts</module>-->
 <!--        <module>jsapi-servlet-test</module>-->
         <module>tracing-example</module>

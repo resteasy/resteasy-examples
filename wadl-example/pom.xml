@@ -10,11 +10,19 @@
 
   <groupId>org.jboss.resteasy</groupId>
   <artifactId>wadl-example</artifactId>
-
+  <packaging>war</packaging>
   <dependencies>
     <dependency>
       <groupId>org.jboss.resteasy</groupId>
       <artifactId>resteasy-wadl</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>jakarta.xml.bind</groupId>
+      <artifactId>jakarta.xml.bind-api</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.jboss.resteasy</groupId>
+      <artifactId>resteasy-jaxb-provider</artifactId>
     </dependency>
   </dependencies>
   <build>
