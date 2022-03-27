@@ -20,7 +20,7 @@
 <!--        <module>oreilly-jaxrs-2.0-workbook</module>-->
         <module>examples-jsapi</module>
         <module>smime</module>
-<!--        <module>digital-signatures</module>-->
+        <module>digital-signatures</module>
 <!--        <module>jaxrs-2.0</module>-->
         <module>wadl-example</module>
 <!--        <module>spring-hibernate-contacts</module>-->
