@@ -23,12 +23,13 @@
         <module>digital-signatures</module>
 <!--        <module>jaxrs-2.0</module>-->
         <module>wadl-example</module>
+<!--        Spring currently doesn't support Hibernate 6: https://github.com/spring-projects/spring-framework/issues/22128-->
 <!--        <module>spring-hibernate-contacts</module>-->
 <!--        <module>jsapi-servlet-test</module>-->
         <module>tracing-example</module>
 <!--        <module>jaxrs-swagger-example</module>-->
 <!--        <module>resteasy-wadl-wildfly</module>-->
-        <module>bootable-jar</module>
+<!--        <module>bootable-jar</module>-->
     </modules>
 
     <properties>
@@ -36,14 +37,11 @@
         <commons-dbcp2.version>2.7.0</commons-dbcp2.version>
         <enforcer.plugin.ver>3.0.0-M2</enforcer.plugin.ver>
         <guava.ver>29.0-jre</guava.ver>
-        <hibernate-core.version>5.4.9.Final</hibernate-core.version>
-        <hibernate-entitymanager.version>5.4.9.Final</hibernate-entitymanager.version>
-        <hibernate.version>3.5.4-Final</hibernate.version>
         <hsqldb.version>2.5.0</hsqldb.version>
         <junit.jupiter.version>5.5.2</junit.jupiter.version>
         <junit.version>4.13.1</junit.version>
         <version.org.apache.httpcomponents.httpclient>4.5.13</version.org.apache.httpcomponents.httpclient>
-        <version.org.hibernate>5.6.0.Final</version.org.hibernate>
+        <version.org.hibernate>6.0.0.CR2</version.org.hibernate>
         <version.org.hsqldb>2.5.0</version.org.hsqldb>
         <version.org.jboss.logmanager>2.1.8.Final</version.org.jboss.logmanager>
         <version.org.jboss.resteasy.extensions>1.1.0.Final</version.org.jboss.resteasy.extensions>
@@ -76,11 +74,11 @@
                 <scope>import</scope>
             </dependency>
             <!-- TODO (jrp) this can be removed with an upgrade to the jakartaee-bom -->
-            <dependency>
-                <groupId>jakarta.persistence</groupId>
-                <artifactId>jakarta.persistence-api</artifactId>
-                <version>2.2.3</version>
-            </dependency>
+<!--            <dependency>-->
+<!--                <groupId>jakarta.persistence</groupId>-->
+<!--                <artifactId>jakarta.persistence-api</artifactId>-->
+<!--                <version>2.2.3</version>-->
+<!--            </dependency>-->
 <!--            <dependency>-->
 <!--                <groupId>jakarta.xml.bind</groupId>-->
 <!--                <artifactId>jakarta.xml.bind-api</artifactId>-->
