@@ -27,8 +27,11 @@
 <!--        <module>spring-hibernate-contacts</module>-->
 <!--        <module>jsapi-servlet-test</module>-->
         <module>tracing-example</module>
+<!--        EE9 not yet supported.-->
+<!--        Relative upgrade information: https://github.com/swagger-api/swagger-core/issues/3849 / https://github.com/swagger-api/swagger-core/issues/3836-->
 <!--        <module>jaxrs-swagger-example</module>-->
-<!--        <module>resteasy-wadl-wildfly</module>-->
+        <module>resteasy-wadl-wildfly</module>
+<!--        In progress: still have some problem with `wildfly-maven-plugin`-->
 <!--        <module>bootable-jar</module>-->
     </modules>
 
@@ -52,6 +55,8 @@
         <version.jakartaee>9.0.0</version.jakartaee>
         <version.jetty-maven-plugin>11.0.8</version.jetty-maven-plugin>
         <version.wildfly>26.0.1.Final</version.wildfly>
+<!--        <jakarta.servlet.ver>5.0.0</jakarta.servlet.ver>-->
+<!--        <jaxrs_api.ver>2.0.1.Final</jaxrs_api.ver>-->
 
         <!-- Plugin Versions -->
         <maven-compiler-plugin.version>3.8.0</maven-compiler-plugin.version>
