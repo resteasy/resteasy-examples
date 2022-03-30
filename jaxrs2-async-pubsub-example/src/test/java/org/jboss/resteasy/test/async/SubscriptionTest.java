@@ -67,7 +67,9 @@ public class SubscriptionTest {
                     } catch (Exception ex) {
                         //ex.printStackTrace();
                     } finally {
-                        countdown.get().countDown();
+                        if (countdown.get() != null) {
+                            countdown.get().countDown();
+                        }
                     }
                 }
             }
