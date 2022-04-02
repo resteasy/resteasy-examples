@@ -6,9 +6,7 @@ import jakarta.ws.rs.client.Client;
 import jakarta.ws.rs.client.ClientBuilder;
 import jakarta.ws.rs.client.Invocation;
 import jakarta.ws.rs.client.WebTarget;
-import jakarta.xml.parsers.DocumentBuilderFactory;
 
-import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -18,6 +16,8 @@ import org.jboss.resteasy.spi.HttpResponseCodes;
 import org.junit.Assert;
 import org.junit.Test;
 import org.w3c.dom.Document;
+
+import javax.xml.parsers.DocumentBuilderFactory;
 
 
 /**
