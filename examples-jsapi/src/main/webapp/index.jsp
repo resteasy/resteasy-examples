@@ -5,7 +5,7 @@
 <input type='button' onclick='callJsApi();' value='Get Orders'/>
 </form>
 
-<script src="/examples-jsapi/rest-js" type="text/javascript"></script>
+<script src="/rest-js" type="text/javascript"></script>
 <script type="text/javascript">
 	var global_order_id = 0;
 	function callJsApi() {

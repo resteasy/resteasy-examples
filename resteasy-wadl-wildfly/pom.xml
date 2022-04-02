@@ -24,16 +24,10 @@
         </license>
     </licenses>
 
-    <properties>
-        <javax.servlet.ver>4.0.1</javax.servlet.ver>
-        <jaxrs_api.ver>2.0.1.Final</jaxrs_api.ver>
-    </properties>
-
     <dependencies>
         <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>javax.servlet-api</artifactId>
-            <version>${javax.servlet.ver}</version>
+            <groupId>jakarta.servlet</groupId>
+            <artifactId>jakarta.servlet-api</artifactId>
             <scope>provided</scope>
         </dependency>
         <dependency>
@@ -55,9 +49,21 @@
             <groupId>org.jboss.resteasy</groupId>
             <artifactId>resteasy-wadl</artifactId>
         </dependency>
+
     </dependencies>
 
     <build>
         <finalName>resteasy-wadl-wildfly</finalName>
+        <plugins> <!-- https://mvnrepository.com/artifact/org.wildfly.plugins/wildfly-maven-plugin -->
+            <plugin>
+                <groupId>org.wildfly.plugins</groupId>
+                <artifactId>wildfly-maven-plugin</artifactId>
+                <version>2.1.0.Final</version>
+                <configuration>
+                    <artifactId>wildfly-preview-dist</artifactId>
+                    <version>26.0.1.Final</version>
+                </configuration>
+            </plugin>
+        </plugins>
     </build>
 </project>

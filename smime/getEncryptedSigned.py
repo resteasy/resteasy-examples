@@ -1,11 +1,11 @@
-import httplib, urlparse
+import http.client, urllib.parse
 from M2Crypto import BIO, SMIME, X509
 
-conn = httplib.HTTPConnection("localhost:9095")
+conn = http.client.HTTPConnection("localhost:9095")
 conn.request("GET", "/smime/encrypted/signed")
 res = conn.getresponse()
 if res.status != 200:
-   print res.status
+   print((res.status))
    raise Exception("Failed to connect")
 
 contentType = res.getheader("content-type")
@@ -13,7 +13,7 @@ data = res.read()
 
 # Need to reconstruct a Mail message with content type
 # as SMIME wants it in that format
-bio = BIO.MemoryBuffer("Content-Type: ")
+bio = BIO.MemoryBuffer(b"Content-Type: ")
 bio.write(contentType)
 bio.write("\r\n\r\n")
 bio.write(data)
@@ -44,5 +44,5 @@ p7_bio = BIO.MemoryBuffer(out)
 p7, data = SMIME.smime_load_pkcs7_bio(p7_bio)
 v = s.verify(p7, data)
 
-print v
+print(v)
 

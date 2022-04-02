@@ -1,7 +1,7 @@
 package org.jboss.resteasy.examples.wadl.wildfly;
 
-import javax.ws.rs.*;
-import javax.ws.rs.core.MediaType;
+import jakarta.ws.rs.*;
+import jakarta.ws.rs.core.MediaType;
 
 @Path("/foo")
 public class FooResource {

@@ -6,7 +6,7 @@
 http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
 
     <bean name="propertyConfigurer"
-          class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"
+          class="org.springframework.context.support.PropertySourcesPlaceholderConfigurer"
           p:ignoreUnresolvablePlaceholders="true"
           p:ignoreResourceNotFound="true">
         <property name="locations">

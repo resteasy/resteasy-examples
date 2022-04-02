@@ -1,11 +1,13 @@
 package org.jboss.resteasy.examples.springmvc;
 
+import jakarta.servlet.ServletContext;
 import org.springframework.stereotype.Component;
 
-import javax.servlet.ServletContext;
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.core.Context;
+
+import jakarta.ws.rs.GET;
+import jakarta.ws.rs.Path;
+import jakarta.ws.rs.core.Context;
+
 
 @Component
 @Path("/rest/foo")

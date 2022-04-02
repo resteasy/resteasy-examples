@@ -1,6 +1,6 @@
 package com.restfully.shop.features;
 
-import javax.ws.rs.NameBinding;
+import jakarta.ws.rs.NameBinding;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;

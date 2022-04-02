@@ -1,7 +1,7 @@
 package org.jboss.resteasy.wadl.testing;
 
-import javax.ws.rs.*;
-import javax.ws.rs.core.Response;
+import jakarta.ws.rs.*;
+import jakarta.ws.rs.core.Response;
 
 /**
  * @author <a href="mailto:l.weinan@gmail.com">Weinan Li</a>

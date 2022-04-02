@@ -1,6 +1,6 @@
 package org.jboss.resteasy.wadl.testing.locator;
 
-import javax.ws.rs.GET;
+import jakarta.ws.rs.GET;
 
 /**
  * @author <a href="mailto:l.weinan@gmail.com">Weinan Li</a>

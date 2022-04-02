@@ -2,7 +2,7 @@ package org.jboss.resteasy.tests.smime;
 
 import org.jboss.resteasy.security.PemUtils;
 
-import javax.ws.rs.core.Application;
+import jakarta.ws.rs.core.Application;
 import java.io.InputStream;
 import java.security.PrivateKey;
 import java.security.cert.X509Certificate;

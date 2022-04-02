@@ -1,4 +1,4 @@
-# Basic Spring and RESTEasy Integration Demo 
+mvn # Basic Spring and RESTEasy Integration Demo 
 
 Example of using RESTEasy with:
 

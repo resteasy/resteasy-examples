@@ -1,6 +1,6 @@
 package org.jboss.resteasy.wadl.testing.form;
 
-import javax.ws.rs.FormParam;
+import jakarta.ws.rs.FormParam;
 
 /**
  * @author <a href="mailto:l.weinan@gmail.com">Weinan Li</a>

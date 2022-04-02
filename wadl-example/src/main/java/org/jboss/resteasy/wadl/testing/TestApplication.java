@@ -9,12 +9,12 @@ import java.util.Set;
 /**
  * @author <a href="mailto:l.weinan@gmail.com">Weinan Li</a>
  */
-public class TestApplication extends javax.ws.rs.core.Application {
+public class TestApplication extends jakarta.ws.rs.core.Application {
     HashSet<Object> singletons = new HashSet<Object>();
 
     public TestApplication() {
-//        singletons.add(new HelloMartianResource());
-//        singletons.add(new Smoke());
+        singletons.add(new HelloMartianResource());
+        singletons.add(new Smoke());
         singletons.add(new FormResource());
         singletons.add(new Parent());
     }

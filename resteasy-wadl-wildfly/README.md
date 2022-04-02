@@ -2,52 +2,29 @@
 
 ## USAGE
 
-To deploy this sample project into Wildfly, firstly you need to replace the embedded Wildfly RESTEasy module with the
-RESTEasy provided one. To do this, please refer to this section of the RESTEasy document:
+This example has `wildfly-maven-plugin` embedded, so it can download Wildfly server by itself, and start the server also deploying the compiled example into server.
 
-* [Upgrading RESTEasy within WildFly](https://docs.jboss.org/resteasy/docs/4.5.8.Final/userguide/html_single/index.html#upgrading-wildfly)
-
-It is recommended to use the same version of the RESTEasy dependency of this project. After replacing the RESTEasy
-module in Wildfly, the next step is to package this project with the following Maven command:
+To do so, run the following command:
 
 ```bash
-$ mvn package
+$ mvn wildfly:run
 ```
 
-After above task is done, we will get an `resteasy-wadl-wildfly.war` in `target` directory:
+And the Wildfly server is started and also the example is deployed:
 
 ```bash
-$ ls target/                                                                                                                                                                                                                    22:41:24
-classes/                   generated-sources/         maven-archiver/            maven-status/              resteasy-wadl-wildfly/     resteasy-wadl-wildfly.war
-$  
-```
-
-We can use this WAR file to deploy to Wildfly. To test using it, firstly start the Wildfly in standalone mode:
-
-```bash
-$ ./standalone.sh
-...
-```
-
-After Wildfly server is started, using its `jboss-cli.sh` admin tool to connect to server:
-
-```bash
-$ ./jboss-cli.sh
-You are disconnected at the moment. Type 'connect' to connect to the server or 'help' for the list of supported commands.
-[disconnected /] connect localhost
-[standalone@localhost:9990 /]
-```
-
-After connected to Wildfly server, we can deploy our WAR file to the server will following command:
-
-```bash
-[standalone@localhost:9990 /] deploy <your_example_path>/resteasy-wadl-wildfly.war
-```
-
-And from server output we can see the WAR is deployed:
-
-```bash
-23:01:53,637 INFO  [org.jboss.as.server] (management-handler-thread - 1) WFLYSRV0010: Deployed "resteasy-wadl-wildfly.war" (runtime-name : "resteasy-wadl-wildfly.war")
+22:17:29,885 INFO  [org.jboss.as.repository] (management-handler-thread - 1) WFLYDR0001: Content added at location /Users/weli/works/resteasy-examples/resteasy-wadl-wildfly/target/wildfly-preview-26.0.1.Final/standalone/data/content/0c/ec54abd4af172d323f27bc1a313d206de84f99/content
+22:17:29,919 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-7) WFLYSRV0027: Starting deployment of "resteasy-wadl-wildfly.war" (runtime-name: "resteasy-wadl-wildfly.war")
+22:17:30,950 INFO  [org.infinispan.CONTAINER] (ServerService Thread Pool -- 78) ISPN000128: Infinispan version: Infinispan 'Taedonggang' 12.1.7.Final
+22:17:30,997 INFO  [org.infinispan.CONFIG] (MSC service thread 1-3) ISPN000152: Passivation configured without an eviction policy being selected. Only manually evicted entities will be passivated.
+22:17:30,998 INFO  [org.infinispan.CONFIG] (MSC service thread 1-3) ISPN000152: Passivation configured without an eviction policy being selected. Only manually evicted entities will be passivated.
+22:17:31,055 INFO  [org.infinispan.CONTAINER] (ServerService Thread Pool -- 78) ISPN000556: Starting user marshaller 'org.wildfly.clustering.infinispan.spi.marshalling.InfinispanProtoStreamMarshaller'
+22:17:31,152 INFO  [org.infinispan.CONTAINER] (ServerService Thread Pool -- 78) ISPN000025: wakeUpInterval is <= 0, not starting expired purge thread
+22:17:31,172 INFO  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 78) WFLYCLINF0002: Started http-remoting-connector cache from ejb container
+22:17:31,985 INFO  [org.jboss.resteasy.resteasy_jaxrs.i18n] (ServerService Thread Pool -- 78) RESTEASY002225: Deploying jakarta.ws.rs.core.Application: class org.jboss.resteasy.examples.wadl.wildfly.MyApplication
+22:17:32,059 INFO  [org.hibernate.validator.internal.util.Version] (ServerService Thread Pool -- 78) HV000001: Hibernate Validator 7.0.1.Final
+22:17:32,102 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 78) WFLYUT0021: Registered web context: '/resteasy-wadl-wildfly' for server 'default-server'
+22:17:32,141 INFO  [org.jboss.as.server] (management-handler-thread - 1) WFLYSRV0010: Deployed "resteasy-wadl-wildfly.war" (runtime-name : "resteasy-wadl-wildfly.war")
 ```
 
 Now we can use `curl` command to access the WADL information of the example:

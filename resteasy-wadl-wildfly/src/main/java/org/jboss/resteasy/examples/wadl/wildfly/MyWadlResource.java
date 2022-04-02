@@ -3,7 +3,7 @@ package org.jboss.resteasy.examples.wadl.wildfly;
 import org.jboss.resteasy.wadl.ResteasyWadlDefaultResource;
 import org.jboss.resteasy.wadl.ResteasyWadlWriter;
 
-import javax.ws.rs.Path;
+import jakarta.ws.rs.Path;
 
 @Path("/")
 public class MyWadlResource extends ResteasyWadlDefaultResource {
