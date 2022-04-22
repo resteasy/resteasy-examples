@@ -34,5 +34,16 @@
     </dependencies>
     <build>
         <finalName>resteasy-spring-example-rest</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.wildfly.plugins</groupId>
+                <artifactId>wildfly-maven-plugin</artifactId>
+                <version>${version.wildfly-maven-plugin}</version>
+                <configuration>
+                    <artifactId>wildfly-preview-dist</artifactId>
+                    <version>${version.wildfly}</version>
+                </configuration>
+            </plugin>
+        </plugins>
     </build>
 </project>
