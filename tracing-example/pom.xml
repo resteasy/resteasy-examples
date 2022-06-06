@@ -60,4 +60,8 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+
+    <build>
+        <finalName>tracing-example</finalName>
+    </build>
 </project>
