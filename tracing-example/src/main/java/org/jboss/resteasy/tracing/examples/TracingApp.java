@@ -13,14 +13,14 @@ public class TracingApp extends Application {
 
     @Override
     public Set<Class<?>> getClasses() {
-        Set set = new HashSet<Class<?>>();
+        Set<Class<?>> set = new HashSet<>();
         set.add(HttpMethodOverride.class);
         return set;
     }
 
     @Override
     public Set<Object> getSingletons() {
-        Set set = new HashSet<Class<?>>();
+        Set<Object> set = new HashSet<>();
         set.add(new TracingConfigResource());
         set.add(new FooLocator());
         set.add(new GZIPDecodingInterceptor());
