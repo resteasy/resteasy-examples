@@ -5,28 +5,24 @@
          version="5.0">
     <display-name>tracing-example</display-name>
 
+    <context-param>
+        <param-name>jakarta.ws.rs.core.Application</param-name>
+        <param-value>org.jboss.resteasy.tracing.examples.TracingApp</param-value>
+    </context-param>
+    <context-param>
+        <param-name>resteasy.server.tracing.type</param-name>
+        <param-value>ALL</param-value>
+    </context-param>
+    <context-param>
+        <param-name>resteasy.server.tracing.threshold</param-name>
+        <param-value>VERBOSE</param-value>
+    </context-param>
     <servlet>
         <servlet-name>resteasy-dispatcher</servlet-name>
-        <servlet-class>
-            org.jboss.resteasy.plugins.server.servlet.HttpServletDispatcher
-        </servlet-class>
-        <init-param>
-            <param-name>jakarta.ws.rs.Application</param-name>
-            <param-value>org.jboss.resteasy.tracing.examples.TracingApp</param-value>
-        </init-param>
-        <init-param>
-            <param-name>resteasy.server.tracing.type</param-name>
-            <param-value>ALL</param-value>
-        </init-param>
-        <init-param>
-            <param-name>resteasy.server.tracing.threshold</param-name>
-            <param-value>VERBOSE</param-value>
-        </init-param>
+        <servlet-class>org.jboss.resteasy.plugins.server.servlet.HttpServletDispatcher</servlet-class>
     </servlet>
-
     <servlet-mapping>
         <servlet-name>resteasy-dispatcher</servlet-name>
         <url-pattern>/*</url-pattern>
     </servlet-mapping>
-
 </web-app>
