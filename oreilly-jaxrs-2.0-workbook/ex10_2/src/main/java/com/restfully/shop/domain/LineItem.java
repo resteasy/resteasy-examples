@@ -1,6 +1,6 @@
 package com.restfully.shop.domain;
 
-import jakarta.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  * @author <a href="mailto:bill@burkecentral.com">Bill Burke</a>

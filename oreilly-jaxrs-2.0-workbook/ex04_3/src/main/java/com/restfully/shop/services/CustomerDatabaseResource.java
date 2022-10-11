@@ -1,7 +1,7 @@
 package com.restfully.shop.services;
 
-import jakarta.ws.rs.Path;
-import jakarta.ws.rs.PathParam;
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 
 /**
  * @author <a href="mailto:bill@burkecentral.com">Bill Burke</a>

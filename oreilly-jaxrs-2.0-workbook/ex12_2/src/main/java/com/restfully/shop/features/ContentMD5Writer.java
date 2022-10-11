@@ -1,8 +1,8 @@
 package com.restfully.shop.features;
 
-import jakarta.ws.rs.WebApplicationException;
-import jakarta.ws.rs.ext.WriterInterceptor;
-import jakarta.ws.rs.ext.WriterInterceptorContext;
+import javax.ws.rs.WebApplicationException;
+import javax.ws.rs.ext.WriterInterceptor;
+import javax.ws.rs.ext.WriterInterceptorContext;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
