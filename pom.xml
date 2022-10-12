@@ -12,11 +12,6 @@
         <module>jaxrs2-async-pubsub-example</module>
         <module>jaxb-json</module>
         <module>async-job-service</module>
-        <module>resteasy-spring-mvc</module>
-        <module>resteasy-spring-basic</module>
-        <module>resteasy-spring-customized</module>
-        <module>resteasy-spring-undertow</module>
-        <module>resteasy-spring-rest</module>
         <module>examples-jsapi</module>
         <module>smime</module>
         <module>digital-signatures</module>
