@@ -2,11 +2,34 @@
 <project>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.jboss.resteasy</groupId>
-    <artifactId>resteasy-examples</artifactId>
+    <parent>
+        <groupId>dev.resteasy.tools</groupId>
+        <artifactId>resteasy-parent</artifactId>
+        <version>2.0.1.Final</version>
+        <relativePath/>
+    </parent>
+
+    <groupId>dev.resteasy.examples</groupId>
+    <artifactId>resteasy-examples-parent</artifactId>
     <version>6.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>RESTEasy Examples</name>
+
+    <url>https://resteasy.dev</url>
+
+    <licenses>
+        <license>
+            <name>Apache License 2.0</name>
+            <url>https://repository.jboss.org/licenses/apache-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <scm>
+        <connection>scm:git:git://github.com/resteasy/resteasy-examples.git</connection>
+        <developerConnection>scm:git:git@github.com:resteasy/resteasy-examples.git</developerConnection>
+        <url>https://github.com/resteasy/resteasy-examples/tree/main/</url>
+    </scm>
 
     <modules>
         <module>jaxrs2-async-pubsub-example</module>
@@ -15,16 +38,16 @@
         <module>examples-jsapi</module>
         <module>smime</module>
         <module>digital-signatures</module>
-<!--        <module>jaxrs-2.0</module>-->
+        <!--        <module>jaxrs-2.0</module>-->
         <module>wadl-example</module>
-<!--        <module>jsapi-servlet-test</module>-->
+        <!--        <module>jsapi-servlet-test</module>-->
         <module>tracing-example</module>
-<!--        EE9 not yet supported.-->
-<!--        Relative upgrade information: https://github.com/swagger-api/swagger-core/issues/3849 / https://github.com/swagger-api/swagger-core/issues/3836-->
-<!--        <module>jaxrs-swagger-example</module>-->
+        <!--        EE9 not yet supported.-->
+        <!--        Relative upgrade information: https://github.com/swagger-api/swagger-core/issues/3849 / https://github.com/swagger-api/swagger-core/issues/3836-->
+        <!--        <module>jaxrs-swagger-example</module>-->
         <module>resteasy-wadl-wildfly</module>
-<!--        In progress: still have some problem with `wildfly-maven-plugin`-->
-<!--        <module>bootable-jar</module>-->
+        <!--        In progress: still have some problem with `wildfly-maven-plugin`-->
+        <!--        <module>bootable-jar</module>-->
     </modules>
 
     <properties>
@@ -47,18 +70,14 @@
         <version.jakartaee>9.0.0</version.jakartaee>
         <version.jetty-maven-plugin>11.0.8</version.jetty-maven-plugin>
         <version.wildfly>26.0.1.Final</version.wildfly>
-<!--        <jakarta.servlet.ver>5.0.0</jakarta.servlet.ver>-->
-<!--        <jaxrs_api.ver>2.0.1.Final</jaxrs_api.ver>-->
+        <!--        <jakarta.servlet.ver>5.0.0</jakarta.servlet.ver>-->
+        <!--        <jaxrs_api.ver>2.0.1.Final</jaxrs_api.ver>-->
 
         <!-- Plugin Versions -->
         <maven-compiler-plugin.version>3.8.0</maven-compiler-plugin.version>
         <maven-deploy-plugin.version>3.0.0-M1</maven-deploy-plugin.version>
         <version.wildfly-maven-plugin>2.1.0.Final</version.wildfly-maven-plugin>
         <version.wildfly-jar-maven-plugin>6.1.0.Final</version.wildfly-jar-maven-plugin>
-
-        <!-- Compiler configuration -->
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
 
     </properties>
     <dependencyManagement>
@@ -71,16 +90,16 @@
                 <scope>import</scope>
             </dependency>
             <!-- TODO (jrp) this can be removed with an upgrade to the jakartaee-bom -->
-<!--            <dependency>-->
-<!--                <groupId>jakarta.persistence</groupId>-->
-<!--                <artifactId>jakarta.persistence-api</artifactId>-->
-<!--                <version>2.2.3</version>-->
-<!--            </dependency>-->
-<!--            <dependency>-->
-<!--                <groupId>jakarta.xml.bind</groupId>-->
-<!--                <artifactId>jakarta.xml.bind-api</artifactId>-->
-<!--&lt;!&ndash;                <version>2.3.2</version>&ndash;&gt;-->
-<!--            </dependency>-->
+            <!--            <dependency>-->
+            <!--                <groupId>jakarta.persistence</groupId>-->
+            <!--                <artifactId>jakarta.persistence-api</artifactId>-->
+            <!--                <version>2.2.3</version>-->
+            <!--            </dependency>-->
+            <!--            <dependency>-->
+            <!--                <groupId>jakarta.xml.bind</groupId>-->
+            <!--                <artifactId>jakarta.xml.bind-api</artifactId>-->
+            <!--&lt;!&ndash;                <version>2.3.2</version>&ndash;&gt;-->
+            <!--            </dependency>-->
             <!-- end remove -->
             <dependency>
                 <groupId>org.jboss.resteasy</groupId>
@@ -259,20 +278,20 @@
                             </rules>
                         </configuration>
                     </execution> -->
-<!--                    <execution>-->
-<!--                        <id>use-java-8-for-release</id>-->
-<!--                        <phase>deploy</phase>-->
-<!--                        <goals>-->
-<!--                            <goal>enforce</goal>-->
-<!--                        </goals>-->
-<!--                        <configuration>-->
-<!--                            <rules>-->
-<!--                                <requireJavaVersion>-->
-<!--                                    <version>[1.8,9)</version>-->
-<!--                                </requireJavaVersion>-->
-<!--                            </rules>-->
-<!--                        </configuration>-->
-<!--                    </execution>-->
+                    <!--                    <execution>-->
+                    <!--                        <id>use-java-8-for-release</id>-->
+                    <!--                        <phase>deploy</phase>-->
+                    <!--                        <goals>-->
+                    <!--                            <goal>enforce</goal>-->
+                    <!--                        </goals>-->
+                    <!--                        <configuration>-->
+                    <!--                            <rules>-->
+                    <!--                                <requireJavaVersion>-->
+                    <!--                                    <version>[1.8,9)</version>-->
+                    <!--                                </requireJavaVersion>-->
+                    <!--                            </rules>-->
+                    <!--                        </configuration>-->
+                    <!--                    </execution>-->
                 </executions>
             </plugin>
             <plugin>
@@ -288,26 +307,5 @@
 
         </plugins>
     </build>
-    <url>http://wiki.jboss.org/wiki/Wiki.jsp?page=RESTeasyJAXRS</url>
-
-    <repositories>
-        <repository>
-            <id>jboss</id>
-            <url>https://repository.jboss.org/nexus/content/groups/public/</url>
-        </repository>
-        <repository>
-            <id>spring-repo</id>
-            <name>Spring Repository</name>
-            <url>https://repo.spring.io/milestone</url>
-        </repository>
-    </repositories>
-
-    <distributionManagement>
-        <repository>
-            <id>jboss-releases-repository</id>
-            <name>JBoss Releases Repository</name>
-            <url>https://repository.jboss.org/nexus/service/local/staging/deploy/maven2/</url>
-        </repository>
-    </distributionManagement>
 
 </project>
