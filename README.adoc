@@ -1,0 +1,4 @@
+= RESTEasy Examples
+
+Note that if you've come here for the O`Reilly RESTful Web Services with JAX-RS examples they are at the
+https://github.com/resteasy/resteasy-examples/tree/oreilly-jaxrs-2.0-workbook branch.
