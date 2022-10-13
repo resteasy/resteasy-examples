@@ -32,9 +32,9 @@
     </scm>
 
     <modules>
+        <module>async-job-service</module>
         <module>jaxrs2-async-pubsub-example</module>
         <module>jaxb-json</module>
-        <module>async-job-service</module>
         <module>examples-jsapi</module>
         <module>smime</module>
         <module>digital-signatures</module>
