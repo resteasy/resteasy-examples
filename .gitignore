@@ -1,50 +1,30 @@
-**/target
+# Ignore Maven target folder
+target/
+dependency-reduced-pom.xml
+
+# Formatting cache
+.cache/
 
 # Intellij
-###################
-.idea
 *.iml
+*.ipr
+*.iws
+.idea
 
 # Eclipse
-###################
-**/.settings
-**/.project
-**/.classpath
-**/.checkstyle
+.settings/
+.classpath
+.project
+.factorypath
 
-# Compiled source #
-###################
-*.com
-*.class
-*.dll
-*.exe
-*.o
-*.so
+# ignore NetBeans files
+nbactions.xml
+nb-configuration.xml
+catalog.xml
+nbproject
 
-# Packages #
-############
-# it's better to unpack these files and commit the raw source
-# git has its own built in compression methods
-*.7z
-*.dmg
-*.gz
-*.iso
-*.jar
-*.rar
-*.tar
-*.zip
+# VS Code
+**/.vscode/
 
-# Logs and databases #
-######################
-*.log
-
-**/hsqldb/contact.properties
-**/sql/hsqldb/contact.lck
-**/sql/hsqldb/contact.script.original
-test/db/**
-
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
-hs_err_pid*
-
-## macos
+# macOS Files
 .DS_Store
