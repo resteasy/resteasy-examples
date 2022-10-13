@@ -34,9 +34,9 @@
     <modules>
         <module>async-job-service</module>
         <module>bootable-jar</module>
+        <module>examples-jsapi</module>
         <module>jaxrs2-async-pubsub-example</module>
         <module>jaxb-json</module>
-        <module>examples-jsapi</module>
         <module>smime</module>
         <module>digital-signatures</module>
         <!--        <module>jaxrs-2.0</module>-->

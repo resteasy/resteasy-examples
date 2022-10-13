@@ -1,0 +1,19 @@
+= JS-API
+
+Example of using RestEasy with JS-API:
+
+== Building the project:
+
+[source,bash]
+----
+mvn clean install
+----
+
+== Running the project and manually testing it:
+
+[source,bash]
+----
+mvn package -Drun
+----
+
+Open a browser at the following URL: http://127.0.0.1:8080/jsapi
