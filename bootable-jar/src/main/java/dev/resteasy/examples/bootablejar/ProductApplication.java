@@ -1,4 +1,4 @@
-package org.jboss.resteasy.bootablejar;
+package dev.resteasy.examples.bootablejar;
 
 import jakarta.ws.rs.ApplicationPath;
 import jakarta.ws.rs.core.Application;

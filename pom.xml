@@ -33,6 +33,7 @@
 
     <modules>
         <module>async-job-service</module>
+        <module>bootable-jar</module>
         <module>jaxrs2-async-pubsub-example</module>
         <module>jaxb-json</module>
         <module>examples-jsapi</module>
@@ -46,8 +47,6 @@
         <!--        Relative upgrade information: https://github.com/swagger-api/swagger-core/issues/3849 / https://github.com/swagger-api/swagger-core/issues/3836-->
         <!--        <module>jaxrs-swagger-example</module>-->
         <module>resteasy-wadl-wildfly</module>
-        <!--        In progress: still have some problem with `wildfly-maven-plugin`-->
-        <!--        <module>bootable-jar</module>-->
     </modules>
 
     <properties>
