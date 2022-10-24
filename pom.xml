@@ -36,7 +36,7 @@
         <module>bootable-jar</module>
         <module>examples-jsapi</module>
         <module>jaxrs2-async-pubsub-example</module>
-        <module>jaxb-json</module>
+        <module>json-binding</module>
         <module>smime</module>
         <module>digital-signatures</module>
         <!--        <module>jaxrs-2.0</module>-->

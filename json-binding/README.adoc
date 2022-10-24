@@ -1,0 +1,33 @@
+= Jettison Example
+
+Example of using RestEasy with:
+- Using JSON with RESTEasy
+- The Jakarta JSON Binding Provider
+
+== Building the project:
+
+[source,bash]
+----
+mvn clean install
+----
+
+== Running the project and manually testing it:
+
+[source,bash]
+----
+mvn wildfly:run
+----
+
+The data is marshalled to JSON. Use the following `curl` command to access the JSON data:
+
+[source,bash]
+----
+$ curl http://localhost:8080/json-binding/library/books
+----
+
+To see an individual book, use the following `curl` command to access the JSON data:
+
+[source,bash]
+----
+$ curl http://localhost:8080/json-binding/library/books/9780596158040
+----
