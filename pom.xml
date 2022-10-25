@@ -39,7 +39,6 @@
         <module>smime</module>
         <module>digital-signatures</module>
         <module>wadl-example</module>
-        <!--        <module>jsapi-servlet-test</module>-->
         <module>tracing-example</module>
         <!--        EE9 not yet supported.-->
         <!--        Relative upgrade information: https://github.com/swagger-api/swagger-core/issues/3849 / https://github.com/swagger-api/swagger-core/issues/3836-->
