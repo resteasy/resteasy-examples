@@ -38,8 +38,6 @@
         <module>json-binding</module>
         <module>smime</module>
         <module>tracing-example</module>
-        <module>wadl-example</module>
-        <module>resteasy-wadl-wildfly</module>
     </modules>
 
     <properties>
