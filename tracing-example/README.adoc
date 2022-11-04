@@ -1,0 +1,39 @@
+== Usage
+
+This is a demonstration of the resteasy tracing feature.
+
+To run the example, you can simply run it with WildFly:
+
+[source,bash]
+----
+$ mvn wildfly:run
+
+----
+
+After server started, we can access the server and get the tracing info:
+
+[source,bash]
+----
+$ curl -i http://localhost:8080/tracing-example/level
+
+----
+
+And here is the sample output:
+
+[source,txt]
+----
+HTTP/1.1 200 OK
+X-RESTEasy-Tracing-180: org.jboss.resteasy.plugins.server.servlet.Servlet3AsyncHttpRequest@5c54713c MATCH       [ ---- / 90377.40 ms |  ---- %] Resource instance: [org.jboss.resteasy.core.ResourceMethodInvoker @15a29762]
+X-RESTEasy-Tracing-181: org.jboss.resteasy.plugins.server.servlet.Servlet3AsyncHttpRequest@5c54713c MATCH       [ ---- / 90377.43 ms |  ---- %] Matched method  : public java.lang.String dev.resteasy.tracing.examples.TracingConfigResource.level(jakarta.ws.rs.core.Configuration)
+X-RESTEasy-Tracing-182: org.jboss.resteasy.plugins.server.servlet.Servlet3AsyncHttpRequest@5c54713c REQ-FILTER  [ 0.00 / 90377.47 ms |  0.00 %] Filter by [org.jboss.resteasy.plugins.providers.jsonp.JsonpPatchMethodFilter @39f08fcd #2147483646]
+X-RESTEasy-Tracing-183: org.jboss.resteasy.plugins.server.servlet.Servlet3AsyncHttpRequest@5c54713c REQ-FILTER  [ 0.00 / 90377.48 ms |  0.00 %] Filter by [org.jboss.resteasy.plugins.providers.jackson.PatchMethodFilter @5116d6ba #2147483647]
+X-RESTEasy-Tracing-184: org.jboss.resteasy.plugins.server.servlet.Servlet3AsyncHttpRequest@5c54713c REQ-FILTER  [ 0.00 / 90377.49 ms |  0.00 %] Filter by [org.jboss.resteasy.plugins.providers.sse.SseEventSinkInterceptor @7ce628d4 #2147483647]
+X-RESTEasy-Tracing-185: org.jboss.resteasy.plugins.server.servlet.Servlet3AsyncHttpRequest@5c54713c REQ-FILTER  [ 0.03 / 90377.49 ms |  0.00 %] Request summary: 3 filters
+X-RESTEasy-Tracing-186: org.jboss.resteasy.plugins.server.servlet.Servlet3AsyncHttpRequest@5c54713c INVOKE      [ 0.26 / 90377.73 ms |  0.00 %] Resource [org.jboss.resteasy.plugins.server.resourcefactory.POJOResourceFactory @306e6620] method=[public java.lang.String dev.resteasy.tracing.examples.TracingConfigResource.level(jakarta.ws.rs.core.Configuration)]
+X-RESTEasy-Tracing-187: org.jboss.resteasy.plugins.server.servlet.Servlet3AsyncHttpRequest@5c54713c INVOKE      [ ---- / 90377.85 ms |  ---- %] Response: [org.jboss.resteasy.specimpl.BuiltResponse @131c9fd9 <200/SUCCESSFUL|OK|java.lang.String @5f955399>]
+X-RESTEasy-Tracing-188: org.jboss.resteasy.plugins.server.servlet.Servlet3AsyncHttpRequest@5c54713c RESP-FILTER [ 0.00 / 90377.99 ms |  0.00 %] Filter by [org.jboss.resteasy.security.doseta.DigitalSigningInterceptor @7f267bb2]
+X-RESTEasy-Tracing-189: org.jboss.resteasy.plugins.server.servlet.Servlet3AsyncHttpRequest@5c54713c RESP-FILTER [ 0.00 / 90378.00 ms |  0.00 %] Filter by [org.jboss.resteasy.plugins.interceptors.MessageSanitizerContainerResponseFilter @49b110a3 #4000]
+X-RESTEasy-Tracing-190: org.jboss.resteasy.plugins.server.servlet.Servlet3AsyncHttpRequest@5c54713c MBW         [ ---- / 90378.04 ms |  ---- %] Find MBW for type=[java.lang.String] genericType=[java.lang.String] mediaType=[[jakarta.ws.rs.core.MediaType @45b9c1ef]] annotations=[@jakarta.ws.rs.GET(), @jakarta.ws.rs.Path(value="/level")]
+----
+
+Above is the basic usage of the sample. You should also see output on the console WildFly is running in as well.
