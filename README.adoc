@@ -1,4 +1,31 @@
 = RESTEasy Examples
 
-Note that if you've come here for the O`Reilly RESTful Web Services with JAX-RS examples they are at the
+IMPORTANT: Note that if you've come here for the O`Reilly RESTful Web Services with JAX-RS examples they are at the
 https://github.com/resteasy/resteasy-examples/tree/oreilly-jaxrs-2.0-workbook branch.
+
+The RESTEasy Examples are examples of using the
+https://jakarta.ee/specifications/restful-ws/[Jakarta RESTful Web Services specification] in general, as well as using
+RESTEasy specific API's. Each example should have a README which explains what it does and how it works. They should
+also be independent and can be treated as a singular project unless noted in the project.
+
+For full RESTEasy documentation see https://resteasy.dev/docs/.
+
+
+== Getting Started
+
+You need a minimum of Java 11 installed to get started. You can then execute the following in the root directory to
+build and test all projects:
+
+[source,bash]
+----
+./mvnw clean install
+----
+
+This will execute Maven, build and test each independent project.
+
+== Issue Tracking
+
+Issues can be tracked on GitHub at https://github.com/resteasy/resteasy-examples/issues. If you've found a bug or would
+like to see some more examples feel free to file an issue or ask any in the
+https://github.com/resteasy/resteasy-examples/discussions[discussions].
+
