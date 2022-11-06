@@ -1,0 +1,27 @@
+= Bootstrap with CDI
+
+In https://jakarta.ee/specifications/restful-ws/3.1/[Jakarta RESTful Web Services 3.1] the `SeBootstrap` API was
+introduced. This quickstart shows how to use the API with RESTEasy.
+
+== Building
+
+To build the `bootstrap-cdi` quickstart you must have https://maven.apache.org/[Maven] installed and at least Java 11.
+Then you simply need to run the following:
+
+----
+mvn clean verify
+----
+
+This will create a `bootstrap-cdi.jar` which can be executed from the command line. A test is also executed as part of
+the build.
+
+== Running the Quickstart
+
+The `bootstrap-cdi.jar` created can be executed from the command.
+
+----
+java -jar target/bootstrap-cdi.jar
+----
+
+This will start an Undertow container with RESTEasy and CDI support. To exit the application you need to send a `SIGKILL`
+, for example `CTRL+C`.

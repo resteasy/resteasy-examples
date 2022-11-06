@@ -34,6 +34,7 @@
     <modules>
         <module>async-job-service</module>
         <module>bootable-jar</module>
+        <module>bootstrap-cdi</module>
         <module>examples-jsapi</module>
         <module>json-binding</module>
         <module>smime</module>
