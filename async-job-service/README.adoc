@@ -1,0 +1,19 @@
+= Async Job Service
+
+This project is a simple example showing how to use the Asynchronous Job Service. 
+
+== Building the project:
+
+=== Run the following command to run the test for demo:
+[source,bash]
+----
+$ mvn clean test
+----
+
+=== To start the demo service, run the following command:
+[source,bash]
+----
+$ mvn wildfly:run
+----
+
+This will build a WAR and run it with WildFly
