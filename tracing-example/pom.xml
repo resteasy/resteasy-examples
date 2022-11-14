@@ -38,7 +38,7 @@
         <version.org.jboss.resteasy.extensions>2.0.0.Final</version.org.jboss.resteasy.extensions>
         <version.org.junit>5.9.1</version.org.junit>
         <version.org.wildfly>27.0.0.Beta1</version.org.wildfly>
-        <version.org.wildfly.arquillian>5.0.0.Alpha5</version.org.wildfly.arquillian>
+        <version.org.wildfly.arquillian>5.0.0.Alpha6</version.org.wildfly.arquillian>
 
         <version.wildfly-maven-plugin>4.0.0.Final</version.wildfly-maven-plugin>
 
