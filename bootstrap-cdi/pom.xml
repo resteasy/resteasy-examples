@@ -40,7 +40,7 @@
         <version.jakarta.ws.rs.api>3.1.0</version.jakarta.ws.rs.api>
         <version.org.jboss.logmanager>2.1.19.Final</version.org.jboss.logmanager>
         <version.org.jboss.resteasy>6.2.0.Final</version.org.jboss.resteasy>
-        <version.org.junit>5.9.1</version.org.junit>
+        <version.org.junit>5.9.2</version.org.junit>
 
         <!-- Plugin Versions -->
         <version.jandex.maven.plugin>1.2.3</version.jandex.maven.plugin>
