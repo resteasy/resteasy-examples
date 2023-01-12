@@ -1,0 +1,30 @@
+= Contacts
+
+This is a simple CRUD application to manage contacts. It uses the following Jakarta EE 10 API's:
+
+* https://jakarta.ee/specifications/restful-ws/[Jakarta RESTful Web Services]
+* https://jakarta.ee/specifications/cdi/[Jakarta Contexts Dependency Injection]
+* https://jakarta.ee/specifications/persistence/[Jakarta Persistence]
+* https://jakarta.ee/specifications/bean-validation/[Jakarta Bean Validation]
+* https://jakarta.ee/specifications/transactions/[Jakarta Transactions]
+
+The client side is composed of HTML and JavaScript. It receives events from the server (server-sent events) to indicate
+when a contact has been added, deleted or modified. The page should then be updated to reflect the changes.
+
+You can also watch events from the http://127.0.0.1:8080/contacts/events.html page when the application is running.
+
+== Building the application:
+
+[source,bash]
+----
+mvn clean verify
+----
+
+== Running the application in WildFly:
+
+[source,bash]
+----
+mvn clean wildfly:run
+----
+
+Open a browser at the following URL: http://127.0.0.1:8080/contacts
