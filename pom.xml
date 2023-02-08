@@ -38,6 +38,7 @@
         <module>contacts</module>
         <module>examples-jsapi</module>
         <module>json-binding</module>
+        <module>microprofile-openapi</module>
         <module>smime</module>
         <module>tracing-example</module>
     </modules>
