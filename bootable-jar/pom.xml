@@ -110,36 +110,36 @@
                 <groupId>org.wildfly.plugins</groupId>
                 <artifactId>wildfly-jar-maven-plugin</artifactId>
                 <version>${version.wildfly-jar-maven-plugin}</version>
+                <configuration>
+                    <feature-packs>
+                        <feature-pack>
+                            <groupId>org.wildfly</groupId>
+                            <artifactId>wildfly-ee-galleon-pack</artifactId>
+                            <version>${version.org.wildfly}</version>
+                            <excluded-packages>
+                                <name>product.conf</name>
+                                <name>docs.schema</name>
+                            </excluded-packages>
+                        </feature-pack>
+                        <feature-pack>
+                            <groupId>org.jboss.resteasy</groupId>
+                            <artifactId>galleon-feature-pack</artifactId>
+                            <version>${version.org.jboss.resteasy}</version>
+                        </feature-pack>
+                    </feature-packs>
+                    <layers>
+                        <layer>jaxrs</layer>
+                        <layer>management</layer>
+                    </layers>
+                    <excluded-layers>
+                        <layer>deployment-scanner</layer>
+                    </excluded-layers>
+                </configuration>
                 <executions>
                     <execution>
                         <goals>
                             <goal>package</goal>
                         </goals>
-                        <configuration>
-                            <feature-packs>
-                                <feature-pack>
-                                    <groupId>org.wildfly</groupId>
-                                    <artifactId>wildfly-ee-galleon-pack</artifactId>
-                                    <version>${version.org.wildfly}</version>
-                                    <excluded-packages>
-                                        <name>product.conf</name>
-                                        <name>docs.schema</name>
-                                    </excluded-packages>
-                                </feature-pack>
-                                <feature-pack>
-                                    <groupId>org.jboss.resteasy</groupId>
-                                    <artifactId>galleon-feature-pack</artifactId>
-                                    <version>${version.org.jboss.resteasy}</version>
-                                </feature-pack>
-                            </feature-packs>
-                            <layers>
-                                <layer>jaxrs</layer>
-                                <layer>management</layer>
-                            </layers>
-                            <excluded-layers>
-                                <layer>deployment-scanner</layer>
-                            </excluded-layers>
-                        </configuration>
                     </execution>
                     <!-- Start the bootable JAR for integration tests -->
                     <execution>
