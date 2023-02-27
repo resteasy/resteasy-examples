@@ -39,7 +39,7 @@
         <version.jakarta.enterprise.cdi-api>4.0.1</version.jakarta.enterprise.cdi-api>
         <version.jakarta.ws.rs.api>3.1.0</version.jakarta.ws.rs.api>
         <version.org.jboss.logmanager>2.1.19.Final</version.org.jboss.logmanager>
-        <version.org.jboss.resteasy>6.2.0.Final</version.org.jboss.resteasy>
+        <version.org.jboss.resteasy>6.2.2.Final</version.org.jboss.resteasy>
         <version.org.junit>5.9.2</version.org.junit>
 
         <!-- Plugin Versions -->
