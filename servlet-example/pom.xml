@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>dev.resteasy.tools</groupId>
+        <artifactId>resteasy-parent</artifactId>
+        <version>2.0.3.Final</version>
+        <relativePath/>
+    </parent>
+
+    <groupId>dev.resteasy.examples</groupId>
+    <artifactId>servlet-example</artifactId>
+    <version>6.0.1-SNAPSHOT</version>
+    <packaging>war</packaging>
+    <name>RESTEasy Example: Minimal Servlet Example</name>
+
+    <url>https://resteasy.dev</url>
+
+    <licenses>
+        <license>
+            <name>Apache License 2.0</name>
+            <url>https://repository.jboss.org/licenses/apache-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <scm>
+        <connection>scm:git:git://github.com/resteasy/resteasy-examples.git</connection>
+        <developerConnection>scm:git:git@github.com:resteasy/resteasy-examples.git</developerConnection>
+        <url>https://github.com/resteasy/resteasy-examples/tree/main/</url>
+    </scm>
+
+    <properties>
+        <resteasy.version>6.2.3.Final</resteasy.version>
+        <jetty.maven.plugin.ver>11.0.14</jetty.maven.plugin.ver>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.jboss.resteasy</groupId>
+            <artifactId>resteasy-servlet-initializer</artifactId>
+            <version>${resteasy.version}</version>
+        </dependency>
+    </dependencies>
+    <build>
+        <finalName>servlet-example</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.eclipse.jetty</groupId>
+                <artifactId>jetty-maven-plugin</artifactId>
+                <version>${jetty.maven.plugin.ver}</version>
+                <configuration>
+                    <scanIntervalSeconds>10</scanIntervalSeconds>
+                    <stopKey>foo</stopKey>
+                    <stopPort>9999</stopPort>
+                    <stopWait>10</stopWait>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
