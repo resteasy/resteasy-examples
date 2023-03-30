@@ -41,5 +41,6 @@
         <module>microprofile-openapi</module>
         <module>smime</module>
         <module>tracing-example</module>
+        <module>servlet-example</module>
     </modules>
 </project>
