@@ -22,8 +22,8 @@ package dev.resteasy.examples.servlet;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
 
-@Path("/foo")
-public class FooResource {
+@Path("/greet")
+public class GreetingResource {
     @GET
     public String get() {
         return "Hello, world!";

@@ -18,14 +18,14 @@ After the Jetty server is started, you can access the service with the following
 
 
 ```bash
-$ curl http://localhost:8080/app/foo
+$ curl http://localhost:8080/app/greet
 Hello, world!
 ```
 
 Because Tomcat doesn't provide an updated Maven plugin, so to deploy the example into Tomcat, you need to download a Tomcat 11 manually, and then deploy the built war `servlet-example.war` into the Tomcat `webapp` directory. After the Tomcat server is started and the example is deployed, you can access the service like this:
 
 ```bash
-➤ curl http://localhost:8080/servlet-example/app/foo
+➤ curl http://localhost:8080/servlet-example/app/greet
 Hello, world!
 ```
 
