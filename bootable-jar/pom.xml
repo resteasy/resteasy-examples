@@ -39,7 +39,7 @@
         <version.org.junit>5.9.2</version.org.junit>
         <version.org.wildfly>27.0.1.Final</version.org.wildfly>
 
-        <version.wildfly-jar-maven-plugin>8.1.0.Final</version.wildfly-jar-maven-plugin>
+        <version.wildfly-jar-maven-plugin>9.0.0.Final</version.wildfly-jar-maven-plugin>
 
         <!-- Other properties -->
         <maven.test.skip>false</maven.test.skip>
