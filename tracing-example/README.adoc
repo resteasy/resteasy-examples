@@ -7,7 +7,6 @@ To run the example, you can simply run it with WildFly:
 [source,bash]
 ----
 $ mvn wildfly:run
-
 ----
 
 After server started, we can access the server and get the tracing info:
@@ -15,7 +14,6 @@ After server started, we can access the server and get the tracing info:
 [source,bash]
 ----
 $ curl -i http://localhost:8080/tracing-example/level
-
 ----
 
 And here is the sample output:
