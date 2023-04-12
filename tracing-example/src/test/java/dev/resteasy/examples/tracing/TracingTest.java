@@ -56,13 +56,13 @@ public class TracingTest {
     @Test
     public void basicTest() {
         try (Client client = ClientBuilder.newClient()) {
-            WebTarget target = client.target(uriBuilder().path("type"));
+            WebTarget target = client.target(uriBuilder().path("trace/type"));
             assertEquals(ResteasyContextParameters.RESTEASY_TRACING_TYPE_ALL, target.request().get(String.class));
 
-            target = client.target(uriBuilder().path("level"));
+            target = client.target(uriBuilder().path("trace/level"));
             assertEquals(ResteasyContextParameters.RESTEASY_TRACING_LEVEL_VERBOSE, target.request().get(String.class));
 
-            target = client.target(uriBuilder().path("logger"));
+            target = client.target(uriBuilder().path("trace/logger"));
             assertEquals(RESTEasyTracingLogger.class.getName(), target.request().get(String.class));
         }
     }
