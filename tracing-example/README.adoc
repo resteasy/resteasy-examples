@@ -1,4 +1,4 @@
-== Usage
+= RESTEasy Tracing Example
 
 This is a demonstration of the resteasy tracing feature.
 
@@ -9,11 +9,14 @@ To run the example, you can simply run it with WildFly:
 $ mvn wildfly:run
 ----
 
+== Usage
+
 After server started, we can access the server and get the tracing info:
 
+=== Command Line
 [source,bash]
 ----
-$ curl -i http://localhost:8080/tracing-example/level
+$ curl -i http://localhost:8080/tracing-example/trace/level
 ----
 
 And here is the sample output:
@@ -35,3 +38,8 @@ X-RESTEasy-Tracing-190: org.jboss.resteasy.plugins.server.servlet.Servlet3AsyncH
 ----
 
 Above is the basic usage of the sample. You should also see output on the console WildFly is running in as well.
+
+=== Web
+
+Navigate to http://localhost:8080/tracing-example. From there you should see a web page which can be used to execute
+HTTP requests through a client returning the tracing headers.

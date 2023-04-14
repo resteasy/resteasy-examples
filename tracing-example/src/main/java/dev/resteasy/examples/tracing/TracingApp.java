@@ -3,6 +3,6 @@ package dev.resteasy.examples.tracing;
 import jakarta.ws.rs.ApplicationPath;
 import jakarta.ws.rs.core.Application;
 
-@ApplicationPath("/")
+@ApplicationPath("/trace")
 public class TracingApp extends Application {
 }

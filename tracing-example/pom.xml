@@ -47,16 +47,6 @@
         <debugJvmArgs/>
     </properties>
 
-    <profiles>
-        <profile>
-            <id>wildfly27</id>
-            <properties>
-                <version.org.wildfly>27.0.1.Final</version.org.wildfly>
-                <dep.tracing.scope>compile</dep.tracing.scope>
-            </properties>
-        </profile>
-    </profiles>
-
     <dependencyManagement>
         <dependencies>
             <dependency>
@@ -196,16 +186,47 @@
                 <version>${version.wildfly-maven-plugin}</version>
                 <configuration>
                     <jboss-home>${jboss.home}</jboss-home>
+                    <provisioning-dir>${jboss.home}</provisioning-dir>
+                    <feature-packs>
+                        <feature-pack>
+                            <groupId>org.wildfly</groupId>
+                            <artifactId>wildfly-ee-galleon-pack</artifactId>
+                            <version>${version.org.wildfly}</version>
+                        </feature-pack>
+                    </feature-packs>
+                    <galleon-options>
+                        <jboss-fork-embedded>true</jboss-fork-embedded>
+                    </galleon-options>
                 </configuration>
                 <executions>
                     <execution>
-                        <id>provision-test-server</id>
+                        <id>provision-server</id>
                         <phase>process-test-classes</phase>
                         <goals>
                             <goal>provision</goal>
                         </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+    <profiles>
+        <profile>
+            <id>wildfly27</id>
+            <properties>
+                <version.org.wildfly>27.0.1.Final</version.org.wildfly>
+                <dep.tracing.scope>compile</dep.tracing.scope>
+            </properties>
+
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.wildfly.plugins</groupId>
+                        <artifactId>wildfly-maven-plugin</artifactId>
+                        <version>${version.wildfly-maven-plugin}</version>
                         <configuration>
-                            <provisioning-dir>${jboss.home}</provisioning-dir>
+                            <jboss-home>${jboss.home}</jboss-home>
                             <!-- First configure the feature pack we are overriding -->
                             <feature-packs>
                                 <feature-pack>
@@ -224,13 +245,19 @@
                                     <version>${version.org.jboss.resteasy}</version>
                                 </feature-pack>
                             </feature-packs>
-                            <galleon-options>
-                                <jboss-fork-embedded>true</jboss-fork-embedded>
-                            </galleon-options>
                         </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
-    </build>
+                        <executions>
+                            <execution>
+                                <id>provision-server</id>
+                                <phase>process-test-classes</phase>
+                                <goals>
+                                    <goal>provision</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 </project>
