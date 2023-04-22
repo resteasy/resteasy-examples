@@ -1,4 +1,4 @@
-package dev.resteasy.greet;
+package dev.resteasy.example.grpc.greet;
 
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;

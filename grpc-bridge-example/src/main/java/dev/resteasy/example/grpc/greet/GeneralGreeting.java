@@ -1,4 +1,4 @@
-package dev.resteasy.greet;
+package dev.resteasy.example.grpc.greet;
 
 public class GeneralGreeting extends Greeting {
     private String salute;
