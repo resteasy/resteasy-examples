@@ -57,7 +57,7 @@
         <version.org.jboss.arquillian>1.7.0.Alpha14</version.org.jboss.arquillian>
         <version.org.jboss.resteasy>6.2.3.Final</version.org.jboss.resteasy>
         <version.org.junit>5.9.3</version.org.junit>
-        <version.org.wildfly>27.0.1.Final</version.org.wildfly>
+        <version.org.wildfly>28.0.0.Final</version.org.wildfly>
         <version.org.wildfly.arquillian>5.0.0.Alpha6</version.org.wildfly.arquillian>
 
         <version.wildfly-maven-plugin>4.1.0.Beta5</version.wildfly-maven-plugin>
@@ -266,7 +266,7 @@
                             <provisioning-dir>${jboss.home}</provisioning-dir>
                             <feature-packs>
                                 <feature-pack>
-                                    <location>wildfly@maven(org.jboss.universe:community-universe)#27.0.1.Final</location>
+                                    <location>wildfly@maven(org.jboss.universe:community-universe)#28.0.0.Final</location>
                                 </feature-pack>
                             </feature-packs>
                             <layers>
