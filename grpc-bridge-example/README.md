@@ -50,14 +50,14 @@ skeleton of the bridge project:
         mvn archetype:generate -B \
 	        -DarchetypeGroupId=dev.resteasy.grpc \
             -DarchetypeArtifactId=gRPCtoJakartaREST-archetype \
-            -DarchetypeVersion=${archetype-version} \
+            -DarchetypeVersion=1.0.0.Alpha1 \
             -DgroupId=dev.resteasy.examples \
             -DartifactId=grpcToRest.example \
-            -Dversion=6.0.0-SNAPSHOT \
+            -Dversion=1.0.0.Final \
             -Dgenerate-prefix=Greet \
             -Dgenerate-package=org.greet \
             -Dresteasy-version=6.2.3.Final \
-            -Dgrpc-bridge-version=1.0.0.Alpha1-SNAPSHOT
+            -Dgrpc-bridge-version=1.0.0.Alpha1
     </pre></code>
 
     The parameters groupId, artifactId, and version describe the target project. 
@@ -153,8 +153,8 @@ both of which are available as WildFly feature packs. A suitable WildFly can be 
 
 <pre><code>
 galleon.sh install wildfly:current --dir=wildfly
-galleon.sh install org.jboss.resteasy:galleon-feature-pack:6.2.2.Final-SNAPSHOT --dir=wildfly --ignore-not-excluded-layers=true
-galleon.sh install org.wildfly.extras.grpc:wildfly-grpc-feature-pack:0.0.5-SNAPSHOT --layers=grpc --dir=wildfly
+galleon.sh install org.jboss.resteasy:galleon-feature-pack:6.2.4.Final --dir=wildfly --ignore-not-excluded-layers=true
+galleon.sh install org.wildfly.extras.grpc:wildfly-grpc-feature-pack:0.1.1.Final --layers=grpc --dir=wildfly
 </code></pre>
 
 Once WildFly is available, the WAR can be deployed, and invocations may be made from the client. However, there is one preliminary 
