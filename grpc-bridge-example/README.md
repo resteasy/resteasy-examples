@@ -39,6 +39,11 @@ the javabuf instance would be dispatched to a gRPC service, but, in our context,
 to a Jakarta REST service. As we will see below, the gRPC bridge project supplies the mechanism for
 translating a javabuf instance to its corresponding original Java class and dispatching it appropriately.
 
+**Note.**
+In this example we refer to the grpc-bridge-example in https://github.com/resteasy/resteasy-examples.
+Its output is grpcToRest.example-1.0.0.Final-SNAPSHOT.war, but the WAR is not deployed to any repository. That is,
+if you want to follow along, you need to download resteasy-examples and build it in the usual maven manner.
+
 ## Building the bridge project
 
 1. Create a directory for the bridge project. We will refer to it as BUILD_HOME.
