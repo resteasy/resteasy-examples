@@ -53,15 +53,15 @@ skeleton of the bridge project:
             -DarchetypeVersion=1.0.0.Alpha1 \
             -DgroupId=dev.resteasy.examples \
             -DartifactId=grpcToRest.example \
-            -Dversion=1.0.0.Final \
+            -Dversion=1.0.0.Final-SNAPSHOT \
             -Dgenerate-prefix=Greet \
             -Dgenerate-package=org.greet \
-            -Dresteasy-version=6.2.3.Final \
+            -Dresteasy-version=6.2.4.Final \
             -Dgrpc-bridge-version=1.0.0.Alpha1
     </pre></code>
 
     The parameters groupId, artifactId, and version describe the target project. 
-    The result will be a new maven project, dev.resteasy.examples:grpcToRest.example.grpc:6.0.0-SNAPSHOT in
+    The result will be a new maven project, dev.resteasy.examples:grpcToRest.example.grpc:1.0.0.Final-SNAPSHOT in
     a directory named grpcToRest.example (the value of artifactId). Note that the groupId and version are copied
     from the target project, and ".grpc" is added to the artifactId. The parameters generate-prefix and generate-package are
     applied to several classes that will be generated.
