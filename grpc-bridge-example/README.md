@@ -55,14 +55,14 @@ skeleton of the bridge project:
         mvn archetype:generate -B \
 	        -DarchetypeGroupId=dev.resteasy.grpc \
             -DarchetypeArtifactId=gRPCtoJakartaREST-archetype \
-            -DarchetypeVersion=1.0.0.Alpha1 \
+            -DarchetypeVersion=1.0.0.Alpha5 \
             -DgroupId=dev.resteasy.examples \
             -DartifactId=grpcToRest.example \
             -Dversion=1.0.0.Final-SNAPSHOT \
             -Dgenerate-prefix=Greet \
             -Dgenerate-package=org.greet \
             -Dresteasy-version=6.2.4.Final \
-            -Dgrpc-bridge-version=1.0.0.Alpha1
+            -Dgrpc-bridge-version=1.0.0.Alpha2
     </pre></code>
 
     The parameters groupId, artifactId, and version describe the target project. 
@@ -106,8 +106,8 @@ Let's take a look at Greet.proto. The two message types are transformed into
         }
 
         message dev_resteasy_example_grpc_greet___GeneralGreeting {
-          string salute = 2;
-          dev_resteasy_example_grpc_greet___Greeting greeting___super = 3;
+          string salute = 1;
+          dev_resteasy_example_grpc_greet___Greeting greeting___super = 2;
         }
 
 There are two things to note:
