@@ -40,7 +40,7 @@
         <version.org.wildfly>28.0.0.Final</version.org.wildfly>
         <version.org.wildfly.arquillian>5.0.0.Alpha6</version.org.wildfly.arquillian>
 
-        <version.wildfly-maven-plugin>4.1.0.Final</version.wildfly-maven-plugin>
+        <version.wildfly-maven-plugin>4.1.1.Final</version.wildfly-maven-plugin>
 
         <!-- Test properties -->
         <jboss.home>${project.build.directory}${file.separator}wildfly</jboss.home>
