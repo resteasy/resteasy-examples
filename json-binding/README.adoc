@@ -15,7 +15,7 @@ mvn clean install
 
 [source,bash]
 ----
-mvn wildfly:run
+mvn wildfly:dev
 ----
 
 The data is marshalled to JSON. Use the following `curl` command to access the JSON data:

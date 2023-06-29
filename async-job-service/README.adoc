@@ -13,7 +13,7 @@ $ mvn clean test
 === To start the demo service, run the following command:
 [source,bash]
 ----
-$ mvn wildfly:run
+$ mvn wildfly:dev
 ----
 
 This will build a WAR and run it with WildFly
