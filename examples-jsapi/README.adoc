@@ -13,7 +13,7 @@ mvn clean install
 
 [source,bash]
 ----
-mvn package -Drun
+mvn clean wildfly:dev
 ----
 
 Open a browser at the following URL: http://127.0.0.1:8080/jsapi

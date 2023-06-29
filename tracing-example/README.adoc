@@ -6,7 +6,7 @@ To run the example, you can simply run it with WildFly:
 
 [source,bash]
 ----
-$ mvn wildfly:run
+$ mvn wildfly:dev
 ----
 
 == Usage

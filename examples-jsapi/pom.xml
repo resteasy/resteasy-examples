@@ -35,7 +35,12 @@
     <properties>
         <version.jakarta.ee>10.0.0</version.jakarta.ee>
         <version.org.jboss.resteasy>6.2.4.Final</version.org.jboss.resteasy>
+        <version.org.wildfly>28.0.0.Final</version.org.wildfly>
+        <version.wildfly-maven-plugin>4.1.1.Final</version.wildfly-maven-plugin>
         <version.org.junit>5.9.3</version.org.junit>
+
+        <!-- Other properties -->
+        <jboss.home>${project.build.directory}${file.separator}wildfly</jboss.home>
     </properties>
 
     <dependencyManagement>
@@ -114,89 +119,57 @@
             <plugin>
                 <artifactId>maven-surefire-plugin</artifactId>
             </plugin>
+            <plugin>
+                <groupId>org.wildfly.plugins</groupId>
+                <artifactId>wildfly-maven-plugin</artifactId>
+                <version>${version.wildfly-maven-plugin}</version>
+                <configuration>
+                    <jboss-home>${jboss.home}</jboss-home>
+                    <provisioning-dir>${jboss.home}</provisioning-dir>
+                    <!-- First configure the feature pack we are overriding -->
+                    <feature-packs>
+                        <feature-pack>
+                            <groupId>org.wildfly</groupId>
+                            <artifactId>wildfly-ee-galleon-pack</artifactId>
+                            <version>${version.org.wildfly}</version>
+                            <excluded-packages>
+                                <name>product.conf</name>
+                                <name>docs.schema</name>
+                            </excluded-packages>
+                        </feature-pack>
+                        <!-- Next include our own feature pack -->
+                        <feature-pack>
+                            <groupId>org.jboss.resteasy</groupId>
+                            <artifactId>galleon-feature-pack</artifactId>
+                            <version>${version.org.jboss.resteasy}</version>
+                        </feature-pack>
+                    </feature-packs>
+                    <galleon-options>
+                        <jboss-fork-embedded>true</jboss-fork-embedded>
+                    </galleon-options>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 
-    <profiles>
-        <profile>
-            <id>run</id>
-            <activation>
-                <property>
-                    <name>run</name>
-                </property>
-            </activation>
-            <properties>
-                <version.org.wildfly>28.0.0.Final</version.org.wildfly>
-                <version.wildfly-maven-plugin>4.1.1.Final</version.wildfly-maven-plugin>
-
-                <!-- Other properties -->
-                <jboss.home>${project.build.directory}${file.separator}wildfly</jboss.home>
-            </properties>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.wildfly.plugins</groupId>
-                        <artifactId>wildfly-maven-plugin</artifactId>
-                        <version>${version.wildfly-maven-plugin}</version>
-                        <configuration>
-                            <jboss-home>${jboss.home}</jboss-home>
-                            <provisioning-dir>${jboss.home}</provisioning-dir>
-                            <!-- First configure the feature pack we are overriding -->
-                            <feature-packs>
-                                <feature-pack>
-                                    <groupId>org.wildfly</groupId>
-                                    <artifactId>wildfly-ee-galleon-pack</artifactId>
-                                    <version>${version.org.wildfly}</version>
-                                    <excluded-packages>
-                                        <name>product.conf</name>
-                                        <name>docs.schema</name>
-                                    </excluded-packages>
-                                </feature-pack>
-                                <!-- Next include our own feature pack -->
-                                <feature-pack>
-                                    <groupId>org.jboss.resteasy</groupId>
-                                    <artifactId>galleon-feature-pack</artifactId>
-                                    <version>${version.org.jboss.resteasy}</version>
-                                </feature-pack>
-                            </feature-packs>
-                            <galleon-options>
-                                <jboss-fork-embedded>true</jboss-fork-embedded>
-                            </galleon-options>
-                        </configuration>
-                        <executions>
-                            <execution>
-                                <id>provision-and-run-wildfly</id>
-                                <phase>package</phase>
-                                <goals>
-                                    <goal>provision</goal>
-                                    <goal>run</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
-
-            <repositories>
-                <!-- Required for provisioning WildFly. Not all dependencies currently exist on Maven Central. This is also
-                   useful for when we want to test with versions releases that have not yet been synchronized to Maven Central
-                   from JBoss Nexus.
-               -->
-                <repository>
-                    <releases>
-                        <enabled>true</enabled>
-                        <updatePolicy>never</updatePolicy>
-                    </releases>
-                    <snapshots>
-                        <enabled>true</enabled>
-                        <updatePolicy>never</updatePolicy>
-                    </snapshots>
-                    <id>jboss-public-repository-group</id>
-                    <name>JBoss Public Repository Group</name>
-                    <url>https://repository.jboss.org/nexus/content/groups/public/</url>
-                    <layout>default</layout>
-                </repository>
-            </repositories>
-        </profile>
-    </profiles>
+    <repositories>
+        <!-- Required for provisioning WildFly. Not all dependencies currently exist on Maven Central. This is also
+           useful for when we want to test with versions releases that have not yet been synchronized to Maven Central
+           from JBoss Nexus.
+       -->
+        <repository>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>never</updatePolicy>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>never</updatePolicy>
+            </snapshots>
+            <id>jboss-public-repository-group</id>
+            <name>JBoss Public Repository Group</name>
+            <url>https://repository.jboss.org/nexus/content/groups/public/</url>
+            <layout>default</layout>
+        </repository>
+    </repositories>
 </project>

@@ -5,5 +5,5 @@ Demonstrates creating a WAR with MicroProfile OpenAPI enabled.
 == Build And Run
 
 * To build: `mvn clean install`
-* To run: `mvn wildfly:run`
+* To run: `mvn wildfly:dev`
 * Access the OpenAPI document with: `curl -H "Accept: application/json" http://127.0.0.1:8080/openapi`
