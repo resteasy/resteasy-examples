@@ -254,6 +254,23 @@
                 <version>${version.wildfly-maven-plugin}</version>
                 <configuration>
                     <jboss-home>${jboss.home}</jboss-home>
+                    <provisioning-dir>${jboss.home}</provisioning-dir>
+                    <feature-packs>
+                        <feature-pack>
+                            <location>wildfly@maven(org.jboss.universe:community-universe)#28.0.0.Final</location>
+                        </feature-pack>
+                    </feature-packs>
+                    <layers>
+                        <layer>bean-validation</layer>
+                        <layer>cdi</layer>
+                        <layer>h2-default-datasource</layer>
+                        <layer>jaxrs-server</layer>
+                        <layer>jpa</layer>
+                        <layer>transactions</layer>
+                    </layers>
+                    <galleon-options>
+                        <jboss-fork-embedded>true</jboss-fork-embedded>
+                    </galleon-options>
                 </configuration>
                 <executions>
                     <execution>
@@ -262,25 +279,6 @@
                         <goals>
                             <goal>provision</goal>
                         </goals>
-                        <configuration>
-                            <provisioning-dir>${jboss.home}</provisioning-dir>
-                            <feature-packs>
-                                <feature-pack>
-                                    <location>wildfly@maven(org.jboss.universe:community-universe)#28.0.0.Final</location>
-                                </feature-pack>
-                            </feature-packs>
-                            <layers>
-                                <layer>bean-validation</layer>
-                                <layer>cdi</layer>
-                                <layer>h2-default-datasource</layer>
-                                <layer>jaxrs-server</layer>
-                                <layer>jpa</layer>
-                                <layer>transactions</layer>
-                            </layers>
-                            <galleon-options>
-                                <jboss-fork-embedded>true</jboss-fork-embedded>
-                            </galleon-options>
-                        </configuration>
                     </execution>
                 </executions>
             </plugin>
