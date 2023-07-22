@@ -169,7 +169,7 @@ of that process involves supplying a `jakarta.servlet.ServletContext`. Making a 
 
 <pre><code>
     Client client = ClientBuilder.newClient();
-    client.target("http: //localhost:8080/grpcToRest.example.grpc-1.0.1.Final-SNAPSHOT/grpcToJakartaRest/grpcserver/context").request().get();
+    client.target("http://localhost:8080/grpcToRest.example.grpc-1.0.1.Final-SNAPSHOT/grpcToJakartaRest/grpcserver/context").request().get();
 </code></pre>
 
 Now, let's consider the client side. The client side code is targeted at the gRPC runtime:
@@ -178,7 +178,7 @@ Now, let's consider the client side. The client side code is targeted at the gRP
     @Test
     public void testGeneralGreeting() {
         GeneralEntityMessage.Builder builder = GeneralEntityMessage.newBuilder();
-        GeneralEntityMessage gem = builder.setURL("http: //localhost:8080/salute/Bill?salute=Heyyy").build();
+        GeneralEntityMessage gem = builder.setURL("http://localhost:8080/salute/Bill?salute=Heyyy").build();
         try {
            GeneralReturnMessage grm = blockingStub.generalGreet(gem);
            dev_resteasy_example_grpc_greet___GeneralGreeting greeting = grm.getDevResteasyExampleGrpcGreetGeneralGreetingField();
