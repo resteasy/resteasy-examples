@@ -41,7 +41,7 @@ translating a javabuf instance to its corresponding original Java class and disp
 
 **Note.**
 In this example we refer to the grpc-bridge-example in https://github.com/resteasy/resteasy-examples.
-Its output is grpcToRest.example-1.0.0.Final-SNAPSHOT.war, but the WAR is not deployed to any repository. That is,
+Its output is grpcToRest.example-1.0.1.Final-SNAPSHOT.war, but the WAR is not deployed to any repository. That is,
 if you want to follow along, you need to download resteasy-examples and build it in the usual maven manner.
 
 ## Building the bridge project
@@ -53,12 +53,12 @@ skeleton of the bridge project:
 
     <pre><code>
         mvn archetype:generate -B \
-	        -DarchetypeGroupId=dev.resteasy.grpc \
+            -DarchetypeGroupId=dev.resteasy.grpc \
             -DarchetypeArtifactId=gRPCtoJakartaREST-archetype \
             -DarchetypeVersion=1.0.0.Alpha5 \
             -DgroupId=dev.resteasy.examples \
             -DartifactId=grpcToRest.example \
-            -Dversion=1.0.0.Final-SNAPSHOT \
+            -Dversion=1.0.1.Final-SNAPSHOT \
             -Dgenerate-prefix=Greet \
             -Dgenerate-package=org.greet \
             -Dresteasy-version=6.2.4.Final \
@@ -66,7 +66,7 @@ skeleton of the bridge project:
     </pre></code>
 
     The parameters groupId, artifactId, and version describe the target project. 
-    The result will be a new maven project, dev.resteasy.examples:grpcToRest.example.grpc:1.0.0.Final-SNAPSHOT in
+    The result will be a new maven project, dev.resteasy.examples:grpcToRest.example.grpc:1.0.1.Final-SNAPSHOT in
     a directory named grpcToRest.example (the value of artifactId). Note that the groupId and version are copied
     from the target project, and ".grpc" is added to the artifactId. The parameters generate-prefix and generate-package are
     applied to several classes that will be generated.
@@ -94,7 +94,7 @@ A number of things happen:
         src/main/java/dev/resteasy/example/grpc/greet/GeneralGreeting.java
         src/main/java/dev/resteasy/example/grpc/greet/Greeter.java
         src/main/java/dev/resteasy/example/grpc/greet/Greeting.java
-    
+
 * A .proto file is created to describe the gRPC message types and procedure calls:
     
         src/main/proto/Greet.proto
@@ -169,7 +169,7 @@ of that process involves supplying a `jakarta.servlet.ServletContext`. Making a 
 
 <pre><code>
     Client client = ClientBuilder.newClient();
-    client.target("http: //localhost:8080/grpcToRest.grpc-0.0.1-SNAPSHOT/grpcToJakartaRest/grpcserver/context").request().get();
+    client.target("http: //localhost:8080/grpcToRest.example.grpc-0.0.1-SNAPSHOT/grpcToJakartaRest/grpcserver/context").request().get();
 </code></pre>
 
 Now, let's consider the client side. The client side code is targeted at the gRPC runtime:
@@ -181,7 +181,7 @@ Now, let's consider the client side. The client side code is targeted at the gRP
         GeneralEntityMessage gem = builder.setURL("http: //localhost:8080/salute/Bill?salute=Heyyy").build();
         try {
            GeneralReturnMessage grm = blockingStub.generalGreet(gem);
-           dev_resteasy_greet___GeneralGreeting greeting = grm.getDevResteasyGreetGeneralGreetingField();
+           dev_resteasy_example_grpc_greet___GeneralGreeting greeting = grm.getDevResteasyExampleGrpcGreetGeneralGreetingField();
            Assert.assertEquals("Heyyy", greeting.getSalute());
            Assert.assertEquals("Bill", greeting.getGreetingSuper().getS());
         } catch (StatusRuntimeException e) {
@@ -198,15 +198,25 @@ that will be created in grpcToRest.example.grpc. To run it, rename it, move it t
 
 <pre><code>
       &lt;dependency&gt;
-		  &lt;groupId&gt;junit&lt;/groupId&gt;
-		  &lt;artifactId&gt;junit&lt;/artifactId&gt;
-		  &lt;version&gt;4.13.2&lt;/version&gt;
-	  &lt;/dependency&gt;
-	  &lt;dependency&gt;
-		  &lt;groupId&gt;org.jboss.resteasy&lt;/groupId&gt;
-		  &lt;artifactId&gt;resteasy-client&lt;/artifactId&gt;
-		  &lt;version&gt;6.2.3.Final&lt;/version&gt;
-	  &lt;/dependency&gt;
+          &lt;groupId&gt;io.grpc&lt;/groupId&gt;
+          &lt;artifactId&gt;grpc-netty-shaded&lt;/artifactId&gt;
+          &lt;version&gt;1.54.1&lt;/version&gt;
+      &lt;/dependency&gt;
+      &lt;dependency&gt;
+          &lt;groupId&gt;junit&lt;/groupId&gt;
+          &lt;artifactId&gt;junit&lt;/artifactId&gt;
+          &lt;version&gt;4.13.2&lt;/version&gt;
+      &lt;/dependency&gt;
+      &lt;dependency&gt;
+          &lt;groupId&gt;org.jboss.resteasy&lt;/groupId&gt;
+          &lt;artifactId&gt;resteasy-client&lt;/artifactId&gt;
+          &lt;version&gt;6.2.3.Final&lt;/version&gt;
+      &lt;/dependency&gt;
+      &lt;dependency&gt;
+          &lt;groupId&gt;org.wildfly.core&lt;/groupId&gt;
+          &lt;artifactId&gt;wildfly-controller-client&lt;/artifactId&gt;
+          &lt;version&gt;22.0.0.Beta1-SNAPSHOT&lt;/version&gt;
+      &lt;/dependency&gt;
 </code></pre>
 
 ## Exploring further

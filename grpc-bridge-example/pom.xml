@@ -9,7 +9,7 @@
 
     <groupId>dev.resteasy.examples</groupId>
     <artifactId>grpcToRest.example</artifactId>
-    <version>1.0.0.Final-SNAPSHOT</version>
+    <version>1.0.1.Final-SNAPSHOT</version>
     <packaging>war</packaging>
     <name>gRPC to Jakarta REST example</name>
     <description>Shows how to build a gRPC to Jakarta REST bridge example</description>

@@ -27,8 +27,8 @@ import org.greet.GreetServiceGrpc;
 import org.greet.GreetServiceGrpc.GreetServiceBlockingStub;
 import org.greet.Greet_proto.GeneralEntityMessage;
 import org.greet.Greet_proto.GeneralReturnMessage;
-import org.greet.Greet_proto.dev_resteasy_greet___GeneralGreeting;
-import org.greet.Greet_proto.dev_resteasy_greet___Greeting;
+import org.greet.Greet_proto.dev_resteasy_example_grpc_greet___GeneralGreeting;
+import org.greet.Greet_proto.dev_resteasy_example_grpc_greet___Greeting;
 import org.jboss.as.controller.client.ModelControllerClient;
 import org.jboss.as.controller.client.helpers.Operations;
 import org.jboss.dmr.ModelNode;
@@ -75,7 +75,7 @@ public class GreetingTest {
         GeneralEntityMessage gem = builder.setURL("http://localhost:8080/greet/Bill").build();
         try {
             GeneralReturnMessage grm = blockingStub.greet(gem);
-            dev_resteasy_greet___Greeting greeting = grm.getDevResteasyGreetGreetingField();
+            dev_resteasy_example_grpc_greet___Greeting greeting = grm.getDevResteasyExampleGrpcGreetGreetingField();
             Assert.assertEquals("hello, Bill", greeting.getS());
         } catch (StatusRuntimeException e) {
             //
@@ -88,7 +88,7 @@ public class GreetingTest {
         GeneralEntityMessage gem = builder.setURL("http://localhost:8080/salute/Bill?salute=Heyyy").build();
         try {
             GeneralReturnMessage grm = blockingStub.generalGreet(gem);
-            dev_resteasy_greet___GeneralGreeting greeting = grm.getDevResteasyGreetGeneralGreetingField();
+            dev_resteasy_example_grpc_greet___GeneralGreeting greeting = grm.getDevResteasyExampleGrpcGreetGeneralGreetingField();
             Assert.assertEquals("Heyyy", greeting.getSalute());
             Assert.assertEquals("Bill", greeting.getGreetingSuper().getS());
         } catch (StatusRuntimeException e) {
