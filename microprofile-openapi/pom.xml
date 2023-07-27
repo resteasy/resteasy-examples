@@ -12,7 +12,7 @@
 
     <groupId>dev.resteasy.examples</groupId>
     <artifactId>microprofile-openapi</artifactId>
-    <version>6.0.1-SNAPSHOT</version>
+    <version>6.0.0.Final</version>
     <packaging>war</packaging>
     <name>RESTEasy Examples: MicroProfile OpenAPI Example</name>
     <description>RESTEasy MicroProfile OpenAPI Example</description>
