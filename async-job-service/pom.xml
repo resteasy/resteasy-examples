@@ -12,7 +12,7 @@
 
     <groupId>dev.resteasy.examples</groupId>
     <artifactId>async-job-service</artifactId>
-    <version>6.0.0.Final</version>
+    <version>6.0.1-SNAPSHOT</version>
     <packaging>war</packaging>
     <name>RESTEasy Example: Async Job Service</name>
 
