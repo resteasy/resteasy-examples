@@ -95,6 +95,8 @@ public class GreetingTest {
             Assert.assertEquals("Bill", greeting.getGreetingSuper().getS());
         } catch (StatusRuntimeException e) {
             //
+            System.out.println("ooops!!");
+            throw e;
         }
     }
 }
