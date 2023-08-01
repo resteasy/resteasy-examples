@@ -88,15 +88,9 @@ public class GreetingTest {
     public void testGeneralGreeting() {
         GeneralEntityMessage.Builder builder = GeneralEntityMessage.newBuilder();
         GeneralEntityMessage gem = builder.setURL("http://localhost:8080/salute/Bill?salute=Heyyy").build();
-        try {
-            GeneralReturnMessage grm = blockingStub.generalGreet(gem);
-            dev_resteasy_example_grpc_greet___GeneralGreeting greeting = grm.getDevResteasyExampleGrpcGreetGeneralGreetingField();
-            Assert.assertEquals("Heyyy", greeting.getSalute());
-            Assert.assertEquals("Bill", greeting.getGreetingSuper().getS());
-        } catch (StatusRuntimeException e) {
-            //
-            System.out.println("ooops!!");
-            throw e;
-        }
+        GeneralReturnMessage grm = blockingStub.generalGreet(gem);
+        dev_resteasy_example_grpc_greet___GeneralGreeting greeting = grm.getDevResteasyExampleGrpcGreetGeneralGreetingField();
+        Assert.assertEquals("Heyyy", greeting.getSalute());
+        Assert.assertEquals("Bill", greeting.getGreetingSuper().getS());
     }
 }
