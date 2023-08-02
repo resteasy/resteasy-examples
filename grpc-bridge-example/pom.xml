@@ -41,7 +41,27 @@
                 <scope>import</scope>
                 <type>pom</type>
             </dependency>
-        </dependencies>
+         <dependency>
+            <groupId>io.grpc</groupId>
+            <artifactId>grpc-netty-shaded</artifactId>
+            <version>${io.grpc.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.13.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.resteasy</groupId>
+            <artifactId>resteasy-client</artifactId>
+            <version>6.2.3.Final</version>
+        </dependency>
+        <dependency>
+            <groupId>org.wildfly.core</groupId>
+            <artifactId>wildfly-controller-client</artifactId>
+            <version>19.0.0.Beta18</version>
+        </dependency>
+</dependencies>
     </dependencyManagement>
 
     <dependencies>
@@ -49,7 +69,7 @@
             <groupId>jakarta.ws.rs</groupId>
             <artifactId>jakarta.ws.rs-api</artifactId>
         </dependency>
-    </dependencies>
+</dependencies>
 
     <build>
         <finalName>${project.artifactId}-${version}</finalName>
