@@ -219,6 +219,15 @@ that will be created in grpcToRest.example.grpc. To run it, rename it, move it t
       &lt;/dependency&gt;
 </code></pre>
 
+Note: If you feel the above test case setup process is too complex to do it manually, you can run the following command *once* after the bridge project is built:
+
+```bash
+$ mvn exec:java -Dexec.mainClass="dev.resteasy.example.grpc.greet.SetupGreetingTest"
+```
+
+The above command will help you to copy the test case to correct position and setup the dependencies in `pom.xml` properly. 
+
+
 ## Exploring further
 
 1. The "gRPC Bridge" chapter in the RESTEasy User Guide [https://resteasy.dev/docs/](https://resteasy.dev/docs/) has more detailed information.
