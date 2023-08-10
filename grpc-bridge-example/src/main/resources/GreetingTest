@@ -29,9 +29,6 @@ import org.greet.Greet_proto.GeneralEntityMessage;
 import org.greet.Greet_proto.GeneralReturnMessage;
 import org.greet.Greet_proto.dev_resteasy_example_grpc_greet___GeneralGreeting;
 import org.greet.Greet_proto.dev_resteasy_example_grpc_greet___Greeting;
-import org.jboss.as.controller.client.ModelControllerClient;
-import org.jboss.as.controller.client.helpers.Operations;
-import org.jboss.dmr.ModelNode;
 
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
@@ -47,18 +44,6 @@ public class GreetingTest {
 
     @BeforeClass
     public static void beforeClass() throws Exception {
-
-        // Use plaintext connection
-        try (ModelControllerClient client = ModelControllerClient.Factory.create("localhost", 9990)) {
-            final ModelNode handlerAddress = Operations.createAddress("subsystem", "grpc");
-            final ModelNode op = Operations.createWriteAttributeOperation(handlerAddress, "key-manager-name", "");
-            final ModelNode result = client.execute(op);
-            if (!Operations.isSuccessfulOutcome(result)) {
-                throw new RuntimeException("Failed to execute operation: " + op + " " +
-                        Operations.getFailureDescription(result).asString());
-            }
-        }
-
         // Establish ServletContext
         Client client = ClientBuilder.newClient();
         String url = "http://localhost:8080/grpcToRest.example.grpc-1.0.1.Final-SNAPSHOT/grpcToJakartaRest/grpcserver/context";
