@@ -39,8 +39,9 @@
         <module>examples-jsapi</module>
         <module>json-binding</module>
         <module>microprofile-openapi</module>
-        <module>smime</module>
-        <module>tracing-example</module>
         <module>servlet-example</module>
+        <module>smime</module>
+        <module>standalone-multipart</module>
+        <module>tracing-example</module>
     </modules>
 </project>
