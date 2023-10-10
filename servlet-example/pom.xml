@@ -33,7 +33,7 @@
 
     <properties>
         <version.org.jboss.resteasy>6.2.5.Final</version.org.jboss.resteasy>
-        <version.org.eclipse.jetty>11.0.16</version.org.eclipse.jetty>
+        <version.org.eclipse.jetty>11.0.17</version.org.eclipse.jetty>
     </properties>
 
     <dependencies>
