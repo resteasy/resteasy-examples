@@ -38,8 +38,8 @@
         <version.org.jboss.resteasy.extensions>2.0.1.Final</version.org.jboss.resteasy.extensions>
         <version.org.junit>5.10.1</version.org.junit>
         <version.org.wildfly.arquillian>5.0.1.Final</version.org.wildfly.arquillian>
-        <version.wildfly-maven-plugin>4.2.1.Final</version.wildfly-maven-plugin>
-        <version.org.wildfly>28.0.0.Beta1</version.org.wildfly>
+        <version.wildfly-maven-plugin>5.0.0.Alpha2</version.wildfly-maven-plugin>
+        <version.org.wildfly>30.0.0.Final</version.org.wildfly>
         <dep.tracing.scope>provided</dep.tracing.scope>
         <!-- Test properties -->
         <jboss.home>${project.build.directory}${file.separator}wildfly</jboss.home>
@@ -145,7 +145,6 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
-
     <build>
         <finalName>${project.artifactId}</finalName>
         <testResources>
@@ -187,13 +186,6 @@
                 <configuration>
                     <jboss-home>${jboss.home}</jboss-home>
                     <provisioning-dir>${jboss.home}</provisioning-dir>
-                    <feature-packs>
-                        <feature-pack>
-                            <groupId>org.wildfly</groupId>
-                            <artifactId>wildfly-ee-galleon-pack</artifactId>
-                            <version>${version.org.wildfly}</version>
-                        </feature-pack>
-                    </feature-packs>
                     <galleon-options>
                         <jboss-fork-embedded>true</jboss-fork-embedded>
                     </galleon-options>
@@ -227,24 +219,6 @@
                         <version>${version.wildfly-maven-plugin}</version>
                         <configuration>
                             <jboss-home>${jboss.home}</jboss-home>
-                            <!-- First configure the feature pack we are overriding -->
-                            <feature-packs>
-                                <feature-pack>
-                                    <groupId>org.wildfly</groupId>
-                                    <artifactId>wildfly-ee-galleon-pack</artifactId>
-                                    <version>${version.org.wildfly}</version>
-                                    <excluded-packages>
-                                        <name>product.conf</name>
-                                        <name>docs.schema</name>
-                                    </excluded-packages>
-                                </feature-pack>
-                                <!-- Next include our own feature pack -->
-                                <feature-pack>
-                                    <groupId>org.jboss.resteasy</groupId>
-                                    <artifactId>galleon-feature-pack</artifactId>
-                                    <version>${version.org.jboss.resteasy}</version>
-                                </feature-pack>
-                            </feature-packs>
                         </configuration>
                         <executions>
                             <execution>
