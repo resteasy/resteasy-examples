@@ -38,7 +38,7 @@ jobs:
       fail-fast: false
       matrix:
         os: [ubuntu-latest, windows-latest ]
-        java: ['11', '17']
+        java: ['11', '17', '21']
 
     steps:
     - uses: actions/checkout@v4
@@ -49,4 +49,4 @@ jobs:
         distribution: 'temurin'
         cache: 'maven'
     - name: Build with Maven - ${{ matrix.os }} - JDK ${{ matrix.java }}
-      run: mvn -B clean install
+      run: mvn -B -ntp clean install
