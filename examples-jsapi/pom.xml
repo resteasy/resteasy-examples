@@ -36,7 +36,7 @@
         <version.jakarta.ee>10.0.0</version.jakarta.ee>
         <version.org.jboss.resteasy>6.2.5.Final</version.org.jboss.resteasy>
         <version.org.wildfly>31.0.0.Final</version.org.wildfly>
-        <version.wildfly-maven-plugin>4.2.1.Final</version.wildfly-maven-plugin>
+        <version.wildfly-maven-plugin>4.2.2.Final</version.wildfly-maven-plugin>
         <version.org.junit>5.10.1</version.org.junit>
 
         <!-- Other properties -->
