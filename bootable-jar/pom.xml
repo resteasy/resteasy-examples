@@ -12,7 +12,7 @@
 
     <groupId>dev.resteasy.examples</groupId>
     <artifactId>products-runner</artifactId>
-    <version>6.0.1-SNAPSHOT</version>
+    <version>6.2.0.Final-SNAPSHOT</version>
     <packaging>war</packaging>
     <name>RESTEasy Examples: Bootable JAR Example</name>
     <description>RESTEasy Bootable JAR Example</description>
