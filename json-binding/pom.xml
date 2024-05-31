@@ -34,7 +34,7 @@
     <properties>
         <version.jakarta.ee>10.0.0</version.jakarta.ee>
         <version.org.jboss.arquillian>1.8.0.Final</version.org.jboss.arquillian>
-        <version.org.jboss.resteasy>6.2.8.Final</version.org.jboss.resteasy>
+        <version.org.jboss.resteasy>6.2.9.Final</version.org.jboss.resteasy>
         <version.org.junit>5.10.2</version.org.junit>
         <version.org.wildfly>31.0.0.Final</version.org.wildfly>
         <version.org.wildfly.arquillian>5.0.1.Final</version.org.wildfly.arquillian>
