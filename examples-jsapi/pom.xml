@@ -35,9 +35,8 @@
     <properties>
         <version.jakarta.ee>10.0.0</version.jakarta.ee>
         <version.org.jboss.resteasy>6.2.9.Final</version.org.jboss.resteasy>
-        <version.org.wildfly>31.0.0.Final</version.org.wildfly>
         <version.wildfly-maven-plugin>5.0.0.Final</version.wildfly-maven-plugin>
-        <version.org.junit>5.10.2</version.org.junit>
+        <version.org.junit>5.11.0</version.org.junit>
 
         <!-- Other properties -->
         <jboss.home>${project.build.directory}${file.separator}wildfly</jboss.home>
@@ -126,24 +125,30 @@
                 <configuration>
                     <jboss-home>${jboss.home}</jboss-home>
                     <provisioning-dir>${jboss.home}</provisioning-dir>
-                    <!-- First configure the feature pack we are overriding -->
                     <feature-packs>
                         <feature-pack>
                             <groupId>org.wildfly</groupId>
                             <artifactId>wildfly-ee-galleon-pack</artifactId>
-                            <version>${version.org.wildfly}</version>
                             <excluded-packages>
                                 <name>product.conf</name>
                                 <name>docs.schema</name>
                             </excluded-packages>
                         </feature-pack>
-                        <!-- Next include our own feature pack -->
-                        <feature-pack>
-                            <groupId>org.jboss.resteasy</groupId>
-                            <artifactId>galleon-feature-pack</artifactId>
-                            <version>${version.org.jboss.resteasy}</version>
-                        </feature-pack>
                     </feature-packs>
+                    <channels>
+                        <channel>
+                            <manifest>
+                                <groupId>org.wildfly.channels</groupId>
+                                <artifactId>wildfly-ee</artifactId>
+                            </manifest>
+                        </channel>
+                        <channel>
+                            <manifest>
+                                <groupId>dev.resteasy.channels</groupId>
+                                <artifactId>resteasy-6.2</artifactId>
+                            </manifest>
+                        </channel>
+                    </channels>
                     <galleon-options>
                         <jboss-fork-embedded>true</jboss-fork-embedded>
                     </galleon-options>

@@ -54,11 +54,11 @@
 
     <properties>
         <version.jakarta.ee>10.0.0</version.jakarta.ee>
-        <version.org.jboss.arquillian>1.8.0.Final</version.org.jboss.arquillian>
+        <version.org.jboss.arquillian>1.9.1.Final</version.org.jboss.arquillian>
+        <version.org.jboss.arquillian.jakarta>10.0.0.Final</version.org.jboss.arquillian.jakarta>
         <version.org.jboss.resteasy>6.2.9.Final</version.org.jboss.resteasy>
-        <version.org.junit>5.10.2</version.org.junit>
-        <version.org.wildfly>31.0.0.Final</version.org.wildfly>
-        <version.org.wildfly.arquillian>5.0.1.Final</version.org.wildfly.arquillian>
+        <version.org.junit>5.11.0</version.org.junit>
+        <version.org.wildfly.arquillian>5.1.0.Beta4</version.org.wildfly.arquillian>
 
         <version.wildfly-maven-plugin>5.0.0.Final</version.wildfly-maven-plugin>
 
@@ -85,9 +85,23 @@
                 <scope>import</scope>
             </dependency>
             <dependency>
+                <groupId>org.jboss.arquillian.jakarta</groupId>
+                <artifactId>arquillian-jakarta-bom</artifactId>
+                <version>${version.org.jboss.arquillian.jakarta}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
                 <groupId>org.jboss.resteasy</groupId>
                 <artifactId>resteasy-bom</artifactId>
                 <version>${version.org.jboss.resteasy}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.wildfly.arquillian</groupId>
+                <artifactId>wildfly-arquillian-bom</artifactId>
+                <version>${version.org.wildfly.arquillian}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -183,7 +197,6 @@
         <dependency>
             <groupId>org.wildfly.arquillian</groupId>
             <artifactId>wildfly-arquillian-container-managed</artifactId>
-            <version>${version.org.wildfly.arquillian}</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
@@ -257,9 +270,24 @@
                     <provisioning-dir>${jboss.home}</provisioning-dir>
                     <feature-packs>
                         <feature-pack>
-                            <location>wildfly@maven(org.jboss.universe:community-universe)#${version.org.wildfly}</location>
+                            <groupId>org.wildfly</groupId>
+                            <artifactId>wildfly-ee-galleon-pack</artifactId>
                         </feature-pack>
                     </feature-packs>
+                    <channels>
+                        <channel>
+                            <manifest>
+                                <groupId>org.wildfly.channels</groupId>
+                                <artifactId>wildfly-ee</artifactId>
+                            </manifest>
+                        </channel>
+                        <channel>
+                            <manifest>
+                                <groupId>dev.resteasy.channels</groupId>
+                                <artifactId>resteasy-6.2</artifactId>
+                            </manifest>
+                        </channel>
+                    </channels>
                     <layers>
                         <layer>bean-validation</layer>
                         <layer>cdi</layer>
