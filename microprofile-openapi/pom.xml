@@ -36,7 +36,7 @@
     <properties>
         <version.jakarta.ee>10.0.0</version.jakarta.ee>
         <version.org.jboss.resteasy>6.2.10.Final</version.org.jboss.resteasy>
-        <version.org.junit>5.11.0</version.org.junit>
+        <version.org.junit>5.11.1</version.org.junit>
         <version.eclipse.microprofile.openapi>3.1.1</version.eclipse.microprofile.openapi>
         <version.wildfly-maven-plugin>5.0.1.Final</version.wildfly-maven-plugin>
         <!-- Test properties -->
