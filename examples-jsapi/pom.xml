@@ -36,7 +36,7 @@
         <version.jakarta.ee>10.0.0</version.jakarta.ee>
         <version.org.jboss.resteasy>6.2.10.Final</version.org.jboss.resteasy>
         <version.wildfly-maven-plugin>5.0.1.Final</version.wildfly-maven-plugin>
-        <version.org.junit>5.11.0</version.org.junit>
+        <version.org.junit>5.11.1</version.org.junit>
 
         <!-- Other properties -->
         <jboss.home>${project.build.directory}${file.separator}wildfly</jboss.home>
