@@ -37,7 +37,7 @@
         <version.jakarta.ee>10.0.0</version.jakarta.ee>
         <version.org.jboss.resteasy>6.2.10.Final</version.org.jboss.resteasy>
         <version.org.junit>5.11.3</version.org.junit>
-        <version.eclipse.microprofile.openapi>3.1.1</version.eclipse.microprofile.openapi>
+        <version.eclipse.microprofile.openapi>4.0.2</version.eclipse.microprofile.openapi>
         <version.wildfly-maven-plugin>5.0.1.Final</version.wildfly-maven-plugin>
         <!-- Test properties -->
         <jboss.home>${project.build.directory}${file.separator}wildfly</jboss.home>
