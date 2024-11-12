@@ -32,7 +32,7 @@
     </scm>
 
     <properties>
-        <version.org.jboss.resteasy>6.2.10.Final</version.org.jboss.resteasy>
+        <version.org.jboss.resteasy>6.2.11.Final</version.org.jboss.resteasy>
         <version.org.eclipse.jetty>11.0.24</version.org.eclipse.jetty>
     </properties>
 
