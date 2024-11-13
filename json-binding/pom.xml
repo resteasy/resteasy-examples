@@ -184,6 +184,30 @@
                 <version>${version.wildfly-maven-plugin}</version>
                 <configuration>
                     <jboss-home>${jboss.home}</jboss-home>
+                    <provisioning-dir>${jboss.home}</provisioning-dir>
+                    <feature-packs>
+                        <feature-pack>
+                            <groupId>org.wildfly</groupId>
+                            <artifactId>wildfly-ee-galleon-pack</artifactId>
+                        </feature-pack>
+                    </feature-packs>
+                    <channels>
+                        <channel>
+                            <manifest>
+                                <groupId>org.wildfly.channels</groupId>
+                                <artifactId>wildfly-ee</artifactId>
+                            </manifest>
+                        </channel>
+                        <channel>
+                            <manifest>
+                                <groupId>dev.resteasy.channels</groupId>
+                                <artifactId>resteasy-6.2</artifactId>
+                            </manifest>
+                        </channel>
+                    </channels>
+                    <galleon-options>
+                        <jboss-fork-embedded>true</jboss-fork-embedded>
+                    </galleon-options>
                 </configuration>
                 <executions>
                     <execution>
@@ -192,36 +216,6 @@
                         <goals>
                             <goal>provision</goal>
                         </goals>
-                        <configuration>
-                            <provisioning-dir>${jboss.home}</provisioning-dir>
-                            <feature-packs>
-                                <feature-pack>
-                                    <groupId>org.wildfly</groupId>
-                                    <artifactId>wildfly-ee-galleon-pack</artifactId>
-                                    <excluded-packages>
-                                        <name>product.conf</name>
-                                        <name>docs.schema</name>
-                                    </excluded-packages>
-                                </feature-pack>
-                            </feature-packs>
-                            <channels>
-                                <channel>
-                                    <manifest>
-                                        <groupId>org.wildfly.channels</groupId>
-                                        <artifactId>wildfly-ee</artifactId>
-                                    </manifest>
-                                </channel>
-                                <channel>
-                                    <manifest>
-                                        <groupId>dev.resteasy.channels</groupId>
-                                        <artifactId>resteasy-6.2</artifactId>
-                                    </manifest>
-                                </channel>
-                            </channels>
-                            <galleon-options>
-                                <jboss-fork-embedded>true</jboss-fork-embedded>
-                            </galleon-options>
-                        </configuration>
                     </execution>
                 </executions>
             </plugin>
