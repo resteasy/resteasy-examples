@@ -23,8 +23,8 @@
 
     <container qualifier="wildfly" default="true">
         <configuration>
-            <property name="jbossHome">${jboss.home}</property>
-            <property name="serverConfig">${jboss.server.config.file.name:standalone.xml}</property>
+            <property name="jarFile">${bootable.jar}</property>
+            <property name="allowConnectingToRunningServer">false</property>
         </configuration>
     </container>
 

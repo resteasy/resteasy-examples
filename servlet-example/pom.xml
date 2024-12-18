@@ -51,7 +51,6 @@
                 <artifactId>jetty-maven-plugin</artifactId>
                 <version>${version.org.eclipse.jetty}</version>
                 <configuration>
-                    <scanIntervalSeconds>10</scanIntervalSeconds>
                     <stopKey>foo</stopKey>
                     <stopPort>9999</stopPort>
                     <stopWait>10</stopWait>
