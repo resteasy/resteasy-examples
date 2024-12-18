@@ -41,10 +41,11 @@
 
         <version.wildfly-maven-plugin>5.1.0.Final</version.wildfly-maven-plugin>
 
+        <!-- Intentionally left empty to ensure we use the latest version of WildFly -->
+        <version.org.wildfly/>
+
         <!-- Test properties -->
         <jboss.home>${project.build.directory}${file.separator}wildfly</jboss.home>
-        <debug.port>8787</debug.port>
-        <debugJvmArgs/>
     </properties>
 
     <dependencyManagement>
@@ -187,6 +188,7 @@
                         <feature-pack>
                             <groupId>org.wildfly</groupId>
                             <artifactId>wildfly-ee-galleon-pack</artifactId>
+                            <version>${version.org.wildfly}</version>
                             <excluded-packages>
                                 <name>product.conf</name>
                                 <name>docs.schema</name>
@@ -198,6 +200,7 @@
                             <manifest>
                                 <groupId>org.wildfly.channels</groupId>
                                 <artifactId>wildfly-ee</artifactId>
+                                <version>${version.org.wildfly}</version>
                             </manifest>
                         </channel>
                         <channel>
@@ -224,37 +227,14 @@
         </plugins>
     </build>
 
-    <repositories>
-        <!-- Required for provisioning WildFly. Not all dependencies currently exist on Maven Central. This is also
-           useful for when we want to test with versions releases that have not yet been synchronized to Maven Central
-           from JBoss Nexus.
-       -->
-        <repository>
-            <releases>
-                <enabled>true</enabled>
-                <updatePolicy>never</updatePolicy>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-                <updatePolicy>never</updatePolicy>
-            </snapshots>
-            <id>jboss-public-repository-group</id>
-            <name>JBoss Public Repository Group</name>
-            <url>https://repository.jboss.org/nexus/content/groups/public/</url>
-            <layout>default</layout>
-        </repository>
-    </repositories>
-
     <profiles>
         <profile>
-            <id>debug</id>
+            <id>wildfly-34</id>
             <activation>
-                <property>
-                    <name>debug</name>
-                </property>
+                <jdk>(,17)</jdk>
             </activation>
             <properties>
-                <debugJvmArgs>-agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=*:${debug.port}</debugJvmArgs>
+                <version.org.wildfly>34.0.1.Final</version.org.wildfly>
             </properties>
         </profile>
     </profiles>

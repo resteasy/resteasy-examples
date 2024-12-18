@@ -40,11 +40,13 @@
         <version.org.junit>5.11.3</version.org.junit>
         <version.org.wildfly.arquillian>5.1.0.Beta6</version.org.wildfly.arquillian>
         <version.wildfly-maven-plugin>5.1.0.Final</version.wildfly-maven-plugin>
+
+        <!-- Intentionally left empty to ensure we use the latest version of WildFly -->
+        <version.org.wildfly/>
+
         <dep.tracing.scope>provided</dep.tracing.scope>
         <!-- Test properties -->
         <jboss.home>${project.build.directory}${file.separator}wildfly</jboss.home>
-        <debug.port>8787</debug.port>
-        <debugJvmArgs/>
     </properties>
 
     <dependencyManagement>
@@ -204,6 +206,7 @@
                         <feature-pack>
                             <groupId>org.wildfly</groupId>
                             <artifactId>wildfly-ee-galleon-pack</artifactId>
+                            <version>${version.org.wildfly}</version>
                         </feature-pack>
                     </feature-packs>
                     <channels>
@@ -211,6 +214,7 @@
                             <manifest>
                                 <groupId>org.wildfly.channels</groupId>
                                 <artifactId>wildfly-ee</artifactId>
+                                <version>${version.org.wildfly}</version>
                             </manifest>
                         </channel>
                         <channel>
@@ -236,4 +240,16 @@
             </plugin>
         </plugins>
     </build>
+
+    <profiles>
+        <profile>
+            <id>wildfly-34</id>
+            <activation>
+                <jdk>(,17)</jdk>
+            </activation>
+            <properties>
+                <version.org.wildfly>34.0.1.Final</version.org.wildfly>
+            </properties>
+        </profile>
+    </profiles>
 </project>

@@ -35,10 +35,20 @@
 
     <properties>
         <version.jakarta.ee>10.0.0</version.jakarta.ee>
+        <version.org.jboss.arquillian>1.9.1.Final</version.org.jboss.arquillian>
+        <version.org.jboss.arquillian.jakarta>10.0.0.Final</version.org.jboss.arquillian.jakarta>
         <version.org.jboss.resteasy>6.2.11.Final</version.org.jboss.resteasy>
         <version.org.junit>5.11.3</version.org.junit>
+        <version.org.wildfly.arquillian>5.1.0.Beta6</version.org.wildfly.arquillian>
 
-        <version.wildfly-jar-maven-plugin>11.0.2.Final</version.wildfly-jar-maven-plugin>
+        <version.wildfly-maven-plugin>5.1.0.Final</version.wildfly-maven-plugin>
+
+        <!-- Intentionally left empty to ensure we use the latest version of WildFly -->
+        <version.org.wildfly/>
+
+        <!-- Provisioning properties -->
+        <bootable.jar>${project.build.directory}/${project.build.finalName}-bootable.jar</bootable.jar>
+        <jboss.home>${project.build.directory}/wildfly-bootable</jboss.home>
 
         <!-- Other properties -->
         <maven.test.skip>false</maven.test.skip>
@@ -55,9 +65,30 @@
                 <type>pom</type>
             </dependency>
             <dependency>
+                <groupId>org.jboss.arquillian</groupId>
+                <artifactId>arquillian-bom</artifactId>
+                <version>${version.org.jboss.arquillian}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.jboss.arquillian.jakarta</groupId>
+                <artifactId>arquillian-jakarta-bom</artifactId>
+                <version>${version.org.jboss.arquillian.jakarta}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
                 <groupId>org.jboss.resteasy</groupId>
                 <artifactId>resteasy-bom</artifactId>
                 <version>${version.org.jboss.resteasy}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.wildfly.arquillian</groupId>
+                <artifactId>wildfly-arquillian-bom</artifactId>
+                <version>${version.org.wildfly.arquillian}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -89,13 +120,43 @@
             <scope>test</scope>
         </dependency>
         <dependency>
+            <groupId>org.jboss.arquillian.junit5</groupId>
+            <artifactId>arquillian-junit5-container</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.arquillian.protocol</groupId>
+            <artifactId>arquillian-protocol-servlet-jakarta</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.wildfly.arquillian</groupId>
+            <artifactId>wildfly-arquillian-container-bootable</artifactId>
             <scope>test</scope>
         </dependency>
     </dependencies>
     <build>
         <finalName>${project.artifactId}</finalName>
+        <testResources>
+            <testResource>
+                <directory>src/test/resources</directory>
+                <filtering>true</filtering>
+                <includes>
+                    <include>arquillian.xml</include>
+                </includes>
+            </testResource>
+            <testResource>
+                <directory>src/test/resources</directory>
+                <excludes>
+                    <exclude>arquillian.xml</exclude>
+                </excludes>
+            </testResource>
+        </testResources>
         <plugins>
             <plugin>
                 <groupId>net.revelc.code.formatter</groupId>
@@ -107,13 +168,17 @@
             </plugin>
             <plugin>
                 <groupId>org.wildfly.plugins</groupId>
-                <artifactId>wildfly-jar-maven-plugin</artifactId>
-                <version>${version.wildfly-jar-maven-plugin}</version>
+                <artifactId>wildfly-maven-plugin</artifactId>
+                <version>${version.wildfly-maven-plugin}</version>
                 <configuration>
+                    <bootableJar>true</bootableJar>
+                    <provisioning-dir>${jboss.home}</provisioning-dir>
+                    <name>ROOT.war</name>
                     <feature-packs>
                         <feature-pack>
                             <groupId>org.wildfly</groupId>
                             <artifactId>wildfly-ee-galleon-pack</artifactId>
+                            <version>${version.org.wildfly}</version>
                             <excluded-packages>
                                 <name>product.conf</name>
                                 <name>docs.schema</name>
@@ -125,6 +190,7 @@
                             <manifest>
                                 <groupId>org.wildfly.channels</groupId>
                                 <artifactId>wildfly-ee</artifactId>
+                                <version>${version.org.wildfly}</version>
                             </manifest>
                         </channel>
                         <channel>
@@ -138,37 +204,12 @@
                         <layer>jaxrs-server</layer>
                         <layer>management</layer>
                     </layers>
-                    <excluded-layers>
-                        <layer>deployment-scanner</layer>
-                    </excluded-layers>
                 </configuration>
                 <executions>
                     <execution>
                         <goals>
                             <goal>package</goal>
                         </goals>
-                    </execution>
-                    <!-- Start the bootable JAR for integration tests -->
-                    <execution>
-                        <id>start-bootable-jar</id>
-                        <phase>pre-integration-test</phase>
-                        <goals>
-                            <goal>start</goal>
-                        </goals>
-                        <configuration>
-                            <skip>${skipTests}</skip>
-                        </configuration>
-                    </execution>
-                    <!-- Stop the bootable JAR after integration tests -->
-                    <execution>
-                        <id>shutdown-bootable-jar</id>
-                        <phase>post-integration-test</phase>
-                        <goals>
-                            <goal>shutdown</goal>
-                        </goals>
-                        <configuration>
-                            <skip>${skipTests}</skip>
-                        </configuration>
                     </execution>
                 </executions>
             </plugin>
@@ -186,4 +227,16 @@
             </plugin>
         </plugins>
     </build>
+
+    <profiles>
+        <profile>
+            <id>wildfly-34</id>
+            <activation>
+                <jdk>(,17)</jdk>
+            </activation>
+            <properties>
+                <version.org.wildfly>34.0.1.Final</version.org.wildfly>
+            </properties>
+        </profile>
+    </profiles>
 </project>

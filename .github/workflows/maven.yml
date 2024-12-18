@@ -49,4 +49,4 @@ jobs:
         distribution: 'temurin'
         cache: 'maven'
     - name: Build with Maven - ${{ matrix.os }} - JDK ${{ matrix.java }}
-      run: mvn -B -ntp clean install
+      run: mvn -B -ntp -fae clean install
