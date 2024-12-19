@@ -39,7 +39,7 @@
         <version.org.jboss.arquillian.jakarta>10.0.0.Final</version.org.jboss.arquillian.jakarta>
         <version.org.jboss.resteasy>6.2.11.Final</version.org.jboss.resteasy>
         <version.org.junit>5.11.4</version.org.junit>
-        <version.org.wildfly.arquillian>5.1.0.Beta6</version.org.wildfly.arquillian>
+        <version.org.wildfly.arquillian>5.1.0.Beta7</version.org.wildfly.arquillian>
 
         <version.wildfly-maven-plugin>5.1.1.Final</version.wildfly-maven-plugin>
 
@@ -113,11 +113,23 @@
             <groupId>org.jboss.resteasy</groupId>
             <artifactId>resteasy-client</artifactId>
             <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.jboss.logging</groupId>
+                    <artifactId>jboss-logging</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.jboss.resteasy</groupId>
             <artifactId>resteasy-json-binding-provider</artifactId>
             <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.jboss.logging</groupId>
+                    <artifactId>jboss-logging</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.jboss.arquillian.junit5</groupId>
