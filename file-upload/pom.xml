@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ JBoss, Home of Professional Open Source.
+  ~
+  ~ Copyright 2025 Red Hat, Inc., and individual contributors
+  ~ as indicated by the @author tags.
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>dev.resteasy.tools</groupId>
+        <artifactId>resteasy-parent</artifactId>
+        <version>2.0.3.Final</version>
+        <relativePath/>
+    </parent>
+
+    <groupId>dev.resteasy.examples</groupId>
+    <artifactId>file-upload</artifactId>
+    <version>6.2.0.Final-SNAPSHOT</version>
+    <packaging>war</packaging>
+    <name>RESTEasy Example: File Upload</name>
+
+    <url>https://resteasy.dev</url>
+
+    <licenses>
+        <license>
+            <name>Apache License 2.0</name>
+            <url>https://repository.jboss.org/licenses/apache-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <scm>
+        <connection>scm:git:git://github.com/resteasy/resteasy-examples.git</connection>
+        <developerConnection>scm:git:git@github.com:resteasy/resteasy-examples.git</developerConnection>
+        <url>https://github.com/resteasy/resteasy-examples/tree/main/</url>
+    </scm>
+
+    <properties>
+        <version.jakarta.ee>10.0.0</version.jakarta.ee>
+        <version.org.jboss.arquillian>1.9.3.Final</version.org.jboss.arquillian>
+        <version.org.jboss.arquillian.jakarta>10.0.0.Final</version.org.jboss.arquillian.jakarta>
+        <version.org.jboss.resteasy>6.2.11.Final</version.org.jboss.resteasy>
+        <version.org.junit>5.11.4</version.org.junit>
+        <version.org.wildfly.arquillian>5.1.0.Beta9</version.org.wildfly.arquillian>
+
+        <version.wildfly-maven-plugin>5.1.1.Final</version.wildfly-maven-plugin>
+
+        <!-- Intentionally left empty to ensure we use the latest version of WildFly -->
+        <version.org.wildfly/>
+
+        <!-- Test properties -->
+        <jboss.home>${project.build.directory}${file.separator}wildfly</jboss.home>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>jakarta.platform</groupId>
+                <artifactId>jakarta.jakartaee-bom</artifactId>
+                <version>${version.jakarta.ee}</version>
+                <scope>import</scope>
+                <type>pom</type>
+            </dependency>
+            <dependency>
+                <groupId>org.jboss.arquillian</groupId>
+                <artifactId>arquillian-bom</artifactId>
+                <version>${version.org.jboss.arquillian}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.jboss.arquillian.jakarta</groupId>
+                <artifactId>arquillian-jakarta-bom</artifactId>
+                <version>${version.org.jboss.arquillian.jakarta}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.jboss.resteasy</groupId>
+                <artifactId>resteasy-bom</artifactId>
+                <version>${version.org.jboss.resteasy}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.wildfly.arquillian</groupId>
+                <artifactId>wildfly-arquillian-bom</artifactId>
+                <version>${version.org.wildfly.arquillian}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.junit</groupId>
+                <artifactId>junit-bom</artifactId>
+                <version>${version.org.junit}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+        <dependency>
+            <groupId>jakarta.annotation</groupId>
+            <artifactId>jakarta.annotation-api</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>jakarta.enterprise</groupId>
+            <artifactId>jakarta.enterprise.cdi-api</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>jakarta.enterprise.concurrent</groupId>
+            <artifactId>jakarta.enterprise.concurrent-api</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>jakarta.inject</groupId>
+            <artifactId>jakarta.inject-api</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>jakarta.json</groupId>
+            <artifactId>jakarta.json-api</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>jakarta.persistence</groupId>
+            <artifactId>jakarta.persistence-api</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>jakarta.transaction</groupId>
+            <artifactId>jakarta.transaction-api</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>jakarta.validation</groupId>
+            <artifactId>jakarta.validation-api</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>jakarta.ws.rs</groupId>
+            <artifactId>jakarta.ws.rs-api</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.logging</groupId>
+            <artifactId>jboss-logging</artifactId>
+            <version>3.6.1.Final</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.jboss.resteasy</groupId>
+            <artifactId>resteasy-multipart-provider</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- Test Dependencies -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.arquillian.junit5</groupId>
+            <artifactId>arquillian-junit5-container</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.arquillian.protocol</groupId>
+            <artifactId>arquillian-protocol-rest-jakarta</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.resteasy</groupId>
+            <artifactId>resteasy-client</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.resteasy</groupId>
+            <artifactId>resteasy-json-binding-provider</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.wildfly.arquillian</groupId>
+            <artifactId>wildfly-arquillian-container-managed</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <finalName>${project.artifactId}</finalName>
+        <testResources>
+            <testResource>
+                <directory>src/test/resources</directory>
+                <filtering>true</filtering>
+                <includes>
+                    <include>arquillian.xml</include>
+                </includes>
+            </testResource>
+            <testResource>
+                <directory>src/test/resources</directory>
+                <excludes>
+                    <exclude>arquillian.xml</exclude>
+                </excludes>
+            </testResource>
+        </testResources>
+        <plugins>
+            <plugin>
+                <groupId>net.revelc.code.formatter</groupId>
+                <artifactId>formatter-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>format-resources</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>format</goal>
+                        </goals>
+                        <configuration>
+                            <sourceDirectory>${project.basedir}/src/main/resources</sourceDirectory>
+                            <testSourceDirectory>${project.basedir}/src/test/resources</testSourceDirectory>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>net.revelc.code</groupId>
+                <artifactId>impsort-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>sort-resource-imports</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>sort</goal>
+                        </goals>
+                        <configuration>
+                            <sourceDirectory>${project.basedir}/src/main/resources</sourceDirectory>
+                            <testSourceDirectory>${project.basedir}/src/test/resources</testSourceDirectory>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <systemPropertyVariables>
+                        <jboss.home>${jboss.home}</jboss.home>
+                        <java.io.tmpdir>${project.build.directory}</java.io.tmpdir>
+                    </systemPropertyVariables>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.wildfly.plugins</groupId>
+                <artifactId>wildfly-maven-plugin</artifactId>
+                <version>${version.wildfly-maven-plugin}</version>
+                <configuration>
+                    <jboss-home>${jboss.home}</jboss-home>
+                    <provisioning-dir>${jboss.home}</provisioning-dir>
+                    <feature-packs>
+                        <feature-pack>
+                            <groupId>org.wildfly</groupId>
+                            <artifactId>wildfly-ee-galleon-pack</artifactId>
+                            <version>${version.org.wildfly}</version>
+                        </feature-pack>
+                    </feature-packs>
+                    <channels>
+                        <channel>
+                            <manifest>
+                                <groupId>org.wildfly.channels</groupId>
+                                <artifactId>wildfly-ee</artifactId>
+                                <version>${version.org.wildfly}</version>
+                            </manifest>
+                        </channel>
+                        <channel>
+                            <manifest>
+                                <groupId>dev.resteasy.channels</groupId>
+                                <artifactId>resteasy-6.2</artifactId>
+                            </manifest>
+                        </channel>
+                    </channels>
+                    <layers>
+                        <layer>cdi</layer>
+                        <layer>jaxrs-server</layer>
+                    </layers>
+                    <galleon-options>
+                        <jboss-fork-embedded>true</jboss-fork-embedded>
+                    </galleon-options>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>provision-test-server</id>
+                        <phase>process-test-classes</phase>
+                        <goals>
+                            <goal>provision</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+    <profiles>
+        <profile>
+            <id>wildfly-34</id>
+            <activation>
+                <jdk>(,17)</jdk>
+            </activation>
+            <properties>
+                <version.org.wildfly>34.0.1.Final</version.org.wildfly>
+            </properties>
+        </profile>
+    </profiles>
+
+</project>

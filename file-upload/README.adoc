@@ -1,0 +1,27 @@
+= File Upload
+
+This is a simple example of using a Jakarta REST application to upload files using `multipart/form-data`.  It uses the
+following Jakarta EE 10 API's:
+
+* https://jakarta.ee/specifications/restful-ws/[Jakarta RESTful Web Services]
+* https://jakarta.ee/specifications/cdi/[Jakarta Contexts Dependency Injection]
+
+The client side is composed of HTML and JavaScript. It allows you to upload image files, text files and PDF's by
+default. It then displays the uploaded files. The default location of the uploaded files is the server directory under
+`file-uploads/${user.name}`. This can be overridden with the `upload.directory` system property.
+
+== Building the application:
+
+[source,bash]
+----
+mvn clean verify
+----
+
+== Running the application in WildFly:
+
+[source,bash]
+----
+mvn clean wildfly:dev
+----
+
+Open a browser at the following URL: http://127.0.0.1:8080/file-upload
