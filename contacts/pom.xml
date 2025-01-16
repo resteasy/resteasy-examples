@@ -63,10 +63,7 @@
         <version.wildfly-maven-plugin>5.1.1.Final</version.wildfly-maven-plugin>
 
         <!-- Intentionally left empty to ensure we use the latest version of WildFly -->
-        <!-- TODO (jrp) This should be changed to an empty tag once 35.0.0.Final is released. There seems to be some
-             TODO (jrp) kind of issue with injecting the Sse instance on 35.0.0.Beta1 for some reason.
-         -->
-        <version.org.wildfly>34.0.1.Final</version.org.wildfly>
+        <version.org.wildfly/>
 
         <!-- Test properties -->
         <jboss.home>${project.build.directory}${file.separator}wildfly</jboss.home>
