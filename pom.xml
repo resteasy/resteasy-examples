@@ -37,6 +37,7 @@
         <module>bootstrap-cdi</module>
         <module>contacts</module>
         <module>examples-jsapi</module>
+        <module>file-upload</module>
         <module>json-binding</module>
         <module>microprofile-openapi</module>
         <module>servlet-example</module>
