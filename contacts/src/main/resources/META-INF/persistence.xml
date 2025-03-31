@@ -26,6 +26,8 @@
         <properties>
             <!-- Drop and create the tables for the entities. This can be removed if the database contains the tables. -->
             <property name="jakarta.persistence.schema-generation.database.action" value="drop-and-create" />
+            <!-- CDI does not work when class transformers are registered, see WFLY-1463 -->
+            <property name="jboss.as.jpa.classtransformer" value="false" />
         </properties>
     </persistence-unit>
 </persistence>
