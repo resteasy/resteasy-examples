@@ -39,7 +39,7 @@
         <version.org.jboss.arquillian.jakarta>10.0.0.Final</version.org.jboss.arquillian.jakarta>
         <version.org.jboss.resteasy>6.2.12.Final</version.org.jboss.resteasy>
         <version.org.junit>5.12.1</version.org.junit>
-        <version.org.wildfly.arquillian>5.1.0.Beta10</version.org.wildfly.arquillian>
+        <version.org.wildfly.arquillian>5.1.0.Beta11</version.org.wildfly.arquillian>
 
         <version.wildfly-maven-plugin>5.1.2.Final</version.wildfly-maven-plugin>
 
