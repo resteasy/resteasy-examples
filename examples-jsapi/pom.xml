@@ -33,7 +33,7 @@
     </scm>
 
     <properties>
-        <version.jakarta.ee>10.0.0</version.jakarta.ee>
+        <version.jakarta.ee>11.0.0</version.jakarta.ee>
         <version.dev.resteasy.testing.tools>1.0.0.Alpha2</version.dev.resteasy.testing.tools>
         <version.org.jboss.resteasy>6.2.12.Final</version.org.jboss.resteasy>
         <version.wildfly-maven-plugin>5.1.2.Final</version.wildfly-maven-plugin>

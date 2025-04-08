@@ -34,7 +34,7 @@
     </scm>
 
     <properties>
-        <version.jakarta.ee>10.0.0</version.jakarta.ee>
+        <version.jakarta.ee>11.0.0</version.jakarta.ee>
         <version.org.jboss.arquillian>1.9.4.Final</version.org.jboss.arquillian>
         <version.org.jboss.arquillian.jakarta>10.0.0.Final</version.org.jboss.arquillian.jakarta>
         <version.org.jboss.resteasy>6.2.12.Final</version.org.jboss.resteasy>
