@@ -127,6 +127,7 @@
                 <artifactId>wildfly-maven-plugin</artifactId>
                 <version>${version.wildfly-maven-plugin}</version>
                 <configuration>
+                    <jboss-home>${jboss.home}</jboss-home>
                     <provisioning-dir>${jboss.home}</provisioning-dir>
                     <!-- First configure the feature pack we are overriding -->
                     <feature-packs>
