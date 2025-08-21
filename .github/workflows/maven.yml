@@ -38,7 +38,7 @@ jobs:
       fail-fast: false
       matrix:
         os: [ubuntu-latest, windows-latest ]
-        java: ['11', '17', '21', '24-ea']
+        java: ['11', '17', '21', '25-ea']
 
     steps:
     - uses: actions/checkout@v5
