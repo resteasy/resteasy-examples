@@ -35,7 +35,7 @@
     <properties>
         <version.jakarta.ee>10.0.0</version.jakarta.ee>
         <version.dev.resteasy.testing.tools>1.0.0.Beta1</version.dev.resteasy.testing.tools>
-        <version.org.jboss.resteasy>6.2.12.Final</version.org.jboss.resteasy>
+        <version.org.jboss.resteasy>6.2.14.Final</version.org.jboss.resteasy>
         <version.wildfly-maven-plugin>5.1.4.Final</version.wildfly-maven-plugin>
         <version.org.junit>5.13.4</version.org.junit>
 
