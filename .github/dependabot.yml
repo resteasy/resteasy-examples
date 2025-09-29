@@ -9,6 +9,12 @@ updates:
     directory: "/"
     schedule:
       interval: "daily"
+    ignore:
+        # Keep the following on the same major.minor releases
+      - dependency-name: 'jakarta.platform:*'
+        update-types: ['version-update:semver-major', 'version-update:semver-minor']
+      - dependency-name: 'org.jboss.resteasy:*'
+        update-types: ['version-update:semver-major', 'version-update:semver-minor']
     open-pull-requests-limit: 10
   - package-ecosystem: "github-actions"
     # Workflow files stored in the
