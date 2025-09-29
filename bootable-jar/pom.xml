@@ -37,7 +37,7 @@
         <version.jakarta.ee>10.0.0</version.jakarta.ee>
         <version.org.jboss.arquillian>1.10.0.Final</version.org.jboss.arquillian>
         <version.org.jboss.arquillian.jakarta>10.0.0.Final</version.org.jboss.arquillian.jakarta>
-        <version.org.jboss.resteasy>6.2.12.Final</version.org.jboss.resteasy>
+        <version.org.jboss.resteasy>7.0.0.Final</version.org.jboss.resteasy>
         <version.org.junit>5.13.4</version.org.junit>
         <version.org.wildfly.arquillian>5.1.0.Final</version.org.wildfly.arquillian>
 
